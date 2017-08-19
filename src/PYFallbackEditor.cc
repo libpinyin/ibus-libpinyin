@@ -152,9 +152,9 @@ FallbackEditor::processPunctForTraditionalChinese (guint keyval, guint keycode, 
             commit ("。");
         return TRUE;
     case '<':
-        commit ("，"); return TRUE;
+        commit ("《"); return TRUE;
     case '>':
-        commit ("。"); return TRUE;
+        commit ("》"); return TRUE;
     case '?':
         commit ("？"); return TRUE;
     }
