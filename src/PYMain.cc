@@ -94,38 +94,6 @@ start_component (void)
 
     g_signal_connect ((IBusBus *)bus, "disconnected", G_CALLBACK (ibus_disconnected_cb), NULL);
 
-    component = ibus_component_new ("org.freedesktop.IBus.Libpinyin",
-                                    N_("Libpinyin input method"),
-                                    VERSION,
-                                    "GPL",
-                                    "Peng Wu <alexepico@gmail.com>",
-                                    "https://github.com/libpinyin/ibus-libpinyin",
-                                    "",
-                                    "ibus-libpinyin");
-
-    ibus_component_add_engine (component,
-                               ibus_engine_desc_new ("libpinyin-debug",
-                                                     N_("Intelligent Pinyin (debug)"),
-                                                     N_("Intelligent Pinyin input method (debug)"),
-                                                     "zh_CN",
-                                                     "GPL",
-                                                     "Peng Huang <shawn.p.huang@gmail.com>\n"
-                                                     "Peng Wu <alexepico@gmail.com>\n"
-                                                     "BYVoid <byvoid1@gmail.com>",
-                                                     PKGDATADIR "/icons/ibus-pinyin.svg",
-                                                     "us"));
-    ibus_component_add_engine (component,
-                               ibus_engine_desc_new ("libbopomofo-debug",
-                                                     N_("Bopomofo (debug)"),
-                                                     N_("Bopomofo input method (debug)"),
-                                                     "zh_TW",
-                                                     "GPL",
-                                                     "BYVoid <byvoid1@gmail.com>\n"
-                                                     "Peng Wu <alexepico@gmail.com>\n"
-                                                     "Peng Huang <shawn.p.huang@gmail.com>",
-                                                     PKGDATADIR "/icons/ibus-bopomofo.svg",
-                                                     "us"));
-
     factory = ibus_factory_new (ibus_bus_get_connection (bus));
 
     if (ibus) {
@@ -134,6 +102,7 @@ start_component (void)
         ibus_bus_request_name (bus, "org.freedesktop.IBus.Libpinyin", 0);
     }
     else {
+        component = ibus_component_new_from_file(PKGDATADIR "/component/libpinyin.xml");
         ibus_factory_add_engine (factory, "libpinyin-debug", IBUS_TYPE_PINYIN_ENGINE);
         ibus_factory_add_engine (factory, "libbopomofo-debug", IBUS_TYPE_PINYIN_ENGINE);
         ibus_bus_register_component (bus, component);
