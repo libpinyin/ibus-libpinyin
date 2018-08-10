@@ -85,6 +85,7 @@ class PreferencesDialog:
             self.__init_dictionary()
             self.__init_user_data()
             self.__init_shortcut()
+            self.__init_cloud_input()
             self.__init_about()
         elif engine == "libbopomofo":
             self.__config_namespace = "com.github.libpinyin.ibus-libpinyin.libbopomofo"
@@ -95,6 +96,7 @@ class PreferencesDialog:
             self.__init_dictionary()
             #self.__init_user_data()
             self.__init_shortcut()
+            #self.__init_cloud_input()
             self.__init_about()
             self.__convert_fuzzy_pinyin_to_bopomofo()
 
@@ -113,6 +115,7 @@ class PreferencesDialog:
         self.__page_dictionary = self.__builder.get_object("pageDictionary")
         self.__page_user_data = self.__builder.get_object("pageUserData")
         self.__page_shortcut = self.__builder.get_object("pageShortcut")
+        self.__page_cloud_input = self.__builder.get_object("pageCloudInput")
         self.__page_about = self.__builder.get_object("pageAbout")
 
         self.__page_general.hide()
@@ -121,6 +124,7 @@ class PreferencesDialog:
         self.__page_fuzzy.hide()
         self.__page_dictionary.hide()
         self.__page_user_data.hide()
+        self.__page_cloud_input.hide()
         self.__page_about.hide()
 
     def __init_general(self):
@@ -478,6 +482,65 @@ class PreferencesDialog:
 
     def __shortcut_changed_cb(self, editor, key, value):
         self.__set_value(key, value)
+
+    def __init_cloud_input(self):
+        # page CloudInput
+        self.__page_cloud_input.show()
+
+        # init state
+        self.__init_enable_cloud_input = self.__builder.get_object("InitEnableCloudInput")
+
+        # cloud input option
+        self.__candidates_order = self.__builder.get_object("FirstCloudCandidatePosition")
+        self.__minimum_trigger_length = self.__builder.get_object("MinimumTriggerLength")
+        self.__cloud_candidates_number = self.__builder.get_object("CloudCandidatesNumber")
+        self.__cloud_input_source = self.__builder.get_object("CloudInputSource")
+
+        if self.__init_enable_cloud_input.get_active():
+            self.__cloud_input_source.set_sensitive(True)
+            self.__minimum_trigger_length.set_sensitive(True)
+            self.__cloud_candidates_number.set_sensitive(True)
+            self.__candidates_order.set_sensitive(True)
+        else:
+            self.__cloud_input_source.set_sensitive(False)
+            self.__minimum_trigger_length.set_sensitive(False)
+            self.__cloud_candidates_number.set_sensitive(False)
+            self.__candidates_order.set_sensitive(False)
+
+        # read values
+        self.__init_enable_cloud_input.set_active(self.__get_value("enable-cloud-input"))
+        
+        self.__candidates_order.set_value(self.__get_value("first-cloud-candidate-position"))
+        self.__cloud_candidates_number.set_value(self.__get_value("cloud-candidates-number"))
+        self.__minimum_trigger_length.set_value(self.__get_value("minimum-cloud-input-trigger-length"))
+        self.__cloud_input_source.set_active(self.__get_value("cloud-input-source"))
+        
+        # connect signals
+        def __enable_cloud_input_cb(widget):
+            val = widget.get_active()
+            self.__set_value("enable-cloud-input", val)
+            self.__cloud_input_source.set_sensitive(val)
+            self.__minimum_trigger_length.set_sensitive(val)
+            self.__cloud_candidates_number.set_sensitive(val)
+            self.__candidates_order.set_sensitive(val)
+            
+        def __candidates_order_changed_cb(adjustment):
+            self.__set_value("first-cloud-candidate-position", int(adjustment.get_value()))
+
+        def __minimum_trigger_length_changed_cb(adjustment):
+            self.__set_value("minimum-cloud-input-trigger-length", int(adjustment.get_value()))
+            
+        def __cloud_candidates_number_changed_cb(adjustment):
+            self.__set_value("cloud-candidates-number", int(adjustment.get_value()))
+
+        def __cloud_input_source_changed_cb(widget):
+            self.__set_value("cloud-input-source", widget.get_active())
+
+        self.__init_enable_cloud_input.connect("toggled", __enable_cloud_input_cb)
+        self.__candidates_order.connect("value-changed", __candidates_order_changed_cb)
+        self.__minimum_trigger_length.connect("value-changed", __minimum_trigger_length_changed_cb)
+        self.__cloud_candidates_number.connect("value-changed", __cloud_candidates_number_changed_cb)
+        self.__cloud_input_source.connect("changed", __cloud_input_source_changed_cb)
 
     def __init_about(self):
         # page About
