@@ -181,6 +181,21 @@ fi
 
 AM_CONDITIONAL(IBUS_BUILD_LUA_EXTENSION, [test x"$enable_lua_extension" = x"yes"])
 
+# --enable-cloud-input-mode
+AC_ARG_ENABLE(cloud-input-mode,
+    AC_HELP_STRING([--enable-cloud-input-mode],
+        [add cloud candidates]),
+        [enable_cloud_input_mode=$enableval],
+        [enable_cloud_input_mode=no]
+)
+if test x"$enable_cloud_input_mode" = x"yes"; then
+    # check soup
+    PKG_CHECK_MODULES(LIBSOUP, [libsoup-2.4 >= 2.26])
+    AC_SUBST(LIBSOUP_CFLAGS)
+    AC_SUBST(LIBSOUP_LIBS)
+fi
+AM_CONDITIONAL(ENABLE_CLOUD_INPUT_MODE, test x"$enable_cloud_input_mode" = x"yes")
+
 # --disable-english-input-mode
 AC_ARG_ENABLE(english-input-mode,
     AS_HELP_STRING([--disable-english-input-mode],
@@ -200,6 +215,7 @@ AC_ARG_ENABLE(stroke-input-mode,
 )
 
 AM_CONDITIONAL(IBUS_BUILD_STROKE_INPUT_MODE, [test x"$enable_stroke_input_mode" = x"yes"])
+
 
 # OUTPUT files
 AC_CONFIG_FILES([ po/Makefile.in
@@ -226,6 +242,7 @@ Build options:
     Use opencc                  $enable_opencc
     Use libpinyin               $enable_libpinyin
     Build lua extension         $enable_lua_extension
+    Build cloud input mode      $enable_cloud_input_mode
     Build stroke input mode     $enable_stroke_input_mode
     Build english input mode    $enable_english_input_mode
 ])

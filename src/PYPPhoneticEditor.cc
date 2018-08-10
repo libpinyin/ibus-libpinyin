@@ -37,6 +37,9 @@ PhoneticEditor::PhoneticEditor (PinyinProperties &props,
     m_lua_trigger_candidates (this),
     m_lua_converter_candidates (this),
 #endif
+#ifdef ENABLE_CLOUD_INPUT_MODE
+    m_cloud_candidates(this),
+#endif
     m_traditional_candidates (this)
 {
 }
@@ -227,7 +230,12 @@ PhoneticEditor::updateCandidates (void)
 
     if (!m_props.modeSimp ())
         m_traditional_candidates.processCandidates (m_candidates);
-
+    
+#ifdef ENABLE_CLOUD_INPUT_MODE
+    if(m_cloud_candidates.m_cloud_state)
+        m_cloud_candidates.processCandidates (m_candidates);
+#endif
+    
 #ifdef IBUS_BUILD_LUA_EXTENSION
     m_lua_trigger_candidates.processCandidates (m_candidates);
 
@@ -364,6 +372,11 @@ PhoneticEditor::selectCandidateInternal (EnhancedCandidate & candidate)
     case CANDIDATE_TRADITIONAL_CHINESE:
         return m_traditional_candidates.selectCandidate (candidate);
 
+#ifdef ENABLE_CLOUD_INPUT_MODE
+    case CANDIDATE_CLOUD_INPUT:
+        return m_cloud_candidates.selectCandidate (candidate);
+#endif
+        
 #ifdef IBUS_BUILD_LUA_EXTENSION
     case CANDIDATE_LUA_TRIGGER:
         return m_lua_trigger_candidates.selectCandidate (candidate);
