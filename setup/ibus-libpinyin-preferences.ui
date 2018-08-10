@@ -119,6 +119,44 @@
       </row>
     </data>
   </object>
+  <object class="GtkAdjustment" id="FirstCloudCandidatePositionStart">
+    <property name="lower">1</property>
+    <property name="upper">11</property>
+    <property name="value">3</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">1</property>
+    <property name="page_size">1</property>
+  </object>
+  <object class="GtkAdjustment" id="MinimumCloudInputTriggerLength">
+    <property name="lower">1</property>
+    <property name="upper">11</property>
+    <property name="value">2</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">1</property>
+    <property name="page_size">1</property>
+  </object>
+    <object class="GtkAdjustment" id="DisplayCloudCandidatesNumber">
+    <property name="lower">1</property>
+    <property name="upper">11</property>
+    <property name="value">1</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">1</property>
+    <property name="page_size">1</property>
+  </object>
+  <object class="GtkListStore" id="liststoreCloudInputSource">
+    <columns>
+      <!-- column-name cloud_Input_source -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Baidu</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Google</col>
+      </row>
+    </data>
+  </object>
   <object class="GtkDialog" id="dialog">
     <property name="width_request">400</property>
     <property name="can_focus">False</property>
@@ -2145,6 +2183,300 @@
               </packing>
             </child>
             <child>
+              <object class="GtkAlignment" id="pageCloudInput">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="top_padding">12</property>
+                <property name="bottom_padding">12</property>
+                <property name="left_padding">12</property>
+                <property name="right_padding">12</property>
+                <child>
+                  <object class="GtkVBox" id="vbox3">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="spacing">18</property>
+                    <child>
+                      <object class="GtkFrame" id="frame11">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label_xalign">0</property>
+                        <property name="shadow_type">none</property>
+                        <child>
+                          <object class="GtkAlignment" id="alignment14">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="top_padding">6</property>
+                            <property name="left_padding">12</property>
+                            <child>
+                              <object class="GtkTable" id="table3">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="n_rows">2</property>
+                                <property name="n_columns">2</property>
+                                <property name="column_spacing">12</property>
+                                <property name="row_spacing">6</property>
+                                <property name="homogeneous">True</property>
+                                <child>
+                                  <object class="GtkCheckButton" id="InitEnableCloudInput">
+                                    <property name="label" translatable="yes">Enable Cloud Input</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="halign">start</property>
+                                    <property name="xalign">0.5</property>
+                                    <property name="draw_indicator">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="right_attach">2</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                    <placeholder/>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child type="label">
+                          <object class="GtkLabel" id="label25">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">&lt;b&gt;Initial state&lt;/b&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkFrame" id="frame12">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label_xalign">0</property>
+                        <property name="shadow_type">none</property>
+                        <child>
+                          <object class="GtkAlignment" id="alignment5">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="top_padding">6</property>
+                            <property name="left_padding">12</property>
+                            <child>
+                              <object class="GtkVBox" id="vbox17">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="spacing">6</property>
+                                <child>
+                                  <object class="GtkHBox" id="hbox1">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="spacing">12</property>
+                                    <property name="homogeneous">True</property>
+                                    <child>
+                                      <object class="GtkLabel" id="label37">
+                                        <property name="visible">False</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="label" translatable="yes">Position of First Cloud Candidate:</property>
+                                        <property name="use_markup">True</property>
+                                        <property name="xalign">0</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">True</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkHScale" id="FirstCloudCandidatePosition">
+                                        <property name="visible">False</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="adjustment">FirstCloudCandidatePositionStart</property>
+                                        <property name="digits">0</property>
+                                        <property name="value_pos">left</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">True</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">1</property>
+                                      </packing>
+                                    </child>                                    
+                                  </object>
+                                  <packing>
+                                    <property name="expand">True</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkHBox" id="hbox8">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="spacing">12</property>
+                                    <property name="homogeneous">True</property>
+                                    <child>
+                                      <object class="GtkLabel" id="label38">
+                                        <property name="visible">False</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="label" translatable="yes">Minimum of Cloud Input Trigger Length:</property>
+                                        <property name="use_markup">True</property>
+                                        <property name="xalign">0</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">True</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkHScale" id="MinimumTriggerLength">
+                                        <property name="visible">False</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="adjustment">MinimumCloudInputTriggerLength</property>
+                                        <property name="digits">0</property>
+                                        <property name="value_pos">left</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">True</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">1</property>
+                                      </packing>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">True</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">2</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkHBox" id="hbox10">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="spacing">12</property>
+                                    <property name="homogeneous">True</property>
+                                    <child>
+                                      <object class="GtkLabel" id="label39">
+                                        <property name="visible">False</property>
+                                        <property name="can_focus">true</property>
+                                        <property name="label" translatable="yes">Number of Cloud Candidates</property>
+                                        <property name="use_markup">True</property>
+                                        <property name="xalign">0</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">True</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">3</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkHScale" id="CloudCandidatesNumber">
+                                        <property name="visible">False</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="adjustment">DisplayCloudCandidatesNumber</property>
+                                        <property name="digits">0</property>
+                                        <property name="value_pos">left</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">True</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">1</property>
+                                      </packing>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">True</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">2</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkHBox" id="hbox11">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="spacing">12</property>
+                                    <property name="homogeneous">True</property>
+                                    <child>
+                                      <object class="GtkLabel" id="label41">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="label" translatable="yes">Source From:</property>
+                                        <property name="use_markup">True</property>
+                                        <property name="xalign">0</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">True</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkComboBox" id="CloudInputSource">
+                                        <property name="visible">True</property>
+                                        <property name="sensitive">False</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="model">liststoreCloudInputSource</property>
+                                        <property name="button_sensitivity">on</property>
+                                        <child>
+                                          <object class="GtkCellRendererText" id="renderer6"/>
+                                          <attributes>
+                                            <attribute name="text">0</attribute>
+                                          </attributes>
+                                        </child>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">True</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">3</property>
+                                      </packing>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">True</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child type="label">
+                          <object class="GtkLabel" id="label36">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">&lt;b&gt;Cloud Input Option&lt;/b&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="position">7</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel" id="label35">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Cloud Input</property>
+              </object>
+              <packing>
+                <property name="position">7</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child>
               <object class="GtkAlignment" id="pageAbout">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -2266,7 +2598,7 @@ koterpilla, Zerng07
                 </child>
               </object>
               <packing>
-                <property name="position">7</property>
+                <property name="position">8</property>
               </packing>
             </child>
             <child type="tab">
@@ -2276,7 +2608,7 @@ koterpilla, Zerng07
                 <property name="label" translatable="yes">About</property>
               </object>
               <packing>
-                <property name="position">7</property>
+                <property name="position">8</property>
                 <property name="tab_fill">False</property>
               </packing>
             </child>
