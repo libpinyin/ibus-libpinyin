@@ -29,6 +29,8 @@
 #include <libsoup/soup.h>
 #include "PYConfig.h"
 
+
+
 namespace PY {
     
 #define BUFFERLENGTH 2048
@@ -64,7 +66,6 @@ private:
     SoupSession *m_session;
     
 protected:
-    
     std::vector<EnhancedCandidate> m_candidates;
 };
 
