@@ -510,7 +510,7 @@ msgstr "模糊音"
 
 #: ../setup/ibus-libpinyin-preferences.ui.h:63
 msgid "Tips: this changes may take effects after ime restarted."
-msgstr "提示:此更改可能需要重起智能拼音输入法后生效"
+msgstr "提示:此更改可能需要重启智能拼音输入法后生效"
 
 #: ../setup/ibus-libpinyin-preferences.ui.h:64
 msgid "<b>Dictionary option</b>"
