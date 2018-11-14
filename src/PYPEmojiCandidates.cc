@@ -23,7 +23,7 @@
 #include "PYPEmojiCandidates.h"
 #include <assert.h>
 #include <algorithm>
-#include <string>
+#include <cstring>
 #include "PYPPhoneticEditor.h"
 #include "PYConfig.h"
 #include "PYPEmojiTable.h"
@@ -37,7 +37,7 @@ EmojiCandidates::EmojiCandidates (Editor *editor)
 
 static bool compare_match_less_than (const EmojiItem & lhs,
                                      const EmojiItem & rhs) {
-    return 0 > strcmp (lhs.m_emoji_match, rhs.m_emoji_match);
+    return 0 > std::strcmp (lhs.m_emoji_match, rhs.m_emoji_match);
 }
 
 static bool search_emoji (const EmojiItem * emojis,
