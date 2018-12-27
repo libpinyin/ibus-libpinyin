@@ -38,7 +38,7 @@ PhoneticEditor::PhoneticEditor (PinyinProperties &props,
     m_lua_converter_candidates (this),
 #endif
     m_emoji_candidates (this),
-    m_traditional_candidates (this)
+    m_traditional_candidates (this, config)
 {
 }
 

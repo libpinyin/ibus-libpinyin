@@ -23,7 +23,6 @@
 #include <assert.h>
 #include "PYString.h"
 #include "PYPPhoneticEditor.h"
-#include "PYSimpTradConverter.h"
 
 using namespace PY;
 
@@ -42,7 +41,7 @@ TraditionalCandidates::processCandidates (std::vector<EnhancedCandidate> & candi
         enhanced.m_candidate_id = i;
 
         trad.truncate (0);
-        SimpTradConverter::simpToTrad (enhanced.m_display_string.c_str (), trad);
+        m_converter.simpToTrad (enhanced.m_display_string.c_str (), trad);
         enhanced.m_display_string = trad;
     }
 
@@ -62,7 +61,7 @@ TraditionalCandidates::selectCandidate (EnhancedCandidate & enhanced)
 
     if (action & SELECT_CANDIDATE_MODIFY_IN_PLACE) {
         String trad;
-        SimpTradConverter::simpToTrad
+        m_converter.simpToTrad
             (m_candidates[id].m_display_string.c_str (), trad);
         enhanced.m_display_string = trad;
     }

@@ -35,7 +35,7 @@ SuggestionEditor::SuggestionEditor (PinyinProperties &props,
       m_lua_trigger_candidates (this),
       m_lua_converter_candidates (this),
 #endif
-      m_traditional_candidates (this)
+      m_traditional_candidates (this, config)
 {
     /* use m_text to store the prefix string. */
     m_text = "";

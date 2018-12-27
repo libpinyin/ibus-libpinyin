@@ -24,6 +24,8 @@
 
 #include <vector>
 #include "PYPEnhancedCandidates.h"
+#include "PYConfig.h"
+#include "PYSimpTradConverter.h"
 
 namespace PY {
 
@@ -31,7 +33,7 @@ class Editor;
 
 class TraditionalCandidates : public EnhancedCandidates<Editor> {
 public:
-    TraditionalCandidates (Editor *editor) {
+    TraditionalCandidates (Editor *editor, Config & config) : m_converter(config) {
         m_editor = editor;
     }
 
@@ -42,6 +44,7 @@ public:
 
 protected:
     std::vector<EnhancedCandidate> m_candidates;
+    SimpTradConverter m_converter;
 };
 
 };

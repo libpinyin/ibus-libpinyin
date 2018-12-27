@@ -185,6 +185,10 @@
       <default>false</default>
       <summary>Show Suggestions</summary>
     </key>
+    <key name="opencc-config" type="s">
+      <default>'s2t.json'</default>
+      <summary>The config file which should be used by OpenCC for traditional input. Please consult the OpenCC documentation for more information</summary>
+    </key>
   </schema>
   <schema path="/com/github/libpinyin/ibus-libpinyin/libbopomofo/" id="com.github.libpinyin.ibus-libpinyin.libbopomofo">
     <key name="auxiliary-select-key-f" type="i">

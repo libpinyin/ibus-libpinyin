@@ -61,6 +61,7 @@ Config::initDefaultValues (void)
 
     m_dictionaries = "";
     m_lua_converter = "";
+    m_opencc_config = "s2t.json";
 
     m_main_switch = "<Shift>";
     m_letter_switch = "";

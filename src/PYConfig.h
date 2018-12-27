@@ -69,6 +69,7 @@ public:
     std::string letterSwitch (void) const       { return m_letter_switch; }
     std::string punctSwitch (void) const        { return m_punct_switch; }
     std::string tradSwitch (void) const         { return m_trad_switch; }
+    std::string openccConfig (void) const       { return m_opencc_config; }
 
 protected:
     bool read (const gchar * name, bool defval);
@@ -90,6 +91,7 @@ protected:
     std::string m_schema_id;
     std::string m_dictionaries;
     std::string m_lua_converter;
+    std::string m_opencc_config;
     pinyin_option_t m_option;
     pinyin_option_t m_option_mask;
 

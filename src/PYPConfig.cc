@@ -48,6 +48,7 @@ const gchar * const CONFIG_INIT_FULL_PUNCT           = "init-full-punct";
 const gchar * const CONFIG_INIT_SIMP_CHINESE         = "init-simplified-chinese";
 const gchar * const CONFIG_DICTIONARIES              = "dictionaries";
 const gchar * const CONFIG_LUA_CONVERTER             = "lua-converter";
+const gchar * const CONFIG_OPENCC_CONFIG             = "opencc-config";
 const gchar * const CONFIG_BOPOMOFO_KEYBOARD_MAPPING = "bopomofo-keyboard-mapping";
 const gchar * const CONFIG_SELECT_KEYS               = "select-keys";
 const gchar * const CONFIG_GUIDE_KEY                 = "guide-key";
@@ -118,6 +119,7 @@ LibPinyinConfig::initDefaultValues (void)
 
     m_dictionaries = "";
     m_lua_converter = "";
+    m_opencc_config = "s2t.json";
 
     m_main_switch = "<Shift>";
     m_letter_switch = "";
@@ -400,6 +402,7 @@ PinyinConfig::readDefaultValues (void)
     m_minus_equal_page = read (CONFIG_MINUS_EQUAL_PAGE, true);
     m_comma_period_page = read (CONFIG_COMMA_PERIOD_PAGE, true);
     m_auto_commit = read (CONFIG_AUTO_COMMIT, false);
+    m_opencc_config = read (CONFIG_OPENCC_CONFIG, "s2t.json");
 
     /* lua */
     m_lua_converter = read (CONFIG_LUA_CONVERTER, "");
@@ -464,6 +467,8 @@ PinyinConfig::valueChanged (const std::string &schema_id,
         m_comma_period_page = normalizeGVariant (value, true);
     else if (CONFIG_LUA_CONVERTER == name)
         m_lua_converter = normalizeGVariant (value, std::string (""));
+    else if (CONFIG_OPENCC_CONFIG == name)
+        m_opencc_config = normalizeGVariant (value, std::string (""));
     else if (CONFIG_AUTO_COMMIT == name)
         m_auto_commit = normalizeGVariant (value, false);
     else if (CONFIG_IMPORT_DICTIONARY == name) {
