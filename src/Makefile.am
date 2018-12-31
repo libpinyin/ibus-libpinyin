@@ -76,6 +76,8 @@ ibus_engine_libpinyin_h_sources = \
 	PYPLuaConverterCandidates.h \
 	PYPSuggestionEditor.h \
 	PYPSuggestionCandidates.h \
+	PYPEmojiTable.h \
+	PYPEmojiCandidates.h \
 	$(NULL)
 
 ibus_engine_libpinyin_c_sources += \
@@ -92,6 +94,7 @@ ibus_engine_libpinyin_c_sources += \
 	PYPTradCandidates.cc \
 	PYPSuggestionEditor.cc \
 	PYPSuggestionCandidates.cc \
+	PYPEmojiCandidates.cc \
 	$(NULL)
 
 
@@ -255,7 +258,7 @@ test: ibus-engine-libpinyin
 # 	$(builddir)/ibus-engine-pinyin
 ZhConversion.php:
 	$(AM_V_GEN) \
-	svn cat http://svn.wikimedia.org/svnroot/mediawiki/trunk/phase3/includes/ZhConversion.php > $@ || \
+	curl https://raw.githubusercontent.com/wikimedia/mediawiki/master/languages/data/ZhConversion.php > $@ || \
 		( $(RM) $@; exit 1 )
 
 ZhConversion.py: ZhConversion.php

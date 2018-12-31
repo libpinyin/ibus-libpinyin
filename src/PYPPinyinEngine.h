@@ -22,7 +22,9 @@
 #ifndef __PY_LIB_PINYIN_PINYIN_ENGINE_H_
 #define __PY_LIB_PINYIN_PINYIN_ENGINE_H_
 
+#ifdef IBUS_BUILD_LUA_EXTENSION
 #include "lua-plugin.h"
+#endif
 
 #include "PYEngine.h"
 #include "PYPinyinProperties.h"
@@ -50,8 +52,10 @@ public:
     void candidateClicked (guint index, guint button, guint state);
 
 private:
+#ifdef IBUS_BUILD_LUA_EXTENSION
     gboolean initLuaPlugin (void);
     gboolean loadLuaScript (const char * filename);
+#endif
 
     gboolean processPunct (guint keyval, guint keycode, guint modifiers);
 
@@ -83,7 +87,9 @@ private:
     EditorPtr m_editors[MODE_LAST];
     EditorPtr m_fallback_editor;
 
+#ifdef IBUS_BUILD_LUA_EXTENSION
     Pointer<IBusEnginePlugin> m_lua_plugin;
+#endif
 };
 
 };

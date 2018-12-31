@@ -50,15 +50,15 @@ SuggestionEditor::~SuggestionEditor (void)
     m_instance = NULL;
 }
 
+#ifdef IBUS_BUILD_LUA_EXTENSION
 gboolean
 SuggestionEditor::setLuaPlugin (IBusEnginePlugin *plugin)
 {
-#ifdef IBUS_BUILD_LUA_EXTENSION
     m_lua_trigger_candidates.setLuaPlugin (plugin);
     m_lua_converter_candidates.setLuaPlugin (plugin);
-#endif
     return TRUE;
 }
+#endif
 
 gboolean
 SuggestionEditor::processKeyEvent (guint keyval, guint keycode, guint modifiers)

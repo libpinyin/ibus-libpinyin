@@ -1,3 +1,11 @@
+version 1.10.92
+* fixes Enter handling
+
+version 1.10.91
+* support ime.register_trigger in lua extension
+* support predicted candidates
+* support emoji input
+
 version 1.10.0
 * bug fixes
 

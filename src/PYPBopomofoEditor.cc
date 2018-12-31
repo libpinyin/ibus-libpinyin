@@ -269,6 +269,9 @@ BopomofoEditor::updateLookupTableLabel (void)
 void
 BopomofoEditor::updateLookupTable (void)
 {
+    // needed by updatePreeditText
+    updateCandidates ();
+
     if (!m_select_mode) {
         hideLookupTable ();
         return;
@@ -330,10 +333,6 @@ BopomofoEditor::commit (const gchar *str)
         ++p;
     }
 
-    if (m_config.rememberEveryInput ())
-        LibPinyinBackEnd::instance ().rememberUserInput (m_instance, str);
-    LibPinyinBackEnd::instance ().modified();
-
     Text text (m_buffer.c_str ());
     commitText (text);
 
@@ -343,22 +342,27 @@ BopomofoEditor::commit (const gchar *str)
 void
 BopomofoEditor::updatePreeditText ()
 {
+    guint num = 0;
+    pinyin_get_n_candidate (m_instance, &num);
+
     /* preedit text = guessed sentence + un-parsed pinyin text */
-    if (G_UNLIKELY (m_text.empty () || m_candidates.empty () )) {
+    if (G_UNLIKELY (m_text.empty () || 0 == num)) {
         hidePreeditText ();
         return;
     }
 
     m_buffer.clear ();
 
-    EnhancedCandidate & candidate = m_candidates[0];
-    String sentence = candidate.m_display_string;
-    if (CANDIDATE_NBEST_MATCH == candidate.m_candidate_type) {
-        if (m_props.modeSimp ()) {
-            m_buffer<<sentence;
-        } else {
-            SimpTradConverter::simpToTrad (sentence, m_buffer);
-        }
+    /* probe nbest match candidate */
+    lookup_candidate_type_t type;
+    lookup_candidate_t * candidate = NULL;
+    pinyin_get_candidate (m_instance, 0, &candidate);
+    pinyin_get_candidate_type (m_instance, candidate, &type);
+
+    gchar * sentence = NULL;
+    if (NBEST_MATCH_CANDIDATE == type) {
+        pinyin_get_sentence (m_instance, 0, &sentence);
+        m_buffer<<m_candidates[0].m_display_string;
     }
 
     /* text after pinyin */
@@ -385,7 +389,7 @@ BopomofoEditor::updatePreeditText ()
 
     size_t offset = 0;
     guint cursor = getPinyinCursor ();
-    pinyin_get_character_offset(m_instance, sentence.c_str (), cursor, &offset);
+    pinyin_get_character_offset(m_instance, sentence, cursor, &offset);
     Editor::updatePreeditText (preedit_text, offset, TRUE);
 }
 

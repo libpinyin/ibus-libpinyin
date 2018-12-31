@@ -21,7 +21,9 @@
 #ifndef __PY_LIB_PINYIN_BASE_EDITOR_H_
 #define __PY_LIB_PINYIN_BASE_EDITOR_H_
 
+#ifdef IBUS_BUILD_LUA_EXTENSION
 #include "lua-plugin.h"
+#endif
 
 #include <vector>
 #include <pinyin.h>
@@ -39,6 +41,8 @@
 #ifdef ENABLE_CLOUD_INPUT_MODE
 #include "PYPCloudCandidates.h"
 #endif
+
+#include "PYPEmojiCandidates.h"
 
 namespace PY {
 
@@ -68,7 +72,9 @@ public:
     virtual gboolean fillLookupTable ();
     virtual void commit (const gchar *str) = 0;
 
+#ifdef IBUS_BUILD_LUA_EXTENSION
     gboolean setLuaPlugin (IBusEnginePlugin *plugin);
+#endif
 
 protected:
     virtual int selectCandidateInternal (EnhancedCandidate & candidate);
@@ -121,11 +127,13 @@ protected:
     LuaConverterCandidates m_lua_converter_candidates;
 #endif
 
-    TraditionalCandidates m_traditional_candidates;
-    
 #ifdef ENABLE_CLOUD_INPUT_MODE
     CloudCandidates m_cloud_candidates;
 #endif
+    
+    EmojiCandidates m_emoji_candidates;
+
+    TraditionalCandidates m_traditional_candidates;
 };
 
 };

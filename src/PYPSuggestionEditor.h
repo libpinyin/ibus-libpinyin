@@ -51,7 +51,9 @@ public:
     virtual void reset (void);
     virtual void candidateClicked (guint index, guint button, guint state);
 
+#ifdef IBUS_BUILD_LUA_EXTENSION
     gboolean setLuaPlugin (IBusEnginePlugin *plugin);
+#endif
 
 protected:
     virtual int selectCandidateInternal (EnhancedCandidate & candidate);

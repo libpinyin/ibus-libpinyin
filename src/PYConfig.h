@@ -82,7 +82,7 @@ public:
     guint firstCloudCandidatePos (void) const   { return m_first_cloud_candidate_pos; }
     
     void disableCloudInput(void);
-
+    
 protected:
     bool read (const gchar * name, bool defval);
     gint read (const gchar * name, gint defval);

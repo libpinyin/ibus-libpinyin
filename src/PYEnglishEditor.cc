@@ -366,7 +366,7 @@ EnglishEditor::EnglishEditor (PinyinProperties & props, Config &config)
     m_english_database = new EnglishDatabase;
 
     gchar *path = g_build_filename (g_get_user_cache_dir (),
-                                     "ibus", "pinyin", "english-user.db", NULL);
+                                     "ibus", "libpinyin", "english-user.db", NULL);
 
     gboolean result = m_english_database->openDatabase
         (".." G_DIR_SEPARATOR_S "data" G_DIR_SEPARATOR_S "english.db",
@@ -533,9 +533,12 @@ EnglishEditor::processEnter (guint keyval)
     if (m_text.length () == 0)
         return FALSE;
 
-    Text text(m_text);
+    String word = m_text;
+    word.erase (0, 1);
+
+    Text text(word);
     commitText (text);
-    train (m_text.c_str (), m_train_factor);
+    train (word.c_str (), m_train_factor);
     reset ();
     return TRUE;
 }

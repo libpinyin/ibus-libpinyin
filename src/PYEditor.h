@@ -40,6 +40,7 @@ typedef std::shared_ptr<Editor> EditorPtr;
 class TraditionalCandidates;
 class LuaTriggerCandidates;
 class LuaConverterCandidates;
+class EmojiCandidates;
 
 class Editor {
     friend class TraditionalCandidates;
@@ -48,6 +49,8 @@ class Editor {
     friend class LuaTriggerCandidates;
     friend class LuaConverterCandidates;
 #endif
+
+    friend class EmojiCandidates;
 
 public:
     Editor (PinyinProperties & prop, Config & config);

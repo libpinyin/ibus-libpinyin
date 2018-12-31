@@ -1,0 +1,21 @@
+#ifndef __PY_LIB_PINYIN_EMOJI_TABLE_H
+#define __PY_LIB_PINYIN_EMOJI_TABLE_H
+
+namespace PY{
+
+typedef struct {
+    const char * m_emoji_match;
+    const char * m_emoji_string;
+} EmojiItem;
+
+const EmojiItem english_emoji_table[] = {
+@ENGLISH_EMOJIS@
+};
+
+const EmojiItem chinese_emoji_table[] = {
+@CHINESE_EMOJIS@
+};
+
+};
+
+#endif

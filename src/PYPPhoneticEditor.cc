@@ -37,6 +37,7 @@ PhoneticEditor::PhoneticEditor (PinyinProperties &props,
     m_lua_trigger_candidates (this),
     m_lua_converter_candidates (this),
 #endif
+    m_emoji_candidates (this),
 #ifdef ENABLE_CLOUD_INPUT_MODE
     m_cloud_candidates(this),
 #endif
@@ -47,15 +48,15 @@ PhoneticEditor::PhoneticEditor (PinyinProperties &props,
 PhoneticEditor::~PhoneticEditor (){
 }
 
+#ifdef IBUS_BUILD_LUA_EXTENSION
 gboolean
 PhoneticEditor::setLuaPlugin (IBusEnginePlugin *plugin)
 {
-#ifdef IBUS_BUILD_LUA_EXTENSION
     m_lua_trigger_candidates.setLuaPlugin (plugin);
     m_lua_converter_candidates.setLuaPlugin (plugin);
-#endif
     return TRUE;
 }
+#endif
 
 gboolean
 PhoneticEditor::processSpace (guint keyval, guint keycode,
@@ -93,10 +94,12 @@ PhoneticEditor::processFunctionKey (guint keyval, guint keycode, guint modifiers
     if (modifiers == 0) {  /* no modifiers. */
         switch (keyval) {
         case IBUS_Return:
-        case IBUS_KP_Enter:
-            commit (m_text.c_str ());
+        case IBUS_KP_Enter: {
+            Text text (m_text.c_str ());
+            commitText (text);
             reset ();
             return TRUE;
+        }
 
         case IBUS_BackSpace:
             removeCharBefore ();
@@ -231,11 +234,6 @@ PhoneticEditor::updateCandidates (void)
     if (!m_props.modeSimp ())
         m_traditional_candidates.processCandidates (m_candidates);
     
-#ifdef ENABLE_CLOUD_INPUT_MODE
-    if(m_cloud_candidates.m_cloud_state)
-        m_cloud_candidates.processCandidates (m_candidates);
-#endif
-    
 #ifdef IBUS_BUILD_LUA_EXTENSION
     m_lua_trigger_candidates.processCandidates (m_candidates);
 
@@ -245,6 +243,12 @@ PhoneticEditor::updateCandidates (void)
         m_lua_converter_candidates.setConverter (converter.c_str ());
         m_lua_converter_candidates.processCandidates (m_candidates);
     }
+#endif
+    m_emoji_candidates.processCandidates (m_candidates);
+
+#ifdef ENABLE_CLOUD_INPUT_MODE
+    if(m_cloud_candidates.m_cloud_state)
+        m_cloud_candidates.processCandidates (m_candidates);
 #endif
 
     return TRUE;
@@ -371,11 +375,6 @@ PhoneticEditor::selectCandidateInternal (EnhancedCandidate & candidate)
 
     case CANDIDATE_TRADITIONAL_CHINESE:
         return m_traditional_candidates.selectCandidate (candidate);
-
-#ifdef ENABLE_CLOUD_INPUT_MODE
-    case CANDIDATE_CLOUD_INPUT:
-        return m_cloud_candidates.selectCandidate (candidate);
-#endif
         
 #ifdef IBUS_BUILD_LUA_EXTENSION
     case CANDIDATE_LUA_TRIGGER:
@@ -383,6 +382,14 @@ PhoneticEditor::selectCandidateInternal (EnhancedCandidate & candidate)
 
     case CANDIDATE_LUA_CONVERTER:
         return m_lua_converter_candidates.selectCandidate (candidate);
+#endif
+
+    case CANDIDATE_EMOJI:
+        return m_emoji_candidates.selectCandidate (candidate);
+
+#ifdef ENABLE_CLOUD_INPUT_MODE
+    case CANDIDATE_CLOUD_INPUT:
+        return m_cloud_candidates.selectCandidate (candidate);
 #endif
 
     default:

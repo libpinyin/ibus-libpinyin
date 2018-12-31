@@ -53,7 +53,9 @@ PinyinEngine::PinyinEngine (IBusEngine *engine)
 {
     gint i;
 
+#ifdef IBUS_BUILD_LUA_EXTENSION
     initLuaPlugin ();
+#endif
 
     m_double_pinyin = PinyinConfig::instance ().doublePinyin ();
 
@@ -61,12 +63,16 @@ PinyinEngine::PinyinEngine (IBusEngine *engine)
         DoublePinyinEditor *editor = new DoublePinyinEditor
             (m_props, PinyinConfig::instance ());
         m_editors[MODE_INIT].reset (editor);
+#ifdef IBUS_BUILD_LUA_EXTENSION
         editor->setLuaPlugin (m_lua_plugin);
+#endif
     } else {
         FullPinyinEditor *editor = new FullPinyinEditor
             (m_props, PinyinConfig::instance ());
         m_editors[MODE_INIT].reset (editor);
+#ifdef IBUS_BUILD_LUA_EXTENSION
         editor->setLuaPlugin (m_lua_plugin);
+#endif
     }
 
     m_editors[MODE_PUNCT].reset
@@ -98,7 +104,9 @@ PinyinEngine::PinyinEngine (IBusEngine *engine)
         SuggestionEditor *editor = new SuggestionEditor
             (m_props, PinyinConfig::instance ());
         m_editors[MODE_SUGGESTION].reset (editor);
+#ifdef IBUS_BUILD_LUA_EXTENSION
         editor->setLuaPlugin (m_lua_plugin);
+#endif
     }
 
     m_props.signalUpdateProperty ().connect
@@ -116,6 +124,7 @@ PinyinEngine::~PinyinEngine (void)
 {
 }
 
+#ifdef IBUS_BUILD_LUA_EXTENSION
 gboolean
 PinyinEngine::initLuaPlugin (void)
 {
@@ -137,6 +146,7 @@ PinyinEngine::loadLuaScript (const char * filename)
 {
     return !ibus_engine_plugin_load_lua_script (m_lua_plugin, filename);
 }
+#endif
 
 /* keep synced with bopomofo engine. */
 gboolean
@@ -164,8 +174,12 @@ PinyinEngine::processAccelKeyEvent (guint keyval, guint keycode,
         }
 
         if (triggered) {
-            if (!m_editors[MODE_INIT]->text ().empty ())
+            if (!m_editors[MODE_INIT]->text ().empty ()) {
+                Text text (m_editors[MODE_INIT]->text ());
+                commitText (text);
                 m_editors[MODE_INIT]->reset ();
+            }
+
             if (!m_editors[MODE_SUGGESTION]->text ().empty ())
                 m_editors[MODE_SUGGESTION]->reset ();
             m_props.toggleModeChinese ();
@@ -331,7 +345,9 @@ PinyinEngine::focusIn (void)
             DoublePinyinEditor *editor = new DoublePinyinEditor
                 (m_props, PinyinConfig::instance ());
             m_editors[MODE_INIT].reset (editor);
+#ifdef IBUS_BUILD_LUA_EXTENSION
             editor->setLuaPlugin (m_lua_plugin);
+#endif
             connectEditorSignals (m_editors[MODE_INIT]);
         }
         m_double_pinyin = TRUE;
@@ -341,7 +357,9 @@ PinyinEngine::focusIn (void)
             FullPinyinEditor *editor = new FullPinyinEditor
                 (m_props, PinyinConfig::instance ());
             m_editors[MODE_INIT].reset (editor);
+#ifdef IBUS_BUILD_LUA_EXTENSION
             editor->setLuaPlugin (m_lua_plugin);
+#endif
             connectEditorSignals (m_editors[MODE_INIT]);
         }
         m_double_pinyin = FALSE;

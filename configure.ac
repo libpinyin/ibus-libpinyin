@@ -22,7 +22,7 @@
 m4_define([ibus_released], [1])
 m4_define([ibus_major_version], [1])
 m4_define([ibus_minor_version], [10])
-m4_define([ibus_micro_version], [91])
+m4_define([ibus_micro_version], [92])
 m4_define(ibus_maybe_datestamp,
     m4_esyscmd([if test x]ibus_released[ != x1; then date +.%Y%m%d | tr -d '\n\r'; fi]))
 
@@ -68,7 +68,7 @@ if test -z "$SQLITE3"; then
 fi
 
 PKG_CHECK_MODULES(LIBPINYIN, [
-    libpinyin >= 1.9.91
+    libpinyin >= 2.2.1
 ], [enable_libpinyin=yes])
 
 LIBPINYIN_DATADIR=`$PKG_CONFIG --variable=pkgdatadir libpinyin`

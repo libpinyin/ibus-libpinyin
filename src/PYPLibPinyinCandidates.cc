@@ -22,7 +22,10 @@
 #include "PYPLibPinyinCandidates.h"
 #include <assert.h>
 #include <pinyin.h>
+#include "PYConfig.h"
+#include "PYLibPinyin.h"
 #include "PYPPhoneticEditor.h"
+
 
 using namespace PY;
 
@@ -92,6 +95,7 @@ LibPinyinCandidates::selectCandidate (EnhancedCandidate & enhanced)
     lookup_candidate_t * candidate = NULL;
     pinyin_get_candidate (instance, enhanced.m_candidate_id, &candidate);
 
+    gchar * str = NULL;
     if (CANDIDATE_NBEST_MATCH == enhanced.m_candidate_type) {
         /* because nbest match candidate
            starts from the beginning of user input. */
@@ -103,6 +107,11 @@ LibPinyinCandidates::selectCandidate (EnhancedCandidate & enhanced)
         if (index != 0)
             pinyin_train (instance, index);
 
+        pinyin_get_sentence (instance, index, &str);
+        if (m_editor->m_config.rememberEveryInput ())
+            LibPinyinBackEnd::instance ().rememberUserInput (instance, str);
+        LibPinyinBackEnd::instance ().modified();
+
         return SELECT_CANDIDATE_COMMIT;
     }
 
@@ -112,10 +121,14 @@ LibPinyinCandidates::selectCandidate (EnhancedCandidate & enhanced)
     pinyin_guess_sentence (instance);
 
     if (lookup_cursor == m_editor->m_text.length ()) {
-        char *tmp = NULL;
-        pinyin_get_sentence (instance, 0, &tmp);
-        enhanced.m_display_string = tmp;
+        pinyin_get_sentence (instance, 0, &str);
+        enhanced.m_display_string = str;
         pinyin_train (instance, 0);
+
+        if (m_editor->m_config.rememberEveryInput ())
+            LibPinyinBackEnd::instance ().rememberUserInput (instance, str);
+        LibPinyinBackEnd::instance ().modified ();
+
         return SELECT_CANDIDATE_MODIFY_IN_PLACE|SELECT_CANDIDATE_COMMIT;
     }
 
