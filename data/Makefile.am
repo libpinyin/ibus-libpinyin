@@ -66,9 +66,10 @@ desktop_in_files = \
 desktop_files = $(desktop_in_files:.desktop.in=.desktop)
 
 $(desktop_files): $(desktop_in_files) Makefile
-	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
-	sed -i -e 's|@libexecdir[@]|$(libexecdir)|g' \
-	-e 's|@pkgdatadir[@]|$(pkgdatadir)|g' $@
+	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@.tmp
+	sed -e 's|@libexecdir[@]|$(libexecdir)|g' \
+	-e 's|@pkgdatadir[@]|$(pkgdatadir)|g' $@.tmp > $@
+	rm $@.tmp
 
 desktopdir=$(datadir)/applications
 desktop_DATA = $(desktop_files)
