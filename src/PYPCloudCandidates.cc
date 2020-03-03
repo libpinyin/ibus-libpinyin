@@ -257,9 +257,11 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
 
     if (!json_parser_load_from_stream(parser, stream, NULL, error) || error != NULL)
     {
+        g_input_stream_close(stream, NULL, error);
         g_object_unref(parser);
         return;
     }
+    g_input_stream_close(stream, NULL, error);
 
     root = json_parser_get_root(parser);
     if (m_cloud_source == BAIDU && JSON_NODE_TYPE(root) == JSON_NODE_OBJECT)
