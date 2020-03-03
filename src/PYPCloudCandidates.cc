@@ -255,17 +255,25 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
     JsonNode *root;
     guint result_counter = 0;
 
-    if (!json_parser_load_from_stream(parser, stream, NULL, error) || error != NULL)
+    if (!stream)
     {
-        g_input_stream_close(stream, NULL, error);
         g_object_unref(parser);
         return;
     }
-    g_input_stream_close(stream, NULL, error);
 
-    root = json_parser_get_root(parser);
+    // Parser Json from input steam
+    if (!json_parser_load_from_stream(parser, stream, NULL, error) || error != NULL)
+    {
+        g_input_stream_close(stream, NULL, error);  // Close stream to release libsoup connexion
+        g_object_unref(parser);
+        return;
+    }
+    g_input_stream_close(stream, NULL, error);  // Close stream to release libsoup connexion
+
+    root = json_parser_get_root(parser);    // Get root element
     if (m_cloud_source == BAIDU && JSON_NODE_TYPE(root) == JSON_NODE_OBJECT)
     {
+        /* Validate Baidu source and the structure of response */
         JsonObject *baidu_root_object = json_node_get_object(root);
         const gchar *baidu_response_status;
         JsonArray *baidu_result_array;
@@ -300,10 +308,7 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
     }
     else if (m_cloud_source == GOOGLE && JSON_NODE_TYPE(root) == JSON_NODE_ARRAY)
     {
-        /**
-         * 
-         */
-
+        /* Validate Google source and the structure of response */
         JsonArray *google_root_array = json_node_get_array(root);
         
         const gchar *google_response_status;
@@ -348,39 +353,8 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
         }
     }
 
-    /*
-        if (JSON_NODE_TYPE(root) == JSON_NODE_ARRAY) {
-
-            
-            
-        } else {
-            puts("Baidu");
-            JsonObject *object = json_node_get_object(root);
-
-            // Do a type validation
-            if (json_object_has_member(object, "status")) {
-                const gchar *baidu_response_status = json_object_get_string_member(object, "status");
-                g_print("Status: %s\n", baidu_response_status);
-
-                if (!g_strcmp0(baidu_response_status, "T")) {
-                    JsonArray *baidu_result_array = json_object_get_array_member(object, "result");
-                    g_print("Array length: %d\n", json_array_get_length(baidu_result_array));
-
-                    JsonArray *baidu_candidate_array = json_array_get_array_element(baidu_result_array, 0);
-                    const gchar *baidu_candidate_annotation = json_array_get_string_element(baidu_result_array, 1);
-
-                    g_print("Get %d candidates from %s\n\n", json_array_get_length(baidu_candidate_array), baidu_candidate_annotation);
-
-                } else {
-                    puts("Status is not equals to T\n");
-                }
-            }
-        }
-    } else {
-        puts("Load failed\n");
-    }
-    */
-
+    /* Update to the candidates list */
+    m_candidates.clear();
     for (guint i = 0; i < m_cloud_candidates_number && i < result_counter; ++i) {
         EnhancedCandidate & enhanced = candidates[i + m_first_cloud_candidate_position - 1];
         enhanced.m_display_string = m_candidates[i].m_display_string;
