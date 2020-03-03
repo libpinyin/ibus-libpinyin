@@ -121,7 +121,7 @@ msgid "英"
 msgstr "英"
 
 #: src/PYEnglishEditor.cc:619
-msgid "Please input the english word."
+msgid "Please input the English word."
 msgstr ""
 
 #: src/PYStrokeEditor.cc:387
@@ -216,7 +216,7 @@ msgstr "Modificateurs :"
 #: setup/keyboardshortcut.py:171
 msgid ""
 "Please press a key (or a key combination).\n"
-"The dialog will be closed when the key is released."
+"The dialog will close when the key is released."
 msgstr ""
 "Veuillez presser une touche (ou une combinaison de touches)\n"
 "La boîte de dialogue va se fermer quand la touche sera relachée"
@@ -265,7 +265,7 @@ msgid "Accelerator"
 msgstr "Raccourcie clavier"
 
 #: setup/shortcuteditor.py:106
-msgid "This shortcut key is already used."
+msgid "This shortcut key is already in use."
 msgstr "Ce raccourcie clavier est déjà utilisé"
 
 #. set default button
@@ -402,7 +402,7 @@ msgid "<b>UI</b>"
 msgstr "<b>UI</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:604
-msgid "Dynamic adjust the candidates order."
+msgid "Dynamically adjust the candidates order."
 msgstr "Ajustement dynamique de l'ordre des candidats."
 
 #: setup/ibus-libpinyin-preferences.ui:619
@@ -466,7 +466,7 @@ msgid "<b>Input Custom</b>"
 msgstr "Personalisation"
 
 #: setup/ibus-libpinyin-preferences.ui:1131
-msgid "Enable correct pinyin"
+msgid "Enable pinyin correction"
 msgstr "Activer la correction automatique du pinyin"
 
 #: setup/ibus-libpinyin-preferences.ui:1167
@@ -538,7 +538,7 @@ msgid "Fuzzy syllable"
 msgstr "Syllabes floues"
 
 #: setup/ibus-libpinyin-preferences.ui:1859
-msgid "Tips: this changes may take effects after ime restarted."
+msgid "Tips: Changes may not take effect until ime restarts."
 msgstr ""
 "Note : ce changement peut ne prendre effet qu'après le redémarrage de l'IME"
 
