@@ -212,6 +212,7 @@
     <key name="minimum-cloud-input-trigger-length" type="i">
       <default>2</default>
       <summary>Minimum of Cloud Input Trigger Length</summary>
+    </key>
     <key name="opencc-config" type="s">
       <default>'s2t.json'</default>
       <summary>The config file which should be used by OpenCC for traditional input. Please consult the OpenCC documentation for more information</summary>
@@ -381,6 +382,7 @@
     <key name="minimum-cloud-input-trigger-length" type="i">
       <default>2</default>
       <summary>Minimum of Cloud Input Trigger Length</summary>
+    </key>
     <key name="opencc-config" type="s">
       <default>'s2t.json'</default>
       <summary>The config file which should be used by OpenCC for traditional input. Please consult the OpenCC documentation for more information</summary>
