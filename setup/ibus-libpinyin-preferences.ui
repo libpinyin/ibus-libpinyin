@@ -2298,7 +2298,7 @@
                           </object>
                         </child>
                         <child type="label">
-                          <object class="GtkLabel" id="label25">
+                          <object class="GtkLabel" id="label99">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="label" translatable="yes">&lt;b&gt;Initial state&lt;/b&gt;</property>
@@ -2480,7 +2480,7 @@
                                         <property name="model">liststoreCloudInputSource</property>
                                         <property name="button_sensitivity">on</property>
                                         <child>
-                                          <object class="GtkCellRendererText" id="renderer6"/>
+                                          <object class="GtkCellRendererText" id="renderer7"/>
                                           <attributes>
                                             <attribute name="text">0</attribute>
                                           </attributes>
