@@ -228,12 +228,12 @@ msgstr "快捷键编辑器"
 #: setup/keyboardshortcut.py:239 setup/shortcuteditor.py:196
 #: setup/shortcuteditor.py:233
 msgid "_Cancel"
-msgstr "取消"
+msgstr "取消(_C)"
 
 #: setup/keyboardshortcut.py:240 setup/shortcuteditor.py:197
 #: setup/shortcuteditor.py:234
 msgid "_OK"
-msgstr "确定"
+msgstr "确定(_O)"
 
 #: setup/shortcuteditor.py:46
 msgid "Switch Chinese/English"
@@ -267,12 +267,12 @@ msgstr "此快捷键已使用。"
 #. set default button
 #: setup/shortcuteditor.py:164
 msgid "_Default"
-msgstr "缺省值"
+msgstr "缺省值(_D)"
 
 #. edit button
 #: setup/shortcuteditor.py:169
 msgid "_Edit"
-msgstr "编辑"
+msgstr "编辑(_E)"
 
 #: setup/shortcuteditor.py:195
 msgid "Select Switching Key"
@@ -333,7 +333,7 @@ msgstr "缺省值"
 
 #: setup/ibus-libpinyin-preferences.ui:83
 msgid "Compact"
-msgstr ""
+msgstr "压缩"
 
 #: setup/ibus-libpinyin-preferences.ui:129
 msgid "Frequency"
@@ -383,7 +383,7 @@ msgstr "<b>初始状态</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:444
 msgid "Display Style:"
-msgstr ""
+msgstr "显示风格："
 
 #: setup/ibus-libpinyin-preferences.ui:490
 msgid "Orientation of candidates:"
@@ -399,7 +399,7 @@ msgstr "<b>外观</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:604
 msgid "Dynamic adjust the candidates order."
-msgstr "动态调整候选词顺序"
+msgstr "动态调整候词序"
 
 #: setup/ibus-libpinyin-preferences.ui:619
 msgid "Remember every input as a phrase."
@@ -407,7 +407,7 @@ msgstr "将每个输入记录为新的词汇"
 
 #: setup/ibus-libpinyin-preferences.ui:634
 msgid "Show suggestions."
-msgstr ""
+msgstr "显示建议"
 
 #: setup/ibus-libpinyin-preferences.ui:657
 msgid "Sort candidates by:"
@@ -459,7 +459,7 @@ msgstr "自动上词"
 
 #: setup/ibus-libpinyin-preferences.ui:983
 msgid "<b>Input Custom</b>"
-msgstr "<b>输入</b>"
+msgstr "<b>输入个性化</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:1131
 msgid "Enable correct pinyin"
@@ -495,7 +495,7 @@ msgstr "启用选词引导键"
 
 #: setup/ibus-libpinyin-preferences.ui:1384
 msgid "Enable Auxiliary Select Keys F1 .. F10"
-msgstr "启用辅助选词键F1 .. F10"
+msgstr "启用辅助选词键F1～ F10"
 
 #: setup/ibus-libpinyin-preferences.ui:1401
 msgid "Enable Auxiliary Select Keys Numbers on Keypad"
@@ -626,7 +626,7 @@ msgid ""
 "BYVoid\n"
 "\n"
 "<b>Contributors:</b>\n"
-"koterpilla, Zerng07\n"
+"koterpilla, Zerng07, Hillwood Yang\n"
 "</small>"
 msgstr ""
 "<small>\n"
@@ -636,7 +636,7 @@ msgstr ""
 "BYVoid\n"
 "\n"
 "<b>贡献者:</b>\n"
-"koterpilla, Zerng07\n"
+"koterpilla, Zerng07, Hillwood Yang\n"
 "</small>"
 
 #: setup/ibus-libpinyin-preferences.ui:2336
@@ -645,11 +645,11 @@ msgstr "关于"
 
 #: data/ibus-setup-libpinyin.desktop.in:3
 msgid "IBus LibPinyin Setup"
-msgstr ""
+msgstr "IBus LibPinyin 设置"
 
 #: data/ibus-setup-libpinyin.desktop.in:7
 msgid "Set ibus-libpinyin Preferences"
-msgstr ""
+msgstr "设置 ibus-libpinyin 首选项"
 
 #: data/ibus-setup-libpinyin.desktop.in:12
 msgid "@pkgdatadir@/icons/ibus-pinyin.svg"
@@ -657,11 +657,11 @@ msgstr ""
 
 #: data/ibus-setup-libbopomofo.desktop.in:3
 msgid "IBus LibBopomofo Preferences"
-msgstr ""
+msgstr "IBus LibBopomofo 首选项"
 
 #: data/ibus-setup-libbopomofo.desktop.in:7
 msgid "Set ibus-libbopomofo Preferences"
-msgstr ""
+msgstr "设置 ibus-libbopomofo 首选项"
 
 #: data/ibus-setup-libbopomofo.desktop.in:12
 msgid "@pkgdatadir@/icons/ibus-bopomofo.svg"

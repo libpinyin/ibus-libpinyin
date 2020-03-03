@@ -658,7 +658,7 @@ msgid ""
 "BYVoid\n"
 "\n"
 "<b>Contributors:</b>\n"
-"koterpilla, Zerng07\n"
+"koterpilla, Zerng07, Hillwood Yang\n"
 "</small>"
 msgstr ""
 
