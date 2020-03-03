@@ -197,14 +197,28 @@ PinyinEngine::processAccelKeyEvent (guint keyval, guint keycode,
     }
 
     /* Toggle full/half Letter Mode */
-    if (PinyinConfig::instance (). letterSwitch () == accel) {
+    if (PinyinConfig::instance ().letterSwitch () == accel) {
         m_props.toggleModeFull ();
         m_prev_pressed_key = keyval;
         return TRUE;
     }
 
     /* Toggle full/half Punct Mode */
-    if (PinyinConfig::instance (). punctSwitch () == accel) {
+    if (PinyinConfig::instance ().punctSwitch () == accel) {
+        m_props.toggleModeFullPunct ();
+        m_prev_pressed_key = keyval;
+        return TRUE;
+    }
+
+    /* Toggle both full/half Mode */
+    if (PinyinConfig::instance ().bothSwitch () == accel) {
+        if (m_props.modeFull () != m_props.modeFullPunct ()) {
+            m_props.toggleModeFull ();
+            m_prev_pressed_key = keyval;
+            return TRUE;
+        }
+
+        m_props.toggleModeFull ();
         m_props.toggleModeFullPunct ();
         m_prev_pressed_key = keyval;
         return TRUE;
@@ -264,7 +278,8 @@ PinyinEngine::processKeyEvent (guint keyval, guint keycode, guint modifiers)
             if (text.empty ()) {
                 switch (keyval) {
                 case IBUS_grave:
-                    m_input_mode = MODE_PUNCT;
+                    if (m_props.modeFullPunct ())
+                        m_input_mode = MODE_PUNCT;
                     break;
 #ifdef IBUS_BUILD_LUA_EXTENSION
                 case IBUS_i:

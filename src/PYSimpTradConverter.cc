@@ -41,9 +41,9 @@ namespace PY {
 
 class opencc {
 public:
-    opencc (void)
+    opencc (const char* configFileName)
     {
-        m_cc = opencc_open (OPENCC_DEFAULT_CONFIG_SIMP_TO_TRAD);
+        m_cc = opencc_open (configFileName);
         g_assert (m_cc != NULL);
     }
 
@@ -66,7 +66,7 @@ private:
 void
 SimpTradConverter::simpToTrad (const gchar *in, String &out)
 {
-    static opencc opencc;
+    static opencc opencc(m_config.openccConfig().c_str());
     opencc.convert (in, out);
 }
 

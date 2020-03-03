@@ -374,7 +374,7 @@ EnglishEditor::EnglishEditor (PinyinProperties & props, Config &config)
         m_english_database->openDatabase
         (PKGDATADIR G_DIR_SEPARATOR_S "db" G_DIR_SEPARATOR_S "english.db", path);
     if (!result)
-        g_warning ("can't open english word list database.\n");
+        g_warning ("can't open English word list database.\n");
 }
 
 EnglishEditor::~EnglishEditor ()
@@ -549,6 +549,11 @@ EnglishEditor::processSpace (guint keyval)
     if (!(keyval == IBUS_space || keyval == IBUS_KP_Space))
         return FALSE;
 
+    if (m_text == "v" || m_text == "V") {
+        reset ();
+        return TRUE;
+    }
+
     guint cursor_pos = m_lookup_table.cursorPos ();
     return selectCandidate (cursor_pos);
 }
@@ -611,7 +616,7 @@ EnglishEditor::updateStateFromInput (void)
     if (1 == m_text.length ()) {
         clearLookupTable ();
 
-        const char * help_string = _("Please input the english word.");
+        const char * help_string = _("Please input the English word.");
         int space_len = std::max ( 0, m_aux_text_len
                                    - (int) g_utf8_strlen (help_string, -1));
         m_auxiliary_text.append (space_len, ' ');

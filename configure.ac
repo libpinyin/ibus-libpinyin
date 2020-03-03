@@ -21,8 +21,8 @@
 # if not 1, append datestamp to the version number.
 m4_define([ibus_released], [1])
 m4_define([ibus_major_version], [1])
-m4_define([ibus_minor_version], [10])
-m4_define([ibus_micro_version], [92])
+m4_define([ibus_minor_version], [11])
+m4_define([ibus_micro_version], [91])
 m4_define(ibus_maybe_datestamp,
     m4_esyscmd([if test x]ibus_released[ != x1; then date +.%Y%m%d | tr -d '\n\r'; fi]))
 
@@ -48,7 +48,6 @@ AC_PROG_CXX
 AM_PROG_CC_C_O
 AC_ISC_POSIX
 AC_HEADER_STDC
-IT_PROG_INTLTOOL([0.35.0])
 AM_PROG_LIBTOOL
 AC_PROG_SED
 
@@ -95,7 +94,7 @@ AC_ARG_WITH(python,
         [Select python2 or python3]),
     [PYTHON=$with_python], []
 )
-AM_PATH_PYTHON([2.5])
+AM_PATH_PYTHON([3.2])
 
 # check icon_prop_key in IBus.EngineDesc
 AC_MSG_CHECKING([if IBus.EngineDesc has get_icon_prop_key])
@@ -148,7 +147,8 @@ GETTEXT_PACKAGE=ibus-libpinyin
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package])
 
-AM_GLIB_GNU_GETTEXT
+AM_GNU_GETTEXT_VERSION([0.19.7])
+AM_GNU_GETTEXT([external])
 
 # Checks for GSettings.
 PKG_CHECK_MODULES(GIO2, [gio-2.0 >= 2.26.0])

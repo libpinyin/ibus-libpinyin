@@ -169,7 +169,7 @@ class KeyboardShortcutSelection(Gtk.Box):
         dlg = Gtk.MessageDialog(transient_for = self.get_toplevel(),
                                 buttons = Gtk.ButtonsType.CLOSE)
         message = _("Please press a key (or a key combination).\n" \
-                    "The dialog will be closed when the key is released.")
+                    "The dialog will close when the key is released.")
         dlg.set_markup(message)
         dlg.set_title(_("Please press a key (or a key combination)"))
 

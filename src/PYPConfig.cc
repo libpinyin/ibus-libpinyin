@@ -33,9 +33,11 @@ const gchar * const CONFIG_CORRECT_PINYIN            = "correct-pinyin";
 const gchar * const CONFIG_FUZZY_PINYIN              = "fuzzy-pinyin";
 const gchar * const CONFIG_ORIENTATION               = "lookup-table-orientation";
 const gchar * const CONFIG_PAGE_SIZE                 = "lookup-table-page-size";
+const gchar * const CONFIG_DISPLAY_STYLE             = "display-style";
 const gchar * const CONFIG_REMEMBER_EVERY_INPUT      = "remember-every-input";
 const gchar * const CONFIG_SORT_OPTION               = "sort-candidate-option";
 const gchar * const CONFIG_SHOW_SUGGESTION           = "show-suggestion";
+const gchar * const CONFIG_EMOJI_CANDIDATE           = "emoji-candidate";
 const gchar * const CONFIG_SHIFT_SELECT_CANDIDATE    = "shift-select-candidate";
 const gchar * const CONFIG_MINUS_EQUAL_PAGE          = "minus-equal-page";
 const gchar * const CONFIG_COMMA_PERIOD_PAGE         = "comma-period-page";
@@ -48,6 +50,7 @@ const gchar * const CONFIG_INIT_FULL_PUNCT           = "init-full-punct";
 const gchar * const CONFIG_INIT_SIMP_CHINESE         = "init-simplified-chinese";
 const gchar * const CONFIG_DICTIONARIES              = "dictionaries";
 const gchar * const CONFIG_LUA_CONVERTER             = "lua-converter";
+const gchar * const CONFIG_OPENCC_CONFIG             = "opencc-config";
 const gchar * const CONFIG_BOPOMOFO_KEYBOARD_MAPPING = "bopomofo-keyboard-mapping";
 const gchar * const CONFIG_SELECT_KEYS               = "select-keys";
 const gchar * const CONFIG_GUIDE_KEY                 = "guide-key";
@@ -61,6 +64,7 @@ const gchar * const CONFIG_CLEAR_USER_DATA           = "clear-user-data";
 const gchar * const CONFIG_MAIN_SWITCH               = "main-switch";
 const gchar * const CONFIG_LETTER_SWITCH             = "letter-switch";
 const gchar * const CONFIG_PUNCT_SWITCH              = "punct-switch";
+const gchar * const CONFIG_BOTH_SWITCH               = "both-switch";
 const gchar * const CONFIG_TRAD_SWITCH               = "trad-switch";
 const gchar * const CONFIG_INIT_ENABLE_CLOUD_INPUT   = "enable-cloud-input";
 const gchar * const CONFIG_CLOUD_INPUT_SOURCE        = "cloud-input-source";   
@@ -102,9 +106,11 @@ LibPinyinConfig::initDefaultValues (void)
 
     m_orientation = IBUS_ORIENTATION_HORIZONTAL;
     m_page_size = 5;
+    m_display_style = DISPLAY_STYLE_TRADITIONAL;
     m_remember_every_input = FALSE;
     m_sort_option = SORT_BY_PHRASE_LENGTH_AND_PINYIN_LENGTH_AND_FREQUENCY;
     m_show_suggestion = FALSE;
+    m_emoji_candidate = TRUE;
 
     m_shift_select_candidate = FALSE;
     m_minus_equal_page = TRUE;
@@ -123,10 +129,12 @@ LibPinyinConfig::initDefaultValues (void)
 
     m_dictionaries = "";
     m_lua_converter = "";
+    m_opencc_config = "s2t.json";
 
     m_main_switch = "<Shift>";
     m_letter_switch = "";
     m_punct_switch = "<Control>period";
+    m_both_switch = "";
     m_trad_switch = "<Control><Shift>f";
 
     m_enable_cloud_input = FALSE;
@@ -162,6 +170,14 @@ static const struct{
 } sort_options [] = {
     {0, SORT_BY_PHRASE_LENGTH_AND_FREQUENCY},
     {1, SORT_BY_PHRASE_LENGTH_AND_PINYIN_LENGTH_AND_FREQUENCY}
+};
+
+static const struct{
+    gint display_style_index;
+    DisplayStyle display_style;
+} display_style_options [] = {
+    {0, DISPLAY_STYLE_TRADITIONAL},
+    {1, DISPLAY_STYLE_COMPACT}
 };
 
 void
@@ -205,9 +221,20 @@ LibPinyinConfig::readDefaultValues (void)
         m_page_size = 5;
         g_warn_if_reached ();
     }
+
+    gint index = read (CONFIG_DISPLAY_STYLE, 0);
+    m_display_style = DISPLAY_STYLE_TRADITIONAL;
+
+    for (guint i = 0; i < G_N_ELEMENTS (display_style_options); i++) {
+        if (index == display_style_options[i].display_style_index) {
+            /* set display style option. */
+            m_display_style = display_style_options[i].display_style;
+        }
+    }
+
     m_remember_every_input = read (CONFIG_REMEMBER_EVERY_INPUT, false);
 
-    const gint index = read (CONFIG_SORT_OPTION, 0);
+    index = read (CONFIG_SORT_OPTION, 0);
     m_sort_option = SORT_BY_PHRASE_LENGTH_AND_PINYIN_LENGTH_AND_FREQUENCY;
 
     for (guint i = 0; i < G_N_ELEMENTS (sort_options); i++) {
@@ -218,12 +245,15 @@ LibPinyinConfig::readDefaultValues (void)
     }
 
     m_show_suggestion = read (CONFIG_SHOW_SUGGESTION, false);
+    m_emoji_candidate = read (CONFIG_EMOJI_CANDIDATE, true);
 
     m_dictionaries = read (CONFIG_DICTIONARIES, "");
+    m_opencc_config = read (CONFIG_OPENCC_CONFIG, "s2t.json");
 
     m_main_switch = read (CONFIG_MAIN_SWITCH, "<Shift>");
     m_letter_switch = read (CONFIG_LETTER_SWITCH, "");
     m_punct_switch = read (CONFIG_PUNCT_SWITCH, "<Control>period");
+    m_both_switch = read (CONFIG_BOTH_SWITCH, "");
     m_trad_switch = read (CONFIG_TRAD_SWITCH, "<Control><Shift>f");
 
     /* fuzzy pinyin */
@@ -263,12 +293,21 @@ LibPinyinConfig::valueChanged (const std::string &schema_id,
             m_orientation = IBUS_ORIENTATION_HORIZONTAL;
             g_warn_if_reached ();
         }
-    }
-    else if (CONFIG_PAGE_SIZE == name) {
+    } else if (CONFIG_PAGE_SIZE == name) {
         m_page_size = normalizeGVariant (value, 5);
         if (m_page_size > 10) {
             m_page_size = 5;
             g_warn_if_reached ();
+        }
+    } else if (CONFIG_DISPLAY_STYLE == name) {
+        const gint index = normalizeGVariant (value, 0);
+        m_display_style = DISPLAY_STYLE_TRADITIONAL;
+
+        for (guint i = 0; i < G_N_ELEMENTS (display_style_options); i++) {
+            if (index == display_style_options[i].display_style_index) {
+                /* set display style option. */
+                m_display_style = display_style_options[i].display_style;
+            }
         }
     } else if (CONFIG_REMEMBER_EVERY_INPUT == name) {
         m_remember_every_input = normalizeGVariant (value, false);
@@ -284,14 +323,20 @@ LibPinyinConfig::valueChanged (const std::string &schema_id,
         }
     } else if (CONFIG_SHOW_SUGGESTION == name) {
         m_show_suggestion = normalizeGVariant (value, false);
+    } else if (CONFIG_EMOJI_CANDIDATE == name) {
+        m_emoji_candidate = normalizeGVariant (value, true);
     } else if (CONFIG_DICTIONARIES == name) {
         m_dictionaries = normalizeGVariant (value, std::string (""));
+    } else if (CONFIG_OPENCC_CONFIG == name) {
+        m_opencc_config = normalizeGVariant (value, std::string ("s2t.json"));
     } else if (CONFIG_MAIN_SWITCH == name) {
         m_main_switch = normalizeGVariant (value, std::string ("<Shift>"));
     } else if (CONFIG_LETTER_SWITCH == name) {
         m_letter_switch = normalizeGVariant (value, std::string (""));
     } else if (CONFIG_PUNCT_SWITCH == name) {
         m_punct_switch = normalizeGVariant (value, std::string ("<Control>period"));
+    } else if (CONFIG_BOTH_SWITCH == name) {
+        m_both_switch = normalizeGVariant (value, std::string (""));
     } else if (CONFIG_TRAD_SWITCH == name) {
         m_trad_switch = normalizeGVariant (value, std::string ("<Control><Shift>f"));
     }

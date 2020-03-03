@@ -130,7 +130,7 @@ PinyinEditor::processPunct (guint keyval, guint keycode,
         return FALSE;
     }
 
-    return TRUE;
+    return FALSE;
 }
 
 inline gboolean
@@ -228,6 +228,9 @@ PinyinEditor::commit (const gchar *str)
 void
 PinyinEditor::updatePreeditText ()
 {
+    if (DISPLAY_STYLE_COMPACT == m_config.displayStyle ())
+        return;
+
     guint num = 0;
     pinyin_get_n_candidate (m_instance, &num);
 
@@ -263,6 +266,8 @@ PinyinEditor::updatePreeditText ()
     guint cursor = getPinyinCursor ();
     pinyin_get_character_offset(m_instance, sentence, cursor, &offset);
     Editor::updatePreeditText (preedit_text, offset, TRUE);
+
+    g_free (sentence);
 }
 
 #if 0

@@ -38,6 +38,10 @@ enum CloudInputSource{
     BAIDU = 0,
     GOOGLE
 };
+typedef enum {
+    DISPLAY_STYLE_TRADITIONAL,
+    DISPLAY_STYLE_COMPACT
+} DisplayStyle;
 
 class Config {
 protected:
@@ -50,9 +54,11 @@ public:
     pinyin_option_t option (void) const         { return m_option & m_option_mask; }
     guint orientation (void) const              { return m_orientation; }
     guint pageSize (void) const                 { return m_page_size; }
+    DisplayStyle displayStyle (void) const      { return m_display_style; }
     gboolean rememberEveryInput (void) const    { return m_remember_every_input; }
     sort_option_t sortOption (void) const       { return m_sort_option; }
     gboolean showSuggestion (void) const        { return m_show_suggestion; }
+    gboolean emojiCandidate (void) const        { return m_emoji_candidate; }
     gboolean shiftSelectCandidate (void) const  { return m_shift_select_candidate; }
     gboolean minusEqualPage (void) const        { return m_minus_equal_page; }
     gboolean commaPeriodPage (void) const       { return m_comma_period_page; }
@@ -73,7 +79,9 @@ public:
     std::string mainSwitch (void) const         { return m_main_switch; }
     std::string letterSwitch (void) const       { return m_letter_switch; }
     std::string punctSwitch (void) const        { return m_punct_switch; }
+    std::string bothSwitch (void) const         { return m_both_switch; }
     std::string tradSwitch (void) const         { return m_trad_switch; }
+    std::string openccConfig (void) const       { return m_opencc_config; }
 
     gboolean enableCloudInput (void) const      { return m_enable_cloud_input; }
     guint cloudInputSource (void) const         { return m_cloud_input_source; }
@@ -103,14 +111,17 @@ protected:
     std::string m_schema_id;
     std::string m_dictionaries;
     std::string m_lua_converter;
+    std::string m_opencc_config;
     pinyin_option_t m_option;
     pinyin_option_t m_option_mask;
 
     gint m_orientation;
     guint m_page_size;
+    DisplayStyle m_display_style;
     gboolean m_remember_every_input;
     sort_option_t m_sort_option;
     gboolean m_show_suggestion;
+    gboolean m_emoji_candidate;
 
     gboolean m_shift_select_candidate;
     gboolean m_minus_equal_page;
@@ -136,6 +147,7 @@ protected:
     std::string m_main_switch;
     std::string m_letter_switch;
     std::string m_punct_switch;
+    std::string m_both_switch;
     std::string m_trad_switch;
 
     gboolean m_enable_cloud_input;

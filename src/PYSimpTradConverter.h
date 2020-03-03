@@ -22,6 +22,7 @@
 #define __PY_SIMP_TRAD_CONVERTER_H_
 
 #include <glib.h>
+#include "PYConfig.h"
 
 namespace PY {
 
@@ -29,7 +30,10 @@ class String;
 
 class SimpTradConverter {
 public:
-    static void simpToTrad (const gchar *in, String &out);
+    SimpTradConverter(Config & config) : m_config(config) {}
+    void simpToTrad (const gchar *in, String &out);
+private:
+    Config & m_config;
 };
 
 };

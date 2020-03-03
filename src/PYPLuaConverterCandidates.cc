@@ -100,3 +100,15 @@ LuaConverterCandidates::selectCandidate (EnhancedCandidate & enhanced)
 
     return action;
 }
+
+gboolean
+LuaConverterCandidates::removeCandidate (EnhancedCandidate & enhanced)
+{
+    guint id = enhanced.m_candidate_id;
+    assert (CANDIDATE_LUA_CONVERTER == enhanced.m_candidate_type);
+
+    if (G_UNLIKELY (id >= m_candidates.size ()))
+        return FALSE;
+
+    return m_editor->removeCandidateInternal (m_candidates[id]);
+}

@@ -112,14 +112,28 @@ BopomofoEngine::processAccelKeyEvent (guint keyval, guint keycode,
     }
 
     /* Toggle full/half Letter Mode */
-    if (BopomofoConfig::instance (). letterSwitch () == accel) {
+    if (BopomofoConfig::instance ().letterSwitch () == accel) {
         m_props.toggleModeFull ();
         m_prev_pressed_key = keyval;
         return TRUE;
     }
 
     /* Toggle full/half Punct Mode */
-    if (BopomofoConfig::instance (). punctSwitch () == accel) {
+    if (BopomofoConfig::instance ().punctSwitch () == accel) {
+        m_props.toggleModeFullPunct ();
+        m_prev_pressed_key = keyval;
+        return TRUE;
+    }
+
+    /* Toggle both full/half Mode */
+    if (BopomofoConfig::instance ().bothSwitch () == accel) {
+        if (m_props.modeFull () != m_props.modeFullPunct ()) {
+            m_props.toggleModeFull ();
+            m_prev_pressed_key = keyval;
+            return TRUE;
+        }
+
+        m_props.toggleModeFull ();
         m_props.toggleModeFullPunct ();
         m_prev_pressed_key = keyval;
         return TRUE;
@@ -178,7 +192,8 @@ BopomofoEngine::processKeyEvent (guint keyval, guint keycode, guint modifiers)
                         keyval == IBUS_grave)){
             /* if BopomofoEditor is empty and get a grave key,
              * switch current editor to PunctEditor */
-            m_input_mode = MODE_PUNCT;
+            if (m_props.modeFullPunct ())
+                m_input_mode = MODE_PUNCT;
         }
 
         retval = m_editors[m_input_mode]->processKeyEvent (keyval, keycode, modifiers);

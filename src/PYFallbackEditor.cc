@@ -76,13 +76,21 @@ FallbackEditor::processPunctForSimplifiedChinese (guint keyval, guint keycode, g
         m_double_quote = !m_double_quote;
         return TRUE;
     case ',':
-        commit ("，"); return TRUE;
-    case '.':
-        if (m_prev_committed_char >= '0' && m_prev_committed_char <= '9')
+        if (m_prev_committed_char >= '0' && m_prev_committed_char <= '9') {
+            m_prev_committed_char = keyval;
             return FALSE;
-        else
+        } else {
+            commit ("，");
+            return TRUE;
+        }
+    case '.':
+        if (m_prev_committed_char >= '0' && m_prev_committed_char <= '9') {
+            m_prev_committed_char = keyval;
+            return FALSE;
+        } else {
             commit ("。");
-        return TRUE;
+            return TRUE;
+        }
     case '<':
         commit ("《"); return TRUE;
     case '>':
@@ -144,13 +152,21 @@ FallbackEditor::processPunctForTraditionalChinese (guint keyval, guint keycode, 
         m_double_quote = !m_double_quote;
         return TRUE;
     case ',':
-        commit ("，"); return TRUE;
-    case '.':
-        if (m_prev_committed_char >= '0' && m_prev_committed_char <= '9')
+        if (m_prev_committed_char >= '0' && m_prev_committed_char <= '9') {
+            m_prev_committed_char = keyval;
             return FALSE;
-        else
+        } else {
+            commit ("，");
+            return TRUE;
+        }
+    case '.':
+        if (m_prev_committed_char >= '0' && m_prev_committed_char <= '9') {
+            m_prev_committed_char = keyval;
+            return FALSE;
+        } else {
             commit ("。");
-        return TRUE;
+            return TRUE;
+        }
     case '<':
         commit ("《"); return TRUE;
     case '>':
@@ -218,8 +234,10 @@ FallbackEditor::processKeyEvent (guint keyval, guint keycode, guint modifiers)
         case IBUS_a ... IBUS_z:
         case IBUS_A ... IBUS_Z:
             if (modifiers == 0) {
-                if (!m_props.modeFull ())
+                if (!m_props.modeFull ()) {
+                    m_prev_committed_char = keyval;
                     return FALSE;
+                }
 
                 commit (HalfFullConverter::toFull (keyval));
                 retval = TRUE;
@@ -250,7 +268,7 @@ FallbackEditor::processKeyEvent (guint keyval, guint keycode, guint modifiers)
             retval = processPunct ('-', keycode, modifiers);
             break;
         case IBUS_KP_Decimal:
-            retval = processPunct ('.', keycode, modifiers);
+            retval = FALSE;
             break;
         case IBUS_KP_Divide:
             retval = processPunct ('/', keycode, modifiers);
@@ -260,8 +278,10 @@ FallbackEditor::processKeyEvent (guint keyval, guint keycode, guint modifiers)
             keyval = IBUS_space;
         case IBUS_space:
             if (modifiers == 0) {
-                if (!m_props.modeFull ())
+                if (!m_props.modeFull ()) {
+                    m_prev_committed_char = keyval;
                     return FALSE;
+                }
 
                 commit ("　");
                 retval = TRUE;
@@ -271,6 +291,9 @@ FallbackEditor::processKeyEvent (guint keyval, guint keycode, guint modifiers)
         default:
             break;
     }
+
+    if (!retval)
+        m_prev_committed_char = keyval;
     return retval;
 }
 

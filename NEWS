@@ -1,0 +1,65 @@
+version 1.11.91
+* support compact display style
+* fixes remove user phrase
+
+version 1.11.1
+* use gettext
+* add emoji-candidate option
+* fixes SuggestionEditor
+
+version 1.11.0
+* fixes keypad decimal
+* fixes emoji candidates
+* support configurable opencc config
+
+version 1.10.92
+* fixes Enter handling
+
+version 1.10.91
+* support ime.register_trigger in lua extension
+* support predicted candidates
+* support emoji input
+
+version 1.10.0
+* bug fixes
+
+version 1.9.91
+* migrate to use GSettings
+* fixes lyx short cut issue
+
+version 1.9.3
+* translate input method name in ibus menu
+
+version 1.9.2
+* fixes pinyin and bopomofo config
+
+version 1.9.1
+* add sort candidate option to setup dialog
+
+version 1.9.0
+* bump version
+
+version 1.8.92
+* fixes config in setup dialog
+
+version 1.8.91
+* use libpinyin 1.9.91
+
+version 1.8.1
+* change dconf key name to lower case
+
+version 1.8.0
+* use libpinyin 1.6.0
+* fixes setup dialog
+
+version 1.7.91
+* use libpinyin 1.5.91
+* allow to remove the user phrase
+* enable lua script extension in double pinyin
+
+version 1.7.0
+* python 3.x migration
+* use opencc 1.0
+* remember every user input as new phrase
+* customize shortcut keys
+* support to export user phrases

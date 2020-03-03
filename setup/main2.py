@@ -99,6 +99,7 @@ class PreferencesDialog:
             #self.__init_cloud_input()
             self.__init_about()
             self.__convert_fuzzy_pinyin_to_bopomofo()
+            self.__display_style_box.hide()
 
         else:
             print("Error: Unknown Engine")
@@ -142,6 +143,8 @@ class PreferencesDialog:
         self.__init_trad = self.__builder.get_object("InitTraditionalChinese")
 
         # UI
+        self.__display_style = self.__builder.get_object("DisplayStyle")
+        self.__display_style_box = self.__builder.get_object("boxDisplayStyle")
         self.__lookup_table_orientation = self.__builder.get_object("LookupTableOrientation")
         self.__lookup_table_page_size = self.__builder.get_object("LookupTablePageSize")
 
@@ -158,6 +161,7 @@ class PreferencesDialog:
 
         self.__lookup_table_orientation.set_active(self.__get_value("lookup-table-orientation"))
         self.__lookup_table_page_size.set_value(self.__get_value("lookup-table-page-size"))
+        self.__display_style.set_active(self.__get_value("display-style"))
 
         self.__dynamic_adjust.set_active(self.__get_value("dynamic-adjust"))
         self.__remember_every_input.set_active(self.__get_value("remember-every-input"))
@@ -172,15 +176,19 @@ class PreferencesDialog:
         self.__remember_every_input.connect("toggled", self.__toggled_cb, "remember-every-input")
         self.__show_suggestion.connect("toggled", self.__toggled_cb, "show-suggestion")
 
-        def __lookup_table_page_size_changed_cb(adjustment):
-            self.__set_value("lookup-table-page-size", int(adjustment.get_value()))
+        def __display_size_changed_cb(widget):
+            self.__set_value("display-style", widget.get_active())
 
         def __lookup_table_orientation_changed_cb(widget):
             self.__set_value("lookup-table-orientation", widget.get_active())
 
+        def __lookup_table_page_size_changed_cb(adjustment):
+            self.__set_value("lookup-table-page-size", int(adjustment.get_value()))
+
         def __sort_candidate_option_changed_cb(widget):
             self.__set_value("sort-candidate-option", widget.get_active())
 
+        self.__display_style.connect("changed", __display_size_changed_cb)
         self.__lookup_table_orientation.connect("changed", __lookup_table_orientation_changed_cb)
         self.__lookup_table_page_size.connect("value-changed", __lookup_table_page_size_changed_cb)
         self.__sort_candidate_option.connect("changed", __sort_candidate_option_changed_cb)

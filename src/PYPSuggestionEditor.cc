@@ -35,7 +35,7 @@ SuggestionEditor::SuggestionEditor (PinyinProperties &props,
       m_lua_trigger_candidates (this),
       m_lua_converter_candidates (this),
 #endif
-      m_traditional_candidates (this)
+      m_traditional_candidates (this, config)
 {
     /* use m_text to store the prefix string. */
     m_text = "";
@@ -75,6 +75,10 @@ SuggestionEditor::processKeyEvent (guint keyval, guint keycode, guint modifiers)
 
     // handle enter here.
     if (keyval == IBUS_Return)
+        return FALSE;
+
+    // no suggestion candidates.
+    if (m_lookup_table.size () == 0)
         return FALSE;
 
     //handle page/cursor up/down here.

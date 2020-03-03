@@ -42,9 +42,11 @@ Config::initDefaultValues (void)
 {
     m_orientation = IBUS_ORIENTATION_HORIZONTAL;
     m_page_size = 5;
+    m_display_style = DISPLAY_STYLE_TRADITIONAL;
     m_remember_every_input = FALSE;
     m_sort_option = SORT_BY_PHRASE_LENGTH_AND_PINYIN_LENGTH_AND_FREQUENCY;
     m_show_suggestion = FALSE;
+    m_emoji_candidate = TRUE;
 
     m_shift_select_candidate = FALSE;
     m_minus_equal_page = TRUE;
@@ -61,10 +63,12 @@ Config::initDefaultValues (void)
 
     m_dictionaries = "";
     m_lua_converter = "";
+    m_opencc_config = "s2t.json";
 
     m_main_switch = "<Shift>";
     m_letter_switch = "";
     m_punct_switch = "<Control>period";
+    m_both_switch = "";
     m_trad_switch = "<Control><Shift>f";
     
     m_enable_cloud_input = FALSE;

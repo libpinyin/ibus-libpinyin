@@ -159,5 +159,11 @@ Editor::selectCandidateInternal (EnhancedCandidate & candidate)
     return SELECT_CANDIDATE_ALREADY_HANDLED;
 }
 
+gboolean
+Editor::removeCandidateInternal (EnhancedCandidate & candidate)
+{
+    return FALSE;
+}
+
 };
 

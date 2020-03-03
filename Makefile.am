@@ -38,7 +38,7 @@ DISTCHECK_CONFIGURE_FLAGS = \
 
 ACLOCAL_AMFLAGS = -I m4
 
-EXTRA_DIST = \
+EXTRA_DIST = config.rpath  \
 	autogen.sh \
 	ibus-libpinyin.spec.in \
 	$(NULL)

@@ -342,6 +342,9 @@ BopomofoEditor::commit (const gchar *str)
 void
 BopomofoEditor::updatePreeditText ()
 {
+    if (DISPLAY_STYLE_COMPACT == m_config.displayStyle ())
+        return;
+
     guint num = 0;
     pinyin_get_n_candidate (m_instance, &num);
 
@@ -391,13 +394,18 @@ BopomofoEditor::updatePreeditText ()
     guint cursor = getPinyinCursor ();
     pinyin_get_character_offset(m_instance, sentence, cursor, &offset);
     Editor::updatePreeditText (preedit_text, offset, TRUE);
+
+    g_free (sentence);
 }
 
 void
 BopomofoEditor::updateAuxiliaryText (void)
 {
     if (G_UNLIKELY (m_text.empty ())) {
-        hideAuxiliaryText ();
+        if (DISPLAY_STYLE_TRADITIONAL == m_config.displayStyle ())
+            hideAuxiliaryText ();
+        if (DISPLAY_STYLE_COMPACT == m_config.displayStyle ())
+            hidePreeditText ();
         return;
     }
 
@@ -413,6 +421,9 @@ BopomofoEditor::updateAuxiliaryText (void)
     m_buffer << p;
 
     StaticText text (m_buffer);
-    Editor::updateAuxiliaryText (text, TRUE);
+    if (DISPLAY_STYLE_TRADITIONAL == m_config.displayStyle ())
+        Editor::updateAuxiliaryText (text, TRUE);
+    if (DISPLAY_STYLE_COMPACT == m_config.displayStyle ())
+        Editor::updatePreeditText (text, 0, TRUE);
 }
 

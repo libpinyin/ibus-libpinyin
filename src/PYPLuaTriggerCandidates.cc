@@ -99,3 +99,12 @@ LuaTriggerCandidates::selectCandidate (EnhancedCandidate & enhanced)
 
     return SELECT_CANDIDATE_COMMIT;
 }
+
+gboolean
+LuaTriggerCandidates::removeCandidate (EnhancedCandidate & enhanced)
+{
+    assert (CANDIDATE_LUA_TRIGGER == enhanced.m_candidate_type);
+    assert (0 == enhanced.m_candidate_id);
+
+    return FALSE;
+}

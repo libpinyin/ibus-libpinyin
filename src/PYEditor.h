@@ -155,6 +155,7 @@ protected:
 
 protected:
     virtual int selectCandidateInternal (EnhancedCandidate & candidate);
+    virtual gboolean removeCandidateInternal (EnhancedCandidate & candidate);
 
     /* signals */
     signal <void (Text &)> m_signal_commit_text;

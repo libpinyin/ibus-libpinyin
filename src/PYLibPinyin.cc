@@ -291,6 +291,9 @@ LibPinyinBackEnd::exportPinyinDictionary (const char *filename)
 gboolean
 LibPinyinBackEnd::clearPinyinUserData (const char *target)
 {
+    if (NULL == m_pinyin_context)
+        return FALSE;
+
     if (0 == strcmp ("all", target)) {
         pinyin_mask_out (m_pinyin_context, 0x0, 0x0);
     } else if (0 == strcmp ("user", target)) {

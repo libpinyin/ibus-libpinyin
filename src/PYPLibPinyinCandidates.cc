@@ -111,6 +111,7 @@ LibPinyinCandidates::selectCandidate (EnhancedCandidate & enhanced)
         if (m_editor->m_config.rememberEveryInput ())
             LibPinyinBackEnd::instance ().rememberUserInput (instance, str);
         LibPinyinBackEnd::instance ().modified();
+        g_free (str);
 
         return SELECT_CANDIDATE_COMMIT;
     }
@@ -128,6 +129,7 @@ LibPinyinCandidates::selectCandidate (EnhancedCandidate & enhanced)
         if (m_editor->m_config.rememberEveryInput ())
             LibPinyinBackEnd::instance ().rememberUserInput (instance, str);
         LibPinyinBackEnd::instance ().modified ();
+        g_free (str);
 
         return SELECT_CANDIDATE_MODIFY_IN_PLACE|SELECT_CANDIDATE_COMMIT;
     }
@@ -140,4 +142,21 @@ LibPinyinCandidates::selectCandidate (EnhancedCandidate & enhanced)
     m_editor->m_cursor = begin;
 
     return SELECT_CANDIDATE_UPDATE;
+}
+
+gboolean
+LibPinyinCandidates::removeCandidate (EnhancedCandidate & enhanced)
+{
+    pinyin_instance_t * instance = m_editor->m_instance;
+
+    if (enhanced.m_candidate_type != CANDIDATE_USER)
+        return FALSE;
+
+    lookup_candidate_t * candidate = NULL;
+    guint index = enhanced.m_candidate_id;
+    pinyin_get_candidate (instance, index, &candidate);
+    assert (pinyin_is_user_candidate (instance, candidate));
+    pinyin_remove_user_candidate (instance, candidate);
+
+    return TRUE;
 }

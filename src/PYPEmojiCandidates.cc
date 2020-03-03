@@ -111,3 +111,12 @@ EmojiCandidates::selectCandidate (EnhancedCandidate & enhanced)
 
     return SELECT_CANDIDATE_COMMIT;
 }
+
+gboolean
+EmojiCandidates::removeCandidate (EnhancedCandidate & enhanced)
+{
+    assert (CANDIDATE_EMOJI == enhanced.m_candidate_type);
+    assert (0 == enhanced.m_candidate_id);
+
+    return FALSE;
+}

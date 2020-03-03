@@ -36,8 +36,6 @@
 
 #endif
 
-#define IBUS_ENGINE_PLUGIN_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), IBUS_TYPE_ENGINE_PLUGIN, IBusEnginePluginPrivate))
-
 struct _IBusEnginePluginPrivate{
   lua_State * L;
   GArray * lua_commands; /* Array of lua_command_t. */
@@ -46,7 +44,9 @@ struct _IBusEnginePluginPrivate{
   gchar * use_converter;
 };
 
-G_DEFINE_TYPE (IBusEnginePlugin, ibus_engine_plugin, G_TYPE_OBJECT);
+G_DEFINE_TYPE_WITH_CODE (IBusEnginePlugin, ibus_engine_plugin, G_TYPE_OBJECT, G_ADD_PRIVATE (IBusEnginePlugin));
+
+#define IBUS_ENGINE_PLUGIN_GET_PRIVATE(obj) (ibus_engine_plugin_get_instance_private (obj))
 
 static void lua_command_clone(lua_command_t * command, lua_command_t * new_command){
   new_command->command_name = g_strdup(command->command_name);
@@ -171,8 +171,6 @@ ibus_engine_plugin_class_init (IBusEnginePluginClass *klass)
   GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
 
   gobject_class->finalize = ibus_engine_plugin_finalize;
-
-  g_type_class_add_private (klass, sizeof (IBusEnginePluginPrivate));
 }
 
 static void
@@ -434,7 +432,7 @@ gchar * ibus_engine_plugin_get_first_result(IBusEnginePlugin * plugin){
     lua_pop(L, 2);
   }
 
-  return (const char *)result;
+  return (char *)result;
 }
 
 /**

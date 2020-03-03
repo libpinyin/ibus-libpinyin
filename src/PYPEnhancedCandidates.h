@@ -65,6 +65,7 @@ public:
     gboolean processCandidates (std::vector<EnhancedCandidate> & candidates);
 
     int selectCandidate (EnhancedCandidate & enhanced);
+    gboolean removeCandidate (EnhancedCandidate & enhanced);
 
 protected:
 
