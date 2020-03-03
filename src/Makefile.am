@@ -182,6 +182,7 @@ endif
 if ENABLE_CLOUD_INPUT_MODE
 ibus_engine_libpinyin_CXXFLAGS += \
 	@LIBSOUP_CFLAGS@ \
+	@JSONGLIB_CFLAGS@ \
 	-DENABLE_CLOUD_INPUT_MODE \
 	$(NULL)
 endif
@@ -189,6 +190,7 @@ endif
 if ENABLE_CLOUD_INPUT_MODE
 ibus_engine_libpinyin_LDADD += \
 	@LIBSOUP_LIBS@ \
+	@JSONGLIB_LIBS@ \
 	$(NULL)
 endif
 

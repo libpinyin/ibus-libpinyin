@@ -193,6 +193,11 @@ if test x"$enable_cloud_input_mode" = x"yes"; then
     PKG_CHECK_MODULES(LIBSOUP, [libsoup-2.4 >= 2.26])
     AC_SUBST(LIBSOUP_CFLAGS)
     AC_SUBST(LIBSOUP_LIBS)
+
+    # check json-glib
+    PKG_CHECK_MODULES(JSONGLIB, [json-glib-1.0 >= 1.4])
+    AC_SUBST(JSONGLIB_CFLAGS)
+    AC_SUBST(JSONGLIB_LIBS)
 fi
 AM_CONDITIONAL(ENABLE_CLOUD_INPUT_MODE, test x"$enable_cloud_input_mode" = x"yes")
 
