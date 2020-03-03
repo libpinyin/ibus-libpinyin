@@ -195,12 +195,6 @@ CloudCandidates::simpleProcessCloudResponse (GInputStream *stream, std::vector<E
     gchar buffer[BUFFERLENGTH];
     int length = g_input_stream_read (stream, buffer, BUFFERLENGTH, NULL, error);
 
-    while (length < 50)
-    {
-        printf("Retrying\n");
-        length += g_input_stream_read (stream, buffer + length, BUFFERLENGTH, NULL, error);
-    }
-
     buffer[length] = '\0';
 
     String res;
