@@ -185,7 +185,7 @@ CloudCandidates::cloudSyncRequest (const gchar* requestStr, std::vector<Enhanced
 
     GInputStream *stream = soup_session_send (m_session, msg, NULL, error);
 
-    simpleProcessCloudResponse(stream, candidates);
+    processCloudResponse(stream, candidates);
 }
 
 void
@@ -255,7 +255,7 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
     JsonNode *root;
     guint result_counter = 0;
 
-    if (json_parser_load_from_stream(parser, stream, NULL, error) && error == NULL)
+    if (!json_parser_load_from_stream(parser, stream, NULL, error) || error != NULL)
     {
         g_object_unref(parser);
         return;
