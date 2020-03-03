@@ -303,7 +303,15 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
 
         for(int i = 0; i < result_counter; ++i)
         {
-            m_candidates[i].m_display_string = json_array_get_string_element(baidu_candidate_array, i);
+            JsonArray *baidu_candidate = json_array_get_array_element(baidu_candidate_array, i);
+
+            if (json_array_get_length(baidu_candidate) < 1)
+            {
+                m_candidates[i].m_display_string = "...";
+                continue;
+            }
+
+            m_candidates[i].m_display_string = json_array_get_string_element(baidu_candidate, 0);
         }
     }
     else if (m_cloud_source == GOOGLE && JSON_NODE_TYPE(root) == JSON_NODE_ARRAY)
