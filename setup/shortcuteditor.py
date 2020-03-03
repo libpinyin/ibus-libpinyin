@@ -103,7 +103,7 @@ class ShortcutTreeView(Gtk.TreeView):
             if row[COLUMN_ACCELERATOR] == value:
                 dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.WARNING,
                                            Gtk.ButtonsType.OK,
-                                           _("This shortcut key is already used."))
+                                           _("This shortcut key is already in use."))
                 dialog.run()
                 dialog.destroy()
                 return False

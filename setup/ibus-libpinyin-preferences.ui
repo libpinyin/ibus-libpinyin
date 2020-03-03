@@ -601,7 +601,7 @@
                                 <property name="orientation">vertical</property>
                                 <child>
                                   <object class="GtkCheckButton" id="DynamicAdjust">
-                                    <property name="label" translatable="yes">Dynamic adjust the candidates order.</property>
+                                    <property name="label" translatable="yes">Dynamically adjust the candidates order.</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
@@ -1128,7 +1128,7 @@
                                 </child>
                                 <child>
                                   <object class="GtkCheckButton" id="CorrectPinyin">
-                                    <property name="label" translatable="yes">Enable correct pinyin</property>
+                                    <property name="label" translatable="yes">Enable pinyin correction</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
@@ -1856,7 +1856,7 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="valign">end</property>
-                                        <property name="label" translatable="yes">Tips: this changes may take effects after ime restarted.</property>
+                                        <property name="label" translatable="yes">Tips: Changes may not take effect until ime restarts.</property>
                                       </object>
                                       <packing>
                                         <property name="expand">True</property>
