@@ -49,28 +49,35 @@ CloudCandidates::~CloudCandidates ()
 gboolean
 CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
 {
+    EnhancedCandidate testCan;
+    const gchar *text = m_editor->m_text;
 
-    EnhancedCandidate testCan = candidates[m_first_cloud_candidate_position-1];
+    if (strlen (text) < m_min_cloud_trigger_length)
+        return FALSE;
+    
+    /* Validate candidate list length */
+    if (candidates.size() < m_first_cloud_candidate_position + m_cloud_candidates_number)
+        return FALSE;
+
     /*have cloud candidates already*/
+    testCan = candidates[m_first_cloud_candidate_position-1];
     if (testCan.m_candidate_type == CANDIDATE_CLOUD_INPUT)
         return FALSE;
 
-
     /* insert cloud candidates' placeholders */
     m_candidates.clear ();
-    for (guint i = 0; i != m_cloud_candidates_number; i++) {
+    for (guint i = 0; i < m_cloud_candidates_number; ++i) {
         EnhancedCandidate  enhanced;
         enhanced.m_display_string = "...";
         enhanced.m_candidate_type = CANDIDATE_CLOUD_INPUT;
         m_candidates.push_back (enhanced);
     }
-    candidates.insert (candidates.begin ()+m_first_cloud_candidate_position-1, m_candidates.begin(), m_candidates.end());
+    candidates.insert (candidates.begin () + m_first_cloud_candidate_position - 1, m_candidates.begin (), m_candidates.end ());
 
     if (! m_editor->m_config.doublePinyin ())
     {
-        const gchar *text = m_editor->m_text;
         if (strlen (text) >= m_min_cloud_trigger_length)
-            cloudSyncRequest (text, candidates);
+            cloudAsyncRequest (text, candidates);
     }
     else
     {
@@ -81,7 +88,7 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
         gchar *text=g_strjoinv ("",tempArray);
 
         if (strlen (text) >= m_min_cloud_trigger_length)
-            cloudSyncRequest (text, candidates);
+            cloudAsyncRequest (text, candidates);
 
         g_strfreev (tempArray);
         g_free (text);
@@ -168,8 +175,9 @@ CloudCandidates::cloudResponseCallBack (GObject *source_object, GAsyncResult *re
         }
     }
 
-    cloudCandidates->m_editor->update ();
-
+    cloudCandidates->m_editor->m_lookup_table.clear();
+    cloudCandidates->m_editor->fillLookupTable ();
+    cloudCandidates->m_editor->updateLookupTableFast ();
 }
 
 void
