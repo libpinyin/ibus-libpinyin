@@ -126,55 +126,12 @@ CloudCandidates::cloudResponseCallBack (GObject *source_object, GAsyncResult *re
 {
     GError **error = NULL;
     GInputStream *stream = soup_session_send_finish (SOUP_SESSION(source_object), result, error);
-
-    gchar buffer[BUFFERLENGTH];
-    error = NULL;
-    g_input_stream_read (stream, buffer, BUFFERLENGTH, NULL, error);
     CloudCandidates *cloudCandidates = static_cast<CloudCandidates *> (user_data);
 
-    String res;
-    res.clear ();
-    res.append (buffer);
+    /* Process results */
+    cloudCandidates->processCloudResponse(stream, cloudCandidates->m_editor->m_candidates);
 
-    if (res)
-    {
-        if (cloudCandidates->m_cloud_source == BAIDU)
-        {
-            /*BAIDU */
-            if (res[11]=='T')
-            {
-                if (res[49] !=']')
-                {   
-                    /*respond true , with results*/
-                    gchar **resultsArr = g_strsplit(res.data()+49, "],", 0);
-                    guint resultsArrLength = g_strv_length(resultsArr);
-                    for(int i = 0; i != resultsArrLength-1; ++i)
-                    {
-                        int end =strcspn(resultsArr[i], ",");
-                        std::string tmp = g_strndup(resultsArr[i]+2,end-3);
-                        cloudCandidates->m_candidates[i].m_display_string = tmp;
-                    }
-                }
-            }
-        }
-        else if (cloudCandidates->m_cloud_source == GOOGLE)
-        {
-            /*GOOGLE */
-            const gchar *tmp_res = res;
-            const gchar *prefix = "[\"SUCCESS\"";
-            if (g_str_has_prefix (tmp_res, prefix))
-            {
-                gchar **prefix_arr = g_strsplit (tmp_res, "\",[\"", -1);
-                gchar *prefix_str = prefix_arr[1];
-                gchar **suffix_arr = g_strsplit (prefix_str, "\"],", -1);
-                std::string tmp = suffix_arr[0];
-                cloudCandidates->m_candidates[0].m_display_string = tmp;
-                g_strfreev (prefix_arr);
-                g_strfreev (suffix_arr);
-            }
-        }
-    }
-
+    /* Regenerate lookup table */
     cloudCandidates->m_editor->m_lookup_table.clear();
     cloudCandidates->m_editor->fillLookupTable ();
     cloudCandidates->m_editor->updateLookupTableFast ();
