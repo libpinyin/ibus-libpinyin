@@ -87,6 +87,7 @@ private:
 
 public:
     BaiduCloudCandidatesResponseJsonParser() : CloudCandidatesResponseJsonParser() {}
+    ~BaiduCloudCandidatesResponseJsonParser() { if (m_annotation) g_free((gpointer)m_annotation); }
 };
 
 CloudCandidates::CloudCandidates (PhoneticEditor * editor)
@@ -391,7 +392,10 @@ guint BaiduCloudCandidatesResponseJsonParser::parseJsonResponse (JsonNode *root)
         return PARSER_INVALID_DATA;
 
     /* Update annotation with the returned annotation */
-    m_annotation = baidu_candidate_annotation;
+    m_annotation = NULL;
+    gchar **words = g_strsplit(baidu_candidate_annotation, "'", -1);
+    m_annotation = g_strjoinv("", words);
+    g_strfreev(words);
 
     result_counter = json_array_get_length(baidu_candidate_array);
 
