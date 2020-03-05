@@ -63,11 +63,9 @@ public:
 private:
     static void cloudResponseCallBack(GObject *object, GAsyncResult *result, gpointer user_data);
 
-    void simpleProcessCloudResponse(GInputStream *stream, std::vector<EnhancedCandidate> & candidates);
     void processCloudResponse(GInputStream *stream, std::vector<EnhancedCandidate> & candidates);
 private:
     SoupSession *m_session;
-    glong m_last_async_timestamp;
     
 protected:
     std::vector<EnhancedCandidate> m_candidates;
