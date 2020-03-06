@@ -245,7 +245,7 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
         delete parser;
 }
 
-CloudCandidatesResponseJsonParser::CloudCandidatesResponseJsonParser() : m_parser(NULL)
+CloudCandidatesResponseJsonParser::CloudCandidatesResponseJsonParser() : m_parser(NULL), m_annotation(NULL)
 {
     m_parser = json_parser_new();
 }
