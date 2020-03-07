@@ -50,8 +50,8 @@ public:
     
     int selectCandidate (EnhancedCandidate & enhanced);
     
-    void cloudAsyncRequest(const gchar* requestStr, std::vector<EnhancedCandidate> & candidates);
-    void cloudSyncRequest(const gchar* requestStr, std::vector<EnhancedCandidate> & candidates);
+    void cloudAsyncRequest (const gchar* requestStr, std::vector<EnhancedCandidate> & candidates);
+    void cloudSyncRequest (const gchar* requestStr, std::vector<EnhancedCandidate> & candidates);
     
     gboolean m_cloud_state;
     guint m_cloud_source;
@@ -61,9 +61,9 @@ public:
     gboolean m_cloud_flag;
     
 private:
-    static void cloudResponseCallBack(GObject *object, GAsyncResult *result, gpointer user_data);
+    static void cloudResponseCallBack (GObject *object, GAsyncResult *result, gpointer user_data);
 
-    void processCloudResponse(GInputStream *stream, std::vector<EnhancedCandidate> & candidates);
+    void processCloudResponse (GInputStream *stream, std::vector<EnhancedCandidate> & candidates);
 private:
     SoupSession *m_session;
     
