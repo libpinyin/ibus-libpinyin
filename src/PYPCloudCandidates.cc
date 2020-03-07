@@ -106,7 +106,7 @@ CloudCandidates::CloudCandidates (PhoneticEditor * editor)
     m_cloud_state = m_editor->m_config.enableCloudInput ();
     m_cloud_source = m_editor->m_config.cloudInputSource ();
     m_cloud_candidates_number = 1;
-    m_first_cloud_candidate_position = 3;
+    m_first_cloud_candidate_position = 2;
     m_min_cloud_trigger_length = 2;
     m_cloud_flag = FALSE;
 }
