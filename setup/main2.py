@@ -504,6 +504,14 @@ class PreferencesDialog:
         self.__cloud_candidates_number = self.__builder.get_object("CloudCandidatesNumber")
         self.__cloud_input_source = self.__builder.get_object("CloudInputSource")
 
+        # read values
+        self.__init_enable_cloud_input.set_active(self.__get_value("enable-cloud-input"))
+        
+        self.__candidates_order.set_value(self.__get_value("first-cloud-candidate-position"))
+        self.__cloud_candidates_number.set_value(self.__get_value("cloud-candidates-number"))
+        self.__minimum_trigger_length.set_value(self.__get_value("minimum-cloud-input-trigger-length"))
+        self.__cloud_input_source.set_active(self.__get_value("cloud-input-source"))
+
         if self.__init_enable_cloud_input.get_active():
             self.__cloud_input_source.set_sensitive(True)
             self.__minimum_trigger_length.set_sensitive(True)
@@ -514,14 +522,6 @@ class PreferencesDialog:
             self.__minimum_trigger_length.set_sensitive(False)
             self.__cloud_candidates_number.set_sensitive(False)
             self.__candidates_order.set_sensitive(False)
-
-        # read values
-        self.__init_enable_cloud_input.set_active(self.__get_value("enable-cloud-input"))
-        
-        self.__candidates_order.set_value(self.__get_value("first-cloud-candidate-position"))
-        self.__cloud_candidates_number.set_value(self.__get_value("cloud-candidates-number"))
-        self.__minimum_trigger_length.set_value(self.__get_value("minimum-cloud-input-trigger-length"))
-        self.__cloud_input_source.set_active(self.__get_value("cloud-input-source"))
         
         # connect signals
         def __enable_cloud_input_cb(widget):
