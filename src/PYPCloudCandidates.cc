@@ -3,6 +3,7 @@
  * ibus-libpinyin - Intelligent Pinyin engine based on libpinyin for IBus
  *
  * Copyright (c) 2018 linyu Xu <liannaxu07@gmail.com>
+ * Copyright (c) 2020 Weixuan XIAO <veyx.shaw@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
