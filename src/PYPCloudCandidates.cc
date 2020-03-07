@@ -195,9 +195,9 @@ CloudCandidates::cloudAsyncRequest (const gchar* requestStr, std::vector<Enhance
     GError **error = NULL;
     gchar *queryRequest;
     if (m_cloud_source == BAIDU)
-        queryRequest= g_strdup_printf("http://olime.baidu.com/py?input=%s&inputtype=py&bg=0&ed=%d&result=hanzi&resultcoding=utf-8&ch_en=1&clientinfo=web&version=1",requestStr, m_cloud_candidates_number);
+        queryRequest= g_strdup_printf("http://olime.baidu.com/py?input=%s&inputtype=py&bg=0&ed=%d&result=hanzi&resultcoding=utf-8&ch_en=1&clientinfo=web&version=1", requestStr, m_cloud_candidates_number);
     else if (m_cloud_source == GOOGLE)
-        queryRequest= g_strdup_printf("https://www.google.com/inputtools/request?ime=pinyin&text=%s",requestStr);
+        queryRequest= g_strdup_printf("https://www.google.com/inputtools/request?ime=pinyin&text=%s&num=%d", requestStr, m_cloud_candidates_number);
     SoupMessage *msg = soup_message_new ("GET", queryRequest);
     soup_session_send_async (m_session, msg, NULL, cloudResponseCallBack, static_cast<gpointer> (this));
 }
@@ -227,9 +227,9 @@ CloudCandidates::cloudSyncRequest (const gchar* requestStr, std::vector<Enhanced
     GError **error = NULL;
     gchar *queryRequest;
     if (m_cloud_source == BAIDU)
-        queryRequest= g_strdup_printf ("http://olime.baidu.com/py?input=%s&inputtype=py&bg=0&ed=%d&result=hanzi&resultcoding=utf-8&ch_en=1&clientinfo=web&version=1",requestStr, m_cloud_candidates_number);
+        queryRequest= g_strdup_printf ("http://olime.baidu.com/py?input=%s&inputtype=py&bg=0&ed=%d&result=hanzi&resultcoding=utf-8&ch_en=1&clientinfo=web&version=1", requestStr, m_cloud_candidates_number);
     else if (m_cloud_source == GOOGLE)
-        queryRequest= g_strdup_printf ("https://www.google.com/inputtools/request?ime=pinyin&text=%s",requestStr);
+        queryRequest= g_strdup_printf ("https://www.google.com/inputtools/request?ime=pinyin&text=%s&num=%d", requestStr, m_cloud_candidates_number);
     SoupMessage *msg = soup_message_new ("GET", queryRequest);
 
     GInputStream *stream = soup_session_send (m_session, msg, NULL, error);
