@@ -34,8 +34,16 @@ enum CandidateResponseParserError {
     PARSER_INVALID_DATA,
     PARSER_BAD_FORMAT,
     PARSER_NO_CANDIDATE,
+    PARSER_NETWORK_ERROR,
     PARSER_UNKNOWN
 };
+
+static const std::string CANDIDATE_CLOUD_PREFIX = "☁";
+
+static const std::string CANDIDATE_PENDING_TEXT = CANDIDATE_CLOUD_PREFIX + "...";
+static const std::string CANDIDATE_NO_CANDIDATE_TEXT = CANDIDATE_CLOUD_PREFIX + "[No Candidate]";
+static const std::string CANDIDATE_INVALID_DATA_TEXT = CANDIDATE_CLOUD_PREFIX + "[Invalid Data]";
+static const std::string CANDIDATE_BAD_FORMAT_TEXT = CANDIDATE_CLOUD_PREFIX + "[Bad Format]";
 
 class CloudCandidatesResponseParser
 {
@@ -128,8 +136,8 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
     /* insert cloud candidates' placeholders */
     m_candidates.clear ();
     for (guint i = 0; i < m_cloud_candidates_number; ++i) {
-        EnhancedCandidate  enhanced;
-        enhanced.m_display_string = "...";
+        EnhancedCandidate enhanced;
+        enhanced.m_display_string = CANDIDATE_PENDING_TEXT;
         enhanced.m_candidate_type = CANDIDATE_CLOUD_INPUT;
         m_candidates.push_back (enhanced);
     }
@@ -163,8 +171,20 @@ CloudCandidates::selectCandidate (EnhancedCandidate & enhanced)
 {
     assert (CANDIDATE_CLOUD_INPUT == enhanced.m_candidate_type);
 
-    if (enhanced.m_display_string == "...")
+    if (enhanced.m_display_string == CANDIDATE_PENDING_TEXT ||
+        enhanced.m_display_string == CANDIDATE_BAD_FORMAT_TEXT ||
+        enhanced.m_display_string == CANDIDATE_INVALID_DATA_TEXT)
         return SELECT_CANDIDATE_ALREADY_HANDLED;
+
+    /* Detect Candidate Prefix and remove it */
+    std::string::iterator i = enhanced.m_display_string.begin();
+    std::string::const_iterator j = CANDIDATE_CLOUD_PREFIX.cbegin();
+    for (; j != CANDIDATE_CLOUD_PREFIX.cend(); ++i, ++j)
+        if (*i != *j)
+            break;
+
+    if (j == CANDIDATE_CLOUD_PREFIX.cend())
+        enhanced.m_display_string.erase(enhanced.m_display_string.begin(), i);
 
     return SELECT_CANDIDATE_COMMIT;
 }
@@ -192,10 +212,13 @@ CloudCandidates::cloudResponseCallBack (GObject *source_object, GAsyncResult *re
     /* Process results */
     cloudCandidates->processCloudResponse(stream, cloudCandidates->m_editor->m_candidates);
 
-    /* Regenerate lookup table */
-    cloudCandidates->m_editor->m_lookup_table.clear();
-    cloudCandidates->m_editor->fillLookupTable ();
-    cloudCandidates->m_editor->updateLookupTableFast ();
+    if (strlen (cloudCandidates->m_editor->m_text) >= cloudCandidates->m_min_cloud_trigger_length)
+    {
+        /* Regenerate lookup table */
+        cloudCandidates->m_editor->m_lookup_table.clear();
+        cloudCandidates->m_editor->fillLookupTable ();
+        cloudCandidates->m_editor->updateLookupTableFast ();
+    }
 }
 
 void
@@ -227,17 +250,64 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
 
     ret_code = parser->parse(stream);
 
-    if (!g_strcmp0(parser->getAnnotation(), m_editor->m_text))
+    if (ret_code == PARSER_NETWORK_ERROR)
     {
-        /* Update to the candidates list */
-        std::vector<std::string> &updated_candidates = parser->getStringCandidates();
         m_candidates.clear();
-        for (guint i = 0; i < m_cloud_candidates_number && i < updated_candidates.size(); ++i)
+        for (guint i = 0; i < m_cloud_candidates_number; ++i)
         {
             EnhancedCandidate & enhanced = candidates[i + m_first_cloud_candidate_position - 1];
-            enhanced.m_display_string = updated_candidates[i];
+            enhanced.m_display_string = CANDIDATE_INVALID_DATA_TEXT;
             enhanced.m_candidate_type = CANDIDATE_CLOUD_INPUT;
             m_candidates.push_back(enhanced);
+        }
+    }
+    else if (!g_strcmp0(parser->getAnnotation(), m_editor->m_text))
+    {
+        if (ret_code == PARSER_NOERR)
+        {
+            /* Update to the candidates list */
+            std::vector<std::string> &updated_candidates = parser->getStringCandidates();
+            m_candidates.clear();
+            for (guint i = 0; i < m_cloud_candidates_number && i < updated_candidates.size(); ++i)
+            {
+                EnhancedCandidate & enhanced = candidates[i + m_first_cloud_candidate_position - 1];
+                enhanced.m_display_string = CANDIDATE_CLOUD_PREFIX + updated_candidates[i];
+                enhanced.m_candidate_type = CANDIDATE_CLOUD_INPUT;
+                m_candidates.push_back(enhanced);
+            }
+        }
+        else if (ret_code == PARSER_NO_CANDIDATE)
+        {
+            m_candidates.clear();
+            for (guint i = 0; i < m_cloud_candidates_number; ++i)
+            {
+                EnhancedCandidate & enhanced = candidates[i + m_first_cloud_candidate_position - 1];
+                enhanced.m_display_string = CANDIDATE_NO_CANDIDATE_TEXT;
+                enhanced.m_candidate_type = CANDIDATE_CLOUD_INPUT;
+                m_candidates.push_back(enhanced);
+            }
+        }
+        else if (ret_code == PARSER_INVALID_DATA)
+        {
+            m_candidates.clear();
+            for (guint i = 0; i < m_cloud_candidates_number; ++i)
+            {
+                EnhancedCandidate & enhanced = candidates[i + m_first_cloud_candidate_position - 1];
+                enhanced.m_display_string = CANDIDATE_INVALID_DATA_TEXT;
+                enhanced.m_candidate_type = CANDIDATE_CLOUD_INPUT;
+                m_candidates.push_back(enhanced);
+            }
+        }
+        else if (ret_code == PARSER_BAD_FORMAT)
+        {
+            m_candidates.clear();
+            for (guint i = 0; i < m_cloud_candidates_number; ++i)
+            {
+                EnhancedCandidate & enhanced = candidates[i + m_first_cloud_candidate_position - 1];
+                enhanced.m_display_string = CANDIDATE_BAD_FORMAT_TEXT;
+                enhanced.m_candidate_type = CANDIDATE_CLOUD_INPUT;
+                m_candidates.push_back(enhanced);
+            }
         }
     }
 
@@ -278,13 +348,13 @@ guint CloudCandidatesResponseJsonParser::parse (GInputStream *stream)
     GError **error = NULL;
 
     if (!stream)
-        return PARSER_INVALID_DATA;
+        return PARSER_NETWORK_ERROR;
 
     // Parse Json from input steam
     if (!json_parser_load_from_stream(m_parser, stream, NULL, error) || error != NULL)
     {
         g_input_stream_close(stream, NULL, error);  // Close stream to release libsoup connexion
-        return PARSER_INVALID_DATA;
+        return PARSER_BAD_FORMAT;
     }
     g_input_stream_close(stream, NULL, error);  // Close stream to release libsoup connexion
 
@@ -296,11 +366,11 @@ guint CloudCandidatesResponseJsonParser::parse (const gchar *data)
     GError **error = NULL;
 
     if (!data)
-        return PARSER_INVALID_DATA;
+        return PARSER_NETWORK_ERROR;
 
     /* Parse Json from data */
     if (!json_parser_load_from_data(m_parser, data, strlen(data), error) || error != NULL)
-        return PARSER_INVALID_DATA;
+        return PARSER_BAD_FORMAT;
 
     return parseJsonResponse(json_parser_get_root(m_parser));
 }
@@ -308,7 +378,7 @@ guint CloudCandidatesResponseJsonParser::parse (const gchar *data)
 guint GoogleCloudCandidatesResponseJsonParser::parseJsonResponse (JsonNode *root)
 {
     if (!JSON_NODE_HOLDS_ARRAY(root))
-        return PARSER_INVALID_DATA;
+        return PARSER_BAD_FORMAT;
 
     /* Validate Google source and the structure of response */
     JsonArray *google_root_array = json_node_get_array(root);
@@ -362,7 +432,7 @@ guint GoogleCloudCandidatesResponseJsonParser::parseJsonResponse (JsonNode *root
 guint BaiduCloudCandidatesResponseJsonParser::parseJsonResponse (JsonNode *root)
 {
     if (!JSON_NODE_HOLDS_OBJECT(root))
-        return PARSER_INVALID_DATA;
+        return PARSER_BAD_FORMAT;
 
     /* Validate Baidu source and the structure of response */
     JsonObject *baidu_root_object = json_node_get_object(root);
@@ -408,7 +478,7 @@ guint BaiduCloudCandidatesResponseJsonParser::parseJsonResponse (JsonNode *root)
         JsonArray *baidu_candidate = json_array_get_array_element(baidu_candidate_array, i);
 
         if (json_array_get_length(baidu_candidate) < 1)
-            candidate = "...";
+            candidate = CANDIDATE_INVALID_DATA_TEXT;
         else
             candidate = json_array_get_string_element(baidu_candidate, 0);
 

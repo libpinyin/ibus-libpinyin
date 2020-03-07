@@ -58,7 +58,6 @@ public:
     guint m_first_cloud_candidate_position;
     guint m_min_cloud_trigger_length;
     gboolean m_cloud_flag;
-
     
 private:
     static void cloudResponseCallBack(GObject *object, GAsyncResult *result, gpointer user_data);
