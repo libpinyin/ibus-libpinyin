@@ -48,14 +48,19 @@ static const std::string CANDIDATE_BAD_FORMAT_TEXT = CANDIDATE_CLOUD_PREFIX + "[
 class CloudCandidatesResponseParser
 {
 public:
-    CloudCandidatesResponseParser() {}
+    CloudCandidatesResponseParser() : m_annotation(NULL) {}
     virtual ~CloudCandidatesResponseParser() {}
 
     virtual guint parse(GInputStream *stream) = 0;
     virtual guint parse(const gchar *data) = 0;
 
-    virtual std::vector<std::string> &getStringCandidates() = 0;
-    virtual std::vector<EnhancedCandidate> getCandidates() = 0;
+    virtual std::vector<std::string> &getStringCandidates() { return m_candidates; }
+    virtual std::vector<EnhancedCandidate> getCandidates();
+    virtual const gchar *getAnnotation() { return m_annotation; }
+
+protected:
+    std::vector<std::string> m_candidates;
+    const gchar *m_annotation;
 };
 
 class CloudCandidatesResponseJsonParser : public CloudCandidatesResponseParser
@@ -64,17 +69,11 @@ public:
     CloudCandidatesResponseJsonParser();
     virtual ~CloudCandidatesResponseJsonParser();
 
-    std::vector<std::string> &getStringCandidates() { return m_candidates; }
-    std::vector<EnhancedCandidate> getCandidates();
-    const gchar *getAnnotation() { return m_annotation; }
-
     guint parse(GInputStream *stream);
     guint parse(const gchar *data);
 
 protected:
     JsonParser *m_parser;
-    std::vector<std::string> m_candidates;
-    const gchar *m_annotation;
 
     virtual guint parseJsonResponse(JsonNode *root) = 0;
 };
@@ -315,19 +314,7 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
         delete parser;
 }
 
-CloudCandidatesResponseJsonParser::CloudCandidatesResponseJsonParser() : m_parser(NULL), m_annotation(NULL)
-{
-    m_parser = json_parser_new();
-}
-
-CloudCandidatesResponseJsonParser::~CloudCandidatesResponseJsonParser()
-{
-    /* Free json parser object if necessary */
-    if (m_parser)
-        g_object_unref(m_parser);
-}
-
-std::vector<EnhancedCandidate> CloudCandidatesResponseJsonParser::getCandidates ()
+std::vector<EnhancedCandidate> CloudCandidatesResponseParser::getCandidates ()
 {
     std::vector<EnhancedCandidate> candidates;
 
@@ -342,6 +329,17 @@ std::vector<EnhancedCandidate> CloudCandidatesResponseJsonParser::getCandidates 
     return candidates;
 }
 
+CloudCandidatesResponseJsonParser::CloudCandidatesResponseJsonParser() : m_parser(NULL)
+{
+    m_parser = json_parser_new();
+}
+
+CloudCandidatesResponseJsonParser::~CloudCandidatesResponseJsonParser()
+{
+    /* Free json parser object if necessary */
+    if (m_parser)
+        g_object_unref(m_parser);
+}
 
 guint CloudCandidatesResponseJsonParser::parse (GInputStream *stream)
 {
