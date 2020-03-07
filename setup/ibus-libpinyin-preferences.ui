@@ -2337,7 +2337,7 @@
                                     <property name="homogeneous">True</property>
                                     <child>
                                       <object class="GtkLabel" id="label37">
-                                        <property name="visible">False</property>
+                                        <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="label" translatable="yes">Position of First Cloud Candidate:</property>
                                         <property name="use_markup">True</property>
@@ -2351,7 +2351,7 @@
                                     </child>
                                     <child>
                                       <object class="GtkHScale" id="FirstCloudCandidatePosition">
-                                        <property name="visible">False</property>
+                                        <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="adjustment">FirstCloudCandidatePositionStart</property>
                                         <property name="digits">0</property>
@@ -2378,7 +2378,7 @@
                                     <property name="homogeneous">True</property>
                                     <child>
                                       <object class="GtkLabel" id="label38">
-                                        <property name="visible">False</property>
+                                        <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="label" translatable="yes">Minimum of Cloud Input Trigger Length:</property>
                                         <property name="use_markup">True</property>
@@ -2392,7 +2392,7 @@
                                     </child>
                                     <child>
                                       <object class="GtkHScale" id="MinimumTriggerLength">
-                                        <property name="visible">False</property>
+                                        <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="adjustment">MinimumCloudInputTriggerLength</property>
                                         <property name="digits">0</property>
@@ -2419,7 +2419,7 @@
                                     <property name="homogeneous">True</property>
                                     <child>
                                       <object class="GtkLabel" id="label39">
-                                        <property name="visible">False</property>
+                                        <property name="visible">True</property>
                                         <property name="can_focus">true</property>
                                         <property name="label" translatable="yes">Number of Cloud Candidates</property>
                                         <property name="use_markup">True</property>
@@ -2433,7 +2433,7 @@
                                     </child>
                                     <child>
                                       <object class="GtkHScale" id="CloudCandidatesNumber">
-                                        <property name="visible">False</property>
+                                        <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="adjustment">DisplayCloudCandidatesNumber</property>
                                         <property name="digits">0</property>
