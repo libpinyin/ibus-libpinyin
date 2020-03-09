@@ -119,13 +119,9 @@ gboolean
 CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
 {
     EnhancedCandidate testCan;
-    const gchar *text = m_editor->m_text;
-
-    if (strlen (text) < m_min_cloud_trigger_length)
-        return FALSE;
     
     /* Validate candidate list length */
-    if (candidates.size () < m_first_cloud_candidate_position + m_cloud_candidates_number)
+    if (candidates.size () < m_first_cloud_candidate_position)
         return FALSE;
 
     /*have cloud candidates already*/
@@ -145,6 +141,7 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
 
     if (! m_editor->m_config.doublePinyin ())
     {
+        const gchar *text = m_editor->m_text;
         if (strlen (text) >= m_min_cloud_trigger_length)
             cloudAsyncRequest (text, candidates);
     }
@@ -154,7 +151,7 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
         String stripped = m_editor->m_buffer;
         const gchar *temp= stripped;
         gchar** tempArray =  g_strsplit_set (temp, " |", -1);
-        gchar *text=g_strjoinv ("",tempArray);
+        gchar *text = g_strjoinv ("", tempArray);
 
         if (strlen (text) >= m_min_cloud_trigger_length)
             cloudAsyncRequest (text, candidates);
@@ -242,6 +239,8 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
 {
     guint ret_code;
     CloudCandidatesResponseJsonParser *parser = NULL;
+    const gchar *text = NULL;
+    gchar *double_pinyin_text = NULL;
 
     if (m_cloud_source == BAIDU)
         parser = new BaiduCloudCandidatesResponseJsonParser ();
@@ -249,6 +248,21 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
         parser = new GoogleCloudCandidatesResponseJsonParser ();
 
     ret_code = parser->parse (stream);
+
+    if (! m_editor->m_config.doublePinyin ())
+    {
+        /* Get current text in editor */
+        text = m_editor->m_text;
+    }
+    else
+    {
+        /* Get current double pinyin text */
+        String stripped = m_editor->m_buffer;
+        const gchar *temp= stripped;
+        gchar** tempArray =  g_strsplit_set (temp, " |", -1);
+        double_pinyin_text = g_strjoinv ("", tempArray);
+        g_strfreev (tempArray);
+    }
 
     if (ret_code == PARSER_NETWORK_ERROR)
     {
@@ -261,7 +275,7 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
             m_candidates.push_back (enhanced);
         }
     }
-    else if (!g_strcmp0 (parser->getAnnotation (), m_editor->m_text))
+    else if (!g_strcmp0 (parser->getAnnotation (), text) || !g_strcmp0 (parser->getAnnotation (), double_pinyin_text))
     {
         if (ret_code == PARSER_NOERR)
         {
@@ -313,6 +327,9 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
 
     if (parser)
         delete parser;
+
+    if (double_pinyin_text)
+        g_free (double_pinyin_text);
 }
 
 std::vector<EnhancedCandidate> CloudCandidatesResponseParser::getCandidates ()
