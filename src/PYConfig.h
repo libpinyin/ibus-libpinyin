@@ -39,6 +39,11 @@ typedef enum {
     DISPLAY_STYLE_COMPACT
 } DisplayStyle;
 
+enum CloudInputSource{
+    BAIDU = 0,
+    GOOGLE
+};
+
 class Config {
 protected:
     Config (const std::string & name);
@@ -78,6 +83,22 @@ public:
     std::string bothSwitch (void) const         { return m_both_switch; }
     std::string tradSwitch (void) const         { return m_trad_switch; }
     std::string openccConfig (void) const       { return m_opencc_config; }
+
+    gboolean enableCloudInput (void) const      { return m_enable_cloud_input; }
+    guint cloudInputSource (void) const         { return m_cloud_input_source; }
+    guint minCloudInputTriggerLen (void) const  { return m_min_cloud_input_trigger_len; }
+    guint cloudCandidatesNumber (void) const    { return m_cloud_candidates_number; }
+    guint firstCloudCandidatePos (void) const   { return m_first_cloud_candidate_pos; }
+    
+    void disableCloudInput(void);
+
+    gboolean enableCloudInput (void) const      { return m_enable_cloud_input; }
+    guint cloudInputSource (void) const         { return m_cloud_input_source; }
+    guint minCloudInputTriggerLen (void) const  { return m_min_cloud_input_trigger_len; }
+    guint cloudCandidatesNumber (void) const    { return m_cloud_candidates_number; }
+    guint firstCloudCandidatePos (void) const   { return m_first_cloud_candidate_pos; }
+    
+    void disableCloudInput(void);
 
 protected:
     bool read (const gchar * name, bool defval);
@@ -138,6 +159,11 @@ protected:
     std::string m_both_switch;
     std::string m_trad_switch;
 
+    gboolean m_enable_cloud_input;
+    guint m_cloud_input_source;
+    guint m_min_cloud_input_trigger_len;
+    guint m_cloud_candidates_number;
+    guint m_first_cloud_candidate_pos;
 };
 
 
