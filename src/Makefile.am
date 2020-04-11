@@ -105,6 +105,15 @@ ibus_engine_libpinyin_c_sources += \
 	$(NULL)
 endif
 
+if ENABLE_CLOUD_INPUT_MODE
+ibus_engine_libpinyin_h_sources += \
+	PYPCloudCandidates.h \
+	$(NULL)
+ibus_engine_libpinyin_c_sources += \
+	PYPCloudCandidates.cc \
+	$(NULL)
+endif
+
 if IBUS_BUILD_STROKE_INPUT_MODE
 ibus_engine_libpinyin_c_sources += PYStrokeEditor.cc
 endif
@@ -166,6 +175,21 @@ if IBUS_BUILD_LUA_EXTENSION
 	@LUA_LIBS@ \
 	-L../lua/ \
 	-lpylua \
+	$(NULL)
+endif
+
+if ENABLE_CLOUD_INPUT_MODE
+ibus_engine_libpinyin_CXXFLAGS += \
+	@LIBSOUP_CFLAGS@ \
+	@JSONGLIB_CFLAGS@ \
+	-DENABLE_CLOUD_INPUT_MODE \
+	$(NULL)
+endif
+
+if ENABLE_CLOUD_INPUT_MODE
+ibus_engine_libpinyin_LDADD += \
+	@LIBSOUP_LIBS@ \
+	@JSONGLIB_LIBS@ \
 	$(NULL)
 endif
 
