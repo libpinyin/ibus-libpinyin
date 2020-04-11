@@ -209,6 +209,22 @@
       <default>0</default>
       <summary>End Timestamp for Network Dictionary</summary>
     </key>
+    <key name="enable-cloud-input" type="b">
+      <default>false</default>
+      <summary>Enable Cloud Input</summary>
+    </key>
+    <key name="cloud-input-source" type="i">
+      <default>0</default>
+      <summary>Cloud Input Source</summary>
+    </key>
+    <key name="cloud-candidates-number" type="i">
+      <default>1</default>
+      <summary>Cloud Candidates Number</summary>
+    </key>
+    <key name="cloud-request-delay-time" type="i">
+      <default>600</default>
+      <summary>Sending Cloud request with delay</summary>
+    </key>
   </schema>
   <schema path="/com/github/libpinyin/ibus-libpinyin/libbopomofo/" id="com.github.libpinyin.ibus-libpinyin.libbopomofo">
     <key name="auxiliary-select-key-f" type="i">
@@ -366,6 +382,22 @@
     <key name="network-dictionary-end-timestamp" type="x">
       <default>0</default>
       <summary>End Timestamp for Network Dictionary</summary>
+    </key>
+    <key name="enable-cloud-input" type="b">
+      <default>false</default>
+      <summary>Enable Cloud Input</summary>
+    </key>
+    <key name="cloud-input-source" type="i">
+      <default>0</default>
+      <summary>Cloud Input Source</summary>
+    </key>
+    <key name="cloud-candidates-number" type="i">
+      <default>1</default>
+      <summary>Cloud Candidates Number</summary>
+    </key>
+    <key name="cloud-request-delay-time" type="i">
+      <default>600</default>
+      <summary>Sending Cloud request with delay</summary>
     </key>
   </schema>
 </schemalist>
