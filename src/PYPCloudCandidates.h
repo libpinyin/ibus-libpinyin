@@ -62,14 +62,10 @@ public:
 
     guint m_cloud_source;
     guint m_cloud_candidates_number;
-    guint m_min_cloud_trigger_length;
-    gboolean m_cloud_flag;
     guint m_delayed_time;
     guint m_source_thread_id;
     SoupMessage *m_message;
-    std::vector<EnhancedCandidate>::iterator m_cloud_candidates_first_pos;
-    std::vector<EnhancedCandidate>::iterator m_candidates_end_pos;
-    
+    gchar *m_last_requested_pinyin;
 private:
     static gboolean delayedCloudAsyncRequestCallBack (gpointer user_data);
     static void delayedCloudAsyncRequestDestroyCallBack (gpointer user_data);
