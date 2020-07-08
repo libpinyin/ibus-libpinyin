@@ -88,8 +88,37 @@ public:
     CloudCandidatesResponseJsonParser ();
     virtual ~CloudCandidatesResponseJsonParser ();
 
-    guint parse (GInputStream *stream);
-    guint parse (const gchar *data);
+    guint parse (GInputStream *stream)
+    {
+        GError **error = NULL;
+
+        if (!stream)
+            return PARSER_NETWORK_ERROR;
+
+        /* parse Json from input steam */
+        if (!json_parser_load_from_stream (m_parser, stream, NULL, error) || error != NULL)
+        {
+            g_input_stream_close (stream, NULL, error);  /* Close stream to release libsoup connexion */
+            return PARSER_BAD_FORMAT;
+        }
+        g_input_stream_close (stream, NULL, error);  /* Close stream to release libsoup connexion */
+
+        return parseJsonResponse (json_parser_get_root (m_parser));
+    }
+
+    guint parse (const gchar *data)
+    {
+        GError **error = NULL;
+
+        if (!data)
+            return PARSER_NETWORK_ERROR;
+
+        /* parse Json from data */
+        if (!json_parser_load_from_data (m_parser, data, strlen (data), error) || error != NULL)
+            return PARSER_BAD_FORMAT;
+
+        return parseJsonResponse (json_parser_get_root (m_parser));
+    }
 
 protected:
     JsonParser *m_parser;
@@ -100,7 +129,59 @@ protected:
 class GoogleCloudCandidatesResponseJsonParser : public CloudCandidatesResponseJsonParser
 {
 protected:
-    guint parseJsonResponse (JsonNode *root);
+    guint parseJsonResponse (JsonNode *root)
+    {
+        if (!JSON_NODE_HOLDS_ARRAY (root))
+            return PARSER_BAD_FORMAT;
+
+        /* validate Google source and the structure of response */
+        JsonArray *google_root_array = json_node_get_array (root);
+
+        const gchar *google_response_status;
+        JsonArray *google_response_array;
+        JsonArray *google_result_array;
+        const gchar *google_candidate_annotation;
+        JsonArray *google_candidate_array;
+        guint result_counter;
+
+        if (json_array_get_length (google_root_array) <= 1)
+            return PARSER_INVALID_DATA;
+
+        google_response_status = json_array_get_string_element (google_root_array, 0);
+
+        if (g_strcmp0 (google_response_status, "SUCCESS"))
+            return PARSER_INVALID_DATA;
+
+        google_response_array = json_array_get_array_element (google_root_array, 1);
+
+        if (json_array_get_length (google_response_array) < 1)
+            return PARSER_INVALID_DATA;
+
+        google_result_array = json_array_get_array_element (google_response_array, 0);
+
+        google_candidate_annotation = json_array_get_string_element (google_result_array, 0);
+
+        if (!google_candidate_annotation)
+            return PARSER_INVALID_DATA;
+
+        /* update annotation with the returned annotation */
+        m_annotation = google_candidate_annotation;
+
+        google_candidate_array = json_array_get_array_element (google_result_array, 1);
+
+        result_counter = json_array_get_length (google_candidate_array);
+
+        if (result_counter < 1)
+            return PARSER_NO_CANDIDATE;
+
+        for (guint i = 0; i < result_counter; ++i)
+        {
+            std::string candidate = json_array_get_string_element (google_candidate_array, i);
+            m_candidates.push_back (candidate);
+        }
+
+        return PARSER_NOERR;
+    }
 
 public:
     GoogleCloudCandidatesResponseJsonParser () : CloudCandidatesResponseJsonParser () {}
@@ -109,7 +190,64 @@ public:
 class BaiduCloudCandidatesResponseJsonParser : public CloudCandidatesResponseJsonParser
 {
 private:
-    guint parseJsonResponse (JsonNode *root);
+    guint parseJsonResponse (JsonNode *root)
+    {
+        if (!JSON_NODE_HOLDS_OBJECT (root))
+            return PARSER_BAD_FORMAT;
+
+        /* validate Baidu source and the structure of response */
+        JsonObject *baidu_root_object = json_node_get_object (root);
+        const gchar *baidu_response_status;
+        JsonArray *baidu_result_array;
+        JsonArray *baidu_candidate_array;
+        const gchar *baidu_candidate_annotation;
+        guint result_counter;
+
+        if (!json_object_has_member (baidu_root_object, "status"))
+            return PARSER_INVALID_DATA;
+
+        baidu_response_status = json_object_get_string_member (baidu_root_object, "status");
+
+        if (g_strcmp0 (baidu_response_status, "T"))
+            return PARSER_INVALID_DATA;
+
+        if (!json_object_has_member (baidu_root_object, "result"))
+            return PARSER_INVALID_DATA;
+
+        baidu_result_array = json_object_get_array_member (baidu_root_object, "result");
+
+        baidu_candidate_array = json_array_get_array_element (baidu_result_array, 0);
+        baidu_candidate_annotation = json_array_get_string_element (baidu_result_array, 1);
+
+        if (!baidu_candidate_annotation)
+            return PARSER_INVALID_DATA;
+
+        /* update annotation with the returned annotation */
+        m_annotation = NULL;
+        gchar **words = g_strsplit (baidu_candidate_annotation, "'", -1);
+        m_annotation = g_strjoinv ("", words);
+        g_strfreev (words);
+
+        result_counter = json_array_get_length (baidu_candidate_array);
+
+        if (result_counter < 1)
+            return PARSER_NO_CANDIDATE;
+
+        for (guint i = 0; i < result_counter; ++i)
+        {
+            std::string candidate;
+            JsonArray *baidu_candidate = json_array_get_array_element (baidu_candidate_array, i);
+
+            if (json_array_get_length (baidu_candidate) < 1)
+                candidate = CANDIDATE_INVALID_DATA_TEXT;
+            else
+                candidate = json_array_get_string_element (baidu_candidate, 0);
+
+            m_candidates.push_back (candidate);
+        }
+
+        return PARSER_NOERR;
+    }
 
 public:
     BaiduCloudCandidatesResponseJsonParser () : CloudCandidatesResponseJsonParser () {}
@@ -521,149 +659,4 @@ CloudCandidatesResponseJsonParser::~CloudCandidatesResponseJsonParser ()
     /* free json parser object if necessary */
     if (m_parser)
         g_object_unref (m_parser);
-}
-
-guint CloudCandidatesResponseJsonParser::parse (GInputStream *stream)
-{
-    GError **error = NULL;
-
-    if (!stream)
-        return PARSER_NETWORK_ERROR;
-
-    /* parse Json from input steam */
-    if (!json_parser_load_from_stream (m_parser, stream, NULL, error) || error != NULL)
-    {
-        g_input_stream_close (stream, NULL, error);  /* Close stream to release libsoup connexion */
-        return PARSER_BAD_FORMAT;
-    }
-    g_input_stream_close (stream, NULL, error);  /* Close stream to release libsoup connexion */
-
-    return parseJsonResponse (json_parser_get_root (m_parser));
-}
-
-guint CloudCandidatesResponseJsonParser::parse (const gchar *data)
-{
-    GError **error = NULL;
-
-    if (!data)
-        return PARSER_NETWORK_ERROR;
-
-    /* parse Json from data */
-    if (!json_parser_load_from_data (m_parser, data, strlen (data), error) || error != NULL)
-        return PARSER_BAD_FORMAT;
-
-    return parseJsonResponse (json_parser_get_root (m_parser));
-}
-
-guint GoogleCloudCandidatesResponseJsonParser::parseJsonResponse (JsonNode *root)
-{
-    if (!JSON_NODE_HOLDS_ARRAY (root))
-        return PARSER_BAD_FORMAT;
-
-    /* validate Google source and the structure of response */
-    JsonArray *google_root_array = json_node_get_array (root);
-
-    const gchar *google_response_status;
-    JsonArray *google_response_array;
-    JsonArray *google_result_array;
-    const gchar *google_candidate_annotation;
-    JsonArray *google_candidate_array;
-    guint result_counter;
-
-    if (json_array_get_length (google_root_array) <= 1)
-        return PARSER_INVALID_DATA;
-
-    google_response_status = json_array_get_string_element (google_root_array, 0);
-
-    if (g_strcmp0 (google_response_status, "SUCCESS"))
-        return PARSER_INVALID_DATA;
-
-    google_response_array = json_array_get_array_element (google_root_array, 1);
-
-    if (json_array_get_length (google_response_array) < 1)
-        return PARSER_INVALID_DATA;
-
-    google_result_array = json_array_get_array_element (google_response_array, 0);
-
-    google_candidate_annotation = json_array_get_string_element (google_result_array, 0);
-
-    if (!google_candidate_annotation)
-        return PARSER_INVALID_DATA;
-
-    /* update annotation with the returned annotation */
-    m_annotation = google_candidate_annotation;
-
-    google_candidate_array = json_array_get_array_element (google_result_array, 1);
-
-    result_counter = json_array_get_length (google_candidate_array);
-
-    if (result_counter < 1)
-        return PARSER_NO_CANDIDATE;
-
-    for (guint i = 0; i < result_counter; ++i)
-    {
-        std::string candidate = json_array_get_string_element (google_candidate_array, i);
-        m_candidates.push_back (candidate);
-    }
-
-    return PARSER_NOERR;
-}
-
-guint BaiduCloudCandidatesResponseJsonParser::parseJsonResponse (JsonNode *root)
-{
-    if (!JSON_NODE_HOLDS_OBJECT (root))
-        return PARSER_BAD_FORMAT;
-
-    /* validate Baidu source and the structure of response */
-    JsonObject *baidu_root_object = json_node_get_object (root);
-    const gchar *baidu_response_status;
-    JsonArray *baidu_result_array;
-    JsonArray *baidu_candidate_array;
-    const gchar *baidu_candidate_annotation;
-    guint result_counter;
-
-    if (!json_object_has_member (baidu_root_object, "status"))
-        return PARSER_INVALID_DATA;
-
-    baidu_response_status = json_object_get_string_member (baidu_root_object, "status");
-
-    if (g_strcmp0 (baidu_response_status, "T"))
-        return PARSER_INVALID_DATA;
-
-    if (!json_object_has_member (baidu_root_object, "result"))
-        return PARSER_INVALID_DATA;
-
-    baidu_result_array = json_object_get_array_member (baidu_root_object, "result");
-
-    baidu_candidate_array = json_array_get_array_element (baidu_result_array, 0);
-    baidu_candidate_annotation = json_array_get_string_element (baidu_result_array, 1);
-
-    if (!baidu_candidate_annotation)
-        return PARSER_INVALID_DATA;
-
-    /* update annotation with the returned annotation */
-    m_annotation = NULL;
-    gchar **words = g_strsplit (baidu_candidate_annotation, "'", -1);
-    m_annotation = g_strjoinv ("", words);
-    g_strfreev (words);
-
-    result_counter = json_array_get_length (baidu_candidate_array);
-
-    if (result_counter < 1)
-        return PARSER_NO_CANDIDATE;
-
-    for (guint i = 0; i < result_counter; ++i)
-    {
-        std::string candidate;
-        JsonArray *baidu_candidate = json_array_get_array_element (baidu_candidate_array, i);
-
-        if (json_array_get_length (baidu_candidate) < 1)
-            candidate = CANDIDATE_INVALID_DATA_TEXT;
-        else
-            candidate = json_array_get_string_element (baidu_candidate, 0);
-
-        m_candidates.push_back (candidate);
-    }
-
-    return PARSER_NOERR;
 }
