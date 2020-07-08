@@ -34,24 +34,24 @@
 
 
 namespace PY {
-    
+
 #define BUFFERLENGTH 2048
 #define CLOUD_MINIMUM_TRIGGER_LENGTH 2
 #define CLOUD_MINIMUM_UTF8_TRIGGER_LENGTH 2
 
 class PhoneticEditor;
 
-class CloudCandidates : public EnhancedCandidates<PhoneticEditor> 
+class CloudCandidates : public EnhancedCandidates<PhoneticEditor>
 {
 public:
 
     CloudCandidates (PhoneticEditor *editor);
     ~CloudCandidates();
-    
+
     gboolean processCandidates (std::vector<EnhancedCandidate> & candidates);
-    
+
     int selectCandidate (EnhancedCandidate & enhanced);
-    
+
     void cloudAsyncRequest (const gchar* requestStr);
     void cloudAsyncRequest (const gchar* requestStr, std::vector<EnhancedCandidate> & candidates);
     void cloudSyncRequest (const gchar* requestStr, std::vector<EnhancedCandidate> & candidates);
@@ -74,7 +74,7 @@ private:
     void processCloudResponse (GInputStream *stream, std::vector<EnhancedCandidate> & candidates);
 private:
     SoupSession *m_session;
-    
+
 protected:
     std::vector<EnhancedCandidate> m_candidates;
 };

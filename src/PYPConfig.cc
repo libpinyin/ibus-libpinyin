@@ -65,8 +65,10 @@ const gchar * const CONFIG_LETTER_SWITCH             = "letter-switch";
 const gchar * const CONFIG_PUNCT_SWITCH              = "punct-switch";
 const gchar * const CONFIG_BOTH_SWITCH               = "both-switch";
 const gchar * const CONFIG_TRAD_SWITCH               = "trad-switch";
+const gchar * const CONFIG_NETWORK_DICTIONARY_START_TIMESTAMP = "network-dictionary-start-timestamp";
+const gchar * const CONFIG_NETWORK_DICTIONARY_END_TIMESTAMP   = "network-dictionary-end-timestamp";
 const gchar * const CONFIG_INIT_ENABLE_CLOUD_INPUT   = "enable-cloud-input";
-const gchar * const CONFIG_CLOUD_INPUT_SOURCE        = "cloud-input-source";   
+const gchar * const CONFIG_CLOUD_INPUT_SOURCE        = "cloud-input-source";
 const gchar * const CONFIG_CLOUD_CANDIDATES_NUMBER   = "cloud-candidates-number";
 const gchar * const CONFIG_CLOUD_REQUEST_DELAY_TIME  = "cloud-request-delay-time";
 
@@ -289,7 +291,7 @@ LibPinyinConfig::readDefaultValues (void)
             m_option &= ~options[i].option;
         }
     }
-    
+
     m_enable_cloud_input = read (CONFIG_INIT_ENABLE_CLOUD_INPUT, false);
 #endif
 }

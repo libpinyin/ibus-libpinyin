@@ -380,7 +380,7 @@ PhoneticEditor::selectCandidateInternal (EnhancedCandidate & candidate)
     case CANDIDATE_CLOUD_INPUT:
         return m_cloud_candidates.selectCandidate (candidate);
 #endif
-        
+
 #ifdef IBUS_BUILD_LUA_EXTENSION
     case CANDIDATE_LUA_TRIGGER:
         return m_lua_trigger_candidates.selectCandidate (candidate);

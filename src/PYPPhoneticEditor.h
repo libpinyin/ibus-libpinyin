@@ -130,7 +130,7 @@ protected:
     EmojiCandidates m_emoji_candidates;
 
     TraditionalCandidates m_traditional_candidates;
-    
+
 #ifdef ENABLE_CLOUD_INPUT_MODE
     CloudCandidates m_cloud_candidates;
 #endif

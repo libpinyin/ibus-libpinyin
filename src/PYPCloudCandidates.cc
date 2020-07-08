@@ -99,8 +99,7 @@ public:
             return PARSER_NETWORK_ERROR;
 
         /* parse Json from input steam */
-        if (!json_parser_load_from_stream (m_parser, stream, NULL, error) || error != NULL)
-        {
+        if (!json_parser_load_from_stream (m_parser, stream, NULL, error) || error != NULL) {
             g_input_stream_close (stream, NULL, error);  /* Close stream to release libsoup connexion */
             return PARSER_BAD_FORMAT;
         }
@@ -177,8 +176,7 @@ protected:
         if (result_counter < 1)
             return PARSER_NO_CANDIDATE;
 
-        for (guint i = 0; i < result_counter; ++i)
-        {
+        for (guint i = 0; i < result_counter; ++i) {
             std::string candidate = json_array_get_string_element (google_candidate_array, i);
             m_candidates.push_back (candidate);
         }
@@ -272,10 +270,9 @@ CloudCandidates::delayedCloudAsyncRequestCallBack (gpointer user_data)
         return FALSE;
 
     /* only send with a latest timer */
-    if (data->event_id == cloudCandidates->m_source_event_id)
-    {
+    if (data->event_id == cloudCandidates->m_source_event_id) {
         cloudCandidates->m_source_event_id = 0;
-        cloudCandidates->cloudAsyncRequest(data->request_str);
+        cloudCandidates->cloudAsyncRequest (data->request_str);
     }
 
     return FALSE;
@@ -307,7 +304,7 @@ CloudCandidates::CloudCandidates (PhoneticEditor * editor)
 
 CloudCandidates::~CloudCandidates ()
 {
-    g_free(m_last_requested_pinyin);
+    g_free (m_last_requested_pinyin);
 }
 
 gboolean
@@ -339,19 +336,16 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
     }
 
     /* check pinyin length */
-    if (! m_editor->m_config.doublePinyin ())
-    {
+    if (! m_editor->m_config.doublePinyin ()) {
         full_pinyin_text = m_editor->m_text;
 
-        if (strcmp(m_last_requested_pinyin, full_pinyin_text) == 0)
-        {
+        if (strcmp (m_last_requested_pinyin, full_pinyin_text) == 0) {
             /* do not request again and update cached ones */
             std::vector<EnhancedCandidate> m_candidates_with_prefix;
-            for (std::vector<EnhancedCandidate>::iterator i = m_candidates.begin (); i != m_candidates.end (); ++i)
-            {
+            for (std::vector<EnhancedCandidate>::iterator i = m_candidates.begin (); i != m_candidates.end (); ++i) {
                 EnhancedCandidate candidate_with_prefix = *i;
                 candidate_with_prefix.m_display_string = CANDIDATE_CLOUD_PREFIX + candidate_with_prefix.m_display_string;
-                m_candidates_with_prefix.push_back(candidate_with_prefix);
+                m_candidates_with_prefix.push_back (candidate_with_prefix);
             }
             candidates.insert (cloud_candidates_first_pos, m_candidates_with_prefix.begin (), m_candidates_with_prefix.end ());
             return FALSE;
@@ -367,15 +361,13 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
 
         g_strfreev (tempArray);
 
-        if (strcmp(m_last_requested_pinyin, double_pinyin_text) == 0)
-        {
+        if (strcmp (m_last_requested_pinyin, double_pinyin_text) == 0) {
             /* do not request again and update cached one */
             std::vector<EnhancedCandidate> m_candidates_with_prefix;
-            for (std::vector<EnhancedCandidate>::iterator i = m_candidates.begin (); i != m_candidates.end (); ++i)
-            {
+            for (std::vector<EnhancedCandidate>::iterator i = m_candidates.begin (); i != m_candidates.end (); ++i) {
                 EnhancedCandidate candidate_with_prefix = *i;
                 candidate_with_prefix.m_display_string = CANDIDATE_CLOUD_PREFIX + candidate_with_prefix.m_display_string;
-                m_candidates_with_prefix.push_back(candidate_with_prefix);
+                m_candidates_with_prefix.push_back (candidate_with_prefix);
             }
             candidates.insert (cloud_candidates_first_pos, m_candidates_with_prefix.begin (), m_candidates_with_prefix.end ());
 
@@ -405,7 +397,8 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
     m_cloud_candidates_number = m_editor->m_config.cloudCandidatesNumber ();
     if (! m_editor->m_config.doublePinyin ()) {
         delayedCloudAsyncRequest (full_pinyin_text);
-    } else {
+    }
+    else {
         delayedCloudAsyncRequest (double_pinyin_text);
         g_free (double_pinyin_text);
     }
@@ -425,7 +418,7 @@ CloudCandidates::selectCandidate (EnhancedCandidate & enhanced)
         return SELECT_CANDIDATE_ALREADY_HANDLED;
 
     /* take the cached candidate with the same candidate id */
-    for (std::vector<EnhancedCandidate>::iterator pos = m_candidates.begin(); pos != m_candidates.end(); ++pos) {
+    for (std::vector<EnhancedCandidate>::iterator pos = m_candidates.begin (); pos != m_candidates.end (); ++pos) {
         if (pos->m_candidate_id == enhanced.m_candidate_id) {
             enhanced.m_display_string = pos->m_display_string;
             return SELECT_CANDIDATE_COMMIT;
@@ -444,24 +437,24 @@ CloudCandidates::delayedCloudAsyncRequest (const gchar* requestStr)
 
     /* cancel the latest timer, if applied */
     if (m_source_event_id != 0)
-        g_source_remove(m_source_event_id);
+        g_source_remove (m_source_event_id);
 
     /* allocate memory for a DelayedCloudAsyncRequestCallbackUserData instance to take more callback user data */
     user_data = g_malloc (sizeof(DelayedCloudAsyncRequestCallbackUserData));
     data = static_cast<DelayedCloudAsyncRequestCallbackUserData *> (user_data);
 
-    strcpy((char *)(data->request_str), (const char *)requestStr);
+    strcpy ((char *)(data->request_str), (const char *)requestStr);
     data->cloud_candidates = this;
 
     /* record the latest timer */
-    event_id = m_source_event_id = g_timeout_add_full(G_PRIORITY_DEFAULT, m_delayed_time, delayedCloudAsyncRequestCallBack, user_data, delayedCloudAsyncRequestDestroyCallBack);
+    event_id = m_source_event_id = g_timeout_add_full (G_PRIORITY_DEFAULT, m_delayed_time, delayedCloudAsyncRequestCallBack, user_data, delayedCloudAsyncRequestDestroyCallBack);
     data->event_id = event_id;
 }
 
 void
 CloudCandidates::cloudAsyncRequest (const gchar* requestStr, std::vector<EnhancedCandidate> & candidates)
 {
-    cloudAsyncRequest(requestStr);
+    cloudAsyncRequest (requestStr);
 }
 
 void
@@ -483,7 +476,7 @@ CloudCandidates::cloudAsyncRequest (const gchar* requestStr)
     m_message = msg;
 
     /* cache the last request string */
-    strcpy(m_last_requested_pinyin, requestStr);
+    strcpy (m_last_requested_pinyin, requestStr);
 
     /* update loading text to replace pending text */
     for (std::vector<EnhancedCandidate>::iterator pos = m_candidates.begin (); pos != m_candidates.end (); ++pos) {
@@ -506,8 +499,7 @@ CloudCandidates::cloudResponseCallBack (GObject *source_object, GAsyncResult *re
     cloudCandidates->processCloudResponse (stream, cloudCandidates->m_editor->m_candidates);
 
     /* only update lookup table when there is still pinyin text */
-    if (strlen (cloudCandidates->m_editor->m_text) >= CLOUD_MINIMUM_TRIGGER_LENGTH)
-    {
+    if (strlen (cloudCandidates->m_editor->m_text) >= CLOUD_MINIMUM_TRIGGER_LENGTH) {
         cloudCandidates->updateLookupTable ();
 
         /* clean up message */
@@ -556,19 +548,16 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
 
     if (parser->getAnnotation ())
         strcpy (annotation, parser->getAnnotation ());
-    else
-    {
+    else {
         /* the request might have been cancelled */
         return;
     }
 
-    if (! m_editor->m_config.doublePinyin ())
-    {
+    if (! m_editor->m_config.doublePinyin ()) {
         /* get current text in editor */
         text = m_editor->m_text;
     }
-    else
-    {
+    else {
         /* get current double pinyin text */
         String stripped = m_editor->m_buffer;
         const gchar *temp= stripped;
@@ -641,8 +630,7 @@ std::vector<EnhancedCandidate> CloudCandidatesResponseParser::getCandidates ()
 {
     std::vector<EnhancedCandidate> candidates;
 
-    for (std::vector<std::string>::const_iterator i = m_candidates.cbegin (); i != m_candidates.cend (); ++i)
-    {
+    for (std::vector<std::string>::const_iterator i = m_candidates.cbegin (); i != m_candidates.cend (); ++i) {
         EnhancedCandidate candidate;
         candidate.m_candidate_type = CANDIDATE_CLOUD_INPUT;
         candidate.m_display_string = *i;
