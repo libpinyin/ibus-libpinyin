@@ -57,6 +57,9 @@ static const std::string CANDIDATE_NO_CANDIDATE_TEXT    = CANDIDATE_CLOUD_PREFIX
 static const std::string CANDIDATE_INVALID_DATA_TEXT    = CANDIDATE_CLOUD_PREFIX + CANDIDATE_INVALID_DATA_TEXT_WITHOUT_PREFIX ;
 static const std::string CANDIDATE_BAD_FORMAT_TEXT      = CANDIDATE_CLOUD_PREFIX + CANDIDATE_BAD_FORMAT_TEXT_WITHOUT_PREFIX;
 
+static const char *BAIDU_URL_TEMPLATE = "http://olime.baidu.com/py?input=%s&inputtype=py&bg=0&ed=%d&result=hanzi&resultcoding=utf-8&ch_en=1&clientinfo=web&version=1";
+static const char *GOOGLE_URL_TEMPLATE = "https://www.google.com/inputtools/request?ime=pinyin&text=%s&num=%d";
+
 typedef struct
 {
     guint event_id;
@@ -467,9 +470,9 @@ CloudCandidates::cloudAsyncRequest (const gchar* requestStr)
     GError **error = NULL;
     gchar *queryRequest;
     if (m_cloud_source == BAIDU)
-        queryRequest= g_strdup_printf ("http://olime.baidu.com/py?input=%s&inputtype=py&bg=0&ed=%d&result=hanzi&resultcoding=utf-8&ch_en=1&clientinfo=web&version=1", requestStr, m_cloud_candidates_number);
+        queryRequest= g_strdup_printf (BAIDU_URL_TEMPLATE, requestStr, m_cloud_candidates_number);
     else if (m_cloud_source == GOOGLE)
-        queryRequest= g_strdup_printf ("https://www.google.com/inputtools/request?ime=pinyin&text=%s&num=%d", requestStr, m_cloud_candidates_number);
+        queryRequest= g_strdup_printf (GOOGLE_URL_TEMPLATE, requestStr, m_cloud_candidates_number);
 
     /* cancel message if there is a pending one */
     if (m_message)
@@ -518,9 +521,9 @@ CloudCandidates::cloudSyncRequest (const gchar* requestStr, std::vector<Enhanced
     GError **error = NULL;
     gchar *queryRequest;
     if (m_cloud_source == BAIDU)
-        queryRequest= g_strdup_printf ("http://olime.baidu.com/py?input=%s&inputtype=py&bg=0&ed=%d&result=hanzi&resultcoding=utf-8&ch_en=1&clientinfo=web&version=1", requestStr, m_cloud_candidates_number);
+        queryRequest= g_strdup_printf (BAIDU_URL_TEMPLATE, requestStr, m_cloud_candidates_number);
     else if (m_cloud_source == GOOGLE)
-        queryRequest= g_strdup_printf ("https://www.google.com/inputtools/request?ime=pinyin&text=%s&num=%d", requestStr, m_cloud_candidates_number);
+        queryRequest= g_strdup_printf (GOOGLE_URL_TEMPLATE, requestStr, m_cloud_candidates_number);
     SoupMessage *msg = soup_message_new ("GET", queryRequest);
 
     GInputStream *stream = soup_session_send (m_session, msg, NULL, error);
