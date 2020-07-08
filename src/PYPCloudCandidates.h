@@ -63,7 +63,7 @@ public:
     guint m_cloud_source;
     guint m_cloud_candidates_number;
     guint m_delayed_time;
-    guint m_source_thread_id;
+    guint m_source_event_id;
     SoupMessage *m_message;
     gchar *m_last_requested_pinyin;
 private:

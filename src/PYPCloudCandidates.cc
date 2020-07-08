@@ -59,7 +59,7 @@ static const std::string CANDIDATE_BAD_FORMAT_TEXT      = CANDIDATE_CLOUD_PREFIX
 
 typedef struct
 {
-    guint thread_id;
+    guint event_id;
     const gchar request_str[MAX_PINYIN_LEN + 1];
     CloudCandidates *cloud_candidates;
 } DelayedCloudAsyncRequestCallbackUserData;
@@ -131,9 +131,9 @@ CloudCandidates::delayedCloudAsyncRequestCallBack (gpointer user_data)
         return FALSE;
 
     /* only send with a latest timer */
-    if (data->thread_id == cloudCandidates->m_source_thread_id)
+    if (data->event_id == cloudCandidates->m_source_event_id)
     {
-        cloudCandidates->m_source_thread_id = 0;
+        cloudCandidates->m_source_event_id = 0;
         cloudCandidates->cloudAsyncRequest(data->request_str);
     }
 
@@ -157,7 +157,7 @@ CloudCandidates::CloudCandidates (PhoneticEditor * editor)
     m_delayed_time = m_editor->m_config.cloudRequestDelayTime ();
     m_cloud_candidates_number = m_editor->m_config.cloudCandidatesNumber ();
 
-    m_source_thread_id = 0;
+    m_source_event_id = 0;
     m_message = NULL;
 
     m_last_requested_pinyin = (gchar *) g_malloc (sizeof(gchar) * (MAX_PINYIN_LEN + 1));
@@ -299,11 +299,11 @@ CloudCandidates::delayedCloudAsyncRequest (const gchar* requestStr)
 {
     gpointer user_data;
     DelayedCloudAsyncRequestCallbackUserData *data;
-    guint thread_id;
+    guint event_id;
 
     /* cancel the latest timer, if applied */
-    if (m_source_thread_id != 0)
-        g_source_remove(m_source_thread_id);
+    if (m_source_event_id != 0)
+        g_source_remove(m_source_event_id);
 
     /* allocate memory for a DelayedCloudAsyncRequestCallbackUserData instance to take more callback user data */
     user_data = g_malloc (sizeof(DelayedCloudAsyncRequestCallbackUserData));
@@ -313,8 +313,8 @@ CloudCandidates::delayedCloudAsyncRequest (const gchar* requestStr)
     data->cloud_candidates = this;
 
     /* record the latest timer */
-    thread_id = m_source_thread_id = g_timeout_add_full(G_PRIORITY_DEFAULT, m_delayed_time, delayedCloudAsyncRequestCallBack, user_data, delayedCloudAsyncRequestDestroyCallBack);
-    data->thread_id = thread_id;
+    event_id = m_source_event_id = g_timeout_add_full(G_PRIORITY_DEFAULT, m_delayed_time, delayedCloudAsyncRequestCallBack, user_data, delayedCloudAsyncRequestDestroyCallBack);
+    data->event_id = event_id;
 }
 
 void
