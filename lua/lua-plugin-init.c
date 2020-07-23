@@ -48,6 +48,17 @@ static const luaL_Reg lualibs[] = {
 
 
 void lua_plugin_openlibs (lua_State *L) {
+  luaL_openlibs(L); // alllow `require`
+  gchar * user_dir = g_build_filename (g_get_user_config_dir (),
+                                        "ibus", "libpinyin", NULL);
+  lua_getglobal(L, "package");
+  lua_pushfstring(L, "%s%slua%s?.lua;", user_dir, LUA_DIRSEP, LUA_DIRSEP);
+  lua_getfield(L, -2, "path");
+  lua_concat(L, 2);
+  lua_setfield(L, -2, "path");
+  lua_pop(L, 1);
+  g_free(user_dir); // add `~/,config/ibus/libpinyin/lua` to path
+
   const luaL_Reg *lib = lualibs;
   for (; lib->func; lib++) {
 #if LUA_VERSION_NUM >= 502
