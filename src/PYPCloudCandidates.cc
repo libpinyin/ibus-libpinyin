@@ -421,7 +421,9 @@ CloudCandidates::selectCandidate (EnhancedCandidate & enhanced)
     for (std::vector<EnhancedCandidate>::iterator pos = m_candidates.begin (); pos != m_candidates.end (); ++pos) {
         if (pos->m_candidate_id == enhanced.m_candidate_id) {
             enhanced.m_display_string = pos->m_display_string;
-            return SELECT_CANDIDATE_COMMIT;
+
+            /* modify in-place and commit */
+            return SELECT_CANDIDATE_COMMIT | SELECT_CANDIDATE_MODIFY_IN_PLACE;
         }
     }
 
