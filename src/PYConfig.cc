@@ -72,7 +72,7 @@ Config::initDefaultValues (void)
 
     m_network_dictionary_start_timestamp = 0;
     m_network_dictionary_end_timestamp = 0;
-    
+
     m_enable_cloud_input = FALSE;
     m_cloud_candidates_number = 1;
     m_cloud_input_source = BAIDU;
