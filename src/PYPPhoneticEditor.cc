@@ -661,3 +661,16 @@ PhoneticEditor::moveCursorRightByWord (void)
     update ();
     return TRUE;
 }
+
+
+void
+PhoneticEditor::updateFullPinyinBuffer (void)
+{
+    m_full_pinyin_buffer.clear ();
+
+    gchar * aux_text = NULL;
+    pinyin_get_full_pinyin_auxiliary_text (m_instance, m_cursor, &aux_text);
+
+    m_full_pinyin_buffer << aux_text;
+    g_free(aux_text);
+}

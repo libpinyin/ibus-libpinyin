@@ -48,6 +48,10 @@ public:
     CloudCandidates (PhoneticEditor *editor);
     ~CloudCandidates();
 
+    void setBopomofoMode (bool mode) { m_bopomofo_mode = mode; }
+    bool isBopomofoMode () { return m_bopomofo_mode; }
+    bool isBopomofoMode () const { return m_bopomofo_mode; }
+
     gboolean processCandidates (std::vector<EnhancedCandidate> & candidates);
 
     int selectCandidate (EnhancedCandidate & enhanced);
@@ -75,6 +79,7 @@ private:
     void processCloudResponse (GInputStream *stream, std::vector<EnhancedCandidate> & candidates);
 private:
     SoupSession *m_session;
+    bool m_bopomofo_mode;
 
 protected:
     std::vector<EnhancedCandidate> m_candidates;
