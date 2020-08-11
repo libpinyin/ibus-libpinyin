@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
-"POT-Creation-Date: 2020-03-03 10:03+0800\n"
+"POT-Creation-Date: 2020-08-10 16:03+0800\n"
 "PO-Revision-Date: 2018-11-11 18:38+0100\n"
 "Last-Translator: Luc Bournaud <luc.bournaud@gmail.com>\n"
 "Language-Team: français <>\n"
@@ -21,106 +21,106 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Gtranslator 2.91.7\n"
 
-#: src/PYMain.cc:98
+#: src/PYMain.cc:97
 msgid "Libpinyin input method"
 msgstr "Méthode de saisie libpinyin"
 
-#: src/PYMain.cc:108
+#: src/PYMain.cc:107
 msgid "Intelligent Pinyin (debug)"
 msgstr "Pinyin intelligent (débogage)"
 
-#: src/PYMain.cc:109
+#: src/PYMain.cc:108
 msgid "Intelligent Pinyin input method (debug)"
 msgstr "Méthode de saisie Pinyin intelligente (débogage)"
 
-#: src/PYMain.cc:119
+#: src/PYMain.cc:118
 msgid "Bopomofo (debug)"
 msgstr "Bopomofo (débogage)"
 
-#: src/PYMain.cc:120
+#: src/PYMain.cc:119
 msgid "Bopomofo input method (debug)"
 msgstr "Méthode de saisie Bopomofo (débogage)"
 
-#: src/PYPinyinProperties.cc:40 src/PYPinyinProperties.cc:105
+#: src/PYPinyinProperties.cc:39 src/PYPinyinProperties.cc:104
 #: setup/ibus-libpinyin-preferences.ui:256
 msgid "Chinese"
 msgstr "Chinois"
 
-#: src/PYPinyinProperties.cc:41 src/PYPinyinProperties.cc:106
+#: src/PYPinyinProperties.cc:40 src/PYPinyinProperties.cc:105
 #: setup/ibus-libpinyin-preferences.ui:271
 msgid "English"
 msgstr "Anglais"
 
-#: src/PYPinyinProperties.cc:46 src/PYPinyinProperties.cc:117
+#: src/PYPinyinProperties.cc:45 src/PYPinyinProperties.cc:116
 msgid "Switch to English Mode"
 msgstr "Passer en mode Anglais"
 
-#: src/PYPinyinProperties.cc:47 src/PYPinyinProperties.cc:118
+#: src/PYPinyinProperties.cc:46 src/PYPinyinProperties.cc:117
 msgid "Switch to Chinese Mode"
 msgstr "Passer en mode Chinois"
 
-#: src/PYPinyinProperties.cc:51 src/PYPinyinProperties.cc:130
+#: src/PYPinyinProperties.cc:50 src/PYPinyinProperties.cc:129
 msgid "Full Width Letter"
 msgstr "Pleine chasse"
 
-#: src/PYPinyinProperties.cc:52 src/PYPinyinProperties.cc:131
+#: src/PYPinyinProperties.cc:51 src/PYPinyinProperties.cc:130
 msgid "Half Width Letter"
 msgstr "Demi-chasse"
 
-#: src/PYPinyinProperties.cc:57 src/PYPinyinProperties.cc:136
+#: src/PYPinyinProperties.cc:56 src/PYPinyinProperties.cc:135
 msgid "Switch to Half Width Letter Mode"
 msgstr "Passer en mode Demi-chasse"
 
-#: src/PYPinyinProperties.cc:58 src/PYPinyinProperties.cc:137
+#: src/PYPinyinProperties.cc:57 src/PYPinyinProperties.cc:136
 msgid "Switch to Full Width Letter Mode"
 msgstr "Passer en mode Pleine chasse"
 
-#: src/PYPinyinProperties.cc:62 src/PYPinyinProperties.cc:146
+#: src/PYPinyinProperties.cc:61 src/PYPinyinProperties.cc:145
 msgid "Full Width Punct"
 msgstr "Ponctuation pleine chasse"
 
-#: src/PYPinyinProperties.cc:63 src/PYPinyinProperties.cc:147
+#: src/PYPinyinProperties.cc:62 src/PYPinyinProperties.cc:146
 msgid "Half Width Punct"
 msgstr "Ponctuation demi-chasse"
 
-#: src/PYPinyinProperties.cc:68 src/PYPinyinProperties.cc:152
+#: src/PYPinyinProperties.cc:67 src/PYPinyinProperties.cc:151
 msgid "Switch to Half Width Punctuation Mode"
 msgstr "Passer en ponctuation demi-chasse"
 
-#: src/PYPinyinProperties.cc:69 src/PYPinyinProperties.cc:153
+#: src/PYPinyinProperties.cc:68 src/PYPinyinProperties.cc:152
 msgid "Switch to Full Width Punctuation Mode"
 msgstr "Passer en ponctuation pleine chasse"
 
-#: src/PYPinyinProperties.cc:73 src/PYPinyinProperties.cc:162
+#: src/PYPinyinProperties.cc:72 src/PYPinyinProperties.cc:161
 msgid "Simplified Chinese"
 msgstr "Chinois simplifié"
 
-#: src/PYPinyinProperties.cc:74 src/PYPinyinProperties.cc:163
+#: src/PYPinyinProperties.cc:73 src/PYPinyinProperties.cc:162
 msgid "Traditional Chinese"
 msgstr "Chinois traditionnel"
 
-#: src/PYPinyinProperties.cc:79 src/PYPinyinProperties.cc:168
+#: src/PYPinyinProperties.cc:78 src/PYPinyinProperties.cc:167
 msgid "Switch to Traditional Chinese Mode"
 msgstr "Passer en mode Chinois traditionnel"
 
-#: src/PYPinyinProperties.cc:80 src/PYPinyinProperties.cc:169
+#: src/PYPinyinProperties.cc:79 src/PYPinyinProperties.cc:168
 msgid "Switch to Simplfied Chinese Mode"
 msgstr "Passer en mode Chinois simplifié"
 
-#: src/PYPinyinProperties.cc:83 src/PYPinyinProperties.cc:85
+#: src/PYPinyinProperties.cc:82 src/PYPinyinProperties.cc:84
 #: setup/ibus-libpinyin-preferences.ui:140
 msgid "Preferences"
 msgstr "Préférences"
 
-#: src/PYPinyinProperties.cc:88 src/PYPinyinProperties.cc:109
+#: src/PYPinyinProperties.cc:87 src/PYPinyinProperties.cc:108
 msgid "中"
 msgstr "中"
 
-#: src/PYPinyinProperties.cc:90 src/PYPinyinProperties.cc:111
+#: src/PYPinyinProperties.cc:89 src/PYPinyinProperties.cc:110
 msgid "英"
 msgstr "英"
 
-#: src/PYEnglishEditor.cc:619
+#: src/PYEnglishEditor.cc:618
 msgid "Please input the English word."
 msgstr ""
 
@@ -299,45 +299,45 @@ msgid "IBM"
 msgstr "IBM"
 
 #: setup/ibus-libpinyin-preferences.ui:40
-msgid "MSPY"
-msgstr "MSPY"
-
-#: setup/ibus-libpinyin-preferences.ui:43
-msgid "ZRM"
-msgstr "ZRM"
-
-#: setup/ibus-libpinyin-preferences.ui:46
-msgid "ABC"
-msgstr "ABC"
-
-#: setup/ibus-libpinyin-preferences.ui:49
-msgid "ZGPY"
-msgstr "ZGPY"
-
-#: setup/ibus-libpinyin-preferences.ui:52
-msgid "PYJJ"
-msgstr "PYJJ"
-
-#: setup/ibus-libpinyin-preferences.ui:55
-msgid "XHE"
-msgstr "XHE"
-
-#: setup/ibus-libpinyin-preferences.ui:66
-msgid "Horizontal"
-msgstr "Horizontal"
-
-#: setup/ibus-libpinyin-preferences.ui:69
-msgid "Vertical"
-msgstr "Vertical"
-
-#: setup/ibus-libpinyin-preferences.ui:80
 #, fuzzy
 msgid "Default"
 msgstr "Par _défaut"
 
-#: setup/ibus-libpinyin-preferences.ui:83
+#: setup/ibus-libpinyin-preferences.ui:43
 msgid "Compact"
 msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:54
+msgid "MSPY"
+msgstr "MSPY"
+
+#: setup/ibus-libpinyin-preferences.ui:57
+msgid "ZRM"
+msgstr "ZRM"
+
+#: setup/ibus-libpinyin-preferences.ui:60
+msgid "ABC"
+msgstr "ABC"
+
+#: setup/ibus-libpinyin-preferences.ui:63
+msgid "ZGPY"
+msgstr "ZGPY"
+
+#: setup/ibus-libpinyin-preferences.ui:66
+msgid "PYJJ"
+msgstr "PYJJ"
+
+#: setup/ibus-libpinyin-preferences.ui:69
+msgid "XHE"
+msgstr "XHE"
+
+#: setup/ibus-libpinyin-preferences.ui:80
+msgid "Horizontal"
+msgstr "Horizontal"
+
+#: setup/ibus-libpinyin-preferences.ui:83
+msgid "Vertical"
+msgstr "Vertical"
 
 #: setup/ibus-libpinyin-preferences.ui:129
 msgid "Frequency"
@@ -648,24 +648,16 @@ msgstr "À propos"
 msgid "IBus LibPinyin Setup"
 msgstr ""
 
-#: data/ibus-setup-libpinyin.desktop.in:7
+#: data/ibus-setup-libpinyin.desktop.in:4
 msgid "Set ibus-libpinyin Preferences"
-msgstr ""
-
-#: data/ibus-setup-libpinyin.desktop.in:12
-msgid "@pkgdatadir@/icons/ibus-pinyin.svg"
 msgstr ""
 
 #: data/ibus-setup-libbopomofo.desktop.in:3
 msgid "IBus LibBopomofo Preferences"
 msgstr ""
 
-#: data/ibus-setup-libbopomofo.desktop.in:7
+#: data/ibus-setup-libbopomofo.desktop.in:4
 msgid "Set ibus-libbopomofo Preferences"
-msgstr ""
-
-#: data/ibus-setup-libbopomofo.desktop.in:12
-msgid "@pkgdatadir@/icons/ibus-bopomofo.svg"
 msgstr ""
 
 #, fuzzy
