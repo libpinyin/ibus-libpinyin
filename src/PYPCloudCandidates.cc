@@ -540,6 +540,10 @@ CloudCandidates::cloudAsyncRequest (const gchar* requestStr)
     /* only update lookup table when there is still pinyin text */
     if (strlen (m_editor->m_text) >= CLOUD_MINIMUM_TRIGGER_LENGTH)
         updateLookupTable ();
+
+    /* free url string */
+    if (queryRequest)
+        g_free(queryRequest);
 }
 
 void
