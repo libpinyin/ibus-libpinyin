@@ -407,9 +407,9 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
         String stripped = m_editor->m_full_pinyin_buffer;
         const gchar *temp = stripped;
 
-        /* drop space, tone, spilter */
-        gchar** tempArray =  g_strsplit_set (temp, " |12345", -1);
-        pinyin_text = g_strjoinv ("", tempArray);
+        /* replace space with quote */
+        gchar** tempArray =  g_strsplit_set (temp, " ", -1);
+        pinyin_text = g_strjoinv ("'", tempArray);
 
         g_strfreev (tempArray);
 
@@ -621,10 +621,10 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
         String stripped = m_editor->m_full_pinyin_buffer;
         const gchar *temp = stripped;
 
-        /* drop space, tone, spilter */
-        gchar** tempArray =  g_strsplit_set (temp, " |12345", -1);
+        /* replace space with quote */
+        gchar** tempArray =  g_strsplit_set (temp, " ", -1);
 
-        pinyin_text = g_strjoinv ("", tempArray);
+        pinyin_text = g_strjoinv ("'", tempArray);
         g_strfreev (tempArray);
     }
 
