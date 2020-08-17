@@ -334,7 +334,7 @@ CloudCandidates::delayedCloudAsyncRequestDestroyCallBack (gpointer user_data)
         g_free (user_data);
 }
 
-CloudCandidates::CloudCandidates (PhoneticEditor * editor) : m_bopomofo_mode(false)
+CloudCandidates::CloudCandidates (PhoneticEditor * editor) : m_input_mode(FullPinyin)
 {
     m_session = soup_session_new ();
     m_editor = editor;
@@ -378,7 +378,7 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
     }
 
     /* neither double pinyin mode nor bopomofo mode */
-    if (! m_editor->m_config.doublePinyin () && ! m_bopomofo_mode)
+    if (m_input_mode == FullPinyin)
         full_pinyin_text = m_editor->m_text;
     else {
         updateFullPinyinBuffer ();
@@ -582,7 +582,7 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
         return;
     }
 
-    if (! m_editor->m_config.doublePinyin () && ! m_bopomofo_mode) {
+    if (m_input_mode == FullPinyin) {
         /* get current text in editor */
         text = m_editor->m_text;
     }

@@ -48,7 +48,7 @@ BopomofoEditor::BopomofoEditor
     m_instance = LibPinyinBackEnd::instance ().allocChewingInstance ();
 
 #ifdef ENABLE_CLOUD_INPUT_MODE
-    m_cloud_candidates.setBopomofoMode (true);
+    m_cloud_candidates.setInputMode (Bopomofo);
 #endif
 }
 

@@ -42,6 +42,12 @@ namespace PY {
 #define CLOUD_MINIMUM_TRIGGER_LENGTH 2
 #define CLOUD_MINIMUM_UTF8_TRIGGER_LENGTH 2
 
+enum InputMode {
+    FullPinyin = 0,
+    DoublePinyin,
+    Bopomofo
+};
+
 class PhoneticEditor;
 
 class CloudCandidates : public EnhancedCandidates<PhoneticEditor>
@@ -51,9 +57,7 @@ public:
     CloudCandidates (PhoneticEditor *editor);
     ~CloudCandidates();
 
-    void setBopomofoMode (bool mode) { m_bopomofo_mode = mode; }
-    bool isBopomofoMode () { return m_bopomofo_mode; }
-    bool isBopomofoMode () const { return m_bopomofo_mode; }
+    void setInputMode (InputMode mode) { m_input_mode = mode; }
 
     gboolean processCandidates (std::vector<EnhancedCandidate> & candidates);
 
@@ -84,7 +88,7 @@ private:
     void updateFullPinyinBuffer ();
 private:
     SoupSession *m_session;
-    bool m_bopomofo_mode;
+    InputMode m_input_mode;
 
     BaiduCloudCandidatesResponseJsonParser *m_baidu_parser;
     GoogleCloudCandidatesResponseJsonParser *m_google_parser;
