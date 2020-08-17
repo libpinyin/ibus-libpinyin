@@ -436,6 +436,7 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
     m_candidates.clear ();
     for (guint i = 0; i < m_cloud_candidates_number; ++i) {
         EnhancedCandidate enhanced;
+        enhanced.m_candidate_id = i;
         enhanced.m_display_string = CANDIDATE_PENDING_TEXT;
         enhanced.m_candidate_type = CANDIDATE_CLOUD_INPUT;
         m_candidates.push_back (enhanced);
