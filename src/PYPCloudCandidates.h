@@ -67,9 +67,6 @@ public:
 
     void updateLookupTable ();
 
-    guint m_cloud_source;
-    guint m_cloud_candidates_number;
-    guint m_delayed_time;
     guint m_source_event_id;
     SoupMessage *m_message;
     std::string m_last_requested_pinyin;

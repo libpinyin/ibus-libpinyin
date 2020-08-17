@@ -339,10 +339,6 @@ CloudCandidates::CloudCandidates (PhoneticEditor * editor) : m_bopomofo_mode(fal
     m_session = soup_session_new ();
     m_editor = editor;
 
-    m_cloud_source = m_editor->m_config.cloudInputSource ();
-    m_delayed_time = m_editor->m_config.cloudRequestDelayTime ();
-    m_cloud_candidates_number = m_editor->m_config.cloudCandidatesNumber ();
-
     m_source_event_id = 0;
     m_message = NULL;
 
@@ -408,7 +404,7 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
 
     /* insert cloud candidates' placeholders */
     m_candidates.clear ();
-    for (guint i = 0; i < m_cloud_candidates_number; ++i) {
+    for (guint i = 0; i < m_editor->m_config.cloudCandidatesNumber (); ++i) {
         EnhancedCandidate enhanced;
         enhanced.m_candidate_id = i;
         enhanced.m_display_string = CANDIDATE_PENDING_TEXT;
@@ -416,11 +412,6 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
         m_candidates.push_back (enhanced);
     }
     candidates.insert (cloud_candidates_first_pos, m_candidates.begin (), m_candidates.end ());
-
-    /* update configuration before request */
-    m_cloud_source = m_editor->m_config.cloudInputSource ();
-    m_delayed_time = m_editor->m_config.cloudRequestDelayTime ();
-    m_cloud_candidates_number = m_editor->m_config.cloudCandidatesNumber ();
 
     delayedCloudAsyncRequest (full_pinyin_text);
 
@@ -471,7 +462,11 @@ CloudCandidates::delayedCloudAsyncRequest (const gchar* requestStr)
     data->cloud_candidates = this;
 
     /* record the latest timer */
-    m_source_event_id = g_timeout_add_full (G_PRIORITY_DEFAULT, m_delayed_time, delayedCloudAsyncRequestCallBack, user_data, delayedCloudAsyncRequestDestroyCallBack);
+    m_source_event_id = g_timeout_add_full (G_PRIORITY_DEFAULT,
+                                            m_editor->m_config.cloudRequestDelayTime (),
+                                            delayedCloudAsyncRequestCallBack,
+                                            user_data,
+                                            delayedCloudAsyncRequestDestroyCallBack);
     data->event_id = m_source_event_id;
 }
 
@@ -486,10 +481,13 @@ CloudCandidates::cloudAsyncRequest (const gchar* requestStr)
 {
     GError **error = NULL;
     gchar *queryRequest;
-    if (m_cloud_source == BAIDU)
-        queryRequest= g_strdup_printf (BAIDU_URL_TEMPLATE, requestStr, m_cloud_candidates_number);
-    else if (m_cloud_source == GOOGLE)
-        queryRequest= g_strdup_printf (GOOGLE_URL_TEMPLATE, requestStr, m_cloud_candidates_number);
+    guint cloud_source = m_editor->m_config.cloudInputSource (),
+          cloud_candidates_number = m_editor->m_config.cloudCandidatesNumber ();
+
+    if (cloud_source == BAIDU)
+        queryRequest= g_strdup_printf (BAIDU_URL_TEMPLATE, requestStr, cloud_candidates_number);
+    else if (cloud_source == GOOGLE)
+        queryRequest= g_strdup_printf (GOOGLE_URL_TEMPLATE, requestStr, cloud_candidates_number);
 
     /* cancel message if there is a pending one */
     if (m_message)
@@ -540,10 +538,13 @@ CloudCandidates::cloudSyncRequest (const gchar* requestStr, std::vector<Enhanced
 {
     GError **error = NULL;
     gchar *queryRequest;
-    if (m_cloud_source == BAIDU)
-        queryRequest= g_strdup_printf (BAIDU_URL_TEMPLATE, requestStr, m_cloud_candidates_number);
-    else if (m_cloud_source == GOOGLE)
-        queryRequest= g_strdup_printf (GOOGLE_URL_TEMPLATE, requestStr, m_cloud_candidates_number);
+    guint cloud_source = m_editor->m_config.cloudInputSource (),
+          cloud_candidates_number = m_editor->m_config.cloudCandidatesNumber ();
+
+    if (cloud_source == BAIDU)
+        queryRequest= g_strdup_printf (BAIDU_URL_TEMPLATE, requestStr, cloud_candidates_number);
+    else if (cloud_source == GOOGLE)
+        queryRequest= g_strdup_printf (GOOGLE_URL_TEMPLATE, requestStr, cloud_candidates_number);
     SoupMessage *msg = soup_message_new ("GET", queryRequest);
 
     GInputStream *stream = soup_session_send (m_session, msg, NULL, error);
@@ -558,10 +559,11 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
     CloudCandidatesResponseJsonParser *parser = NULL;
     const gchar *text = NULL;
     gchar annotation[MAX_PINYIN_LEN + 1];
+    guint cloud_source = m_editor->m_config.cloudInputSource ();
 
-    if (m_cloud_source == BAIDU)
+    if (cloud_source == BAIDU)
         parser = m_baidu_parser;
-    else if (m_cloud_source == GOOGLE)
+    else if (cloud_source == GOOGLE)
         parser = m_google_parser;
 
     ret_code = parser->parse (stream);
@@ -590,7 +592,8 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
         text = (const gchar *) m_buffer;
     }
 
-    if (m_cloud_source == BAIDU || !g_strcmp0 (annotation, text)) {
+    /* ignore annotation match while using Baidu source */
+    if (cloud_source == BAIDU || !g_strcmp0 (annotation, text)) {
         if (ret_code == PARSER_NOERR) {
             /* update to the cached candidates list */
             std::vector<std::string> &updated_candidates = parser->getStringCandidates ();
