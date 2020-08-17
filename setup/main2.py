@@ -522,7 +522,7 @@ class PreferencesDialog:
 
         self.__init_enable_cloud_input.connect("toggled", __enable_cloud_input_cb)
         self.__cloud_input_source.connect("changed", __cloud_input_source_changed_cb)
-        
+
 
     def __init_cloud_input(self):
         # page CloudInput
