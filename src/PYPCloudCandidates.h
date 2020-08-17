@@ -74,12 +74,17 @@ public:
     SoupMessage *m_message;
     std::string m_last_requested_pinyin;
 
+    /* full pinyin buffer */
+    String m_buffer;
 private:
     static gboolean delayedCloudAsyncRequestCallBack (gpointer user_data);
     static void delayedCloudAsyncRequestDestroyCallBack (gpointer user_data);
     static void cloudResponseCallBack (GObject *object, GAsyncResult *result, gpointer user_data);
 
     void processCloudResponse (GInputStream *stream, std::vector<EnhancedCandidate> & candidates);
+
+    /* update internal full pinyin representation */
+    void updateFullPinyinBuffer ();
 private:
     SoupSession *m_session;
     bool m_bopomofo_mode;

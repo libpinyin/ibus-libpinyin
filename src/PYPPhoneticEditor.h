@@ -104,9 +104,6 @@ protected:
     virtual void updatePreeditText (void) = 0;
     virtual void updatePinyin (void) = 0;
 
-    /* update internal full pinyin representation in the editor */
-    virtual void updateFullPinyinBuffer (void);
-
     guint getCursorLeftByWord (void);
     guint getCursorRightByWord (void);
 
@@ -115,7 +112,6 @@ protected:
     guint                       m_pinyin_len;
     LookupTable                 m_lookup_table;
     String                      m_buffer;
-    String                      m_full_pinyin_buffer;
 
     /* use LibPinyinBackEnd here. */
     pinyin_instance_t           *m_instance;

@@ -362,9 +362,6 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
     /* refer pinyin retrieved in full pinyin mode */
     const gchar *full_pinyin_text;
 
-    /* refer pinyin generated in double pinyin mode or bopomofo mode, need free */
-    gchar *pinyin_text;
-
     /* find the first position after n-gram candidates */
     std::vector<EnhancedCandidate>::iterator cloud_candidates_first_pos;
 
@@ -385,46 +382,23 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
     }
 
     /* neither double pinyin mode nor bopomofo mode */
-    if (! m_editor->m_config.doublePinyin () && ! m_bopomofo_mode) {
+    if (! m_editor->m_config.doublePinyin () && ! m_bopomofo_mode)
         full_pinyin_text = m_editor->m_text;
-
-        if (strcmp (m_last_requested_pinyin.c_str(), full_pinyin_text) == 0) {
-            /* do not request again and update cached ones */
-            std::vector<EnhancedCandidate> m_candidates_with_prefix;
-            for (std::vector<EnhancedCandidate>::iterator i = m_candidates.begin (); i != m_candidates.end (); ++i) {
-                EnhancedCandidate candidate_with_prefix = *i;
-                candidate_with_prefix.m_display_string = CANDIDATE_CLOUD_PREFIX + candidate_with_prefix.m_display_string;
-                m_candidates_with_prefix.push_back (candidate_with_prefix);
-            }
-            candidates.insert (cloud_candidates_first_pos, m_candidates_with_prefix.begin (), m_candidates_with_prefix.end ());
-            return FALSE;
-        }
+    else {
+        updateFullPinyinBuffer ();
+        full_pinyin_text = (const gchar *) m_buffer;
     }
-    else
-    {
-        m_editor->updateFullPinyinBuffer ();
-        String stripped = m_editor->m_full_pinyin_buffer;
-        const gchar *temp = stripped;
 
-        /* replace space with quote */
-        gchar** tempArray =  g_strsplit_set (temp, " ", -1);
-        pinyin_text = g_strjoinv ("'", tempArray);
-
-        g_strfreev (tempArray);
-
-        if (strcmp (m_last_requested_pinyin.c_str(), pinyin_text) == 0) {
-            /* do not request again and update cached one */
-            std::vector<EnhancedCandidate> m_candidates_with_prefix;
-            for (std::vector<EnhancedCandidate>::iterator i = m_candidates.begin (); i != m_candidates.end (); ++i) {
-                EnhancedCandidate candidate_with_prefix = *i;
-                candidate_with_prefix.m_display_string = CANDIDATE_CLOUD_PREFIX + candidate_with_prefix.m_display_string;
-                m_candidates_with_prefix.push_back (candidate_with_prefix);
-            }
-            candidates.insert (cloud_candidates_first_pos, m_candidates_with_prefix.begin (), m_candidates_with_prefix.end ());
-
-            g_free (pinyin_text);
-            return FALSE;
+    if (strcmp (m_last_requested_pinyin.c_str(), full_pinyin_text) == 0) {
+        /* do not request again and update cached ones */
+        std::vector<EnhancedCandidate> m_candidates_with_prefix;
+        for (std::vector<EnhancedCandidate>::iterator i = m_candidates.begin (); i != m_candidates.end (); ++i) {
+            EnhancedCandidate candidate_with_prefix = *i;
+            candidate_with_prefix.m_display_string = CANDIDATE_CLOUD_PREFIX + candidate_with_prefix.m_display_string;
+            m_candidates_with_prefix.push_back (candidate_with_prefix);
         }
+        candidates.insert (cloud_candidates_first_pos, m_candidates_with_prefix.begin (), m_candidates_with_prefix.end ());
+        return FALSE;
     }
 
     /* have cloud candidates already */
@@ -447,13 +421,8 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
     m_cloud_source = m_editor->m_config.cloudInputSource ();
     m_delayed_time = m_editor->m_config.cloudRequestDelayTime ();
     m_cloud_candidates_number = m_editor->m_config.cloudCandidatesNumber ();
-    if (! m_editor->m_config.doublePinyin () && ! m_bopomofo_mode) {
-        delayedCloudAsyncRequest (full_pinyin_text);
-    }
-    else {
-        delayedCloudAsyncRequest (pinyin_text);
-        g_free (pinyin_text);
-    }
+
+    delayedCloudAsyncRequest (full_pinyin_text);
 
     return TRUE;
 }
@@ -588,7 +557,6 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
     guint ret_code;
     CloudCandidatesResponseJsonParser *parser = NULL;
     const gchar *text = NULL;
-    gchar *pinyin_text = NULL;
     gchar annotation[MAX_PINYIN_LEN + 1];
 
     if (m_cloud_source == BAIDU)
@@ -617,19 +585,12 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
         text = m_editor->m_text;
     }
     else {
-        /* get current pinyin text */
-        m_editor->updateFullPinyinBuffer ();
-        String stripped = m_editor->m_full_pinyin_buffer;
-        const gchar *temp = stripped;
-
-        /* replace space with quote */
-        gchar** tempArray =  g_strsplit_set (temp, " ", -1);
-
-        pinyin_text = g_strjoinv ("'", tempArray);
-        g_strfreev (tempArray);
+        /* get current text */
+        updateFullPinyinBuffer ();
+        text = (const gchar *) m_buffer;
     }
 
-    if (m_cloud_source == BAIDU || !g_strcmp0 (annotation, text) || !g_strcmp0 (annotation, pinyin_text)) {
+    if (m_cloud_source == BAIDU || !g_strcmp0 (annotation, text)) {
         if (ret_code == PARSER_NOERR) {
             /* update to the cached candidates list */
             std::vector<std::string> &updated_candidates = parser->getStringCandidates ();
@@ -642,28 +603,25 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
             }
         }
         else {
-            String text;
+            String display_text;
 
             switch (ret_code) {
             case PARSER_NO_CANDIDATE:
-                text = CANDIDATE_NO_CANDIDATE_TEXT_WITHOUT_PREFIX;
+                display_text = CANDIDATE_NO_CANDIDATE_TEXT_WITHOUT_PREFIX;
                 break;
             case PARSER_INVALID_DATA:
-                text = CANDIDATE_INVALID_DATA_TEXT_WITHOUT_PREFIX;
+                display_text = CANDIDATE_INVALID_DATA_TEXT_WITHOUT_PREFIX;
                 break;
             case PARSER_BAD_FORMAT:
-                text = CANDIDATE_BAD_FORMAT_TEXT_WITHOUT_PREFIX;
+                display_text = CANDIDATE_BAD_FORMAT_TEXT_WITHOUT_PREFIX;
                 break;
             }
 
             for (std::vector<EnhancedCandidate>::iterator pos = m_candidates.begin (); pos != m_candidates.end (); ++pos) {
-                pos->m_display_string = text;
+                pos->m_display_string = display_text;
             }
         }
     }
-
-    if (pinyin_text)
-        g_free (pinyin_text);
 }
 
 void
@@ -684,6 +642,39 @@ CloudCandidates::updateLookupTable ()
 
     /* notify ibus */
     m_editor->updateLookupTableFast ();
+}
+
+void
+CloudCandidates::updateFullPinyinBuffer ()
+{
+    m_buffer.clear ();
+
+    gchar * aux_text                = NULL;
+    gchar * pinyin_text             = NULL;
+    gchar * pinyin_text_with_quote  = NULL;
+    gchar** tempArray               = NULL;
+
+    /* get full pinyin auxiliary text */
+    pinyin_get_full_pinyin_auxiliary_text (m_editor->m_instance, m_editor->m_cursor, &aux_text);
+
+    /* remove tone and cursor */
+    tempArray =  g_strsplit_set (aux_text, "|12345", -1);
+    pinyin_text = g_strjoinv ("", tempArray);
+    g_strfreev (tempArray);
+
+    /* remove space */
+    pinyin_text = g_strstrip(pinyin_text);
+
+    /* replace space with quote */
+    tempArray =  g_strsplit_set (pinyin_text, " ", -1);
+    pinyin_text_with_quote = g_strjoinv ("'", tempArray);
+    m_buffer << pinyin_text_with_quote;
+    g_strfreev (tempArray);
+
+    /* free */
+    g_free(aux_text);
+    g_free(pinyin_text);
+    g_free(pinyin_text_with_quote);
 }
 
 std::vector<EnhancedCandidate> CloudCandidatesResponseParser::getCandidates ()

@@ -661,29 +661,3 @@ PhoneticEditor::moveCursorRightByWord (void)
     update ();
     return TRUE;
 }
-
-void
-PhoneticEditor::updateFullPinyinBuffer (void)
-{
-    m_full_pinyin_buffer.clear ();
-    gchar * aux_text = NULL;
-    gchar * pinyin_text = NULL;
-    gchar** tempArray = NULL;
-
-    /* forcely put cursor to the first place */
-    pinyin_get_full_pinyin_auxiliary_text (m_instance, m_cursor, &aux_text);
-
-    /* remove tone and cursor */
-    tempArray =  g_strsplit_set (aux_text, "|12345", -1);
-    pinyin_text = g_strjoinv ("", tempArray);
-
-    /* remove space */
-    pinyin_text = g_strstrip(pinyin_text);
-
-    m_full_pinyin_buffer << pinyin_text;
-
-    /* free */
-    g_strfreev (tempArray);
-    g_free(aux_text);
-    g_free(pinyin_text);
-}
