@@ -33,6 +33,9 @@
 
 
 
+class BaiduCloudCandidatesResponseJsonParser;
+class GoogleCloudCandidatesResponseJsonParser;
+
 namespace PY {
 
 #define BUFFERLENGTH 2048
@@ -81,6 +84,8 @@ private:
     SoupSession *m_session;
     bool m_bopomofo_mode;
 
+    BaiduCloudCandidatesResponseJsonParser *m_baidu_parser;
+    GoogleCloudCandidatesResponseJsonParser *m_google_parser;
 protected:
     std::vector<EnhancedCandidate> m_candidates;
 };

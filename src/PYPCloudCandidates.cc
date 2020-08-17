@@ -118,6 +118,9 @@ class GoogleCloudCandidatesResponseJsonParser : public CloudCandidatesResponseJs
 protected:
     guint parseJsonResponse (JsonNode *root)
     {
+        /* clear the last result */
+        m_candidates.clear ();
+
         if (!JSON_NODE_HOLDS_ARRAY (root))
             return PARSER_BAD_FORMAT;
 
@@ -203,6 +206,13 @@ class BaiduCloudCandidatesResponseJsonParser : public CloudCandidatesResponseJso
 private:
     guint parseJsonResponse (JsonNode *root)
     {
+        /* clear the last result */
+        m_candidates.clear ();
+        if (m_annotation) {
+            g_free ((gpointer)m_annotation);
+            m_annotation = NULL;
+        }
+
         if (!JSON_NODE_HOLDS_OBJECT (root))
             return PARSER_BAD_FORMAT;
 
@@ -261,7 +271,6 @@ private:
             return PARSER_INVALID_DATA;
 
         /* update annotation with the returned annotation */
-        m_annotation = NULL;
         gchar **words = g_strsplit (baidu_candidate_annotation, "'", -1);
         m_annotation = g_strjoinv ("", words);
         g_strfreev (words);
@@ -336,10 +345,15 @@ CloudCandidates::CloudCandidates (PhoneticEditor * editor) : m_bopomofo_mode(fal
 
     m_source_event_id = 0;
     m_message = NULL;
+
+    m_baidu_parser = new BaiduCloudCandidatesResponseJsonParser ();
+    m_google_parser = new GoogleCloudCandidatesResponseJsonParser ();
 }
 
 CloudCandidates::~CloudCandidates ()
 {
+    delete m_baidu_parser;
+    delete m_google_parser;
 }
 
 gboolean
@@ -577,9 +591,9 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
     gchar annotation[MAX_PINYIN_LEN + 1];
 
     if (m_cloud_source == BAIDU)
-        parser = new BaiduCloudCandidatesResponseJsonParser ();
+        parser = m_baidu_parser;
     else if (m_cloud_source == GOOGLE)
-        parser = new GoogleCloudCandidatesResponseJsonParser ();
+        parser = m_google_parser;
 
     ret_code = parser->parse (stream);
 
@@ -646,9 +660,6 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
             }
         }
     }
-
-    if (parser)
-        delete parser;
 
     if (pinyin_text)
         g_free (pinyin_text);
