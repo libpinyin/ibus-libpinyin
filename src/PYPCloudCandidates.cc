@@ -63,7 +63,7 @@ static const char *GOOGLE_URL_TEMPLATE = "https://www.google.com/inputtools/requ
 typedef struct
 {
     guint event_id;
-    const gchar request_str[MAX_PINYIN_LEN + 1];
+    gchar request_str[MAX_PINYIN_LEN + 1];
     CloudCandidates *cloud_candidates;
 } DelayedCloudAsyncRequestCallbackUserData;
 
@@ -470,6 +470,7 @@ CloudCandidates::selectCandidate (EnhancedCandidate & enhanced)
         return SELECT_CANDIDATE_ALREADY_HANDLED;
 
     /* take the cached candidate with the same candidate id */
+    /* Change to use array index? */
     for (std::vector<EnhancedCandidate>::iterator pos = m_candidates.begin (); pos != m_candidates.end (); ++pos) {
         if (pos->m_candidate_id == enhanced.m_candidate_id) {
             enhanced.m_display_string = pos->m_display_string;
@@ -487,7 +488,6 @@ CloudCandidates::delayedCloudAsyncRequest (const gchar* requestStr)
 {
     gpointer user_data;
     DelayedCloudAsyncRequestCallbackUserData *data;
-    guint event_id;
 
     /* cancel the latest timer, if applied */
     if (m_source_event_id != 0)
@@ -497,12 +497,13 @@ CloudCandidates::delayedCloudAsyncRequest (const gchar* requestStr)
     user_data = g_malloc (sizeof(DelayedCloudAsyncRequestCallbackUserData));
     data = static_cast<DelayedCloudAsyncRequestCallbackUserData *> (user_data);
 
-    strcpy ((char *)(data->request_str), (const char *)requestStr);
+    strncpy (data->request_str, requestStr, MAX_PINYIN_LEN);
+    data->request_str[MAX_PINYIN_LEN] = '\0';
     data->cloud_candidates = this;
 
     /* record the latest timer */
-    event_id = m_source_event_id = g_timeout_add_full (G_PRIORITY_DEFAULT, m_delayed_time, delayedCloudAsyncRequestCallBack, user_data, delayedCloudAsyncRequestDestroyCallBack);
-    data->event_id = event_id;
+    m_source_event_id = g_timeout_add_full (G_PRIORITY_DEFAULT, m_delayed_time, delayedCloudAsyncRequestCallBack, user_data, delayedCloudAsyncRequestDestroyCallBack);
+    data->event_id = m_source_event_id;
 }
 
 void
