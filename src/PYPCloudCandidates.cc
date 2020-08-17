@@ -74,7 +74,6 @@ public:
     virtual ~CloudCandidatesResponseParser () {}
 
     virtual guint parse (GInputStream *stream) = 0;
-    virtual guint parse (const gchar *data) = 0;
 
     virtual std::vector<std::string> &getStringCandidates () { return m_candidates; }
     virtual std::vector<EnhancedCandidate> getCandidates ();
@@ -104,20 +103,6 @@ public:
             return PARSER_BAD_FORMAT;
         }
         g_input_stream_close (stream, NULL, error);  /* Close stream to release libsoup connexion */
-
-        return parseJsonResponse (json_parser_get_root (m_parser));
-    }
-
-    guint parse (const gchar *data)
-    {
-        GError **error = NULL;
-
-        if (!data)
-            return PARSER_NETWORK_ERROR;
-
-        /* parse Json from data */
-        if (!json_parser_load_from_data (m_parser, data, strlen (data), error) || error != NULL)
-            return PARSER_BAD_FORMAT;
 
         return parseJsonResponse (json_parser_get_root (m_parser));
     }
