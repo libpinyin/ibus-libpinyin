@@ -39,7 +39,6 @@ class GoogleCloudCandidatesResponseJsonParser;
 namespace PY {
 
 #define BUFFERLENGTH 2048
-#define CLOUD_MINIMUM_TRIGGER_LENGTH 2
 #define CLOUD_MINIMUM_UTF8_TRIGGER_LENGTH 2
 
 enum InputMode {

@@ -490,7 +490,8 @@ CloudCandidates::cloudAsyncRequest (const gchar* requestStr)
     }
 
     /* only update lookup table when there is still pinyin text */
-    if (strlen (m_editor->m_text) >= CLOUD_MINIMUM_TRIGGER_LENGTH)
+    if (g_utf8_strlen (m_editor->m_text, -1) >=
+        CLOUD_MINIMUM_UTF8_TRIGGER_LENGTH)
         updateLookupTable ();
 
     /* free url string */
@@ -509,7 +510,8 @@ CloudCandidates::cloudResponseCallBack (GObject *source_object, GAsyncResult *re
     cloudCandidates->processCloudResponse (stream, cloudCandidates->m_editor->m_candidates);
 
     /* only update lookup table when there is still pinyin text */
-    if (strlen (cloudCandidates->m_editor->m_text) >= CLOUD_MINIMUM_TRIGGER_LENGTH) {
+    if (g_utf8_strlen (cloudCandidates->m_editor->m_text, -1) >=
+        CLOUD_MINIMUM_UTF8_TRIGGER_LENGTH) {
         cloudCandidates->updateLookupTable ();
 
         /* clean up message */
