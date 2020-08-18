@@ -380,10 +380,8 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
     /* neither double pinyin mode nor bopomofo mode */
     if (m_input_mode == FullPinyin)
         full_pinyin_text = m_editor->m_text;
-    else {
-        updateFullPinyinBuffer ();
-        full_pinyin_text = (const gchar *) m_buffer;
-    }
+    else
+        full_pinyin_text = getFullPinyin ();
 
     if (strcmp (m_last_requested_pinyin.c_str(), full_pinyin_text) == 0) {
         /* do not request again and update cached ones */
@@ -471,18 +469,12 @@ CloudCandidates::delayedCloudAsyncRequest (const gchar* requestStr)
 }
 
 void
-CloudCandidates::cloudAsyncRequest (const gchar* requestStr, std::vector<EnhancedCandidate> & candidates)
-{
-    cloudAsyncRequest (requestStr);
-}
-
-void
 CloudCandidates::cloudAsyncRequest (const gchar* requestStr)
 {
     GError **error = NULL;
     gchar *queryRequest;
-    guint cloud_source = m_editor->m_config.cloudInputSource (),
-          cloud_candidates_number = m_editor->m_config.cloudCandidatesNumber ();
+    guint cloud_source = m_editor->m_config.cloudInputSource ();
+    guint cloud_candidates_number = m_editor->m_config.cloudCandidatesNumber ();
 
     if (cloud_source == BAIDU)
         queryRequest= g_strdup_printf (BAIDU_URL_TEMPLATE, requestStr, cloud_candidates_number);
@@ -538,8 +530,8 @@ CloudCandidates::cloudSyncRequest (const gchar* requestStr, std::vector<Enhanced
 {
     GError **error = NULL;
     gchar *queryRequest;
-    guint cloud_source = m_editor->m_config.cloudInputSource (),
-          cloud_candidates_number = m_editor->m_config.cloudCandidatesNumber ();
+    guint cloud_source = m_editor->m_config.cloudInputSource ();
+    guint cloud_candidates_number = m_editor->m_config.cloudCandidatesNumber ();
 
     if (cloud_source == BAIDU)
         queryRequest= g_strdup_printf (BAIDU_URL_TEMPLATE, requestStr, cloud_candidates_number);
@@ -575,9 +567,9 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
         }
     }
 
-    if (parser->getAnnotation ())
+    if (parser->getAnnotation ()) {
         strcpy (annotation, parser->getAnnotation ());
-    else {
+    } else {
         /* the request might have been cancelled */
         return;
     }
@@ -585,11 +577,9 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
     if (m_input_mode == FullPinyin) {
         /* get current text in editor */
         text = m_editor->m_text;
-    }
-    else {
+    } else {
         /* get current text */
-        updateFullPinyinBuffer ();
-        text = (const gchar *) m_buffer;
+        text = getFullPinyin ();
     }
 
     /* ignore annotation match while using Baidu source */
@@ -647,10 +637,10 @@ CloudCandidates::updateLookupTable ()
     m_editor->updateLookupTableFast ();
 }
 
-void
-CloudCandidates::updateFullPinyinBuffer ()
+String
+CloudCandidates::getFullPinyin ()
 {
-    m_buffer.clear ();
+    String buffer;
 
     gchar * aux_text                = NULL;
     gchar * pinyin_text             = NULL;
@@ -671,13 +661,15 @@ CloudCandidates::updateFullPinyinBuffer ()
     /* replace space with quote */
     tempArray =  g_strsplit_set (pinyin_text, " ", -1);
     pinyin_text_with_quote = g_strjoinv ("'", tempArray);
-    m_buffer << pinyin_text_with_quote;
+    buffer << pinyin_text_with_quote;
     g_strfreev (tempArray);
 
     /* free */
     g_free(aux_text);
     g_free(pinyin_text);
     g_free(pinyin_text_with_quote);
+
+    return buffer;
 }
 
 std::vector<EnhancedCandidate> CloudCandidatesResponseParser::getCandidates ()

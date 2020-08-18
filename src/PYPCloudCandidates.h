@@ -64,7 +64,6 @@ public:
     int selectCandidate (EnhancedCandidate & enhanced);
 
     void cloudAsyncRequest (const gchar* requestStr);
-    void cloudAsyncRequest (const gchar* requestStr, std::vector<EnhancedCandidate> & candidates);
     void cloudSyncRequest (const gchar* requestStr, std::vector<EnhancedCandidate> & candidates);
 
     void delayedCloudAsyncRequest (const gchar* requestStr);
@@ -75,8 +74,6 @@ public:
     SoupMessage *m_message;
     std::string m_last_requested_pinyin;
 
-    /* full pinyin buffer */
-    String m_buffer;
 private:
     static gboolean delayedCloudAsyncRequestCallBack (gpointer user_data);
     static void delayedCloudAsyncRequestDestroyCallBack (gpointer user_data);
@@ -84,8 +81,8 @@ private:
 
     void processCloudResponse (GInputStream *stream, std::vector<EnhancedCandidate> & candidates);
 
-    /* update internal full pinyin representation */
-    void updateFullPinyinBuffer ();
+    /* get internal full pinyin representation */
+    String getFullPinyin ();
 private:
     SoupSession *m_session;
     InputMode m_input_mode;
