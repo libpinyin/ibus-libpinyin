@@ -359,21 +359,21 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
     const gchar *full_pinyin_text;
 
     /* find the first position after n-gram candidates */
-    std::vector<EnhancedCandidate>::iterator cloud_candidates_first_pos;
+    std::vector<EnhancedCandidate>::iterator first_pos;
 
-    /* check the length of the first n-gram candidate */
-    std::vector<EnhancedCandidate>::iterator n_gram_sentence_candidate = candidates.begin ();
-    if (n_gram_sentence_candidate == candidates.end ()) {
+    /* check the length of candidates */
+    if (0 == candidates.size ())
         return FALSE;   /* no candidate */
-    }
-    if (g_utf8_strlen (n_gram_sentence_candidate->m_display_string.c_str (), -1) < CLOUD_MINIMUM_UTF8_TRIGGER_LENGTH) {
+
+    if (g_utf8_strlen (candidates[0].m_display_string.c_str (), -1) <
+        CLOUD_MINIMUM_UTF8_TRIGGER_LENGTH) {
         m_last_requested_pinyin = "";
         return FALSE;   /* do not request because there is only one character */
     }
 
     /* search the first non-ngram candidate */
-    for (cloud_candidates_first_pos = candidates.begin (); cloud_candidates_first_pos != candidates.end (); ++cloud_candidates_first_pos) {
-        if (CANDIDATE_NBEST_MATCH != cloud_candidates_first_pos->m_candidate_type)
+    for (first_pos = candidates.begin (); first_pos != candidates.end (); ++first_pos) {
+        if (CANDIDATE_NBEST_MATCH != first_pos->m_candidate_type)
             break;
     }
 
@@ -383,21 +383,21 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
     else
         full_pinyin_text = getFullPinyin ();
 
-    if (strcmp (m_last_requested_pinyin.c_str(), full_pinyin_text) == 0) {
+    if (m_last_requested_pinyin == full_pinyin_text) {
         /* do not request again and update cached ones */
-        std::vector<EnhancedCandidate> m_candidates_with_prefix;
-        for (std::vector<EnhancedCandidate>::iterator i = m_candidates.begin (); i != m_candidates.end (); ++i) {
-            EnhancedCandidate candidate_with_prefix = *i;
-            candidate_with_prefix.m_display_string = CANDIDATE_CLOUD_PREFIX + candidate_with_prefix.m_display_string;
-            m_candidates_with_prefix.push_back (candidate_with_prefix);
+
+        for (int i = 0; i < m_candidates.size (); ++i){
+            EnhancedCandidate candidate = m_candidates[i];
+            /* insert cloud prefix */
+            candidate.m_display_string = CANDIDATE_CLOUD_PREFIX + candidate.m_display_string;
+            candidates.insert (first_pos + i, candidate);
         }
-        candidates.insert (cloud_candidates_first_pos, m_candidates_with_prefix.begin (), m_candidates_with_prefix.end ());
-        return FALSE;
+        return TRUE;
     }
 
     /* have cloud candidates already */
-    EnhancedCandidate testCan = *cloud_candidates_first_pos;
-    if (testCan.m_candidate_type == CANDIDATE_CLOUD_INPUT)
+    EnhancedCandidate test = *first_pos;
+    if (test.m_candidate_type == CANDIDATE_CLOUD_INPUT)
         return FALSE;
 
     /* insert cloud candidates' placeholders */
@@ -409,7 +409,7 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
         enhanced.m_candidate_type = CANDIDATE_CLOUD_INPUT;
         m_candidates.push_back (enhanced);
     }
-    candidates.insert (cloud_candidates_first_pos, m_candidates.begin (), m_candidates.end ());
+    candidates.insert (first_pos, m_candidates.begin (), m_candidates.end ());
 
     delayedCloudAsyncRequest (full_pinyin_text);
 
@@ -427,16 +427,8 @@ CloudCandidates::selectCandidate (EnhancedCandidate & enhanced)
         enhanced.m_display_string == CANDIDATE_INVALID_DATA_TEXT)
         return SELECT_CANDIDATE_ALREADY_HANDLED;
 
-    /* take the cached candidate with the same candidate id */
-    /* Change to use array index? */
-    for (std::vector<EnhancedCandidate>::iterator pos = m_candidates.begin (); pos != m_candidates.end (); ++pos) {
-        if (pos->m_candidate_id == enhanced.m_candidate_id) {
-            enhanced.m_display_string = pos->m_display_string;
-
-            /* modify in-place and commit */
-            return SELECT_CANDIDATE_COMMIT | SELECT_CANDIDATE_MODIFY_IN_PLACE;
-        }
-    }
+    if (enhanced.m_candidate_id < m_candidates.size ())
+        return SELECT_CANDIDATE_COMMIT;
 
     return SELECT_CANDIDATE_ALREADY_HANDLED;
 }
@@ -547,7 +539,7 @@ CloudCandidates::cloudSyncRequest (const gchar* requestStr, std::vector<Enhanced
 void
 CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<EnhancedCandidate> & candidates)
 {
-    guint ret_code;
+    guint retval;
     CloudCandidatesResponseJsonParser *parser = NULL;
     const gchar *text = NULL;
     gchar annotation[MAX_PINYIN_LEN + 1];
@@ -558,21 +550,19 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
     else if (cloud_source == GOOGLE)
         parser = m_google_parser;
 
-    ret_code = parser->parse (stream);
+    retval = parser->parse (stream);
 
     /* no annotation if there is NETWORK_ERROR, process before detecting parsed annotation,  */
-    if (ret_code == PARSER_NETWORK_ERROR) {
+    if (retval == PARSER_NETWORK_ERROR) {
         for (std::vector<EnhancedCandidate>::iterator pos = m_candidates.begin (); pos != m_candidates.end (); ++pos) {
             pos->m_display_string = CANDIDATE_INVALID_DATA_TEXT_WITHOUT_PREFIX;
         }
     }
 
-    if (parser->getAnnotation ()) {
+    if (parser->getAnnotation ())
         strcpy (annotation, parser->getAnnotation ());
-    } else {
-        /* the request might have been cancelled */
+    else /* the request might have been cancelled */
         return;
-    }
 
     if (m_input_mode == FullPinyin) {
         /* get current text in editor */
@@ -584,21 +574,20 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
 
     /* ignore annotation match while using Baidu source */
     if (cloud_source == BAIDU || !g_strcmp0 (annotation, text)) {
-        if (ret_code == PARSER_NOERR) {
+        if (retval == PARSER_NOERR) {
             /* update to the cached candidates list */
-            std::vector<std::string> &updated_candidates = parser->getStringCandidates ();
+            std::vector<std::string> &updated = parser->getStringCandidates ();
+            assert (m_candidates.size () == updated.size ());
 
-            std::vector<EnhancedCandidate>::iterator cached_candidate_pos = m_candidates.begin ();
-            for (guint i = 0; cached_candidate_pos != m_candidates.end () && i < updated_candidates.size (); ++i, ++cached_candidate_pos) {
+            for (guint i = 0; i < m_candidates.size (); ++i) {
                 /* cache candidate without prefix in m_candidates */
-                EnhancedCandidate & cached = *cached_candidate_pos;
-                cached.m_display_string = updated_candidates[i];
+                m_candidates[i].m_display_string = updated[i];
             }
         }
         else {
             String display_text;
 
-            switch (ret_code) {
+            switch (retval) {
             case PARSER_NO_CANDIDATE:
                 display_text = CANDIDATE_NO_CANDIDATE_TEXT_WITHOUT_PREFIX;
                 break;
@@ -676,10 +665,11 @@ std::vector<EnhancedCandidate> CloudCandidatesResponseParser::getCandidates ()
 {
     std::vector<EnhancedCandidate> candidates;
 
-    for (std::vector<std::string>::const_iterator i = m_candidates.cbegin (); i != m_candidates.cend (); ++i) {
+    for (int i = 0; i < m_candidates.size(); ++i) {
         EnhancedCandidate candidate;
         candidate.m_candidate_type = CANDIDATE_CLOUD_INPUT;
-        candidate.m_display_string = *i;
+        candidate.m_candidate_id = i;
+        candidate.m_display_string = m_candidates[i];
         candidates.push_back (candidate);
     }
 
