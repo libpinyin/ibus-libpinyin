@@ -76,7 +76,6 @@ public:
     virtual guint parse (GInputStream *stream) = 0;
 
     virtual std::vector<std::string> &getStringCandidates () { return m_candidates; }
-    virtual std::vector<EnhancedCandidate> getCandidates ();
     virtual const gchar *getAnnotation () { return m_annotation; }
 
 protected:
@@ -665,21 +664,6 @@ CloudCandidates::getFullPinyin ()
     g_free(pinyin_text_with_quote);
 
     return buffer;
-}
-
-std::vector<EnhancedCandidate> CloudCandidatesResponseParser::getCandidates ()
-{
-    std::vector<EnhancedCandidate> candidates;
-
-    for (int i = 0; i < m_candidates.size(); ++i) {
-        EnhancedCandidate candidate;
-        candidate.m_candidate_type = CANDIDATE_CLOUD_INPUT;
-        candidate.m_candidate_id = i;
-        candidate.m_display_string = m_candidates[i];
-        candidates.push_back (candidate);
-    }
-
-    return candidates;
 }
 
 CloudCandidatesResponseJsonParser::CloudCandidatesResponseJsonParser () : m_parser (NULL)
