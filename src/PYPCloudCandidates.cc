@@ -396,8 +396,7 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
     }
 
     /* have cloud candidates already */
-    EnhancedCandidate test = *first_pos;
-    if (test.m_candidate_type == CANDIDATE_CLOUD_INPUT)
+    if (first_pos->m_candidate_type == CANDIDATE_CLOUD_INPUT)
         return FALSE;
 
     /* insert cloud candidates' placeholders */
@@ -427,8 +426,13 @@ CloudCandidates::selectCandidate (EnhancedCandidate & enhanced)
         enhanced.m_display_string == CANDIDATE_INVALID_DATA_TEXT)
         return SELECT_CANDIDATE_ALREADY_HANDLED;
 
-    if (enhanced.m_candidate_id < m_candidates.size ())
-        return SELECT_CANDIDATE_COMMIT;
+    if (enhanced.m_candidate_id < m_candidates.size ()) {
+        enhanced.m_display_string =
+            m_candidates[enhanced.m_candidate_id].m_display_string;
+
+        /* modify in-place and commit */
+        return SELECT_CANDIDATE_COMMIT | SELECT_CANDIDATE_MODIFY_IN_PLACE;
+    }
 
     return SELECT_CANDIDATE_ALREADY_HANDLED;
 }
