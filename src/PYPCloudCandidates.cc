@@ -45,7 +45,7 @@ enum CandidateResponseParserError {
 
 static const std::string CANDIDATE_CLOUD_PREFIX = "☁";
 
-static const std::string CANDIDATE_PENDING_TEXT_WITHOUT_PREFIX      = "[⏱️]";
+static const std::string CANDIDATE_PENDING_TEXT_WITHOUT_PREFIX      = "[⏱]";
 static const std::string CANDIDATE_LOADING_TEXT_WITHOUT_PREFIX      = "...";
 static const std::string CANDIDATE_NO_CANDIDATE_TEXT_WITHOUT_PREFIX = "[🚫]";
 static const std::string CANDIDATE_INVALID_DATA_TEXT_WITHOUT_PREFIX = "[❌]";
