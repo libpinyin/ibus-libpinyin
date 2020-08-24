@@ -437,7 +437,7 @@ CloudCandidates::selectCandidate (EnhancedCandidate & enhanced)
 }
 
 void
-CloudCandidates::delayedCloudAsyncRequest (const gchar* requestStr)
+CloudCandidates::delayedCloudAsyncRequest (const gchar* request_str)
 {
     gpointer user_data;
     DelayedCloudAsyncRequestCallbackUserData *data;
@@ -450,7 +450,7 @@ CloudCandidates::delayedCloudAsyncRequest (const gchar* requestStr)
     user_data = g_malloc (sizeof(DelayedCloudAsyncRequestCallbackUserData));
     data = static_cast<DelayedCloudAsyncRequestCallbackUserData *> (user_data);
 
-    strncpy (data->request_str, requestStr, MAX_PINYIN_LEN);
+    strncpy (data->request_str, request_str, MAX_PINYIN_LEN);
     data->request_str[MAX_PINYIN_LEN] = '\0';
     data->cloud_candidates = this;
 
@@ -464,28 +464,28 @@ CloudCandidates::delayedCloudAsyncRequest (const gchar* requestStr)
 }
 
 void
-CloudCandidates::cloudAsyncRequest (const gchar* requestStr)
+CloudCandidates::cloudAsyncRequest (const gchar* request_str)
 {
     GError **error = NULL;
-    gchar *queryRequest;
+    gchar *query_request;
     guint cloud_source = m_editor->m_config.cloudInputSource ();
     guint cloud_candidates_number = m_editor->m_config.cloudCandidatesNumber ();
 
     if (cloud_source == BAIDU)
-        queryRequest= g_strdup_printf (BAIDU_URL_TEMPLATE, requestStr, cloud_candidates_number);
+        query_request= g_strdup_printf (BAIDU_URL_TEMPLATE, request_str, cloud_candidates_number);
     else if (cloud_source == GOOGLE)
-        queryRequest= g_strdup_printf (GOOGLE_URL_TEMPLATE, requestStr, cloud_candidates_number);
+        query_request= g_strdup_printf (GOOGLE_URL_TEMPLATE, request_str, cloud_candidates_number);
 
     /* cancel message if there is a pending one */
     if (m_message)
         soup_session_cancel_message (m_session, m_message, SOUP_STATUS_CANCELLED);
 
-    SoupMessage *msg = soup_message_new ("GET", queryRequest);
+    SoupMessage *msg = soup_message_new ("GET", query_request);
     soup_session_send_async (m_session, msg, NULL, cloudResponseCallBack, static_cast<gpointer> (this));
     m_message = msg;
 
     /* cache the last request string */
-    m_last_requested_pinyin = requestStr;
+    m_last_requested_pinyin = request_str;
 
     /* update loading text to replace pending text */
     for (std::vector<EnhancedCandidate>::iterator pos = m_candidates.begin (); pos != m_candidates.end (); ++pos) {
@@ -498,8 +498,8 @@ CloudCandidates::cloudAsyncRequest (const gchar* requestStr)
         updateLookupTable ();
 
     /* free url string */
-    if (queryRequest)
-        g_free(queryRequest);
+    if (query_request)
+        g_free(query_request);
 }
 
 void
@@ -523,7 +523,7 @@ CloudCandidates::cloudResponseCallBack (GObject *source_object, GAsyncResult *re
 }
 
 void
-CloudCandidates::cloudSyncRequest (const gchar* requestStr, std::vector<EnhancedCandidate> & candidates)
+CloudCandidates::cloudSyncRequest (const gchar* request_str, std::vector<EnhancedCandidate> & candidates)
 {
     GError **error = NULL;
     gchar *queryRequest;
@@ -531,9 +531,9 @@ CloudCandidates::cloudSyncRequest (const gchar* requestStr, std::vector<Enhanced
     guint cloud_candidates_number = m_editor->m_config.cloudCandidatesNumber ();
 
     if (cloud_source == BAIDU)
-        queryRequest= g_strdup_printf (BAIDU_URL_TEMPLATE, requestStr, cloud_candidates_number);
+        queryRequest= g_strdup_printf (BAIDU_URL_TEMPLATE, request_str, cloud_candidates_number);
     else if (cloud_source == GOOGLE)
-        queryRequest= g_strdup_printf (GOOGLE_URL_TEMPLATE, requestStr, cloud_candidates_number);
+        queryRequest= g_strdup_printf (GOOGLE_URL_TEMPLATE, request_str, cloud_candidates_number);
     SoupMessage *msg = soup_message_new ("GET", queryRequest);
 
     GInputStream *stream = soup_session_send (m_session, msg, NULL, error);
