@@ -355,7 +355,7 @@ gboolean
 CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
 {
     /* refer pinyin retrieved in full pinyin mode */
-    const gchar *full_pinyin_text;
+    String full_pinyin_text;
 
     /* find the first position after n-gram candidates */
     std::vector<EnhancedCandidate>::iterator first_pos;
@@ -546,7 +546,7 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
 {
     guint retval;
     CloudCandidatesResponseJsonParser *parser = NULL;
-    const gchar *text = NULL;
+    String text;
     gchar annotation[MAX_PINYIN_LEN + 1];
     guint cloud_source = m_editor->m_config.cloudInputSource ();
 
