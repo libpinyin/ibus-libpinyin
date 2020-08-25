@@ -364,8 +364,8 @@ CloudCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
     if (0 == candidates.size ())
         return FALSE;   /* no candidate */
 
-    if (g_utf8_strlen (candidates[0].m_display_string.c_str (), -1) <
-        CLOUD_MINIMUM_UTF8_TRIGGER_LENGTH) {
+    const String & display_string = candidates[0].m_display_string;
+    if (display_string.utf8Length () < CLOUD_MINIMUM_UTF8_TRIGGER_LENGTH) {
         m_last_requested_pinyin = "";
         return FALSE;   /* do not request because there is only one character */
     }
@@ -493,8 +493,7 @@ CloudCandidates::cloudAsyncRequest (const gchar* request_str)
     }
 
     /* only update lookup table when there is still pinyin text */
-    if (g_utf8_strlen (m_editor->m_text, -1) >=
-        CLOUD_MINIMUM_UTF8_TRIGGER_LENGTH)
+    if (m_editor->m_text.utf8Length () >= CLOUD_MINIMUM_UTF8_TRIGGER_LENGTH)
         updateLookupTable ();
 
     /* free url string */
@@ -513,7 +512,7 @@ CloudCandidates::cloudResponseCallBack (GObject *source_object, GAsyncResult *re
     cloudCandidates->processCloudResponse (stream, cloudCandidates->m_editor->m_candidates);
 
     /* only update lookup table when there is still pinyin text */
-    if (g_utf8_strlen (cloudCandidates->m_editor->m_text, -1) >=
+    if (cloudCandidates->m_editor->m_text.utf8Length () >=
         CLOUD_MINIMUM_UTF8_TRIGGER_LENGTH) {
         cloudCandidates->updateLookupTable ();
 
