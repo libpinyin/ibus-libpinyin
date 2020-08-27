@@ -207,10 +207,6 @@ private:
     {
         /* clear the last result */
         m_candidates.clear ();
-        if (m_annotation) {
-            g_free ((gpointer)m_annotation);
-            m_annotation = NULL;
-        }
 
         if (!JSON_NODE_HOLDS_OBJECT (root))
             return PARSER_BAD_FORMAT;
@@ -228,15 +224,15 @@ private:
          *      [               <- baidu_result_array
          *          [               <- baidu_candidate_array
          *              [               <- baidu_candidate
-         *                  "百度",
+         *                  "测试",
          *                  5,
          *                  {
-         *                      "pinyin":"bai'du",
+         *                      "pinyin":"ce'shi",
          *                      "type":"IMEDICT"
          *                  }
          *              ]               <- baidu_candidate end
          *          ],              <- baidu_candidate_array end
-         *          "bai'du"        <- baidu_candidate_annotation
+         *          "ce'shi"        <- baidu_candidate_annotation
          *      ],              <- baidu_result_array end
          *  "status":"T"        <- baidu_response_status
          * }                <- baidu_root_object end
@@ -270,9 +266,7 @@ private:
             return PARSER_INVALID_DATA;
 
         /* update annotation with the returned annotation */
-        gchar **words = g_strsplit (baidu_candidate_annotation, "'", -1);
-        m_annotation = g_strjoinv ("", words);
-        g_strfreev (words);
+        m_annotation = baidu_candidate_annotation;
 
         /* there should be at least one candidate */
         result_counter = json_array_get_length (baidu_candidate_array);
@@ -347,8 +341,12 @@ CloudCandidates::CloudCandidates (PhoneticEditor * editor) : m_input_mode(FullPi
 
 CloudCandidates::~CloudCandidates ()
 {
+    g_object_unref (m_session);
+    m_session = NULL;
     delete m_baidu_parser;
+    m_baidu_parser = NULL;
     delete m_google_parser;
+    m_google_parser = NULL;
 }
 
 gboolean
@@ -564,7 +562,7 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
     }
 
     if (parser->getAnnotation ())
-        strcpy (annotation, parser->getAnnotation ());
+        strncpy (annotation, parser->getAnnotation (), MAX_PINYIN_LEN);
     else /* the request might have been cancelled */
         return;
 
