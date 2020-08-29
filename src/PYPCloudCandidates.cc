@@ -552,9 +552,13 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
     else if (cloud_source == GOOGLE)
         parser = m_google_parser;
 
+    if (parser == NULL) {
+        /* parsers have already been destroyed */
+        return;
+    }
     retval = parser->parse (stream);
 
-    /* no annotation if there is NETWORK_ERROR, process before detecting parsed annotation,  */
+    /* no annotation if there is NETWORK_ERROR, process before detecting parsed annotation */
     if (retval == PARSER_NETWORK_ERROR) {
         for (std::vector<EnhancedCandidate>::iterator pos = m_candidates.begin (); pos != m_candidates.end (); ++pos) {
             pos->m_display_string = CANDIDATE_INVALID_DATA_TEXT_WITHOUT_PREFIX;
