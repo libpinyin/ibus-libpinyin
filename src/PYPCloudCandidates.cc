@@ -341,12 +341,30 @@ CloudCandidates::CloudCandidates (PhoneticEditor * editor) : m_input_mode(FullPi
 
 CloudCandidates::~CloudCandidates ()
 {
-    g_object_unref (m_session);
-    m_session = NULL;
-    delete m_baidu_parser;
-    m_baidu_parser = NULL;
-    delete m_google_parser;
-    m_google_parser = NULL;
+    if (m_source_event_id != 0) {
+        g_source_remove (m_source_event_id);
+        m_source_event_id = 0;
+    }
+
+    if (m_message) {
+        soup_session_cancel_message (m_session, m_message, SOUP_STATUS_CANCELLED);
+        m_message = NULL;
+    }
+
+    if (m_session) {
+        g_object_unref (m_session);
+        m_session = NULL;
+    }
+
+    if (m_baidu_parser) {
+        delete m_baidu_parser;
+        m_baidu_parser = NULL;
+    }
+
+    if (m_google_parser) {
+        delete m_google_parser;
+        m_google_parser = NULL;
+    }
 }
 
 gboolean
@@ -552,10 +570,6 @@ CloudCandidates::processCloudResponse (GInputStream *stream, std::vector<Enhance
     else if (cloud_source == GOOGLE)
         parser = m_google_parser;
 
-    if (parser == NULL) {
-        /* parsers have already been destroyed */
-        return;
-    }
     retval = parser->parse (stream);
 
     /* no annotation if there is NETWORK_ERROR, process before detecting parsed annotation */
