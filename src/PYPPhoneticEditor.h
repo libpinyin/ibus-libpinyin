@@ -39,10 +39,15 @@
 
 #include "PYPEmojiCandidates.h"
 
+#ifdef ENABLE_CLOUD_INPUT_MODE
+#include "PYPCloudCandidates.h"
+#endif
+
 namespace PY {
 
 class PhoneticEditor : public Editor {
     friend class LibPinyinCandidates;
+    friend class CloudCandidates;
 
 public:
     PhoneticEditor (PinyinProperties & props, Config & config);
@@ -125,6 +130,10 @@ protected:
     EmojiCandidates m_emoji_candidates;
 
     TraditionalCandidates m_traditional_candidates;
+
+#ifdef ENABLE_CLOUD_INPUT_MODE
+    CloudCandidates m_cloud_candidates;
+#endif
 };
 
 };

@@ -37,6 +37,9 @@ PhoneticEditor::PhoneticEditor (PinyinProperties &props,
     m_lua_converter_candidates (this),
 #endif
     m_emoji_candidates (this),
+#ifdef ENABLE_CLOUD_INPUT_MODE
+    m_cloud_candidates(this),
+#endif
     m_traditional_candidates (this, config)
 {
 }
@@ -239,6 +242,12 @@ PhoneticEditor::updateCandidates (void)
     }
 #endif
 
+#ifdef ENABLE_CLOUD_INPUT_MODE
+    /* keep me behind the other kinds of candidates which are inserted after n-gram candidates */
+    if(m_config.enableCloudInput ())
+        m_cloud_candidates.processCandidates (m_candidates);
+#endif
+
     if (!m_props.modeSimp ())
         m_traditional_candidates.processCandidates (m_candidates);
 
@@ -366,6 +375,11 @@ PhoneticEditor::selectCandidateInternal (EnhancedCandidate & candidate)
 
     case CANDIDATE_TRADITIONAL_CHINESE:
         return m_traditional_candidates.selectCandidate (candidate);
+
+#ifdef ENABLE_CLOUD_INPUT_MODE
+    case CANDIDATE_CLOUD_INPUT:
+        return m_cloud_candidates.selectCandidate (candidate);
+#endif
 
 #ifdef IBUS_BUILD_LUA_EXTENSION
     case CANDIDATE_LUA_TRIGGER:
