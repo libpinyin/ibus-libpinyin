@@ -67,6 +67,10 @@ const gchar * const CONFIG_BOTH_SWITCH               = "both-switch";
 const gchar * const CONFIG_TRAD_SWITCH               = "trad-switch";
 const gchar * const CONFIG_NETWORK_DICTIONARY_START_TIMESTAMP = "network-dictionary-start-timestamp";
 const gchar * const CONFIG_NETWORK_DICTIONARY_END_TIMESTAMP   = "network-dictionary-end-timestamp";
+const gchar * const CONFIG_INIT_ENABLE_CLOUD_INPUT   = "enable-cloud-input";
+const gchar * const CONFIG_CLOUD_INPUT_SOURCE        = "cloud-input-source";
+const gchar * const CONFIG_CLOUD_CANDIDATES_NUMBER   = "cloud-candidates-number";
+const gchar * const CONFIG_CLOUD_REQUEST_DELAY_TIME  = "cloud-request-delay-time";
 
 const pinyin_option_t PINYIN_DEFAULT_OPTION =
         PINYIN_INCOMPLETE |
@@ -149,6 +153,11 @@ LibPinyinConfig::initDefaultValues (void)
 
     m_network_dictionary_start_timestamp = 0;
     m_network_dictionary_end_timestamp = 0;
+
+    m_enable_cloud_input = FALSE;
+    m_cloud_candidates_number = 1;
+    m_cloud_input_source = BAIDU;
+    m_cloud_request_delay_time = 600;
 }
 
 static const struct {
@@ -282,6 +291,8 @@ LibPinyinConfig::readDefaultValues (void)
             m_option &= ~options[i].option;
         }
     }
+
+    m_enable_cloud_input = read (CONFIG_INIT_ENABLE_CLOUD_INPUT, false);
 #endif
 }
 
@@ -351,6 +362,10 @@ LibPinyinConfig::valueChanged (const std::string &schema_id,
         m_network_dictionary_start_timestamp = normalizeGVariant (value, (gint64) 0);
     } else if (CONFIG_NETWORK_DICTIONARY_END_TIMESTAMP == name) {
         m_network_dictionary_end_timestamp = normalizeGVariant (value, (gint64) 0);
+    }
+    /*cloud input*/
+    else if (CONFIG_INIT_ENABLE_CLOUD_INPUT == name) {
+        m_enable_cloud_input = normalizeGVariant (value, false);
     }
     /* fuzzy pinyin */
     else if (CONFIG_FUZZY_PINYIN == name) {
@@ -488,6 +503,22 @@ PinyinConfig::readDefaultValues (void)
         else
             m_option &= ~pinyin_options[i].option;
     }
+    m_cloud_candidates_number = read (CONFIG_CLOUD_CANDIDATES_NUMBER, 1);
+    if (m_cloud_candidates_number > 10 || m_cloud_candidates_number < 1) {
+        m_cloud_candidates_number = 1;
+        g_warn_if_reached ();
+    }
+    m_cloud_input_source = read (CONFIG_CLOUD_INPUT_SOURCE, 0);
+    if (m_cloud_input_source != BAIDU &&
+        m_cloud_input_source != GOOGLE) {
+        m_cloud_input_source = BAIDU;
+        g_warn_if_reached ();
+    }
+    m_cloud_request_delay_time = read (CONFIG_CLOUD_REQUEST_DELAY_TIME, 600);
+    if (m_cloud_request_delay_time > 2000 || m_cloud_request_delay_time < 200) {
+        m_cloud_request_delay_time = 600;
+        g_warn_if_reached ();
+    }
 #endif
 }
 
@@ -553,6 +584,28 @@ PinyinConfig::valueChanged (const std::string &schema_id,
             m_option_mask |= PINYIN_CORRECT_ALL;
         else
             m_option_mask &= ~PINYIN_CORRECT_ALL;
+    }
+    else if (CONFIG_CLOUD_CANDIDATES_NUMBER == name) {
+        m_cloud_candidates_number = normalizeGVariant (value, 1);
+        if (m_cloud_candidates_number > 10 || m_cloud_candidates_number < 1) {
+            m_cloud_candidates_number = 1;
+            g_warn_if_reached ();
+        }
+    }
+    else if (CONFIG_CLOUD_INPUT_SOURCE == name) {
+        m_cloud_input_source = normalizeGVariant (value, BAIDU);
+        if (m_cloud_input_source != BAIDU &&
+            m_cloud_input_source != GOOGLE) {
+            m_cloud_input_source = BAIDU;
+            g_warn_if_reached ();
+        }
+    }
+    else if (CONFIG_CLOUD_REQUEST_DELAY_TIME == name) {
+        m_cloud_request_delay_time = read (CONFIG_CLOUD_REQUEST_DELAY_TIME, 600);
+        if (m_cloud_request_delay_time > 2000 || m_cloud_request_delay_time < 200) {
+            m_cloud_request_delay_time = 600;
+            g_warn_if_reached ();
+        }
     }
     else {
         for (guint i = 0; i < G_N_ELEMENTS (pinyin_options); i++) {
