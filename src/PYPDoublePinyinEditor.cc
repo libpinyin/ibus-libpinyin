@@ -41,6 +41,10 @@ DoublePinyinEditor::DoublePinyinEditor
     : PinyinEditor (props, config)
 {
     m_instance = LibPinyinBackEnd::instance ().allocPinyinInstance ();
+
+#ifdef ENABLE_CLOUD_INPUT_MODE
+    m_cloud_candidates.setInputMode (DoublePinyin);
+#endif
 }
 
 DoublePinyinEditor::~DoublePinyinEditor (void)
