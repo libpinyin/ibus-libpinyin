@@ -10,8 +10,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2020-09-08 14:18+0800\n"
-"PO-Revision-Date: 2020-09-06 14:29+0000\n"
-"Last-Translator: Hillwood Yang <hillwoodroc@gmail.com>\n"
+"PO-Revision-Date: 2020-09-13 04:39+0000\n"
+"Last-Translator: Harry Chen <harrychen0314@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://translate.fedoraproject.org/"
 "projects/ibus-libpinyin/master/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -299,11 +299,11 @@ msgstr "IBM"
 
 #: setup/ibus-libpinyin-preferences.ui:40
 msgid "Baidu"
-msgstr ""
+msgstr "百度"
 
 #: setup/ibus-libpinyin-preferences.ui:43
 msgid "Google"
-msgstr ""
+msgstr "谷歌"
 
 #: setup/ibus-libpinyin-preferences.ui:54
 msgid "Default"
