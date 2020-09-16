@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the ibus-libpinyin package.
 # Peng Huang <shawn.p.huang@gmail.com>, 2009.
 # Harry Chen <harrychen0314@gmail.com>, 2020.
+# Hillwood Yang <hillwoodroc@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: ibus-libpinyin 1.2.99\n"
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2020-08-10 16:03+0800\n"
-"PO-Revision-Date: 2020-09-02 22:29+0000\n"
-"Last-Translator: Harry Chen <harrychen0314@gmail.com>\n"
+"PO-Revision-Date: 2020-09-06 14:29+0000\n"
+"Last-Translator: Hillwood Yang <hillwoodroc@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://translate.fedoraproject.org/"
 "projects/ibus-libpinyin/master/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -18,11 +19,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.2.1\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #: src/PYMain.cc:97
 msgid "Libpinyin input method"
-msgstr "拼音输入法"
+msgstr "智能拼音输入法"
 
 #: src/PYMain.cc:107
 msgid "Intelligent Pinyin (debug)"
@@ -251,9 +252,8 @@ msgid "Full/Half Width Punct"
 msgstr "全角/半角符号"
 
 #: setup/shortcuteditor.py:49
-#, fuzzy
 msgid "Full/Half Width Both Switch"
-msgstr "全角/半角字母"
+msgstr "全角 / 半角字母"
 
 #: setup/shortcuteditor.py:50
 msgid "Switch Traditional/Simplfied Chinese"
@@ -586,10 +586,10 @@ msgid ""
 "    \"phrase pinyin\" or \"phrase pinyin frequency\"\n"
 "  like \"你好 ni'hao\" or \"你好 ni'hao 5\"."
 msgstr ""
-"<b>词典文件格式:</b>\n"
-"   每一行包含以下两者之一:\n"
+"<b>词典文件格式：</b>\n"
+"   每一行包含以下两者之一：\n"
 "      \"短语 拼音\" 或 \"短语 拼音 频率\"\n"
-"   例如 \"你好 ni'hao\" 或 \"你好 ni'hao 5\""
+"   例如 \"你好 ni'hao\" 或 \"你好 ni'hao 5\"。"
 
 #: setup/ibus-libpinyin-preferences.ui:2127
 msgid "Help"
