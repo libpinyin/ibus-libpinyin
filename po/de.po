@@ -7,17 +7,17 @@ msgstr ""
 "Project-Id-Version: ibus-libpinyin 1.11.93\n"
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
-"POT-Creation-Date: 2020-09-08 14:18+0800\n"
-"PO-Revision-Date: 2020-08-19 07:29+0000\n"
+"POT-Creation-Date: 2020-09-13 12:36+0800\n"
+"PO-Revision-Date: 2020-09-16 02:58+0000\n"
 "Last-Translator: Mike FABIAN <mfabian@redhat.com>\n"
-"Language-Team: German <https://translate.fedoraproject.org/projects/ibus-"
-"libpinyin/master/de/>\n"
+"Language-Team: German <https://translate.fedoraproject.org/projects/"
+"ibus-libpinyin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.1.1\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #: src/PYMain.cc:97
 msgid "Libpinyin input method"
@@ -297,11 +297,11 @@ msgstr "IBM"
 
 #: setup/ibus-libpinyin-preferences.ui:40
 msgid "Baidu"
-msgstr ""
+msgstr "Baidu"
 
 #: setup/ibus-libpinyin-preferences.ui:43
 msgid "Google"
-msgstr ""
+msgstr "Google"
 
 #: setup/ibus-libpinyin-preferences.ui:54
 msgid "Default"
@@ -419,7 +419,7 @@ msgstr "Vorschläge anzeigen."
 
 #: setup/ibus-libpinyin-preferences.ui:660
 msgid "Show emoji."
-msgstr ""
+msgstr "Emoji anzeigen."
 
 #: setup/ibus-libpinyin-preferences.ui:683
 msgid "Sort candidates by:"
@@ -484,19 +484,17 @@ msgstr "<b>Pinyin korrigieren</b>"
 #: setup/ibus-libpinyin-preferences.ui:1223
 #: setup/ibus-libpinyin-preferences.ui:1662
 msgid "Enable Cloud Input"
-msgstr ""
+msgstr "Cloud Input aktivieren"
 
 #: setup/ibus-libpinyin-preferences.ui:1247
 #: setup/ibus-libpinyin-preferences.ui:1686
 msgid "Source From:"
-msgstr ""
+msgstr "Quelle von:"
 
 #: setup/ibus-libpinyin-preferences.ui:1292
 #: setup/ibus-libpinyin-preferences.ui:1731
-#, fuzzy
-#| msgid "<b>Input Custom</b>"
 msgid "<b>Cloud Input Option</b>"
-msgstr "<b>Eingabe benutzerdefiniert</b>"
+msgstr "<b>Cloud Input Option</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:1314
 msgid "Pinyin mode"
@@ -649,17 +647,6 @@ msgid "https://github.com/libpinyin/ibus-libpinyin"
 msgstr "https://github.com/libpinyin/ibus-libpinyin"
 
 #: setup/ibus-libpinyin-preferences.ui:2523
-#, fuzzy
-#| msgid ""
-#| "<small>\n"
-#| "<b>Authors:</b>\n"
-#| "Peng Wu\n"
-#| "Peng Huang\n"
-#| "BYVoid\n"
-#| "\n"
-#| "<b>Contributors:</b>\n"
-#| "koterpilla, Zerng07, Hillwood Yang\n"
-#| "</small>"
 msgid ""
 "<small>\n"
 "<b>Authors:</b>\n"
@@ -676,12 +663,15 @@ msgid ""
 "</small>"
 msgstr ""
 "<small>\n"
-"<b>Authors:</b>\n"
+"<b>Autoren:</b>\n"
 "Peng Wu\n"
 "Peng Huang\n"
 "BYVoid\n"
 "\n"
-"<b>Contributors:</b>\n"
+"<b>Wesentliche Beiträge von:</b>\n"
+"Weixuan XIAO, Linyu XU\n"
+"\n"
+"<b>Beiträge von:</b>\n"
 "koterpilla, Zerng07, Hillwood Yang\n"
 "</small>"
 
