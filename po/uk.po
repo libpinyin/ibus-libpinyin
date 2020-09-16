@@ -1,21 +1,22 @@
-# Yuri Chornoivan <yurchor@ukr.net>, 2015.
-# Yuri Chornoivan <yurchor@ukr.net>, 2015. #zanata
+# Yuri Chornoivan <yurchor@ukr.net>, 2015, 2020.
+# Yuri Chornoivan <yurchor@ukr.net>, 2015. #zanata, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2020-08-10 16:03+0800\n"
-"PO-Revision-Date: 2015-08-05 02:07-0400\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"PO-Revision-Date: 2020-09-05 13:29+0000\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <https://translate.fedoraproject.org/projects/"
+"ibus-libpinyin/master/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Zanata 4.6.2\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #: src/PYMain.cc:97
 msgid "Libpinyin input method"
@@ -117,8 +118,6 @@ msgid "英"
 msgstr "英"
 
 #: src/PYEnglishEditor.cc:618
-#, fuzzy
-#| msgid "Please input the english word."
 msgid "Please input the English word."
 msgstr "Будь ласка, введіть слово англійською."
 
@@ -140,10 +139,8 @@ msgid "<big><b>Intelligent Pinyin %s</b></big>"
 msgstr "<big><b>Кмітливий піньїн, %s</b></big>"
 
 #: setup/config.py:30
-#, fuzzy
-#| msgid "Intelligent Pinyin (debug)"
 msgid "Intelligent Pinyin"
-msgstr "Кмітливий піньїн (діагностика)"
+msgstr "Кмітливий піньїн"
 
 #: setup/dicttreeview.py:52
 msgid "Art"
@@ -175,11 +172,11 @@ msgstr "Природа"
 
 #: setup/dicttreeview.py:59
 msgid "People"
-msgstr ""
+msgstr "Люди"
 
 #: setup/dicttreeview.py:60
 msgid "Science"
-msgstr ""
+msgstr "Наука"
 
 #: setup/dicttreeview.py:61
 msgid "Society"
@@ -190,10 +187,8 @@ msgid "Sport"
 msgstr "Спорт"
 
 #: setup/dicttreeview.py:63
-#, fuzzy
-#| msgid "Geology"
 msgid "Technology"
-msgstr "Геологія"
+msgstr "Технологія"
 
 #: setup/dicttreeview.py:110
 msgid "Active"
@@ -216,10 +211,6 @@ msgid "Modifiers:"
 msgstr "Модифікатори:"
 
 #: setup/keyboardshortcut.py:171
-#, fuzzy
-#| msgid ""
-#| "Please press a key (or a key combination).\n"
-#| "The dialog will be closed when the key is released."
 msgid ""
 "Please press a key (or a key combination).\n"
 "The dialog will close when the key is released."
@@ -258,10 +249,8 @@ msgid "Full/Half Width Punct"
 msgstr "Повно-/Півширинна пунктуація"
 
 #: setup/shortcuteditor.py:49
-#, fuzzy
-#| msgid "Full/Half Width Letter"
 msgid "Full/Half Width Both Switch"
-msgstr "Повно-/Півширинна літера"
+msgstr "Перемикач повно-/півширинна літера"
 
 #: setup/shortcuteditor.py:50
 msgid "Switch Traditional/Simplfied Chinese"
@@ -272,8 +261,6 @@ msgid "Accelerator"
 msgstr "Акселератор"
 
 #: setup/shortcuteditor.py:106
-#, fuzzy
-#| msgid "This shortcut key is already used."
 msgid "This shortcut key is already in use."
 msgstr "Це клавіатурне скорочення вже використано."
 
@@ -308,14 +295,12 @@ msgid "IBM"
 msgstr "IBM"
 
 #: setup/ibus-libpinyin-preferences.ui:40
-#, fuzzy
-#| msgid "_Default"
 msgid "Default"
-msgstr "_Типовий"
+msgstr "Типовий"
 
 #: setup/ibus-libpinyin-preferences.ui:43
 msgid "Compact"
-msgstr ""
+msgstr "Компактний"
 
 #: setup/ibus-libpinyin-preferences.ui:54
 msgid "MSPY"
@@ -351,13 +336,11 @@ msgstr "Вертикально"
 
 #: setup/ibus-libpinyin-preferences.ui:129
 msgid "Frequency"
-msgstr ""
+msgstr "Частота"
 
 #: setup/ibus-libpinyin-preferences.ui:132
-#, fuzzy
-#| msgid "Pinyin mode"
 msgid "Pinyin Length"
-msgstr "Режим піньїну"
+msgstr "Довжина піньїну"
 
 #: setup/ibus-libpinyin-preferences.ui:226
 msgid "Language:"
@@ -399,7 +382,7 @@ msgstr "<b>Початковий стан</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:444
 msgid "Display Style:"
-msgstr ""
+msgstr "Стиль показу:"
 
 #: setup/ibus-libpinyin-preferences.ui:490
 msgid "Orientation of candidates:"
@@ -414,8 +397,6 @@ msgid "<b>UI</b>"
 msgstr "<b>Інтерфейс</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:604
-#, fuzzy
-#| msgid "Dynamic adjust the candidates order."
 msgid "Dynamically adjust the candidates order."
 msgstr "Динамічне коригування порядку варіантів."
 
@@ -425,13 +406,11 @@ msgstr "Запам’ятовувати усе введене як фразу."
 
 #: setup/ibus-libpinyin-preferences.ui:634
 msgid "Show suggestions."
-msgstr ""
+msgstr "Показувати пропозиції."
 
 #: setup/ibus-libpinyin-preferences.ui:657
-#, fuzzy
-#| msgid "Number of candidates:"
 msgid "Sort candidates by:"
-msgstr "Кількість варіантів:"
+msgstr "Критерій упорядковування варіантів:"
 
 #: setup/ibus-libpinyin-preferences.ui:700
 msgid "<b>Candidates</b>"
@@ -482,10 +461,8 @@ msgid "<b>Input Custom</b>"
 msgstr "<b>Налаштовування введення</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:1131
-#, fuzzy
-#| msgid "Enable correct pinyin"
 msgid "Enable pinyin correction"
-msgstr "Увімкнути правильний піньїн"
+msgstr "Увімкнути виправлення піньїну"
 
 #: setup/ibus-libpinyin-preferences.ui:1167
 msgid "<b>Correct pinyin</b>"
@@ -557,10 +534,8 @@ msgid "Fuzzy syllable"
 msgstr "Неточні склади"
 
 #: setup/ibus-libpinyin-preferences.ui:1859
-#, fuzzy
-#| msgid "Tips: this changes may take effects after ime restarted."
 msgid "Tips: Changes may not take effect until ime restarts."
-msgstr "Підказка: зміни набудуть чинності після перезавантаження ime."
+msgstr "Підказка: зміни набудуть чинності після перезапуску ime."
 
 #: setup/ibus-libpinyin-preferences.ui:1882
 msgid "<b>Dictionary option</b>"
@@ -643,17 +618,6 @@ msgid "https://github.com/libpinyin/ibus-libpinyin"
 msgstr "https://github.com/libpinyin/ibus-libpinyin"
 
 #: setup/ibus-libpinyin-preferences.ui:2299
-#, fuzzy
-#| msgid ""
-#| "<small>\n"
-#| "<b>Authors:</b>\n"
-#| "Peng Wu\n"
-#| "Peng Huang\n"
-#| "BYVoid\n"
-#| "\n"
-#| "<b>Contributors:</b>\n"
-#| "koterpilla, Zerng07\n"
-#| "</small>"
 msgid ""
 "<small>\n"
 "<b>Authors:</b>\n"
@@ -672,7 +636,7 @@ msgstr ""
 "BYVoid\n"
 "\n"
 "<b>Учасники розробки:</b>\n"
-"koterpilla, Zerng07\n"
+"koterpilla, Zerng07, Hillwood Yang\n"
 "</small>"
 
 #: setup/ibus-libpinyin-preferences.ui:2336
@@ -681,19 +645,19 @@ msgstr "Про програму"
 
 #: data/ibus-setup-libpinyin.desktop.in:3
 msgid "IBus LibPinyin Setup"
-msgstr ""
+msgstr "Налаштування LibPinyin IBus"
 
 #: data/ibus-setup-libpinyin.desktop.in:4
 msgid "Set ibus-libpinyin Preferences"
-msgstr ""
+msgstr "Налаштування параметрів ibus-libpinyin"
 
 #: data/ibus-setup-libbopomofo.desktop.in:3
 msgid "IBus LibBopomofo Preferences"
-msgstr ""
+msgstr "Налаштування LibBopomofo IBus"
 
 #: data/ibus-setup-libbopomofo.desktop.in:4
 msgid "Set ibus-libbopomofo Preferences"
-msgstr ""
+msgstr "Налаштування параметрів ibus-libbopomofo"
 
 #~ msgid "Low Frequent Characters"
 #~ msgstr "Рідкісні символи"
