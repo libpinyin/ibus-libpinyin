@@ -4,22 +4,23 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Ma Jiehong <ma.jiehong@gmail.com>, 2012.
 # Luc Bournaud <luc.bournaud@gmail.com>, 2018.
-#
+# Xiao Weixuan <veyx.shaw@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2020-08-10 16:03+0800\n"
-"PO-Revision-Date: 2018-11-11 18:38+0100\n"
-"Last-Translator: Luc Bournaud <luc.bournaud@gmail.com>\n"
-"Language-Team: français <>\n"
+"PO-Revision-Date: 2020-09-05 13:29+0000\n"
+"Last-Translator: Xiao Weixuan <veyx.shaw@gmail.com>\n"
+"Language-Team: French <https://translate.fedoraproject.org/projects/"
+"ibus-libpinyin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #: src/PYMain.cc:97
 msgid "Libpinyin input method"
@@ -159,7 +160,7 @@ msgstr "Économie"
 
 #: setup/dicttreeview.py:55
 msgid "Geology"
-msgstr ""
+msgstr "Géologie"
 
 #: setup/dicttreeview.py:56
 msgid "History"
@@ -175,7 +176,7 @@ msgstr "Nature"
 
 #: setup/dicttreeview.py:59
 msgid "People"
-msgstr ""
+msgstr "Peuple"
 
 #: setup/dicttreeview.py:60
 msgid "Science"
@@ -387,7 +388,7 @@ msgstr "<b>État initial</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:444
 msgid "Display Style:"
-msgstr ""
+msgstr "Style d'affichage :"
 
 #: setup/ibus-libpinyin-preferences.ui:490
 msgid "Orientation of candidates:"
@@ -411,7 +412,7 @@ msgstr ""
 
 #: setup/ibus-libpinyin-preferences.ui:634
 msgid "Show suggestions."
-msgstr ""
+msgstr "Afficher les suggestions."
 
 #: setup/ibus-libpinyin-preferences.ui:657
 msgid "Sort candidates by:"
