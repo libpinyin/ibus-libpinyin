@@ -4,14 +4,15 @@
 # Peng Huang <shawn.p.huang@gmail.com>, 2009.
 # Harry Chen <harrychen0314@gmail.com>, 2020.
 # Hillwood Yang <hillwoodroc@gmail.com>, 2020.
+# Peng Wu <pwu@redhat.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: ibus-libpinyin 1.2.99\n"
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2020-09-13 12:36+0800\n"
-"PO-Revision-Date: 2020-09-13 04:39+0000\n"
-"Last-Translator: Harry Chen <harrychen0314@gmail.com>\n"
+"PO-Revision-Date: 2020-09-13 05:11+0000\n"
+"Last-Translator: Peng Wu <pwu@redhat.com>\n"
 "Language-Team: Chinese (Simplified) <https://translate.fedoraproject.org/"
 "projects/ibus-libpinyin/master/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -421,7 +422,7 @@ msgstr "显示建议"
 
 #: setup/ibus-libpinyin-preferences.ui:660
 msgid "Show emoji."
-msgstr ""
+msgstr "显示表情符号"
 
 #: setup/ibus-libpinyin-preferences.ui:683
 msgid "Sort candidates by:"
@@ -486,19 +487,17 @@ msgstr "<b>拼音纠错</b>"
 #: setup/ibus-libpinyin-preferences.ui:1223
 #: setup/ibus-libpinyin-preferences.ui:1662
 msgid "Enable Cloud Input"
-msgstr ""
+msgstr "启用云输入"
 
 #: setup/ibus-libpinyin-preferences.ui:1247
 #: setup/ibus-libpinyin-preferences.ui:1686
 msgid "Source From:"
-msgstr ""
+msgstr "云输入源:"
 
 #: setup/ibus-libpinyin-preferences.ui:1292
 #: setup/ibus-libpinyin-preferences.ui:1731
-#, fuzzy
-#| msgid "<b>Input Custom</b>"
 msgid "<b>Cloud Input Option</b>"
-msgstr "<b>输入个性化</b>"
+msgstr "<b>云输入选项</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:1314
 msgid "Pinyin mode"
