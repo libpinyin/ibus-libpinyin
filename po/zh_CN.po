@@ -2,20 +2,23 @@
 # Copyright (C) YEAR Peng Huang <shawn.p.huang@gmail.com>
 # This file is distributed under the same license as the ibus-libpinyin package.
 # Peng Huang <shawn.p.huang@gmail.com>, 2009.
-#
+# Harry Chen <harrychen0314@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: ibus-libpinyin 1.2.99\n"
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2020-08-10 16:03+0800\n"
-"PO-Revision-Date: 2018-01-04 16:53+0800\n"
-"Last-Translator: Peng Huang <shawn.p.huang@gmail.com>\n"
-"Language-Team: Peng Huang <shawn.p.huang@gmail.com>\n"
+"PO-Revision-Date: 2020-09-02 22:29+0000\n"
+"Last-Translator: Harry Chen <harrychen0314@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://translate.fedoraproject.org/"
+"projects/ibus-libpinyin/master/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.2.1\n"
 
 #: src/PYMain.cc:97
 msgid "Libpinyin input method"
@@ -122,7 +125,7 @@ msgstr "请输入英文单词"
 
 #: src/PYStrokeEditor.cc:387
 msgid "Please use \"hspnz\" to input."
-msgstr "请用\"hspnz\"笔画输入中文字符"
+msgstr "请用 \"hspnz\" 笔画输入中文字符"
 
 #: setup/main2.py:433
 msgid "Please choose a file"
@@ -295,9 +298,8 @@ msgid "IBM"
 msgstr "IBM"
 
 #: setup/ibus-libpinyin-preferences.ui:40
-#, fuzzy
 msgid "Default"
-msgstr "缺省值"
+msgstr "默认值"
 
 #: setup/ibus-libpinyin-preferences.ui:43
 msgid "Compact"
@@ -535,7 +537,7 @@ msgstr "模糊音"
 
 #: setup/ibus-libpinyin-preferences.ui:1859
 msgid "Tips: Changes may not take effect until ime restarts."
-msgstr "提示:此更改可能需要重启智能拼音输入法后生效"
+msgstr "提示：此更改可能需要重启智能拼音输入法后生效"
 
 #: setup/ibus-libpinyin-preferences.ui:1882
 msgid "<b>Dictionary option</b>"
