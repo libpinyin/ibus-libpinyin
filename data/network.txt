@@ -1,4 +1,4 @@
-# timestamp: 1599652572
+# timestamp: 1600522231
 矮矬穷 ai'cuo'qiong 10
 爱豆 ai'dou 10
 矮油 ai'you 3
@@ -69,6 +69,8 @@
 脑补 nao'bu 20
 奶一口 nai'yi'kou 10
 欧尼酱 ou'ni'jiang 10
+𤆵 pa 50
+𤆵耳朵 pa'er'duo 50
 胖次 pang'ci 20
 弃坑 qi'keng 20
 然并卵 ran'bing'luan 20
@@ -107,7 +109,7 @@
 网红 wang'hong 50
 网红脸 wang'hong'lian 10
 玩坏 wan'huai 10
-玩脱了 wan'tuo'le 10
+玩脱 wan'tuo 10
 歪果仁 wai'guo'ren 2
 握爪 wo'zhua 10
 舞姬 wu'ji 10
