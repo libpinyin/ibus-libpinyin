@@ -161,7 +161,7 @@ end
 
 function compute(input)
   local expr = "return " .. _add_math_keyword(input)
-  local func = loadstring(expr)
+  local func = load(expr)
   if func == nil then
     return "-- 未完整表达式 --"
   end
