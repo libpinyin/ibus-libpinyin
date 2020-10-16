@@ -5,10 +5,10 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2020-09-13 12:36+0800\n"
-"PO-Revision-Date: 2020-09-05 13:29+0000\n"
+"PO-Revision-Date: 2020-10-15 12:30+0000\n"
 "Last-Translator: Emilio Herrera <ehespinosa57@gmail.com>\n"
-"Language-Team: Spanish <https://translate.fedoraproject.org/projects/ibus-"
-"libpinyin/master/es/>\n"
+"Language-Team: Spanish <https://translate.fedoraproject.org/projects/"
+"ibus-libpinyin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -116,10 +116,8 @@ msgid "英"
 msgstr "英"
 
 #: src/PYEnglishEditor.cc:618
-#, fuzzy
-#| msgid "Please input the english word."
 msgid "Please input the English word."
-msgstr "Por favor, ingrese la palabra inglesa."
+msgstr "Por favor, introduzca la palabra en Inglés."
 
 #: src/PYStrokeEditor.cc:387
 msgid "Please use \"hspnz\" to input."
@@ -139,10 +137,8 @@ msgid "<big><b>Intelligent Pinyin %s</b></big>"
 msgstr "<big><b>Pinyin Inteligente %s</b></big>"
 
 #: setup/config.py:30
-#, fuzzy
-#| msgid "Intelligent Pinyin (debug)"
 msgid "Intelligent Pinyin"
-msgstr "Pinyin inteligente (depurar)"
+msgstr "Pinyin Inteligente"
 
 #: setup/dicttreeview.py:52
 msgid "Art"
@@ -174,7 +170,7 @@ msgstr "Naturaleza"
 
 #: setup/dicttreeview.py:59
 msgid "People"
-msgstr ""
+msgstr "Gente"
 
 #: setup/dicttreeview.py:60
 msgid "Science"
@@ -671,17 +667,6 @@ msgid "https://github.com/libpinyin/ibus-libpinyin"
 msgstr "https://github.com/libpinyin/ibus-libpinyin"
 
 #: setup/ibus-libpinyin-preferences.ui:2523
-#, fuzzy
-#| msgid ""
-#| "<small>\n"
-#| "<b>Authors:</b>\n"
-#| "Peng Wu\n"
-#| "Peng Huang\n"
-#| "BYVoid\n"
-#| "\n"
-#| "<b>Contributors:</b>\n"
-#| "koterpilla, Zerng07\n"
-#| "</small>"
 msgid ""
 "<small>\n"
 "<b>Authors:</b>\n"
@@ -697,13 +682,16 @@ msgid ""
 "</small>"
 msgstr ""
 "<small>\n"
-"<b>Autores:</b>\n"
+"<b>Authors:</b>\n"
 "Peng Wu\n"
 "Peng Huang\n"
 "BYVoid\n"
 "\n"
+"<b>Contribuyentes Principales:</b>\n"
+"Weixuan XIAO, Linyu XU\n"
+"\n"
 "<b>Contribuyentes:</b>\n"
-"koterpilla, Zerng07\n"
+"koterpilla, Zerng07, Hillwood Yang\n"
 "</small>"
 
 #: setup/ibus-libpinyin-preferences.ui:2563
