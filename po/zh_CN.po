@@ -5,14 +5,15 @@
 # Harry Chen <harrychen0314@gmail.com>, 2020.
 # Hillwood Yang <hillwoodroc@gmail.com>, 2020.
 # Peng Wu <pwu@redhat.com>, 2020.
+# Dingzhong Chen <wsxy162@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: ibus-libpinyin 1.2.99\n"
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2020-09-13 12:36+0800\n"
-"PO-Revision-Date: 2020-09-15 02:08+0000\n"
-"Last-Translator: Hillwood Yang <hillwoodroc@gmail.com>\n"
+"PO-Revision-Date: 2021-02-01 16:40+0000\n"
+"Last-Translator: Dingzhong Chen <wsxy162@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://translate.fedoraproject.org/"
 "projects/ibus-libpinyin/master/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.2.2\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: src/PYMain.cc:97
 msgid "Libpinyin input method"
@@ -78,19 +79,19 @@ msgstr "切换到全角字母模式"
 
 #: src/PYPinyinProperties.cc:61 src/PYPinyinProperties.cc:145
 msgid "Full Width Punct"
-msgstr "全角符号"
+msgstr "全角标点"
 
 #: src/PYPinyinProperties.cc:62 src/PYPinyinProperties.cc:146
 msgid "Half Width Punct"
-msgstr "半角符号"
+msgstr "半角标点"
 
 #: src/PYPinyinProperties.cc:67 src/PYPinyinProperties.cc:151
 msgid "Switch to Half Width Punctuation Mode"
-msgstr "切换到半角符号模式"
+msgstr "切换到半角标点模式"
 
 #: src/PYPinyinProperties.cc:68 src/PYPinyinProperties.cc:152
 msgid "Switch to Full Width Punctuation Mode"
-msgstr "切换到全角符号模式"
+msgstr "切换到全角标点模式"
 
 #: src/PYPinyinProperties.cc:72 src/PYPinyinProperties.cc:161
 msgid "Simplified Chinese"
@@ -208,23 +209,23 @@ msgstr "快捷键："
 
 #: setup/keyboardshortcut.py:67
 msgid "Key code:"
-msgstr "键："
+msgstr "键码："
 
 #: setup/keyboardshortcut.py:82
 msgid "Modifiers:"
-msgstr "修饰符："
+msgstr "修饰键："
 
 #: setup/keyboardshortcut.py:171
 msgid ""
 "Please press a key (or a key combination).\n"
 "The dialog will close when the key is released."
 msgstr ""
-"请按快捷键。\n"
-"此对话窗将自动关闭。"
+"请按下一个键盘按键（或按键组合）。\n"
+"松开按键后，此对话窗将自动关闭。"
 
 #: setup/keyboardshortcut.py:174
 msgid "Please press a key (or a key combination)"
-msgstr "请按快捷键"
+msgstr "请按下一个键盘按键（或者按键组合）"
 
 #: setup/keyboardshortcut.py:186
 msgid "Shorcut Editor"
@@ -250,11 +251,11 @@ msgstr "全角/半角字母"
 
 #: setup/shortcuteditor.py:48
 msgid "Full/Half Width Punct"
-msgstr "全角/半角符号"
+msgstr "全角/半角标点"
 
 #: setup/shortcuteditor.py:49
 msgid "Full/Half Width Both Switch"
-msgstr "全角 / 半角字母"
+msgstr "全部切换全角/半角"
 
 #: setup/shortcuteditor.py:50
 msgid "Switch Traditional/Simplfied Chinese"
@@ -266,12 +267,12 @@ msgstr "快捷键"
 
 #: setup/shortcuteditor.py:106
 msgid "This shortcut key is already in use."
-msgstr "此快捷键已使用。"
+msgstr "此快捷键已被占用。"
 
 #. set default button
 #: setup/shortcuteditor.py:164
 msgid "_Default"
-msgstr "缺省值(_D)"
+msgstr "默认值(_D)"
 
 #. edit button
 #: setup/shortcuteditor.py:169
@@ -308,11 +309,11 @@ msgstr "谷歌"
 
 #: setup/ibus-libpinyin-preferences.ui:54
 msgid "Default"
-msgstr "默认值"
+msgstr "默认"
 
 #: setup/ibus-libpinyin-preferences.ui:57
 msgid "Compact"
-msgstr "压缩"
+msgstr "紧凑"
 
 #: setup/ibus-libpinyin-preferences.ui:68
 msgid "MSPY"
@@ -410,19 +411,19 @@ msgstr "<b>外观</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:615
 msgid "Dynamically adjust the candidates order."
-msgstr "动态调整候词序"
+msgstr "动态调整候选词序"
 
 #: setup/ibus-libpinyin-preferences.ui:630
 msgid "Remember every input as a phrase."
-msgstr "将每个输入记录为新的词汇。"
+msgstr "将每个输入记录为新的词汇"
 
 #: setup/ibus-libpinyin-preferences.ui:645
 msgid "Show suggestions."
-msgstr "显示建议。"
+msgstr "显示建议（输入预测）"
 
 #: setup/ibus-libpinyin-preferences.ui:660
 msgid "Show emoji."
-msgstr "显示表情符号。"
+msgstr "显示表情符号"
 
 #: setup/ibus-libpinyin-preferences.ui:683
 msgid "Sort candidates by:"
@@ -458,15 +459,15 @@ msgstr "<b>拼音模式</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:940
 msgid "[Shift] select candidate"
-msgstr "[Shift]键选词"
+msgstr "[Shift] 键选次候选词"
 
 #: setup/ibus-libpinyin-preferences.ui:950
 msgid "[-] [=] flip page"
-msgstr "[-][=]键翻页"
+msgstr "[-][=] 键翻页"
 
 #: setup/ibus-libpinyin-preferences.ui:965
 msgid "[,] [.] flip page"
-msgstr "[,][.]键翻页"
+msgstr "[,][.] 键翻页"
 
 #: setup/ibus-libpinyin-preferences.ui:980
 msgid "Auto commit"
@@ -525,7 +526,7 @@ msgstr "启用选词引导键"
 
 #: setup/ibus-libpinyin-preferences.ui:1509
 msgid "Enable Auxiliary Select Keys F1 .. F10"
-msgstr "启用辅助选词键F1～ F10"
+msgstr "启用辅助选词键 F1～ F10"
 
 #: setup/ibus-libpinyin-preferences.ui:1526
 msgid "Enable Auxiliary Select Keys Numbers on Keypad"
@@ -577,7 +578,7 @@ msgstr "词典"
 
 #: setup/ibus-libpinyin-preferences.ui:2169
 msgid "User Lua Script"
-msgstr "用户Lua脚本"
+msgstr "用户 Lua 脚本"
 
 #: setup/ibus-libpinyin-preferences.ui:2179
 msgid "Edit"
