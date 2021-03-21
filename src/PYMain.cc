@@ -180,7 +180,7 @@ main (gint argc, gchar **argv)
 
     ::signal (SIGTERM, sigterm_cb);
     ::signal (SIGINT, sigterm_cb);
-    g_atexit (atexit_cb);
+    atexit (atexit_cb);
 
     start_component ();
     return 0;
