@@ -26,6 +26,7 @@ from gi.repository import Gtk
 gettext.install('ibus-libpinyin')
 
 (
+    ALL,
     ART_DICTIONARY,
     CULTURE_DICTIONARY,
     ECONOMY_DICTIONARY,
@@ -38,7 +39,7 @@ gettext.install('ibus-libpinyin')
     SOCIETY_DICTIONARY,
     SPORT_DICTIONARY,
     TECHNOLOGY_DICTIONARY,
-) = range(4, 16)
+) = range(4, 17)
 
 (
 COLUMN_SENSITIVE,
@@ -49,6 +50,7 @@ COLUMN_ACTIVE
 
 dictionaries = \
     (
+    (True, ALL, _('All'), True),
     (True, ART_DICTIONARY, _("Art"), True),
     (True, CULTURE_DICTIONARY, _("Culture"), True),
     (True, ECONOMY_DICTIONARY, _("Economy"), True),
@@ -124,7 +126,11 @@ class DictionaryTreeView(Gtk.TreeView):
         active = not active
 
         # save value
-        model.set(iter, COLUMN_ACTIVE, active)
+        if iter == 4:
+            for i in range(5,17):
+                model.set(i, COLUMN_ACTIVE, active)
+        else:
+            model.set(iter, COLUMN_ACTIVE, active)
 
         # notify changed
         self.__changed = True
