@@ -6,14 +6,15 @@
 # Hillwood Yang <hillwoodroc@gmail.com>, 2020.
 # Peng Wu <pwu@redhat.com>, 2020.
 # Dingzhong Chen <wsxy162@gmail.com>, 2021.
+# Liu Tao <lyuutau@outlook.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: ibus-libpinyin 1.2.99\n"
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2020-09-13 12:36+0800\n"
-"PO-Revision-Date: 2021-02-01 16:40+0000\n"
-"Last-Translator: Dingzhong Chen <wsxy162@gmail.com>\n"
+"PO-Revision-Date: 2021-06-16 11:04+0000\n"
+"Last-Translator: Liu Tao <lyuutau@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://translate.fedoraproject.org/"
 "projects/ibus-libpinyin/master/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.6.2\n"
 
 #: src/PYMain.cc:97
 msgid "Libpinyin input method"
@@ -124,7 +125,7 @@ msgstr "英"
 
 #: src/PYEnglishEditor.cc:618
 msgid "Please input the English word."
-msgstr "请输入英文单词"
+msgstr "请输入英文单词。"
 
 #: src/PYStrokeEditor.cc:387
 msgid "Please use \"hspnz\" to input."
@@ -411,19 +412,19 @@ msgstr "<b>外观</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:615
 msgid "Dynamically adjust the candidates order."
-msgstr "动态调整候选词序"
+msgstr "动态调整候选词序。"
 
 #: setup/ibus-libpinyin-preferences.ui:630
 msgid "Remember every input as a phrase."
-msgstr "将每个输入记录为新的词汇"
+msgstr "将每个输入记录为新的词汇。"
 
 #: setup/ibus-libpinyin-preferences.ui:645
 msgid "Show suggestions."
-msgstr "显示建议（输入预测）"
+msgstr "显示建议。"
 
 #: setup/ibus-libpinyin-preferences.ui:660
 msgid "Show emoji."
-msgstr "显示表情符号"
+msgstr "显示表情符号。"
 
 #: setup/ibus-libpinyin-preferences.ui:683
 msgid "Sort candidates by:"
@@ -566,7 +567,7 @@ msgstr "模糊音"
 
 #: setup/ibus-libpinyin-preferences.ui:2083
 msgid "Tips: Changes may not take effect until ime restarts."
-msgstr "提示：此更改可能需要重启智能拼音输入法后生效"
+msgstr "提示：此更改可能需要重启智能拼音输入法后生效。"
 
 #: setup/ibus-libpinyin-preferences.ui:2106
 msgid "<b>Dictionary option</b>"
