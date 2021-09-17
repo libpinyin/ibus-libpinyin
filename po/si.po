@@ -8,17 +8,20 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2020-09-13 12:36+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-08-19 06:05+0000\n"
+"Last-Translator: Hela Basa <r45xveza@pm.me>\n"
+"Language-Team: Sinhala <https://translate.fedoraproject.org/projects/"
+"ibus-libpinyin/master/si/>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.7.2\n"
 
 #: src/PYMain.cc:97
 msgid "Libpinyin input method"
-msgstr ""
+msgstr "ලිබ්පින්යින් ආදාන ක්‍රමය"
 
 #: src/PYMain.cc:107
 msgid "Intelligent Pinyin (debug)"
@@ -39,7 +42,7 @@ msgstr ""
 #: src/PYPinyinProperties.cc:39 src/PYPinyinProperties.cc:104
 #: setup/ibus-libpinyin-preferences.ui:267
 msgid "Chinese"
-msgstr ""
+msgstr "චීන"
 
 #: src/PYPinyinProperties.cc:40 src/PYPinyinProperties.cc:105
 #: setup/ibus-libpinyin-preferences.ui:282
