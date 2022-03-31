@@ -4,7 +4,7 @@
 # Peng Huang <shawn.p.huang@gmail.com>, 2009.
 # Harry Chen <harrychen0314@gmail.com>, 2020.
 # Hillwood Yang <hillwoodroc@gmail.com>, 2020.
-# Peng Wu <pwu@redhat.com>, 2020.
+# Peng Wu <pwu@redhat.com>, 2020, 2022.
 # Dingzhong Chen <wsxy162@gmail.com>, 2021.
 # Liu Tao <lyuutau@outlook.com>, 2021.
 msgid ""
@@ -13,8 +13,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2022-03-31 12:18+0800\n"
-"PO-Revision-Date: 2021-09-17 07:05+0000\n"
-"Last-Translator: Dingzhong Chen <wsxy162@gmail.com>\n"
+"PO-Revision-Date: 2022-03-31 05:29+0000\n"
+"Last-Translator: Peng Wu <pwu@redhat.com>\n"
 "Language-Team: Chinese (Simplified) <https://translate.fedoraproject.org/"
 "projects/ibus-libpinyin/master/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.8\n"
+"X-Generator: Weblate 4.11.2\n"
 
 #: src/PYMain.cc:111
 msgid "Libpinyin input method"
@@ -132,9 +132,8 @@ msgid "Please use \"hspnz\" to input."
 msgstr "请用 \"hspnz\" 笔画输入中文字符。"
 
 #: src/PYTableEditor.cc:294
-#, fuzzy
 msgid "Please use table code to input."
-msgstr "请用 \"hspnz\" 笔画输入中文字符。"
+msgstr "请用导入的码表输入中文字符。"
 
 #: setup/main2.py:472
 msgid "Please choose a file"
@@ -311,10 +310,9 @@ msgstr "百度"
 
 #: setup/ibus-libpinyin-preferences.ui:43
 msgid "Google"
-msgstr "谷歌"
+msgstr "Google"
 
 #: setup/ibus-libpinyin-preferences.ui:46
-#, fuzzy
 msgid "Google CN"
 msgstr "谷歌"
 
@@ -327,9 +325,8 @@ msgid "Compact"
 msgstr "紧凑"
 
 #: setup/ibus-libpinyin-preferences.ui:63
-#, fuzzy
 msgid "Compatibility"
-msgstr "紧凑"
+msgstr "兼容"
 
 #: setup/ibus-libpinyin-preferences.ui:74
 msgid "MSPY"
@@ -594,21 +591,19 @@ msgstr "词典"
 
 #: setup/ibus-libpinyin-preferences.ui:2175
 msgid "Lua Extension"
-msgstr ""
+msgstr "Lua 脚本模式"
 
 #: setup/ibus-libpinyin-preferences.ui:2189
 msgid "Table Mode"
-msgstr ""
+msgstr "码表模式"
 
 #: setup/ibus-libpinyin-preferences.ui:2203
-#, fuzzy
 msgid "English Mode"
-msgstr "英文"
+msgstr "英文模式"
 
 #: setup/ibus-libpinyin-preferences.ui:2226
-#, fuzzy
 msgid "<b>Input Modes</b>"
-msgstr "<b>输入个性化</b>"
+msgstr "<b>输入模式</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:2257
 msgid "User Lua Script"
@@ -667,26 +662,22 @@ msgid "<b>User Dictionary</b>"
 msgstr "<b>用户词典</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:2493
-#, fuzzy
 msgid "User Table"
-msgstr "用户数据"
+msgstr "用户码表"
 
 #: setup/ibus-libpinyin-preferences.ui:2579
-#, fuzzy
 msgid ""
 "<b>Table File Format:</b>\n"
 "  Each line contains the following line:\n"
 "    \"table_code phrase frequency\" like \"a 啊 100\"."
 msgstr ""
-"<b>词典文件格式：</b>\n"
-"   每一行包含以下两者之一：\n"
-"      \"短语 拼音\" 或 \"短语 拼音 频率\"\n"
-"   例如 \"你好 ni'hao\" 或 \"你好 ni'hao 5\"。"
+"<b>码表文件格式：</b>\n"
+"   每一行包含以下内容：\n"
+"      \"码表 短语 频率\", 例如 \"a 啊 100\"。"
 
 #: setup/ibus-libpinyin-preferences.ui:2607
-#, fuzzy
 msgid "<b>User Table</b>"
-msgstr "<b>用户词典</b>"
+msgstr "<b>用户码表</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:2629
 msgid "User data"
