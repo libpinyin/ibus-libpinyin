@@ -1,23 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Peng Huang <shawn.p.huang@gmail.com>
 # This file is distributed under the same license as the ibus-libpinyin package.
-# Mike FABIAN <mfabian@redhat.com>, 2020.
+# Mike FABIAN <mfabian@redhat.com>, 2020, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: ibus-libpinyin 1.11.93\n"
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2022-03-31 15:04+0800\n"
-"PO-Revision-Date: 2020-09-17 07:29+0000\n"
+"PO-Revision-Date: 2022-04-05 07:17+0000\n"
 "Last-Translator: Mike FABIAN <mfabian@redhat.com>\n"
-"Language-Team: German <https://translate.fedoraproject.org/projects/ibus-"
-"libpinyin/master/de/>\n"
+"Language-Team: German <https://translate.fedoraproject.org/projects/"
+"ibus-libpinyin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2.2\n"
+"X-Generator: Weblate 4.11.2\n"
 
 #: src/PYMain.cc:111
 msgid "Libpinyin input method"
@@ -127,9 +127,8 @@ msgid "Please use \"hspnz\" to input."
 msgstr "Bitte „hspnz“ zum Eingeben benutzen."
 
 #: src/PYTableEditor.cc:294
-#, fuzzy
 msgid "Please use table code to input."
-msgstr "Bitte „hspnz“ zum Eingeben benutzen."
+msgstr "Bitte den Tabellencode zum Eingeben benutzen."
 
 #: setup/main2.py:472
 msgid "Please choose a file"
@@ -309,7 +308,6 @@ msgid "Google"
 msgstr "Google"
 
 #: setup/ibus-libpinyin-preferences.ui:46
-#, fuzzy
 msgid "Google CN"
 msgstr "Google"
 
@@ -322,9 +320,8 @@ msgid "Compact"
 msgstr "Kompakt"
 
 #: setup/ibus-libpinyin-preferences.ui:63
-#, fuzzy
 msgid "Compatibility"
-msgstr "Kompakt"
+msgstr "Kompatibilität"
 
 #: setup/ibus-libpinyin-preferences.ui:74
 msgid "MSPY"
@@ -591,21 +588,19 @@ msgstr "Wörterbuch"
 
 #: setup/ibus-libpinyin-preferences.ui:2175
 msgid "Lua Extension"
-msgstr ""
+msgstr "Lua Erweiterung"
 
 #: setup/ibus-libpinyin-preferences.ui:2189
 msgid "Table Mode"
-msgstr ""
+msgstr "Tabellenmodus"
 
 #: setup/ibus-libpinyin-preferences.ui:2203
-#, fuzzy
 msgid "English Mode"
-msgstr "Englisch"
+msgstr "Englischer Modus"
 
 #: setup/ibus-libpinyin-preferences.ui:2226
-#, fuzzy
 msgid "<b>Input Modes</b>"
-msgstr "<b>Eingabe benutzerdefiniert</b>"
+msgstr "<b>Eingabemodes</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:2257
 msgid "User Lua Script"
@@ -664,26 +659,22 @@ msgid "<b>User Dictionary</b>"
 msgstr "<b>Benutzer Wörterbuch</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:2493
-#, fuzzy
 msgid "User Table"
-msgstr "Benutzerdaten"
+msgstr "Benutzertabelle"
 
 #: setup/ibus-libpinyin-preferences.ui:2579
-#, fuzzy
 msgid ""
 "<b>Table File Format:</b>\n"
 "  Each line contains the following:\n"
 "    \"table_code phrase frequency\" like \"a 啊 100\"."
 msgstr ""
-"<b>Wörterbuch Dateiformat:</b>\n"
-"  Jede Zeile enthält ein dieser beiden Möglichkeiten:\n"
-"    \"Wort Pinyin\" or \"Wort Pinyin Frequenz\"\n"
-"  zum Beispiel \"你好 ni'hao\" or \"你好 ni'hao 5\"."
+"<b>Tabellen Dateiformat:</b>\n"
+"  Jede Zeile enthält sieht wie folgt aus:\n"
+"   \"Tabellencode  Phrase Frequenz\" wie zum Beispiel \"a 啊 100\"."
 
 #: setup/ibus-libpinyin-preferences.ui:2607
-#, fuzzy
 msgid "<b>User Table</b>"
-msgstr "<b>Benutzer Wörterbuch</b>"
+msgstr "<b>Benutzer Tabelle</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:2629
 msgid "User data"
