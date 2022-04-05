@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2022-03-31 15:04+0800\n"
-"PO-Revision-Date: 2022-03-31 05:29+0000\n"
+"PO-Revision-Date: 2022-03-31 07:07+0000\n"
 "Last-Translator: Peng Wu <pwu@redhat.com>\n"
 "Language-Team: Chinese (Simplified) <https://translate.fedoraproject.org/"
 "projects/ibus-libpinyin/master/zh_CN/>\n"
@@ -666,7 +666,6 @@ msgid "User Table"
 msgstr "用户码表"
 
 #: setup/ibus-libpinyin-preferences.ui:2579
-#, fuzzy
 msgid ""
 "<b>Table File Format:</b>\n"
 "  Each line contains the following:\n"
