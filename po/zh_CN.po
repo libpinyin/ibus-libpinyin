@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2022-04-12 15:07+0800\n"
-"PO-Revision-Date: 2022-03-31 07:07+0000\n"
+"PO-Revision-Date: 2022-04-12 07:17+0000\n"
 "Last-Translator: Peng Wu <pwu@redhat.com>\n"
 "Language-Team: Chinese (Simplified) <https://translate.fedoraproject.org/"
 "projects/ibus-libpinyin/master/zh_CN/>\n"
@@ -594,19 +594,16 @@ msgid "English Mode"
 msgstr "英文模式"
 
 #: setup/ibus-libpinyin-preferences.ui:2172
-#, fuzzy
 msgid "English Candidate"
-msgstr "英文模式"
+msgstr "英文候选词"
 
 #: setup/ibus-libpinyin-preferences.ui:2186
-#, fuzzy
 msgid "Emoji Candidate"
-msgstr "每页显示候选词数："
+msgstr "表情候选词"
 
 #: setup/ibus-libpinyin-preferences.ui:2200
-#, fuzzy
 msgid "Suggestion Candidate"
-msgstr "候选词排列方向："
+msgstr "联想候选词"
 
 #: setup/ibus-libpinyin-preferences.ui:2220
 msgid "<b>Input Modes</b>"
