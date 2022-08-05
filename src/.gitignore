@@ -1,5 +1,4 @@
 *.o
-.deps
-pinyin.xml
-pinyin.xml.in
-ibus-engine-pinyin
+/libpinyin.xml
+/libpinyin.xml.in
+/ibus-engine-libpinyin

@@ -27,3 +27,6 @@ rpm
 stamp-h1
 py-compile
 mkinstalldirs
+.deps/
+/test-driver
+*~
