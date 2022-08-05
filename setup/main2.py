@@ -21,8 +21,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-from __future__ import print_function
-
 import gettext
 
 import locale
@@ -75,7 +73,7 @@ class PreferencesDialog:
         self.__builder.add_from_file("ibus-libpinyin-preferences.ui")
         self.__dialog = self.__builder.get_object("dialog")
         self.__init_pages()
-        
+
         if engine == "libpinyin":
             self.__config_namespace = "com.github.libpinyin.ibus-libpinyin.libpinyin"
             self.__config = Gio.Settings.new(self.__config_namespace)
@@ -191,7 +189,7 @@ class PreferencesDialog:
     def __init_pinyin(self):
         # page
         self.__page_pinyin_mode.show()
-        
+
         # pinyin
         self.__full_pinyin = self.__builder.get_object("FullPinyin")
         self.__incomplete_pinyin = self.__builder.get_object("IncompletePinyin")
@@ -242,7 +240,7 @@ class PreferencesDialog:
         # bopomofo mode
         self.__incomplete_bopomofo = self.__builder.get_object("IncompleteBopomofo")
         self.__bopomofo_keyboard_mapping = self.__builder.get_object("BopomofoKeyboardMapping")
-        
+
         # selection mode
         self.__select_keys = self.__builder.get_object("SelectKeys")
         self.__guide_key = self.__builder.get_object("GuideKey")

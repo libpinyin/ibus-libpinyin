@@ -89,12 +89,7 @@ AC_PATH_PROG(ENV, env)
 AC_SUBST(ENV)
 
 # check python
-AC_ARG_WITH(python,
-    AS_HELP_STRING([--with-python[=PATH]],
-        [Select python2 or python3]),
-    [PYTHON=$with_python], []
-)
-AM_PATH_PYTHON([3.2])
+AM_PATH_PYTHON([3.7])
 
 # check icon_prop_key in IBus.EngineDesc
 AC_MSG_CHECKING([if IBus.EngineDesc has get_icon_prop_key])
@@ -254,4 +249,3 @@ Build options:
     Build table input mode      $enable_table_input_mode
     Build english input mode    $enable_english_input_mode
 ])
-
