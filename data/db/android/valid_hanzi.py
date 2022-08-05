@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*- 
 valid_hanzi = set([
     u"〇",
     u"一",
