@@ -1,32 +1,32 @@
-# vim:set et sts=4:
-# -*- coding: utf-8 -*-
-
+#!/usr/bin/python3
 from punct import *
 
-def tocstr(s):
-    s = s.replace('\\', '\\\\')
+
+def tocstr(s: str):
+    s = s.replace("\\", "\\\\")
     s = s.replace('"', '\\"')
-    return '"%s"' % s
+    return f'"{s}"'
+
 
 def gen_table():
     array = []
     i = 0
-    print 'static const gchar * const'
-    print 'puncts[] = {'
+    print("static const gchar * const")
+    print("puncts[] = {")
     for k, vs in punct_map:
         k = tocstr(k)
-        vs = map(tocstr, vs)
+        vs = [tocstr(s) for s in vs]
         array.append((i, k))
-        line = '    %s, %s, NULL,' % (k, ", ".join(vs))
-        print line.encode("utf8")
+        print(f"    {k}, {', '.join(vs)}, NULL,")
         i += len(vs) + 2
-    print '};'
-    print
-    print 'static const gchar * const * const'
-    print 'punct_table[] = {'
+    print("};")
+    print()
+    print("static const gchar * const * const")
+    print("punct_table[] = {")
     for i, k in array:
-        print '    &puncts[%d],    // %s' % (i, k)
-    print '};'
+        print(f"    &puncts[{i}],    // {k}")
+    print("};")
+
 
 if __name__ == "__main__":
     gen_table()
