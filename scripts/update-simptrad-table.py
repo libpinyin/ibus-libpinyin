@@ -1,9 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 import sys
+
 sys.path.append(".")
 
 from ZhConversion import *
 from valid_hanzi import *
+
 
 def convert(s, d, n):
     out = ""
@@ -11,7 +13,7 @@ def convert(s, d, n):
     begin = 0
     while begin < end:
         for i in range(min(n, end - begin), 0, -1):
-            t = s[begin:begin+i]
+            t = s[begin : begin + i]
             t = d.get(t, t if i == 1 else None)
             if t:
                 break
@@ -19,11 +21,13 @@ def convert(s, d, n):
         begin += i
     return out
 
+
 def filter_more(records, n):
     han = [(k, v) for (k, v) in records if len(k) <= 0]
     hand = dict(han)
     hanm = [(k, v) for (k, v) in records if convert(k, hand, n) != v]
     return hanm + han
+
 
 def filter_func(args):
     k, v = args
@@ -45,25 +49,25 @@ def filter_func(args):
     #         return False
     return True
 
-def get_records():
-    records = list(zh2Hant.items())
 
-    records = list(filter(filter_func, records))
+def get_records():
+    records = [kv for kv in zh2Hant.items() if filter_func(kv)]
 
     maxlen = max([len(k) for (k, v) in records])
-    for i in range(1,  maxlen - 1):
+    for i in range(1, maxlen - 1):
         records = filter_more(records, i)
-    records = [(k.encode("utf8"), v.encode("utf8")) for (k, v) in records]
     records.sort()
     return maxlen, records
+
 
 def main():
     print("static const gchar *simp_to_trad[][2] = {")
     maxlen, records = get_records()
     for s, ts in records:
-        print('    { "%s", "%s" },' % (s, ts))
+        print(f'    {{ "{s}", "{ts}" }},')
     print("};")
-    print('#define SIMP_TO_TRAD_MAX_LEN (%d)' % maxlen)
+    print(f"#define SIMP_TO_TRAD_MAX_LEN ({maxlen})")
+
 
 if __name__ == "__main__":
     main()
