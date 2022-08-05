@@ -269,11 +269,10 @@ test: ibus-engine-libpinyin
 # 	$(builddir)/ibus-engine-pinyin
 ZhConversion.php:
 	$(AM_V_GEN) \
-	curl https://raw.githubusercontent.com/wikimedia/mediawiki/master/languages/data/ZhConversion.php > $@ || \
+	curl https://raw.githubusercontent.com/wikimedia/mediawiki/master/includes/languages/data/ZhConversion.php > $@ || \
 		( $(RM) $@; exit 1 )
 
 ZhConversion.py: ZhConversion.php
 	$(AM_V_GEN) \
 	php $(top_srcdir)/scripts/php_2_py.php > $@ || \
 		( $(RM) $@; exit 1 )
-
