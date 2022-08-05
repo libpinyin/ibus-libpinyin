@@ -231,7 +231,6 @@ EXTRA_DIST = \
 
 CLEANFILES = \
 	libpinyin.xml \
-	ZhConversion.* \
 	$(NULL)
 
 PYPunctTable.h:
@@ -245,9 +244,8 @@ PYSimpTradConverterTable.h:
 		( $(RM) $@; exit 1 )
 
 update-simptrad-table:
-	$(RM) ZhConversion.php ZhConversion.py PYSimpTradConverterTable.h
-	$(MAKE) ZhConversion.php
-	$(MAKE) ZhConversion.py
+	$(RM) $(top_srcdir)/scripts/ZhConversion.* PYSimpTradConverterTable.h
+	$(MAKE) -C $(top_srcdir)/scripts ZhConversion.py
 	$(MAKE) PYSimpTradConverterTable.h
 
 libpinyin.xml: libpinyin.xml.in
@@ -263,16 +261,3 @@ test: ibus-engine-libpinyin
 	$(ENV) \
 		G_DEBUG=fatal_criticals \
 		$(builddir)/ibus-engine-libpinyin
-
-# test: ibus-engine-pinyin
-# 	$(ENV) G_DEBUG=fatal_warnings \
-# 	$(builddir)/ibus-engine-pinyin
-ZhConversion.php:
-	$(AM_V_GEN) \
-	curl https://raw.githubusercontent.com/wikimedia/mediawiki/master/includes/languages/data/ZhConversion.php > $@ || \
-		( $(RM) $@; exit 1 )
-
-ZhConversion.py: ZhConversion.php
-	$(AM_V_GEN) \
-	php $(top_srcdir)/scripts/php_2_py.php > $@ || \
-		( $(RM) $@; exit 1 )

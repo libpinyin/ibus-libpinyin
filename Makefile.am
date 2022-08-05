@@ -24,6 +24,7 @@ endif
 SUBDIRS = \
 	data \
 	$(LUADIR) \
+	scripts \
 	src \
 	setup \
 	m4 \

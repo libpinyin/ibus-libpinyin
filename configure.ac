@@ -225,6 +225,7 @@ AC_CONFIG_FILES([ po/Makefile.in
 Makefile
 ibus-libpinyin.spec
 lua/Makefile
+scripts/Makefile
 src/Makefile
 src/libpinyin.xml.in
 setup/Makefile

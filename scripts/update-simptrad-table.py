@@ -1,8 +1,4 @@
 #!/usr/bin/python3
-import sys
-
-sys.path.append(".")
-
 from ZhConversion import *
 from valid_hanzi import *
 
