@@ -67,7 +67,7 @@ PhoneticEditor::processSpace (guint keyval, guint keycode,
     if (!m_text)
         return FALSE;
     if (cmshm_filter (modifiers) != 0)
-        return TRUE;
+        return FALSE;
 
     if (m_lookup_table.size () != 0) {
         selectCandidate (m_lookup_table.cursorPos ());
