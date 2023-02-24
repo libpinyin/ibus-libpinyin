@@ -21,7 +21,7 @@ BEGIN {
 
 # Insert data into phrases table
 NF == 4 {
-    printf "INSERT INTO phrases (id, tabkeys, phrase) VALUES (%d, \"%s\", \"%s\");\n", id, $3, $1;
+    printf "INSERT INTO phrases (id, tabkeys, phrase) VALUES (%d, '%s', '%s');\n", id, $3, $1;
     id++;
 }
 
