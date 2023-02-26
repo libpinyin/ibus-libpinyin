@@ -16,7 +16,7 @@ BEGIN {
 }
 
     # Insert data into english table
-    {   printf "INSERT INTO english (word, freq) VALUES (\"%s\", %f);\n", $1, $2}
+    {   printf "INSERT INTO english (word, freq) VALUES (\'%s\', %f);\n", $1, $2}
 
     #quit sqlite3
 END {
