@@ -1,4 +1,4 @@
-# Emilio Herrera <ehespinosa57@gmail.com>, 2018. #zanata, 2020, 2021.
+# Emilio Herrera <ehespinosa57@gmail.com>, 2018. #zanata, 2020, 2021, 2022.
 # Adolfo Jayme Barrientos <fitoschido@gmail.com>, 2020.
 msgid ""
 msgstr ""
@@ -6,16 +6,16 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2022-04-12 15:07+0800\n"
-"PO-Revision-Date: 2021-06-05 16:03+0000\n"
+"PO-Revision-Date: 2022-10-17 09:19+0000\n"
 "Last-Translator: Emilio Herrera <ehespinosa57@gmail.com>\n"
-"Language-Team: Spanish <https://translate.fedoraproject.org/projects/ibus-"
-"libpinyin/master/es/>\n"
+"Language-Team: Spanish <https://translate.fedoraproject.org/projects/"
+"ibus-libpinyin/main/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.6.2\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #: src/PYMain.cc:111
 msgid "Libpinyin input method"
@@ -125,9 +125,8 @@ msgid "Please use \"hspnz\" to input."
 msgstr "Utilice «hspnz» para la introducción."
 
 #: src/PYTableEditor.cc:294
-#, fuzzy
 msgid "Please use table code to input."
-msgstr "Utilice «hspnz» para la introducción."
+msgstr "Utiice el código de la tabla para entrar."
 
 #: setup/main2.py:471
 msgid "Please choose a file"
@@ -307,9 +306,8 @@ msgid "Google"
 msgstr "Google"
 
 #: setup/ibus-libpinyin-preferences.ui:46
-#, fuzzy
 msgid "Google CN"
-msgstr "Google"
+msgstr "Google CN"
 
 #: setup/ibus-libpinyin-preferences.ui:57
 msgid "Default"
@@ -320,9 +318,8 @@ msgid "Compact"
 msgstr "Compacto"
 
 #: setup/ibus-libpinyin-preferences.ui:63
-#, fuzzy
 msgid "Compatibility"
-msgstr "Compacto"
+msgstr "Compatiblidad"
 
 #: setup/ibus-libpinyin-preferences.ui:74
 msgid "MSPY"
@@ -580,7 +577,7 @@ msgstr "Diccionario"
 
 #: setup/ibus-libpinyin-preferences.ui:2130
 msgid "Lua Extension"
-msgstr ""
+msgstr "Extensión Lua"
 
 #: setup/ibus-libpinyin-preferences.ui:2144
 msgid "Table Mode"
