@@ -6,22 +6,23 @@
 # Luc Bournaud <luc.bournaud@gmail.com>, 2018.
 # Xiao Weixuan <veyx.shaw@gmail.com>, 2020.
 # Julien Humbert <julroy67@gmail.com>, 2020, 2021.
+# grimst <grimaitres@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2022-04-12 15:07+0800\n"
-"PO-Revision-Date: 2021-01-02 00:36+0000\n"
-"Last-Translator: Julien Humbert <julroy67@gmail.com>\n"
-"Language-Team: French <https://translate.fedoraproject.org/projects/ibus-"
-"libpinyin/master/fr/>\n"
+"PO-Revision-Date: 2023-03-24 15:20+0000\n"
+"Last-Translator: grimst <grimaitres@gmail.com>\n"
+"Language-Team: French <https://translate.fedoraproject.org/projects/"
+"ibus-libpinyin/main/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4\n"
+"X-Generator: Weblate 4.15.2\n"
 
 #: src/PYMain.cc:111
 msgid "Libpinyin input method"
@@ -133,7 +134,7 @@ msgstr "Veuillez utiliser « hspnz » pour saisir."
 #: src/PYTableEditor.cc:294
 #, fuzzy
 msgid "Please use table code to input."
-msgstr "Veuillez utiliser « hspnz » pour saisir."
+msgstr "Veuillez utiliser le code de la table lors de la saisie."
 
 #: setup/main2.py:471
 msgid "Please choose a file"
@@ -313,9 +314,8 @@ msgid "Google"
 msgstr "Google"
 
 #: setup/ibus-libpinyin-preferences.ui:46
-#, fuzzy
 msgid "Google CN"
-msgstr "Google"
+msgstr "Google CN"
 
 #: setup/ibus-libpinyin-preferences.ui:57
 msgid "Default"
@@ -326,9 +326,8 @@ msgid "Compact"
 msgstr "Compact"
 
 #: setup/ibus-libpinyin-preferences.ui:63
-#, fuzzy
 msgid "Compatibility"
-msgstr "Compact"
+msgstr "Compatibilité"
 
 #: setup/ibus-libpinyin-preferences.ui:74
 msgid "MSPY"
@@ -586,36 +585,32 @@ msgstr "Dictionnaire"
 
 #: setup/ibus-libpinyin-preferences.ui:2130
 msgid "Lua Extension"
-msgstr ""
+msgstr "Extension Lua"
 
 #: setup/ibus-libpinyin-preferences.ui:2144
 msgid "Table Mode"
-msgstr ""
+msgstr "Mode table"
 
 #: setup/ibus-libpinyin-preferences.ui:2158
-#, fuzzy
 msgid "English Mode"
-msgstr "Anglais"
+msgstr "Mode en anglais"
 
 #: setup/ibus-libpinyin-preferences.ui:2172
-#, fuzzy
 msgid "English Candidate"
-msgstr "Anglais"
+msgstr "Candidat anglais"
 
 #: setup/ibus-libpinyin-preferences.ui:2186
-#, fuzzy
 msgid "Emoji Candidate"
-msgstr "Nombre de candidats :"
+msgstr "Nombre de candidats"
 
 #: setup/ibus-libpinyin-preferences.ui:2200
-#, fuzzy
 msgid "Suggestion Candidate"
-msgstr "Orientation des candidats :"
+msgstr "Orientation des candidats"
 
 #: setup/ibus-libpinyin-preferences.ui:2220
 #, fuzzy
 msgid "<b>Input Modes</b>"
-msgstr "<b>Entrée personnalisée</b>"
+msgstr "<b>Mode de saisie</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:2251
 msgid "User Lua Script"
@@ -676,24 +671,21 @@ msgstr "<b>Dictionnaire utilisateur</b>"
 #: setup/ibus-libpinyin-preferences.ui:2487
 #, fuzzy
 msgid "User Table"
-msgstr "Donnés utilisateur"
+msgstr "Table utilisateur"
 
 #: setup/ibus-libpinyin-preferences.ui:2573
-#, fuzzy
 msgid ""
 "<b>Table File Format:</b>\n"
 "  Each line contains the following:\n"
 "    \"table_code phrase frequency\" like \"a 啊 100\"."
 msgstr ""
-"<b>Format de fichier dictionnaire :</b>\n"
-"  Chaque ligne contient l’un des éléments suivants :\n"
-"    « phrase pinyin » ou « phrase pinyin  fréquence »\n"
-"  tels que « 你好 ni’hao » ou « 你好 ni’hao 5 »."
+"<b>Format du fichier de la table :</b>\n"
+"  Chaque ligne contient ce qui suit :\n"
+"    \"table_code phrase frequency\" comme \"a 啊 100\"."
 
 #: setup/ibus-libpinyin-preferences.ui:2601
-#, fuzzy
 msgid "<b>User Table</b>"
-msgstr "<b>Dictionnaire utilisateur</b>"
+msgstr "<b>Table utilisateur</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:2623
 msgid "User data"
