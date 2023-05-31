@@ -1,31 +1,33 @@
 # Marco Aurélio Krause <ouesten@me.com>, 2015. #zanata
+# Rafael Fontenelle <rafaelff@gnome.org>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2022-04-12 15:07+0800\n"
-"PO-Revision-Date: 2015-10-27 02:31-0400\n"
-"Last-Translator: Marco Aurélio Krause <ouesten@me.com>\n"
-"Language-Team: Portuguese (Brazil)\n"
+"PO-Revision-Date: 2022-12-01 00:20+0000\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
+"Language-Team: Portuguese (Brazil) <https://translate.fedoraproject.org/"
+"projects/ibus-libpinyin/main/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Zanata 4.6.2\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: src/PYMain.cc:111
 msgid "Libpinyin input method"
-msgstr "método de entrada Libpinyin"
+msgstr "Método de entrada Libpinyin"
 
 #: src/PYMain.cc:121
 msgid "Intelligent Pinyin (debug)"
-msgstr ""
+msgstr "Pinyin inteligente (depurar)"
 
 #: src/PYMain.cc:122
 msgid "Intelligent Pinyin input method (debug)"
-msgstr ""
+msgstr "Método de entrada pinyin inteligente (depurar)"
 
 #: src/PYMain.cc:132
 msgid "Bopomofo (debug)"
@@ -33,7 +35,7 @@ msgstr "Bopomofo (depurar)"
 
 #: src/PYMain.cc:133
 msgid "Bopomofo input method (debug)"
-msgstr ""
+msgstr "Método de entrada bopomofo (depurar)"
 
 #: src/PYPinyinProperties.cc:39 src/PYPinyinProperties.cc:104
 #: setup/ibus-libpinyin-preferences.ui:273
@@ -47,43 +49,43 @@ msgstr "Inglês"
 
 #: src/PYPinyinProperties.cc:45 src/PYPinyinProperties.cc:116
 msgid "Switch to English Mode"
-msgstr ""
+msgstr "Trocar para modo inglês"
 
 #: src/PYPinyinProperties.cc:46 src/PYPinyinProperties.cc:117
 msgid "Switch to Chinese Mode"
-msgstr ""
+msgstr "Trocar para modo chinês"
 
 #: src/PYPinyinProperties.cc:50 src/PYPinyinProperties.cc:129
 msgid "Full Width Letter"
-msgstr ""
+msgstr "Letra de largura completa"
 
 #: src/PYPinyinProperties.cc:51 src/PYPinyinProperties.cc:130
 msgid "Half Width Letter"
-msgstr ""
+msgstr "Letra de meia largura"
 
 #: src/PYPinyinProperties.cc:56 src/PYPinyinProperties.cc:135
 msgid "Switch to Half Width Letter Mode"
-msgstr ""
+msgstr "Trocar para modo de letra de meia largura"
 
 #: src/PYPinyinProperties.cc:57 src/PYPinyinProperties.cc:136
 msgid "Switch to Full Width Letter Mode"
-msgstr ""
+msgstr "Trocar para modo de letra de largura completa"
 
 #: src/PYPinyinProperties.cc:61 src/PYPinyinProperties.cc:145
 msgid "Full Width Punct"
-msgstr ""
+msgstr "Pontuação de largura completa"
 
 #: src/PYPinyinProperties.cc:62 src/PYPinyinProperties.cc:146
 msgid "Half Width Punct"
-msgstr ""
+msgstr "Pontuação de meia largura"
 
 #: src/PYPinyinProperties.cc:67 src/PYPinyinProperties.cc:151
 msgid "Switch to Half Width Punctuation Mode"
-msgstr ""
+msgstr "Trocar para modo de pontuação de meia largura"
 
 #: src/PYPinyinProperties.cc:68 src/PYPinyinProperties.cc:152
 msgid "Switch to Full Width Punctuation Mode"
-msgstr ""
+msgstr "Trocar para modo de pontuação de largura completa"
 
 #: src/PYPinyinProperties.cc:72 src/PYPinyinProperties.cc:161
 msgid "Simplified Chinese"
@@ -95,11 +97,11 @@ msgstr "Chinês Tradicional"
 
 #: src/PYPinyinProperties.cc:78 src/PYPinyinProperties.cc:167
 msgid "Switch to Traditional Chinese Mode"
-msgstr ""
+msgstr "Trocar para o modo Chinês Tradicional"
 
 #: src/PYPinyinProperties.cc:79 src/PYPinyinProperties.cc:168
 msgid "Switch to Simplfied Chinese Mode"
-msgstr ""
+msgstr "Trocar para o modo Chinês Simplificado"
 
 #: src/PYPinyinProperties.cc:82 src/PYPinyinProperties.cc:84
 #: setup/ibus-libpinyin-preferences.ui:160
@@ -116,32 +118,32 @@ msgstr "英"
 
 #: src/PYEnglishEditor.cc:276
 msgid "Please input the English word."
-msgstr ""
+msgstr "Insira a palavra em inglês."
 
 #: src/PYTableEditor.cc:291
 msgid "Please use \"hspnz\" to input."
-msgstr ""
+msgstr "Use \"hspnz\" para inserir."
 
 #: src/PYTableEditor.cc:294
 msgid "Please use table code to input."
-msgstr ""
+msgstr "Use um código da tabela para inserir."
 
 #: setup/main2.py:471
 msgid "Please choose a file"
-msgstr "Escolher um arquivo"
+msgstr "Escolha um arquivo"
 
 #: setup/main2.py:492
 msgid "Please save a file"
-msgstr "Salvar um arquivo"
+msgstr "Salve um arquivo"
 
 #: setup/main2.py:636 setup/ibus-libpinyin-preferences.ui:2695
 #, python-format
 msgid "<big><b>Intelligent Pinyin %s</b></big>"
-msgstr ""
+msgstr "<big><b>Pinyin inteligente %s</b></big>"
 
 #: setup/config.py:30
 msgid "Intelligent Pinyin"
-msgstr ""
+msgstr "Pinyin inteligente"
 
 #: setup/dicttreeview.py:52
 msgid "Art"
@@ -173,11 +175,11 @@ msgstr "Natureza"
 
 #: setup/dicttreeview.py:59
 msgid "People"
-msgstr ""
+msgstr "Pessoas"
 
 #: setup/dicttreeview.py:60
 msgid "Science"
-msgstr ""
+msgstr "Ciências"
 
 #: setup/dicttreeview.py:61
 msgid "Society"
@@ -188,9 +190,8 @@ msgid "Sport"
 msgstr "Esporte"
 
 #: setup/dicttreeview.py:63
-#, fuzzy
 msgid "Technology"
-msgstr "Geologia"
+msgstr "Tecnologia"
 
 #: setup/dicttreeview.py:110
 msgid "Active"
@@ -206,19 +207,18 @@ msgstr "Atalho:"
 
 #: setup/keyboardshortcut.py:67
 msgid "Key code:"
-msgstr ""
+msgstr "Código da tecla:"
 
 #: setup/keyboardshortcut.py:82
 msgid "Modifiers:"
 msgstr "Modificadores:"
 
 #: setup/keyboardshortcut.py:171
-#, fuzzy
 msgid ""
 "Please press a key (or a key combination).\n"
 "The dialog will close when the key is released."
 msgstr ""
-"Por favor pressione uma tecla (ou uma combinação de teclas).\n"
+"Pressione uma tecla (ou uma combinação de teclas).\n"
 "O diálogo será encerrado quando a tecla for liberada."
 
 #: setup/keyboardshortcut.py:174
@@ -227,7 +227,7 @@ msgstr "Por favor pressione uma tecla (ou uma combinação de teclas)"
 
 #: setup/keyboardshortcut.py:186
 msgid "Shorcut Editor"
-msgstr ""
+msgstr "Editor de atalhos"
 
 #: setup/keyboardshortcut.py:239 setup/shortcuteditor.py:196
 #: setup/shortcuteditor.py:233
@@ -241,15 +241,15 @@ msgstr "_OK"
 
 #: setup/shortcuteditor.py:46
 msgid "Switch Chinese/English"
-msgstr ""
+msgstr "Trocar chinês/inglês"
 
 #: setup/shortcuteditor.py:47
 msgid "Full/Half Width Letter"
-msgstr ""
+msgstr "Letra de meia/completa largura"
 
 #: setup/shortcuteditor.py:48
 msgid "Full/Half Width Punct"
-msgstr ""
+msgstr "Pontuação de meia/completa largura"
 
 #: setup/shortcuteditor.py:49
 msgid "Full/Half Width Both Switch"
@@ -299,27 +299,27 @@ msgstr "IBM"
 
 #: setup/ibus-libpinyin-preferences.ui:40
 msgid "Baidu"
-msgstr ""
+msgstr "Baidu"
 
 #: setup/ibus-libpinyin-preferences.ui:43
 msgid "Google"
-msgstr ""
+msgstr "Google"
 
 #: setup/ibus-libpinyin-preferences.ui:46
 msgid "Google CN"
-msgstr ""
+msgstr "Google CN"
 
 #: setup/ibus-libpinyin-preferences.ui:57
 msgid "Default"
-msgstr ""
+msgstr "Padrão"
 
 #: setup/ibus-libpinyin-preferences.ui:60
 msgid "Compact"
-msgstr ""
+msgstr "Compacto"
 
 #: setup/ibus-libpinyin-preferences.ui:63
 msgid "Compatibility"
-msgstr ""
+msgstr "Compatiblidade"
 
 #: setup/ibus-libpinyin-preferences.ui:74
 msgid "MSPY"
@@ -355,11 +355,11 @@ msgstr "Vertical"
 
 #: setup/ibus-libpinyin-preferences.ui:149
 msgid "Frequency"
-msgstr ""
+msgstr "Frequência"
 
 #: setup/ibus-libpinyin-preferences.ui:152
 msgid "Pinyin Length"
-msgstr ""
+msgstr "Comprimento de pinyin"
 
 #: setup/ibus-libpinyin-preferences.ui:243
 msgid "Language:"
