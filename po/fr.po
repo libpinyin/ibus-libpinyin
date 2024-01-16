@@ -7,14 +7,15 @@
 # Xiao Weixuan <veyx.shaw@gmail.com>, 2020.
 # Julien Humbert <julroy67@gmail.com>, 2020, 2021.
 # grimst <grimaitres@gmail.com>, 2023.
+# Damien Pou <dampato+linux@ik.me>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2022-04-12 15:07+0800\n"
-"PO-Revision-Date: 2023-03-24 15:20+0000\n"
-"Last-Translator: grimst <grimaitres@gmail.com>\n"
+"PO-Revision-Date: 2024-01-16 13:37+0000\n"
+"Last-Translator: Damien Pou <dampato+linux@ik.me>\n"
 "Language-Team: French <https://translate.fedoraproject.org/projects/"
 "ibus-libpinyin/main/fr/>\n"
 "Language: fr\n"
@@ -22,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15.2\n"
+"X-Generator: Weblate 5.3.1\n"
 
 #: src/PYMain.cc:111
 msgid "Libpinyin input method"
@@ -132,9 +133,8 @@ msgid "Please use \"hspnz\" to input."
 msgstr "Veuillez utiliser « hspnz » pour saisir."
 
 #: src/PYTableEditor.cc:294
-#, fuzzy
 msgid "Please use table code to input."
-msgstr "Veuillez utiliser le code de la table lors de la saisie."
+msgstr "Veuillez utiliser le code de la table pour la saisie."
 
 #: setup/main2.py:471
 msgid "Please choose a file"
@@ -608,7 +608,6 @@ msgid "Suggestion Candidate"
 msgstr "Orientation des candidats"
 
 #: setup/ibus-libpinyin-preferences.ui:2220
-#, fuzzy
 msgid "<b>Input Modes</b>"
 msgstr "<b>Mode de saisie</b>"
 
@@ -669,7 +668,6 @@ msgid "<b>User Dictionary</b>"
 msgstr "<b>Dictionnaire utilisateur</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:2487
-#, fuzzy
 msgid "User Table"
 msgstr "Table utilisateur"
 
