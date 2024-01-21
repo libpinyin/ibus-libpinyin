@@ -409,7 +409,7 @@ static int ime_utf8_to_utf16(lua_State* L){
     gunichar2 * str = g_utf8_to_utf16(s, l, NULL, &written, NULL);
 
     /* not includes trailing-zero */
-    luaL_addlstring(&buf, str, written * sizeof(gunichar2));
+    luaL_addlstring(&buf, (const char *)str, written * sizeof(gunichar2));
     luaL_pushresult(&buf);
 
     g_free(str);
@@ -419,7 +419,7 @@ static int ime_utf8_to_utf16(lua_State* L){
 
 static int ime_utf16_to_utf8(lua_State* L){
     size_t l;
-    const gunichar2 * s = luaL_checklstring(L, 1, &l);
+    const gunichar2 * s = (const gunichar2 *)luaL_checklstring(L, 1, &l);
 
     luaL_Buffer buf;
     luaL_buffinit(L, &buf);
