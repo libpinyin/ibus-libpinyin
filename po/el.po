@@ -682,7 +682,7 @@ msgid "Intelligent Pinyin input method for IBus"
 msgstr ""
 
 #: setup/ibus-libpinyin-preferences.ui:2722
-msgid "<small>Copyright (c) 2011-2012 Peng Wu</small>"
+msgid "<small>Copyright (c) 2011-2024 Peng Wu</small>"
 msgstr ""
 
 #: setup/ibus-libpinyin-preferences.ui:2735
