@@ -83,13 +83,19 @@ AC_CHECK_FUNCS([ibus_config_get_values])
 CFLAGS="$save_CFLAGS"
 LIBS="$save_LIBS"
 
-
 # check env
 AC_PATH_PROG(ENV, env)
 AC_SUBST(ENV)
 
 # check python
-AM_PATH_PYTHON([3.7])
+AM_PATH_PYTHON([3.2])
+
+# assign the specified python version
+AC_ARG_WITH(python,
+    AS_HELP_STRING([--with-python[=PATH]], [Select python version]),
+        [PYTHON=$with_python],
+        []
+)
 
 # check icon_prop_key in IBus.EngineDesc
 AC_MSG_CHECKING([if IBus.EngineDesc has get_icon_prop_key])
