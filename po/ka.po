@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ibus-libpinyin 1.12.91\n"
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
-"POT-Creation-Date: 2022-04-12 15:07+0800\n"
+"POT-Creation-Date: 2024-12-16 11:32+0800\n"
 "PO-Revision-Date: 2023-05-31 05:20+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://translate.fedoraproject.org/projects/ibus-"
@@ -19,33 +19,51 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.17\n"
 
-#: src/PYMain.cc:111
+#: src/PYPConfig.cc:683
+msgid "The table file is imported."
+msgstr ""
+
+#: src/PYPConfig.cc:690
+msgid "The table file is exported."
+msgstr ""
+
+#: src/PYPConfig.cc:702
+msgid "The pinyin dictionary file is imported."
+msgstr ""
+
+#: src/PYPConfig.cc:709
+msgid "The pinyin dictionary file is exported."
+msgstr ""
+
+#: src/PYMain.cc:117
 msgid "Libpinyin input method"
 msgstr "Libpinyin-ით შეტანის მეთოდი"
 
-#: src/PYMain.cc:121
+#: src/PYMain.cc:127
 msgid "Intelligent Pinyin (debug)"
 msgstr ""
 
-#: src/PYMain.cc:122
+#: src/PYMain.cc:128
 msgid "Intelligent Pinyin input method (debug)"
 msgstr ""
 
-#: src/PYMain.cc:132
+#: src/PYMain.cc:138
 msgid "Bopomofo (debug)"
 msgstr "ბოპომოფო (გამართვა)"
 
-#: src/PYMain.cc:133
+#: src/PYMain.cc:139
 msgid "Bopomofo input method (debug)"
 msgstr ""
 
 #: src/PYPinyinProperties.cc:39 src/PYPinyinProperties.cc:104
-#: setup/ibus-libpinyin-preferences.ui:273
+#: setup/ibus-libpinyin-preferences.ui:111
+#: setup/ibus-libpinyin-preferences.ui:298
 msgid "Chinese"
 msgstr "ჩინური"
 
 #: src/PYPinyinProperties.cc:40 src/PYPinyinProperties.cc:105
-#: setup/ibus-libpinyin-preferences.ui:288
+#: setup/ibus-libpinyin-preferences.ui:107
+#: setup/ibus-libpinyin-preferences.ui:313
 msgid "English"
 msgstr "ინგლისური"
 
@@ -106,7 +124,7 @@ msgid "Switch to Simplfied Chinese Mode"
 msgstr "მარტივ ჩინურზე გადართვა"
 
 #: src/PYPinyinProperties.cc:82 src/PYPinyinProperties.cc:84
-#: setup/ibus-libpinyin-preferences.ui:160
+#: setup/ibus-libpinyin-preferences.ui:185
 msgid "Preferences"
 msgstr "პარამეტრები"
 
@@ -118,27 +136,27 @@ msgstr "中"
 msgid "英"
 msgstr "英"
 
-#: src/PYEnglishEditor.cc:276
+#: src/PYEnglishEditor.cc:288
 msgid "Please input the English word."
 msgstr ""
 
-#: src/PYTableEditor.cc:291
+#: src/PYTableEditor.cc:294
 msgid "Please use \"hspnz\" to input."
 msgstr ""
 
-#: src/PYTableEditor.cc:294
+#: src/PYTableEditor.cc:297
 msgid "Please use table code to input."
 msgstr ""
 
-#: setup/main2.py:471
+#: setup/main2.py:490
 msgid "Please choose a file"
 msgstr "გთხოვთ, აირჩიოთ ფაილი"
 
-#: setup/main2.py:492
+#: setup/main2.py:511
 msgid "Please save a file"
 msgstr "გთხოვთ, შეინახოთ ფაილი"
 
-#: setup/main2.py:636 setup/ibus-libpinyin-preferences.ui:2695
+#: setup/main2.py:659 setup/ibus-libpinyin-preferences.ui:2834
 #, python-format
 msgid "<big><b>Intelligent Pinyin %s</b></big>"
 msgstr ""
@@ -310,6 +328,7 @@ msgid "Google CN"
 msgstr "Google CN"
 
 #: setup/ibus-libpinyin-preferences.ui:57
+#: setup/ibus-libpinyin-preferences.ui:103
 msgid "Default"
 msgstr "ნაგულისხმები"
 
@@ -345,299 +364,314 @@ msgstr "PYJJ"
 msgid "XHE"
 msgstr "XHE"
 
-#: setup/ibus-libpinyin-preferences.ui:100
+#: setup/ibus-libpinyin-preferences.ui:122
 msgid "Horizontal"
 msgstr "ჰორიზონტალური"
 
-#: setup/ibus-libpinyin-preferences.ui:103
+#: setup/ibus-libpinyin-preferences.ui:125
 msgid "Vertical"
 msgstr "ვერტიკალური"
 
-#: setup/ibus-libpinyin-preferences.ui:149
+#: setup/ibus-libpinyin-preferences.ui:171
 msgid "Frequency"
 msgstr "სიხშირე"
 
-#: setup/ibus-libpinyin-preferences.ui:152
+#: setup/ibus-libpinyin-preferences.ui:174
 msgid "Pinyin Length"
 msgstr "პინინის სიგრძე"
 
-#: setup/ibus-libpinyin-preferences.ui:243
+#: setup/ibus-libpinyin-preferences.ui:177
+msgid "Legacy"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:268
 msgid "Language:"
 msgstr "ენა:"
 
-#: setup/ibus-libpinyin-preferences.ui:251
+#: setup/ibus-libpinyin-preferences.ui:276
 msgid "Half/full width:"
 msgstr "ნახევარი/სრული სიგანე:"
 
-#: setup/ibus-libpinyin-preferences.ui:263
+#: setup/ibus-libpinyin-preferences.ui:288
 msgid "Punctuations:"
 msgstr "პუნქტუაციები:"
 
-#: setup/ibus-libpinyin-preferences.ui:303
-#: setup/ibus-libpinyin-preferences.ui:337
+#: setup/ibus-libpinyin-preferences.ui:328
+#: setup/ibus-libpinyin-preferences.ui:362
 msgid "Full"
 msgstr "სრული"
 
-#: setup/ibus-libpinyin-preferences.ui:320
-#: setup/ibus-libpinyin-preferences.ui:354
+#: setup/ibus-libpinyin-preferences.ui:345
+#: setup/ibus-libpinyin-preferences.ui:379
 msgid "Half"
 msgstr "ნახევარი"
 
-#: setup/ibus-libpinyin-preferences.ui:373
+#: setup/ibus-libpinyin-preferences.ui:398
 msgid "Chinese:"
 msgstr "ჩინური:"
 
-#: setup/ibus-libpinyin-preferences.ui:383
+#: setup/ibus-libpinyin-preferences.ui:408
 msgid "Simplified"
 msgstr "გამარტივებული"
 
-#: setup/ibus-libpinyin-preferences.ui:400
+#: setup/ibus-libpinyin-preferences.ui:425
 msgid "Traditional"
 msgstr "ტრადიციული"
 
-#: setup/ibus-libpinyin-preferences.ui:423
+#: setup/ibus-libpinyin-preferences.ui:448
 msgid "<b>Initial state</b>"
 msgstr "<b>საწყისი მდგომარეობა</b>"
 
-#: setup/ibus-libpinyin-preferences.ui:461
+#: setup/ibus-libpinyin-preferences.ui:486
 msgid "Display Style:"
 msgstr "ჩვენების სტილი:"
 
-#: setup/ibus-libpinyin-preferences.ui:507
+#: setup/ibus-libpinyin-preferences.ui:532
 msgid "Orientation of candidates:"
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:553
+#: setup/ibus-libpinyin-preferences.ui:578
 msgid "Number of candidates:"
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:592
+#: setup/ibus-libpinyin-preferences.ui:617
 msgid "<b>UI</b>"
 msgstr "<b>UI</b>"
 
-#: setup/ibus-libpinyin-preferences.ui:621
+#: setup/ibus-libpinyin-preferences.ui:646
 msgid "Dynamically adjust the candidates order."
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:636
+#: setup/ibus-libpinyin-preferences.ui:661
 msgid "Remember every input as a phrase."
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:659
+#: setup/ibus-libpinyin-preferences.ui:684
 msgid "Sort candidates by:"
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:702
+#: setup/ibus-libpinyin-preferences.ui:727
 msgid "<b>Candidates</b>"
 msgstr "<b>კანდიდატი</b>"
 
-#: setup/ibus-libpinyin-preferences.ui:721
-msgid "General"
-msgstr "ზოგადი"
-
-#: setup/ibus-libpinyin-preferences.ui:761
-msgid "Full pinyin"
-msgstr "სრული პინინი"
-
-#: setup/ibus-libpinyin-preferences.ui:782
-msgid "Double pinyin"
-msgstr "ორმაგი პინინი"
-
-#: setup/ibus-libpinyin-preferences.ui:825
-msgid "Show raw input of Double Pinyin"
+#: setup/ibus-libpinyin-preferences.ui:763
+msgid "Keyboard Layout:"
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:840
-msgid "Incomplete pinyin"
-msgstr "არასდრული პინინი"
-
-#: setup/ibus-libpinyin-preferences.ui:862
-msgid "<b>Pinyin mode</b>"
-msgstr "<b>პინინის რეჟიმი</b>"
-
-#: setup/ibus-libpinyin-preferences.ui:901
-msgid "[Shift] select candidate"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:911
-msgid "[-] [=] flip page"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:926
-msgid "[,] [.] flip page"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:941
-msgid "Auto commit"
-msgstr "ავტომატური კომიტი"
-
-#: setup/ibus-libpinyin-preferences.ui:970
-msgid "<b>Input Custom</b>"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:1118
-msgid "Enable pinyin correction"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:1154
-msgid "<b>Correct pinyin</b>"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:1184
-#: setup/ibus-libpinyin-preferences.ui:1623
-msgid "Enable Cloud Input"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:1208
-#: setup/ibus-libpinyin-preferences.ui:1647
-msgid "Source From:"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:1253
-#: setup/ibus-libpinyin-preferences.ui:1692
-msgid "<b>Cloud Input Option</b>"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:1275
-msgid "Pinyin mode"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:1314
-msgid "Incomplete Bopomofo"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:1337
-msgid "Keyboard Mapping:"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:1380
-msgid "<b>Bopomofo mode</b>"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:1416
-msgid "Selection Keys:"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:1453
-msgid "Enable Guidekey for Candidates Selection"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:1470
-msgid "Enable Auxiliary Select Keys F1 .. F10"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:1487
-msgid "Enable Auxiliary Select Keys Numbers on Keypad"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:1510
-msgid "<b>Selection mode</b>"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:1542
-msgid "Feature of Enter key:"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:1553
-msgid "Commit first candidate"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:1571
-msgid "Commit original text"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:1593
-msgid "<b>Other</b>"
-msgstr "<b>სხვა</b>"
-
-#: setup/ibus-libpinyin-preferences.ui:1714
-msgid "Bopomofo mode"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:1876
-msgid "Enable fuzzy syllable"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:1977
-msgid "Fuzzy syllable"
-msgstr ""
-
-#: setup/ibus-libpinyin-preferences.ui:2044
+#: setup/ibus-libpinyin-preferences.ui:819
+#: setup/ibus-libpinyin-preferences.ui:2183
 msgid "Tips: Changes may not take effect until ime restarts."
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:2067
+#: setup/ibus-libpinyin-preferences.ui:842
+#, fuzzy
+#| msgid "<b>Other</b>"
+msgid "<b>Keyboard</b>"
+msgstr "<b>სხვა</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:861
+msgid "General"
+msgstr "ზოგადი"
+
+#: setup/ibus-libpinyin-preferences.ui:901
+msgid "Full pinyin"
+msgstr "სრული პინინი"
+
+#: setup/ibus-libpinyin-preferences.ui:922
+msgid "Double pinyin"
+msgstr "ორმაგი პინინი"
+
+#: setup/ibus-libpinyin-preferences.ui:965
+msgid "Show raw input of Double Pinyin"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:980
+msgid "Incomplete pinyin"
+msgstr "არასდრული პინინი"
+
+#: setup/ibus-libpinyin-preferences.ui:1002
+msgid "<b>Pinyin mode</b>"
+msgstr "<b>პინინის რეჟიმი</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:1041
+msgid "[Shift] select candidate"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1051
+msgid "[-] [=] flip page"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1066
+msgid "[,] [.] flip page"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1081
+msgid "Auto commit"
+msgstr "ავტომატური კომიტი"
+
+#: setup/ibus-libpinyin-preferences.ui:1110
+msgid "<b>Input Custom</b>"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1258
+msgid "Enable pinyin correction"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1294
+msgid "<b>Correct pinyin</b>"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1324
+#: setup/ibus-libpinyin-preferences.ui:1763
+msgid "Enable Cloud Input"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1348
+#: setup/ibus-libpinyin-preferences.ui:1787
+msgid "Source From:"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1393
+#: setup/ibus-libpinyin-preferences.ui:1832
+msgid "<b>Cloud Input Option</b>"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1415
+msgid "Pinyin mode"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1454
+msgid "Incomplete Bopomofo"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1477
+msgid "Keyboard Mapping:"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1520
+msgid "<b>Bopomofo mode</b>"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1556
+msgid "Selection Keys:"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1593
+msgid "Enable Guidekey for Candidates Selection"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1610
+msgid "Enable Auxiliary Select Keys F1 .. F10"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1627
+msgid "Enable Auxiliary Select Keys Numbers on Keypad"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1650
+msgid "<b>Selection mode</b>"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1682
+msgid "Feature of Enter key:"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1693
+msgid "Commit first candidate"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1711
+msgid "Commit original text"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:1733
+msgid "<b>Other</b>"
+msgstr "<b>სხვა</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:1854
+msgid "Bopomofo mode"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:2016
+msgid "Enable fuzzy syllable"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:2117
+msgid "Fuzzy syllable"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:2206
 msgid "<b>Dictionary option</b>"
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:2089
+#: setup/ibus-libpinyin-preferences.ui:2228
 msgid "Dictionary"
 msgstr "ლექსიკონი"
 
-#: setup/ibus-libpinyin-preferences.ui:2130
+#: setup/ibus-libpinyin-preferences.ui:2269
 msgid "Lua Extension"
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:2144
+#: setup/ibus-libpinyin-preferences.ui:2283
 msgid "Table Mode"
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:2158
+#: setup/ibus-libpinyin-preferences.ui:2297
 msgid "English Mode"
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:2172
+#: setup/ibus-libpinyin-preferences.ui:2311
 msgid "English Candidate"
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:2186
+#: setup/ibus-libpinyin-preferences.ui:2325
 msgid "Emoji Candidate"
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:2200
+#: setup/ibus-libpinyin-preferences.ui:2339
 msgid "Suggestion Candidate"
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:2220
+#: setup/ibus-libpinyin-preferences.ui:2359
 msgid "<b>Input Modes</b>"
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:2251
+#: setup/ibus-libpinyin-preferences.ui:2390
 msgid "User Lua Script"
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:2261
+#: setup/ibus-libpinyin-preferences.ui:2400
 msgid "Edit"
 msgstr "ჩასოწრება"
 
-#: setup/ibus-libpinyin-preferences.ui:2281
+#: setup/ibus-libpinyin-preferences.ui:2420
 msgid "<b>Customize IME</b>"
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:2316
-#: setup/ibus-libpinyin-preferences.ui:2500
+#: setup/ibus-libpinyin-preferences.ui:2455
+#: setup/ibus-libpinyin-preferences.ui:2639
 msgid "Export"
 msgstr "გატანა"
 
-#: setup/ibus-libpinyin-preferences.ui:2331
-#: setup/ibus-libpinyin-preferences.ui:2515
+#: setup/ibus-libpinyin-preferences.ui:2470
+#: setup/ibus-libpinyin-preferences.ui:2654
 msgid "Import"
 msgstr "შემოტანა"
 
-#: setup/ibus-libpinyin-preferences.ui:2347
+#: setup/ibus-libpinyin-preferences.ui:2486
 msgid "User Dictionary"
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:2372
+#: setup/ibus-libpinyin-preferences.ui:2511
 msgid "Clear All Data"
 msgstr "მონაცემების გაწმენდა"
 
-#: setup/ibus-libpinyin-preferences.ui:2392
-#: setup/ibus-libpinyin-preferences.ui:2545
+#: setup/ibus-libpinyin-preferences.ui:2531
+#: setup/ibus-libpinyin-preferences.ui:2684
 msgid "Clear"
 msgstr "გაწმენდა"
 
-#: setup/ibus-libpinyin-preferences.ui:2420
+#: setup/ibus-libpinyin-preferences.ui:2559
 msgid ""
 "<b>Dictionary File Format:</b>\n"
 "  Each line contains one of the following:\n"
@@ -645,51 +679,51 @@ msgid ""
 "  like \"你好 ni'hao\" or \"你好 ni'hao 5\"."
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:2433
-#: setup/ibus-libpinyin-preferences.ui:2583
+#: setup/ibus-libpinyin-preferences.ui:2572
+#: setup/ibus-libpinyin-preferences.ui:2722
 msgid "Help"
 msgstr "დახმარება"
 
-#: setup/ibus-libpinyin-preferences.ui:2451
+#: setup/ibus-libpinyin-preferences.ui:2590
 msgid "<b>User Dictionary</b>"
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:2487
+#: setup/ibus-libpinyin-preferences.ui:2626
 msgid "User Table"
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:2573
+#: setup/ibus-libpinyin-preferences.ui:2712
 msgid ""
 "<b>Table File Format:</b>\n"
 "  Each line contains the following:\n"
 "    \"table_code phrase frequency\" like \"a 啊 100\"."
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:2601
+#: setup/ibus-libpinyin-preferences.ui:2740
 msgid "<b>User Table</b>"
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:2623
+#: setup/ibus-libpinyin-preferences.ui:2762
 msgid "User data"
 msgstr "სამომხმარებლო მონაცემები"
 
-#: setup/ibus-libpinyin-preferences.ui:2653
+#: setup/ibus-libpinyin-preferences.ui:2792
 msgid "Shortcuts"
 msgstr "მალსახმობები"
 
-#: setup/ibus-libpinyin-preferences.ui:2709
+#: setup/ibus-libpinyin-preferences.ui:2848
 msgid "Intelligent Pinyin input method for IBus"
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:2722
+#: setup/ibus-libpinyin-preferences.ui:2861
 msgid "<small>Copyright (c) 2011-2024 Peng Wu</small>"
 msgstr "<small>(c) 2011-2024 Peng Wu, ყველა უფლება დაცულია</small>"
 
-#: setup/ibus-libpinyin-preferences.ui:2735
+#: setup/ibus-libpinyin-preferences.ui:2874
 msgid "https://github.com/libpinyin/ibus-libpinyin"
 msgstr "https://github.com/libpinyin/ibus-libpinyin"
 
-#: setup/ibus-libpinyin-preferences.ui:2752
+#: setup/ibus-libpinyin-preferences.ui:2891
 msgid ""
 "<small>\n"
 "<b>Authors:</b>\n"
@@ -705,7 +739,7 @@ msgid ""
 "</small>"
 msgstr ""
 
-#: setup/ibus-libpinyin-preferences.ui:2792
+#: setup/ibus-libpinyin-preferences.ui:2931
 msgid "About"
 msgstr "შესახებ"
 

@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
-"POT-Creation-Date: 2022-04-12 15:07+0800\n"
+"POT-Creation-Date: 2024-12-16 11:32+0800\n"
 "PO-Revision-Date: 2024-01-16 13:37+0000\n"
 "Last-Translator: Damien Pou <dampato+linux@ik.me>\n"
 "Language-Team: French <https://translate.fedoraproject.org/projects/ibus-"
@@ -25,33 +25,51 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.3.1\n"
 
-#: src/PYMain.cc:111
+#: src/PYPConfig.cc:683
+msgid "The table file is imported."
+msgstr ""
+
+#: src/PYPConfig.cc:690
+msgid "The table file is exported."
+msgstr ""
+
+#: src/PYPConfig.cc:702
+msgid "The pinyin dictionary file is imported."
+msgstr ""
+
+#: src/PYPConfig.cc:709
+msgid "The pinyin dictionary file is exported."
+msgstr ""
+
+#: src/PYMain.cc:117
 msgid "Libpinyin input method"
 msgstr "Méthode de saisie libpinyin"
 
-#: src/PYMain.cc:121
+#: src/PYMain.cc:127
 msgid "Intelligent Pinyin (debug)"
 msgstr "Pinyin intelligent (débogage)"
 
-#: src/PYMain.cc:122
+#: src/PYMain.cc:128
 msgid "Intelligent Pinyin input method (debug)"
 msgstr "Méthode de saisie Pinyin intelligente (débogage)"
 
-#: src/PYMain.cc:132
+#: src/PYMain.cc:138
 msgid "Bopomofo (debug)"
 msgstr "Bopomofo (débogage)"
 
-#: src/PYMain.cc:133
+#: src/PYMain.cc:139
 msgid "Bopomofo input method (debug)"
 msgstr "Méthode de saisie Bopomofo (débogage)"
 
 #: src/PYPinyinProperties.cc:39 src/PYPinyinProperties.cc:104
-#: setup/ibus-libpinyin-preferences.ui:273
+#: setup/ibus-libpinyin-preferences.ui:111
+#: setup/ibus-libpinyin-preferences.ui:298
 msgid "Chinese"
 msgstr "Chinois"
 
 #: src/PYPinyinProperties.cc:40 src/PYPinyinProperties.cc:105
-#: setup/ibus-libpinyin-preferences.ui:288
+#: setup/ibus-libpinyin-preferences.ui:107
+#: setup/ibus-libpinyin-preferences.ui:313
 msgid "English"
 msgstr "Anglais"
 
@@ -112,7 +130,7 @@ msgid "Switch to Simplfied Chinese Mode"
 msgstr "Passer en mode Chinois simplifié"
 
 #: src/PYPinyinProperties.cc:82 src/PYPinyinProperties.cc:84
-#: setup/ibus-libpinyin-preferences.ui:160
+#: setup/ibus-libpinyin-preferences.ui:185
 msgid "Preferences"
 msgstr "Préférences"
 
@@ -124,27 +142,27 @@ msgstr "中"
 msgid "英"
 msgstr "英"
 
-#: src/PYEnglishEditor.cc:276
+#: src/PYEnglishEditor.cc:288
 msgid "Please input the English word."
 msgstr "Veuillez saisir le mot anglais."
 
-#: src/PYTableEditor.cc:291
+#: src/PYTableEditor.cc:294
 msgid "Please use \"hspnz\" to input."
 msgstr "Veuillez utiliser « hspnz » pour saisir."
 
-#: src/PYTableEditor.cc:294
+#: src/PYTableEditor.cc:297
 msgid "Please use table code to input."
 msgstr "Veuillez utiliser le code de la table pour la saisie."
 
-#: setup/main2.py:471
+#: setup/main2.py:490
 msgid "Please choose a file"
 msgstr "Veuillez choisir un fichier"
 
-#: setup/main2.py:492
+#: setup/main2.py:511
 msgid "Please save a file"
 msgstr "Veuillez enregistrer le fichier"
 
-#: setup/main2.py:636 setup/ibus-libpinyin-preferences.ui:2695
+#: setup/main2.py:659 setup/ibus-libpinyin-preferences.ui:2834
 #, python-format
 msgid "<big><b>Intelligent Pinyin %s</b></big>"
 msgstr "<big><b>%s intelligent Pinyin</b></big>"
@@ -318,6 +336,7 @@ msgid "Google CN"
 msgstr "Google CN"
 
 #: setup/ibus-libpinyin-preferences.ui:57
+#: setup/ibus-libpinyin-preferences.ui:103
 msgid "Default"
 msgstr "Par défaut"
 
@@ -353,300 +372,317 @@ msgstr "PYJJ"
 msgid "XHE"
 msgstr "XHE"
 
-#: setup/ibus-libpinyin-preferences.ui:100
+#: setup/ibus-libpinyin-preferences.ui:122
 msgid "Horizontal"
 msgstr "Horizontal"
 
-#: setup/ibus-libpinyin-preferences.ui:103
+#: setup/ibus-libpinyin-preferences.ui:125
 msgid "Vertical"
 msgstr "Vertical"
 
-#: setup/ibus-libpinyin-preferences.ui:149
+#: setup/ibus-libpinyin-preferences.ui:171
 msgid "Frequency"
 msgstr "Fréquence"
 
-#: setup/ibus-libpinyin-preferences.ui:152
+#: setup/ibus-libpinyin-preferences.ui:174
 msgid "Pinyin Length"
 msgstr "Taille du pinyin"
 
-#: setup/ibus-libpinyin-preferences.ui:243
+#: setup/ibus-libpinyin-preferences.ui:177
+msgid "Legacy"
+msgstr ""
+
+#: setup/ibus-libpinyin-preferences.ui:268
 msgid "Language:"
 msgstr "Langue :"
 
-#: setup/ibus-libpinyin-preferences.ui:251
+#: setup/ibus-libpinyin-preferences.ui:276
 msgid "Half/full width:"
 msgstr "Chasse :"
 
-#: setup/ibus-libpinyin-preferences.ui:263
+#: setup/ibus-libpinyin-preferences.ui:288
 msgid "Punctuations:"
 msgstr "Chasse de la ponctuation :"
 
-#: setup/ibus-libpinyin-preferences.ui:303
-#: setup/ibus-libpinyin-preferences.ui:337
+#: setup/ibus-libpinyin-preferences.ui:328
+#: setup/ibus-libpinyin-preferences.ui:362
 msgid "Full"
 msgstr "Pleine"
 
-#: setup/ibus-libpinyin-preferences.ui:320
-#: setup/ibus-libpinyin-preferences.ui:354
+#: setup/ibus-libpinyin-preferences.ui:345
+#: setup/ibus-libpinyin-preferences.ui:379
 msgid "Half"
 msgstr "Demi"
 
-#: setup/ibus-libpinyin-preferences.ui:373
+#: setup/ibus-libpinyin-preferences.ui:398
 msgid "Chinese:"
 msgstr "Chinois :"
 
-#: setup/ibus-libpinyin-preferences.ui:383
+#: setup/ibus-libpinyin-preferences.ui:408
 msgid "Simplified"
 msgstr "Simplifié"
 
-#: setup/ibus-libpinyin-preferences.ui:400
+#: setup/ibus-libpinyin-preferences.ui:425
 msgid "Traditional"
 msgstr "Traditionnel"
 
-#: setup/ibus-libpinyin-preferences.ui:423
+#: setup/ibus-libpinyin-preferences.ui:448
 msgid "<b>Initial state</b>"
 msgstr "<b>État initial</b>"
 
-#: setup/ibus-libpinyin-preferences.ui:461
+#: setup/ibus-libpinyin-preferences.ui:486
 msgid "Display Style:"
 msgstr "Style d'affichage :"
 
-#: setup/ibus-libpinyin-preferences.ui:507
+#: setup/ibus-libpinyin-preferences.ui:532
 msgid "Orientation of candidates:"
 msgstr "Orientation des candidats :"
 
-#: setup/ibus-libpinyin-preferences.ui:553
+#: setup/ibus-libpinyin-preferences.ui:578
 msgid "Number of candidates:"
 msgstr "Nombre de candidats :"
 
-#: setup/ibus-libpinyin-preferences.ui:592
+#: setup/ibus-libpinyin-preferences.ui:617
 msgid "<b>UI</b>"
 msgstr "<b>UI</b>"
 
-#: setup/ibus-libpinyin-preferences.ui:621
+#: setup/ibus-libpinyin-preferences.ui:646
 msgid "Dynamically adjust the candidates order."
 msgstr "Ajustement dynamique de l'ordre des candidats."
 
-#: setup/ibus-libpinyin-preferences.ui:636
+#: setup/ibus-libpinyin-preferences.ui:661
 msgid "Remember every input as a phrase."
 msgstr "Se souvenir de chaque entrée en tant que phrase."
 
-#: setup/ibus-libpinyin-preferences.ui:659
+#: setup/ibus-libpinyin-preferences.ui:684
 msgid "Sort candidates by:"
 msgstr "Trier les candidats par :"
 
-#: setup/ibus-libpinyin-preferences.ui:702
+#: setup/ibus-libpinyin-preferences.ui:727
 msgid "<b>Candidates</b>"
 msgstr "<b>Candidats</b>"
 
-#: setup/ibus-libpinyin-preferences.ui:721
-msgid "General"
-msgstr "Général"
-
-#: setup/ibus-libpinyin-preferences.ui:761
-msgid "Full pinyin"
-msgstr "Pinyin complet"
-
-#: setup/ibus-libpinyin-preferences.ui:782
-msgid "Double pinyin"
-msgstr "Pinyin double"
-
-#: setup/ibus-libpinyin-preferences.ui:825
-msgid "Show raw input of Double Pinyin"
-msgstr "Montrer le pinyin non formaté du pinyin double"
-
-#: setup/ibus-libpinyin-preferences.ui:840
-msgid "Incomplete pinyin"
-msgstr "Pinyin incomplet"
-
-#: setup/ibus-libpinyin-preferences.ui:862
-msgid "<b>Pinyin mode</b>"
-msgstr "<b>Mode Pinyin</b>"
-
-#: setup/ibus-libpinyin-preferences.ui:901
-msgid "[Shift] select candidate"
-msgstr "[Shift] sélectionne le candidat"
-
-#: setup/ibus-libpinyin-preferences.ui:911
-msgid "[-] [=] flip page"
-msgstr "[-] [=] change de page"
-
-#: setup/ibus-libpinyin-preferences.ui:926
-msgid "[,] [.] flip page"
-msgstr "[,] [.] change de page"
-
-#: setup/ibus-libpinyin-preferences.ui:941
-msgid "Auto commit"
-msgstr "Validation automatique"
-
-#: setup/ibus-libpinyin-preferences.ui:970
-msgid "<b>Input Custom</b>"
-msgstr "<b>Entrée personnalisée</b>"
-
-#: setup/ibus-libpinyin-preferences.ui:1118
-msgid "Enable pinyin correction"
-msgstr "Activer la correction automatique du pinyin"
-
-#: setup/ibus-libpinyin-preferences.ui:1154
-msgid "<b>Correct pinyin</b>"
-msgstr "<b>Correction pinyin</b>"
-
-#: setup/ibus-libpinyin-preferences.ui:1184
-#: setup/ibus-libpinyin-preferences.ui:1623
-msgid "Enable Cloud Input"
-msgstr "Activer l’entrée Cloud"
-
-#: setup/ibus-libpinyin-preferences.ui:1208
-#: setup/ibus-libpinyin-preferences.ui:1647
-msgid "Source From:"
-msgstr "Source :"
-
-#: setup/ibus-libpinyin-preferences.ui:1253
-#: setup/ibus-libpinyin-preferences.ui:1692
-msgid "<b>Cloud Input Option</b>"
-msgstr "<b>Options entrée Cloud</b>"
-
-#: setup/ibus-libpinyin-preferences.ui:1275
-msgid "Pinyin mode"
-msgstr "Mode Pinyin"
-
-#: setup/ibus-libpinyin-preferences.ui:1314
-msgid "Incomplete Bopomofo"
-msgstr "Bopomofo incomplet"
-
-#: setup/ibus-libpinyin-preferences.ui:1337
-msgid "Keyboard Mapping:"
+#: setup/ibus-libpinyin-preferences.ui:763
+#, fuzzy
+#| msgid "Keyboard Mapping:"
+msgid "Keyboard Layout:"
 msgstr "Type de clavier :"
 
-#: setup/ibus-libpinyin-preferences.ui:1380
-msgid "<b>Bopomofo mode</b>"
-msgstr "<b>Mode Bopomofo</b>"
-
-#: setup/ibus-libpinyin-preferences.ui:1416
-msgid "Selection Keys:"
-msgstr "Touches de sélection :"
-
-#: setup/ibus-libpinyin-preferences.ui:1453
-msgid "Enable Guidekey for Candidates Selection"
-msgstr "Activer le guide de sélection des candidats"
-
-#: setup/ibus-libpinyin-preferences.ui:1470
-msgid "Enable Auxiliary Select Keys F1 .. F10"
-msgstr "Activer les touches auxiliaires (F1…F10)"
-
-#: setup/ibus-libpinyin-preferences.ui:1487
-msgid "Enable Auxiliary Select Keys Numbers on Keypad"
-msgstr "Activer la sélection auxiliaire au pavé numérique"
-
-#: setup/ibus-libpinyin-preferences.ui:1510
-msgid "<b>Selection mode</b>"
-msgstr "<b>Mode de sélection</b>"
-
-#: setup/ibus-libpinyin-preferences.ui:1542
-msgid "Feature of Enter key:"
-msgstr "Action de la toucher Entrer :"
-
-#: setup/ibus-libpinyin-preferences.ui:1553
-msgid "Commit first candidate"
-msgstr "Valider le premier candidat"
-
-#: setup/ibus-libpinyin-preferences.ui:1571
-msgid "Commit original text"
-msgstr "Valider le texte brut"
-
-#: setup/ibus-libpinyin-preferences.ui:1593
-msgid "<b>Other</b>"
-msgstr "<b>Autre</b>"
-
-#: setup/ibus-libpinyin-preferences.ui:1714
-msgid "Bopomofo mode"
-msgstr "Mode Bopomofo"
-
-#: setup/ibus-libpinyin-preferences.ui:1876
-msgid "Enable fuzzy syllable"
-msgstr "Activer les syllabes floues"
-
-#: setup/ibus-libpinyin-preferences.ui:1977
-msgid "Fuzzy syllable"
-msgstr "Syllabes floues"
-
-#: setup/ibus-libpinyin-preferences.ui:2044
+#: setup/ibus-libpinyin-preferences.ui:819
+#: setup/ibus-libpinyin-preferences.ui:2183
 msgid "Tips: Changes may not take effect until ime restarts."
 msgstr ""
 "Note : ce changement peut ne prendre effet qu’après le redémarrage de l’IME."
 
-#: setup/ibus-libpinyin-preferences.ui:2067
+#: setup/ibus-libpinyin-preferences.ui:842
+#, fuzzy
+#| msgid "<b>Other</b>"
+msgid "<b>Keyboard</b>"
+msgstr "<b>Autre</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:861
+msgid "General"
+msgstr "Général"
+
+#: setup/ibus-libpinyin-preferences.ui:901
+msgid "Full pinyin"
+msgstr "Pinyin complet"
+
+#: setup/ibus-libpinyin-preferences.ui:922
+msgid "Double pinyin"
+msgstr "Pinyin double"
+
+#: setup/ibus-libpinyin-preferences.ui:965
+msgid "Show raw input of Double Pinyin"
+msgstr "Montrer le pinyin non formaté du pinyin double"
+
+#: setup/ibus-libpinyin-preferences.ui:980
+msgid "Incomplete pinyin"
+msgstr "Pinyin incomplet"
+
+#: setup/ibus-libpinyin-preferences.ui:1002
+msgid "<b>Pinyin mode</b>"
+msgstr "<b>Mode Pinyin</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:1041
+msgid "[Shift] select candidate"
+msgstr "[Shift] sélectionne le candidat"
+
+#: setup/ibus-libpinyin-preferences.ui:1051
+msgid "[-] [=] flip page"
+msgstr "[-] [=] change de page"
+
+#: setup/ibus-libpinyin-preferences.ui:1066
+msgid "[,] [.] flip page"
+msgstr "[,] [.] change de page"
+
+#: setup/ibus-libpinyin-preferences.ui:1081
+msgid "Auto commit"
+msgstr "Validation automatique"
+
+#: setup/ibus-libpinyin-preferences.ui:1110
+msgid "<b>Input Custom</b>"
+msgstr "<b>Entrée personnalisée</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:1258
+msgid "Enable pinyin correction"
+msgstr "Activer la correction automatique du pinyin"
+
+#: setup/ibus-libpinyin-preferences.ui:1294
+msgid "<b>Correct pinyin</b>"
+msgstr "<b>Correction pinyin</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:1324
+#: setup/ibus-libpinyin-preferences.ui:1763
+msgid "Enable Cloud Input"
+msgstr "Activer l’entrée Cloud"
+
+#: setup/ibus-libpinyin-preferences.ui:1348
+#: setup/ibus-libpinyin-preferences.ui:1787
+msgid "Source From:"
+msgstr "Source :"
+
+#: setup/ibus-libpinyin-preferences.ui:1393
+#: setup/ibus-libpinyin-preferences.ui:1832
+msgid "<b>Cloud Input Option</b>"
+msgstr "<b>Options entrée Cloud</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:1415
+msgid "Pinyin mode"
+msgstr "Mode Pinyin"
+
+#: setup/ibus-libpinyin-preferences.ui:1454
+msgid "Incomplete Bopomofo"
+msgstr "Bopomofo incomplet"
+
+#: setup/ibus-libpinyin-preferences.ui:1477
+msgid "Keyboard Mapping:"
+msgstr "Type de clavier :"
+
+#: setup/ibus-libpinyin-preferences.ui:1520
+msgid "<b>Bopomofo mode</b>"
+msgstr "<b>Mode Bopomofo</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:1556
+msgid "Selection Keys:"
+msgstr "Touches de sélection :"
+
+#: setup/ibus-libpinyin-preferences.ui:1593
+msgid "Enable Guidekey for Candidates Selection"
+msgstr "Activer le guide de sélection des candidats"
+
+#: setup/ibus-libpinyin-preferences.ui:1610
+msgid "Enable Auxiliary Select Keys F1 .. F10"
+msgstr "Activer les touches auxiliaires (F1…F10)"
+
+#: setup/ibus-libpinyin-preferences.ui:1627
+msgid "Enable Auxiliary Select Keys Numbers on Keypad"
+msgstr "Activer la sélection auxiliaire au pavé numérique"
+
+#: setup/ibus-libpinyin-preferences.ui:1650
+msgid "<b>Selection mode</b>"
+msgstr "<b>Mode de sélection</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:1682
+msgid "Feature of Enter key:"
+msgstr "Action de la toucher Entrer :"
+
+#: setup/ibus-libpinyin-preferences.ui:1693
+msgid "Commit first candidate"
+msgstr "Valider le premier candidat"
+
+#: setup/ibus-libpinyin-preferences.ui:1711
+msgid "Commit original text"
+msgstr "Valider le texte brut"
+
+#: setup/ibus-libpinyin-preferences.ui:1733
+msgid "<b>Other</b>"
+msgstr "<b>Autre</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:1854
+msgid "Bopomofo mode"
+msgstr "Mode Bopomofo"
+
+#: setup/ibus-libpinyin-preferences.ui:2016
+msgid "Enable fuzzy syllable"
+msgstr "Activer les syllabes floues"
+
+#: setup/ibus-libpinyin-preferences.ui:2117
+msgid "Fuzzy syllable"
+msgstr "Syllabes floues"
+
+#: setup/ibus-libpinyin-preferences.ui:2206
 msgid "<b>Dictionary option</b>"
 msgstr "<b>Dictionnaire</b>"
 
-#: setup/ibus-libpinyin-preferences.ui:2089
+#: setup/ibus-libpinyin-preferences.ui:2228
 msgid "Dictionary"
 msgstr "Dictionnaire"
 
-#: setup/ibus-libpinyin-preferences.ui:2130
+#: setup/ibus-libpinyin-preferences.ui:2269
 msgid "Lua Extension"
 msgstr "Extension Lua"
 
-#: setup/ibus-libpinyin-preferences.ui:2144
+#: setup/ibus-libpinyin-preferences.ui:2283
 msgid "Table Mode"
 msgstr "Mode table"
 
-#: setup/ibus-libpinyin-preferences.ui:2158
+#: setup/ibus-libpinyin-preferences.ui:2297
 msgid "English Mode"
 msgstr "Mode en anglais"
 
-#: setup/ibus-libpinyin-preferences.ui:2172
+#: setup/ibus-libpinyin-preferences.ui:2311
 msgid "English Candidate"
 msgstr "Candidat anglais"
 
-#: setup/ibus-libpinyin-preferences.ui:2186
+#: setup/ibus-libpinyin-preferences.ui:2325
 msgid "Emoji Candidate"
 msgstr "Nombre de candidats"
 
-#: setup/ibus-libpinyin-preferences.ui:2200
+#: setup/ibus-libpinyin-preferences.ui:2339
 msgid "Suggestion Candidate"
 msgstr "Orientation des candidats"
 
-#: setup/ibus-libpinyin-preferences.ui:2220
+#: setup/ibus-libpinyin-preferences.ui:2359
 msgid "<b>Input Modes</b>"
 msgstr "<b>Mode de saisie</b>"
 
-#: setup/ibus-libpinyin-preferences.ui:2251
+#: setup/ibus-libpinyin-preferences.ui:2390
 msgid "User Lua Script"
 msgstr "Script Lua utilisateur"
 
-#: setup/ibus-libpinyin-preferences.ui:2261
+#: setup/ibus-libpinyin-preferences.ui:2400
 msgid "Edit"
 msgstr "Modifier"
 
-#: setup/ibus-libpinyin-preferences.ui:2281
+#: setup/ibus-libpinyin-preferences.ui:2420
 msgid "<b>Customize IME</b>"
 msgstr "<b>Personnaliser l'IME</b>"
 
-#: setup/ibus-libpinyin-preferences.ui:2316
-#: setup/ibus-libpinyin-preferences.ui:2500
+#: setup/ibus-libpinyin-preferences.ui:2455
+#: setup/ibus-libpinyin-preferences.ui:2639
 msgid "Export"
 msgstr "Exporter"
 
-#: setup/ibus-libpinyin-preferences.ui:2331
-#: setup/ibus-libpinyin-preferences.ui:2515
+#: setup/ibus-libpinyin-preferences.ui:2470
+#: setup/ibus-libpinyin-preferences.ui:2654
 msgid "Import"
 msgstr "Importer"
 
-#: setup/ibus-libpinyin-preferences.ui:2347
+#: setup/ibus-libpinyin-preferences.ui:2486
 msgid "User Dictionary"
 msgstr "Dictionnaire utilisateur"
 
-#: setup/ibus-libpinyin-preferences.ui:2372
+#: setup/ibus-libpinyin-preferences.ui:2511
 msgid "Clear All Data"
 msgstr "Effacer toutes les données"
 
-#: setup/ibus-libpinyin-preferences.ui:2392
-#: setup/ibus-libpinyin-preferences.ui:2545
+#: setup/ibus-libpinyin-preferences.ui:2531
+#: setup/ibus-libpinyin-preferences.ui:2684
 msgid "Clear"
 msgstr "Effacer"
 
-#: setup/ibus-libpinyin-preferences.ui:2420
+#: setup/ibus-libpinyin-preferences.ui:2559
 msgid ""
 "<b>Dictionary File Format:</b>\n"
 "  Each line contains one of the following:\n"
@@ -658,20 +694,20 @@ msgstr ""
 "    « phrase pinyin » ou « phrase pinyin  fréquence »\n"
 "  tels que « 你好 ni’hao » ou « 你好 ni’hao 5 »."
 
-#: setup/ibus-libpinyin-preferences.ui:2433
-#: setup/ibus-libpinyin-preferences.ui:2583
+#: setup/ibus-libpinyin-preferences.ui:2572
+#: setup/ibus-libpinyin-preferences.ui:2722
 msgid "Help"
 msgstr "Aide"
 
-#: setup/ibus-libpinyin-preferences.ui:2451
+#: setup/ibus-libpinyin-preferences.ui:2590
 msgid "<b>User Dictionary</b>"
 msgstr "<b>Dictionnaire utilisateur</b>"
 
-#: setup/ibus-libpinyin-preferences.ui:2487
+#: setup/ibus-libpinyin-preferences.ui:2626
 msgid "User Table"
 msgstr "Table utilisateur"
 
-#: setup/ibus-libpinyin-preferences.ui:2573
+#: setup/ibus-libpinyin-preferences.ui:2712
 msgid ""
 "<b>Table File Format:</b>\n"
 "  Each line contains the following:\n"
@@ -681,31 +717,31 @@ msgstr ""
 "  Chaque ligne contient ce qui suit :\n"
 "    \"table_code phrase frequency\" comme \"a 啊 100\"."
 
-#: setup/ibus-libpinyin-preferences.ui:2601
+#: setup/ibus-libpinyin-preferences.ui:2740
 msgid "<b>User Table</b>"
 msgstr "<b>Table utilisateur</b>"
 
-#: setup/ibus-libpinyin-preferences.ui:2623
+#: setup/ibus-libpinyin-preferences.ui:2762
 msgid "User data"
 msgstr "Donnés utilisateur"
 
-#: setup/ibus-libpinyin-preferences.ui:2653
+#: setup/ibus-libpinyin-preferences.ui:2792
 msgid "Shortcuts"
 msgstr "Raccourcis"
 
-#: setup/ibus-libpinyin-preferences.ui:2709
+#: setup/ibus-libpinyin-preferences.ui:2848
 msgid "Intelligent Pinyin input method for IBus"
 msgstr "Méthode de saisie Pinyin intelligente pour IBus"
 
-#: setup/ibus-libpinyin-preferences.ui:2722
+#: setup/ibus-libpinyin-preferences.ui:2861
 msgid "<small>Copyright (c) 2011-2024 Peng Wu</small>"
 msgstr "<small>Copyright (c) 2011-2024 Peng Wu</small>"
 
-#: setup/ibus-libpinyin-preferences.ui:2735
+#: setup/ibus-libpinyin-preferences.ui:2874
 msgid "https://github.com/libpinyin/ibus-libpinyin"
 msgstr "https://github.com/libpinyin/ibus-libpinyin"
 
-#: setup/ibus-libpinyin-preferences.ui:2752
+#: setup/ibus-libpinyin-preferences.ui:2891
 msgid ""
 "<small>\n"
 "<b>Authors:</b>\n"
@@ -733,7 +769,7 @@ msgstr ""
 "koterpilla, Zerng07, Hillwood Yang\n"
 "</small>"
 
-#: setup/ibus-libpinyin-preferences.ui:2792
+#: setup/ibus-libpinyin-preferences.ui:2931
 msgid "About"
 msgstr "À propos"
 
