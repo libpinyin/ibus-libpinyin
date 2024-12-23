@@ -4,7 +4,7 @@
 # Peng Huang <shawn.p.huang@gmail.com>, 2009.
 # Harry Chen <harrychen0314@gmail.com>, 2020.
 # Hillwood Yang <hillwoodroc@gmail.com>, 2020.
-# Peng Wu <pwu@redhat.com>, 2020, 2022.
+# Peng Wu <pwu@redhat.com>, 2020, 2022, 2024.
 # Dingzhong Chen <wsxy162@gmail.com>, 2021.
 # Liu Tao <lyuutau@outlook.com>, 2021.
 msgid ""
@@ -13,32 +13,32 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2024-12-16 11:32+0800\n"
-"PO-Revision-Date: 2022-04-12 07:17+0000\n"
+"PO-Revision-Date: 2024-12-23 04:40+0000\n"
 "Last-Translator: Peng Wu <pwu@redhat.com>\n"
 "Language-Team: Chinese (Simplified) <https://translate.fedoraproject.org/"
-"projects/ibus-libpinyin/master/zh_CN/>\n"
+"projects/ibus-libpinyin/main/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11.2\n"
+"X-Generator: Weblate 5.9.1\n"
 
 #: src/PYPConfig.cc:683
 msgid "The table file is imported."
-msgstr ""
+msgstr "码表文件已导入。"
 
 #: src/PYPConfig.cc:690
 msgid "The table file is exported."
-msgstr ""
+msgstr "码表文件已导出。"
 
 #: src/PYPConfig.cc:702
 msgid "The pinyin dictionary file is imported."
-msgstr ""
+msgstr "拼音词典已导入。"
 
 #: src/PYPConfig.cc:709
 msgid "The pinyin dictionary file is exported."
-msgstr ""
+msgstr "拼音词典已导出。"
 
 #: src/PYMain.cc:117
 msgid "Libpinyin input method"
@@ -389,7 +389,7 @@ msgstr "拼音长度"
 
 #: setup/ibus-libpinyin-preferences.ui:177
 msgid "Legacy"
-msgstr ""
+msgstr "词语模式"
 
 #: setup/ibus-libpinyin-preferences.ui:268
 msgid "Language:"
@@ -462,10 +462,8 @@ msgid "<b>Candidates</b>"
 msgstr "<b>候选词</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:763
-#, fuzzy
-#| msgid "Keyboard Mapping:"
 msgid "Keyboard Layout:"
-msgstr "键盘映射："
+msgstr "键盘布局："
 
 #: setup/ibus-libpinyin-preferences.ui:819
 #: setup/ibus-libpinyin-preferences.ui:2183
@@ -473,10 +471,8 @@ msgid "Tips: Changes may not take effect until ime restarts."
 msgstr "提示：此更改可能需要重启智能拼音输入法后生效。"
 
 #: setup/ibus-libpinyin-preferences.ui:842
-#, fuzzy
-#| msgid "<b>Other</b>"
 msgid "<b>Keyboard</b>"
-msgstr "<b>其他</b>"
+msgstr "<b>键盘</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:861
 msgid "General"
