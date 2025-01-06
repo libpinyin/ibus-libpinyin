@@ -24,6 +24,7 @@
 #include <memory>
 #include <time.h>
 #include <glib.h>
+#include <stdio.h>
 
 typedef struct _pinyin_context_t pinyin_context_t;
 typedef struct _pinyin_instance_t pinyin_instance_t;
