@@ -4,7 +4,7 @@
 # Peng Huang <shawn.p.huang@gmail.com>, 2009.
 # Harry Chen <harrychen0314@gmail.com>, 2020.
 # Hillwood Yang <hillwoodroc@gmail.com>, 2020.
-# Peng Wu <pwu@redhat.com>, 2020, 2022, 2024.
+# Peng Wu <pwu@redhat.com>, 2020, 2022, 2024, 2025.
 # Dingzhong Chen <wsxy162@gmail.com>, 2021.
 # Liu Tao <lyuutau@outlook.com>, 2021.
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2025-01-08 11:58+0800\n"
-"PO-Revision-Date: 2024-12-23 04:40+0000\n"
+"PO-Revision-Date: 2025-01-09 08:49+0000\n"
 "Last-Translator: Peng Wu <pwu@redhat.com>\n"
 "Language-Team: Chinese (Simplified) <https://translate.fedoraproject.org/"
 "projects/ibus-libpinyin/main/zh_CN/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.9.1\n"
+"X-Generator: Weblate 5.9.2\n"
 
 #: src/PYPConfig.cc:695
 msgid "The table file is imported."
@@ -143,15 +143,15 @@ msgstr "英"
 
 #: src/PYPinyinProperties.cc:270
 msgid "Lua Converter"
-msgstr ""
+msgstr "Lua Converter"
 
 #: src/PYPinyinProperties.cc:272
 msgid "Use the Lua Convertor"
-msgstr ""
+msgstr "使用 Lua Convertor"
 
 #: src/PYPinyinProperties.cc:279
 msgid "None"
-msgstr ""
+msgstr "无"
 
 #: src/PYEnglishEditor.cc:307
 msgid "Please input the English word."
@@ -527,9 +527,8 @@ msgid "Auto commit"
 msgstr "自动上词"
 
 #: setup/ibus-libpinyin-preferences.ui:1098
-#, fuzzy
 msgid " [   ]  flip page"
-msgstr "[-][=] 键翻页"
+msgstr " 【】 键翻页"
 
 #: setup/ibus-libpinyin-preferences.ui:1126
 msgid "<b>Input Custom</b>"
