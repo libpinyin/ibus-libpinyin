@@ -11,7 +11,7 @@
 	BYVoid &lt;byvoid1@gmail.com&gt;
 	</author>
 	<icon>@PKGDATADIR@/icons/ibus-pinyin.svg</icon>
-	<layout>default</layout>
+	<layout>cn</layout>
 	<longname>Intelligent Pinyin</longname>
 	<description>Intelligent Pinyin input method</description>
 	<rank>99</rank>
@@ -31,7 +31,7 @@
 	BYVoid &lt;byvoid1@gmail.com&gt;
 	</author>
 	<icon>@PKGDATADIR@/icons/ibus-bopomofo.svg</icon>
-	<layout>default</layout>
+	<layout>cn</layout>
 	<longname>Bopomofo</longname>
 	<description>Bopomofo input method</description>
 	<rank>98</rank>
