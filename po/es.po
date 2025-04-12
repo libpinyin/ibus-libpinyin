@@ -1,6 +1,7 @@
 # Emilio Herrera <ehespinosa57@gmail.com>, 2018. #zanata, 2020, 2021, 2022.
 # Adolfo Jayme Barrientos <fitoschido@gmail.com>, 2020.
 # Javier Francisco <fserrador@gmail.com>, 2025.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -8,7 +9,8 @@ msgstr ""
 "new\n"
 "POT-Creation-Date: 2025-01-08 11:58+0800\n"
 "PO-Revision-Date: 2025-04-12 11:53+0000\n"
-"Last-Translator: Javier Francisco <fserrador@gmail.com>\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Spanish <https://translate.fedoraproject.org/projects/"
 "ibus-libpinyin/main/es/>\n"
 "Language: es\n"
@@ -145,7 +147,7 @@ msgstr "Utilice el Conversor Lua"
 
 #: src/PYPinyinProperties.cc:279
 msgid "None"
-msgstr ""
+msgstr "Ninguno"
 
 #: src/PYEnglishEditor.cc:307
 msgid "Please input the English word."
