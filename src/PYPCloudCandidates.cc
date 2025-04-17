@@ -564,7 +564,7 @@ CloudCandidates::cloudAsyncRequest (gpointer user_data)
     m_cancel_message = g_cancellable_new ();
     data->cancel_message = m_cancel_message;
 
-    SoupMessage *m_message = soup_message_new ("GET", query_request);
+    m_message = soup_message_new ("GET", query_request);
     soup_session_send_async (m_session, m_message, SOUP_MESSAGE_PRIORITY_NORMAL, m_cancel_message, cloudResponseCallBack, user_data);
     data->message = m_message;
 
@@ -576,23 +576,34 @@ CloudCandidates::cloudAsyncRequest (gpointer user_data)
 void
 CloudCandidates::cloudResponseCallBack (GObject *source_object, GAsyncResult *result, gpointer user_data)
 {
-    GInputStream *stream = soup_session_send_finish (SOUP_SESSION (source_object), result, NULL);
+    GError *error = NULL;
+    GInputStream *stream = soup_session_send_finish (SOUP_SESSION (source_object), result, &error);
     CloudAsyncRequestUserData *data = static_cast<CloudAsyncRequestUserData *> (user_data);
 
     CloudCandidates *cloud_candidates = data->cloud_candidates;
 
-    /* process results */
-    cloud_candidates->processCloudResponse (stream, cloud_candidates->m_editor->m_candidates, data->requested_pinyin);
+    if (!g_error_matches(error, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
+        /* process results */
+        cloud_candidates->processCloudResponse (stream, cloud_candidates->m_editor->m_candidates, data->requested_pinyin);
 
-    cloud_candidates->updateLookupTable ();
+        cloud_candidates->updateLookupTable ();
+
+        /* reset m_message pointer only when it is not replaced with a new m_message */
+        cloud_candidates->m_message = NULL;
+        cloud_candidates->m_cancel_message = NULL;
+    }
+
+    if (error) {
+        g_error_free (error);
+    } else {
+        g_object_unref (stream);
+    }
 
     /* clean up message */
     g_object_unref (data->message);
-    cloud_candidates->m_message = NULL;
 
     /* clean up cancellable */
     g_object_unref (data->cancel_message);
-    cloud_candidates->m_cancel_message = NULL;
 
     g_free (user_data);
 }
