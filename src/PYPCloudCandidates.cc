@@ -496,6 +496,15 @@ CloudCandidates::selectCandidate (EnhancedCandidate & enhanced)
 }
 
 void
+releaseUserData (gpointer user_data)
+{
+    CloudAsyncRequestUserData *data = static_cast<CloudAsyncRequestUserData *> (user_data);
+    if (data->event_id != 0) {
+        g_free (user_data);
+    }
+}
+
+void
 CloudCandidates::delayedCloudAsyncRequest (const gchar* pinyin)
 {
     gpointer user_data;
@@ -514,9 +523,11 @@ CloudCandidates::delayedCloudAsyncRequest (const gchar* pinyin)
     data->cloud_candidates = this;
 
     /* record the latest timer */
-    m_source_event_id = g_timeout_add (m_editor->m_config.cloudRequestDelayTime (),
-                                       delayedCloudAsyncRequestCallBack,
-                                       user_data);
+    m_source_event_id = g_timeout_add_full (G_PRIORITY_DEFAULT,
+                                            m_editor->m_config.cloudRequestDelayTime (),
+                                            delayedCloudAsyncRequestCallBack,
+                                            user_data,
+                                            releaseUserData);
     data->event_id = m_source_event_id;
     data->message = NULL;
     data->cancel_message = NULL;
@@ -537,6 +548,7 @@ CloudCandidates::delayedCloudAsyncRequestCallBack (gpointer user_data)
 
     /* only send with a latest timer */
     if (data->event_id == cloud_candidates->m_source_event_id) {
+        data->event_id = 0;
         cloud_candidates->m_source_event_id = 0;
         cloud_candidates->cloudAsyncRequest (user_data);
     }
