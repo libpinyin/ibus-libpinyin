@@ -10,7 +10,8 @@ msgstr ""
 "new\n"
 "POT-Creation-Date: 2025-01-08 11:58+0800\n"
 "PO-Revision-Date: 2025-05-05 13:51+0000\n"
-"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Georgian <https://translate.fedoraproject.org/projects/"
 "ibus-libpinyin/main/ka/>\n"
 "Language: ka\n"
@@ -397,7 +398,7 @@ msgstr "პინინის სიგრძე"
 
 #: setup/ibus-libpinyin-preferences.ui:177
 msgid "Legacy"
-msgstr ""
+msgstr "მოძველებული"
 
 #: setup/ibus-libpinyin-preferences.ui:268
 msgid "Language:"
