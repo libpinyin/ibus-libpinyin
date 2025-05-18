@@ -1,35 +1,37 @@
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2015. #zanata
+# naly zzwd <xeanhort007@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2025-01-08 11:58+0800\n"
-"PO-Revision-Date: 2015-09-24 09:36-0400\n"
-"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
-"Language-Team: Catalan\n"
+"PO-Revision-Date: 2025-05-18 11:00+0000\n"
+"Last-Translator: naly zzwd <xeanhort007@gmail.com>\n"
+"Language-Team: Catalan <https://translate.fedoraproject.org/projects/"
+"ibus-libpinyin/main/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Zanata 3.7.2\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.11.3\n"
 
 #: src/PYPConfig.cc:695
 msgid "The table file is imported."
-msgstr ""
+msgstr "S'importa el fitxer de taula."
 
 #: src/PYPConfig.cc:702
 msgid "The table file is exported."
-msgstr ""
+msgstr "S'exporta el fitxer de taula."
 
 #: src/PYPConfig.cc:714
 msgid "The pinyin dictionary file is imported."
-msgstr ""
+msgstr "S'ha importat el fitxer del diccionari pinyin."
 
 #: src/PYPConfig.cc:721
 msgid "The pinyin dictionary file is exported."
-msgstr ""
+msgstr "S'ha exportat el fitxer del diccionari pinyin."
 
 #: src/PYMain.cc:117
 msgid "Libpinyin input method"
@@ -134,11 +136,11 @@ msgstr "英"
 
 #: src/PYPinyinProperties.cc:270
 msgid "Lua Converter"
-msgstr ""
+msgstr "Convertidor Lua"
 
 #: src/PYPinyinProperties.cc:272
 msgid "Use the Lua Convertor"
-msgstr ""
+msgstr "Utilitzeu el Convertidor Lua"
 
 #: src/PYPinyinProperties.cc:279
 msgid "None"
@@ -153,9 +155,8 @@ msgid "Please use \"hspnz\" to input."
 msgstr "Si us plau, utilitzeu \"hspnz\" per a l'entrada."
 
 #: src/PYTableEditor.cc:309
-#, fuzzy
 msgid "Please use table code to input."
-msgstr "Si us plau, utilitzeu \"hspnz\" per a l'entrada."
+msgstr "Si us plau, utilitzeu el codi de la taula per entrar."
 
 #: setup/main2.py:493
 msgid "Please choose a file"
@@ -171,9 +172,8 @@ msgid "<big><b>Intelligent Pinyin %s</b></big>"
 msgstr "<big><b>Pinyin intel·ligent %s</b></big>"
 
 #: setup/config.py:30
-#, fuzzy
 msgid "Intelligent Pinyin"
-msgstr "Pinyin intel·ligent (depuració)"
+msgstr "Pinyin intel·ligent"
 
 #: setup/dicttreeview.py:52
 msgid "Art"
@@ -205,11 +205,11 @@ msgstr "Natura"
 
 #: setup/dicttreeview.py:59
 msgid "People"
-msgstr ""
+msgstr "Gent"
 
 #: setup/dicttreeview.py:60
 msgid "Science"
-msgstr ""
+msgstr "Ciència"
 
 #: setup/dicttreeview.py:61
 msgid "Society"
@@ -220,9 +220,8 @@ msgid "Sport"
 msgstr "Esport"
 
 #: setup/dicttreeview.py:63
-#, fuzzy
 msgid "Technology"
-msgstr "Geologia"
+msgstr "Tecnologia"
 
 #: setup/dicttreeview.py:110
 msgid "Active"
@@ -331,7 +330,7 @@ msgstr "IBM"
 
 #: setup/ibus-libpinyin-preferences.ui:40
 msgid "Baidu"
-msgstr ""
+msgstr "Baidu"
 
 #: setup/ibus-libpinyin-preferences.ui:43
 msgid "Google"
@@ -339,21 +338,20 @@ msgstr ""
 
 #: setup/ibus-libpinyin-preferences.ui:46
 msgid "Google CN"
-msgstr ""
+msgstr "Google CN"
 
 #: setup/ibus-libpinyin-preferences.ui:57
 #: setup/ibus-libpinyin-preferences.ui:103
-#, fuzzy
 msgid "Default"
-msgstr "Pre_determinat"
+msgstr "Per defecte"
 
 #: setup/ibus-libpinyin-preferences.ui:60
 msgid "Compact"
-msgstr ""
+msgstr "Compacte"
 
 #: setup/ibus-libpinyin-preferences.ui:63
 msgid "Compatibility"
-msgstr ""
+msgstr "Compatibilitat"
 
 #: setup/ibus-libpinyin-preferences.ui:74
 msgid "MSPY"
@@ -389,12 +387,11 @@ msgstr "Vertical"
 
 #: setup/ibus-libpinyin-preferences.ui:171
 msgid "Frequency"
-msgstr ""
+msgstr "Freqüència"
 
 #: setup/ibus-libpinyin-preferences.ui:174
-#, fuzzy
 msgid "Pinyin Length"
-msgstr "Mode pinyin"
+msgstr "Longitud del Pinyin"
 
 #: setup/ibus-libpinyin-preferences.ui:177
 msgid "Legacy"
@@ -440,7 +437,7 @@ msgstr "<b>Estat inicial</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:486
 msgid "Display Style:"
-msgstr ""
+msgstr "Estil de Visualització:"
 
 #: setup/ibus-libpinyin-preferences.ui:532
 msgid "Orientation of candidates:"
@@ -463,18 +460,16 @@ msgid "Remember every input as a phrase."
 msgstr "Recorda cada entrada com a una frase."
 
 #: setup/ibus-libpinyin-preferences.ui:684
-#, fuzzy
 msgid "Sort candidates by:"
-msgstr "Nombre de candidats:"
+msgstr "Ordena els candidats per:"
 
 #: setup/ibus-libpinyin-preferences.ui:727
 msgid "<b>Candidates</b>"
 msgstr "<b>Candidats</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:763
-#, fuzzy
 msgid "Keyboard Layout:"
-msgstr "Assignació del teclat:"
+msgstr "Disposició del teclat:"
 
 #: setup/ibus-libpinyin-preferences.ui:819
 #: setup/ibus-libpinyin-preferences.ui:2199
@@ -482,9 +477,8 @@ msgid "Tips: Changes may not take effect until ime restarts."
 msgstr "Consell: aquests canvis poden tenir efecte després de reiniciar l'ime."
 
 #: setup/ibus-libpinyin-preferences.ui:842
-#, fuzzy
 msgid "<b>Keyboard</b>"
-msgstr "<b>Altres</b>"
+msgstr "<b>Teclat</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:861
 msgid "General"
@@ -527,9 +521,8 @@ msgid "Auto commit"
 msgstr "Consignació automàtica:"
 
 #: setup/ibus-libpinyin-preferences.ui:1098
-#, fuzzy
 msgid " [   ]  flip page"
-msgstr "[-] [=] gira la pàgina"
+msgstr " [   ]  gira la pàgina"
 
 #: setup/ibus-libpinyin-preferences.ui:1126
 msgid "<b>Input Custom</b>"
@@ -546,18 +539,17 @@ msgstr "<b>Correcció de pinyin</b>"
 #: setup/ibus-libpinyin-preferences.ui:1340
 #: setup/ibus-libpinyin-preferences.ui:1779
 msgid "Enable Cloud Input"
-msgstr ""
+msgstr "Activa l'Entrada del Núvol"
 
 #: setup/ibus-libpinyin-preferences.ui:1364
 #: setup/ibus-libpinyin-preferences.ui:1803
 msgid "Source From:"
-msgstr ""
+msgstr "Font des de:"
 
 #: setup/ibus-libpinyin-preferences.ui:1409
 #: setup/ibus-libpinyin-preferences.ui:1848
-#, fuzzy
 msgid "<b>Cloud Input Option</b>"
-msgstr "<b>Entrada personalitzada</b>"
+msgstr "<b>Opció d'Entrada al Núvol</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:1431
 msgid "Pinyin mode"
@@ -633,36 +625,31 @@ msgstr "Diccionari"
 
 #: setup/ibus-libpinyin-preferences.ui:2285
 msgid "Lua Extension"
-msgstr ""
+msgstr "Extensió Lua"
 
 #: setup/ibus-libpinyin-preferences.ui:2299
 msgid "Table Mode"
-msgstr ""
+msgstr "Mode Taula"
 
 #: setup/ibus-libpinyin-preferences.ui:2313
-#, fuzzy
 msgid "English Mode"
-msgstr "Anglès"
+msgstr "Mode Anglès"
 
 #: setup/ibus-libpinyin-preferences.ui:2327
-#, fuzzy
 msgid "English Candidate"
-msgstr "Anglès"
+msgstr "Candidat Anglès"
 
 #: setup/ibus-libpinyin-preferences.ui:2341
-#, fuzzy
 msgid "Emoji Candidate"
-msgstr "Nombre de candidats:"
+msgstr "Candidat Emoji"
 
 #: setup/ibus-libpinyin-preferences.ui:2355
-#, fuzzy
 msgid "Suggestion Candidate"
-msgstr "Orientació dels candidats:"
+msgstr "Suggeriment Candidat"
 
 #: setup/ibus-libpinyin-preferences.ui:2375
-#, fuzzy
 msgid "<b>Input Modes</b>"
-msgstr "<b>Entrada personalitzada</b>"
+msgstr "<b>Modes d'Entrada</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:2406
 msgid "User Lua Script"
@@ -721,26 +708,22 @@ msgid "<b>User Dictionary</b>"
 msgstr "<b>Diccionari d'usuari</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:2642
-#, fuzzy
 msgid "User Table"
-msgstr "Dades de l'usuari"
+msgstr "Taula d'Usuari"
 
 #: setup/ibus-libpinyin-preferences.ui:2728
-#, fuzzy
 msgid ""
 "<b>Table File Format:</b>\n"
 "  Each line contains the following:\n"
 "    \"table_code phrase frequency\" like \"a 啊 100\"."
 msgstr ""
-"<b>Format del fitxer de diccionari:</b>\n"
-"  Cada línia conté una de les següents:\n"
-"    \"frase pinyin\" o \"frase pinyin freqüència\"\n"
-"  com ara \"你好 ni'hao\" o \"你好 ni'hao 5\"."
+"<b>Format de fitxer de taula:</b>\n"
+"  Cada línia conté el següent:\n"
+"    \"codi_taula frase freqüència\" com ara \"a 啊 100\"."
 
 #: setup/ibus-libpinyin-preferences.ui:2756
-#, fuzzy
 msgid "<b>User Table</b>"
-msgstr "<b>Diccionari d'usuari</b>"
+msgstr "<b>Taula d'Usuari</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:2778
 msgid "User data"
@@ -763,7 +746,6 @@ msgid "https://github.com/libpinyin/ibus-libpinyin"
 msgstr "https://github.com/libpinyin/ibus-libpinyin"
 
 #: setup/ibus-libpinyin-preferences.ui:2907
-#, fuzzy
 msgid ""
 "<small>\n"
 "<b>Authors:</b>\n"
@@ -784,6 +766,9 @@ msgstr ""
 "Peng Huang\n"
 "BYVoid\n"
 "\n"
+"<b>Contribuïdors principals:</b>\n"
+"Weixuan XIAO, Linyu XU\n"
+"\n"
 "<b>Contribuïdors:</b>\n"
 "koterpilla, Zerng07, Hillwood Yang\n"
 "</small>"
@@ -794,19 +779,19 @@ msgstr "Quant a"
 
 #: data/ibus-setup-libpinyin.desktop.in:3
 msgid "IBus LibPinyin Setup"
-msgstr ""
+msgstr "Configuració de IBus LibPinyin"
 
 #: data/ibus-setup-libpinyin.desktop.in:4
 msgid "Set ibus-libpinyin Preferences"
-msgstr ""
+msgstr "Estableix les preferències ibus-libpinyin"
 
 #: data/ibus-setup-libbopomofo.desktop.in:3
 msgid "IBus LibBopomofo Preferences"
-msgstr ""
+msgstr "Preferències de IBus LibBopomofo"
 
 #: data/ibus-setup-libbopomofo.desktop.in:4
 msgid "Set ibus-libbopomofo Preferences"
-msgstr ""
+msgstr "Estableix les preferències d'ibus-libbopomofo"
 
 #~ msgid "Low Frequent Characters"
 #~ msgstr "Caràcters amb freqüència baixa"
