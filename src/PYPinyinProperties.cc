@@ -145,6 +145,9 @@ PinyinProperties::toggleModeChinese (void)
     
     m_prop_full_punct.setSensitive (m_mode_chinese);
     updateProperty (m_prop_full_punct);
+
+    m_prop_simp.setSensitive (m_mode_chinese);
+    updateProperty (m_prop_simp);
 }
 
 void
