@@ -496,6 +496,8 @@ class PreferencesDialog:
         dialog.add_buttons(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
                            Gtk.STOCK_OPEN, Gtk.ResponseType.OK)
 
+        dialog.set_current_folder(os.path.expanduser("~"))
+
         filter_text = Gtk.FileFilter()
         filter_text.set_name("Text files")
         filter_text.add_mime_type("text/plain")
@@ -516,6 +518,8 @@ class PreferencesDialog:
 
         dialog.add_buttons(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
                            Gtk.STOCK_SAVE, Gtk.ResponseType.OK)
+
+        dialog.set_current_folder(os.path.expanduser("~"))
 
         dialog.set_do_overwrite_confirmation(True)
 
