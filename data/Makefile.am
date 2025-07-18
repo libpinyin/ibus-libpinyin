@@ -48,13 +48,13 @@ auxiliary_dbdir = $(pkgdatadir)/db
 $(ENGLISH_DB): $(WORDLIST) $(ENGLISH_AWK)
 	$(AM_V_GEN) \
 	$(RM) $@; \
-	$(AWK) -f $(srcdir)/$(ENGLISH_AWK) $(srcdir)/$(WORDLIST) | @SQLITE3@ $@ || \
+	LC_NUMERIC=C $(AWK) -f $(srcdir)/$(ENGLISH_AWK) $(srcdir)/$(WORDLIST) | @SQLITE3@ $@ || \
 		( $(RM) $@ ; exit 1 )
 
 $(TABLE_DB): $(TABLE) $(TABLE_AWK)
 	$(AM_V_GEN) \
 	$(RM) $@; \
-	$(AWK) -f $(srcdir)/$(TABLE_AWK) $(srcdir)/$(TABLE) | @SQLITE3@ $@ || \
+	LC_NUMERIC=C $(AWK) -f $(srcdir)/$(TABLE_AWK) $(srcdir)/$(TABLE) | @SQLITE3@ $@ || \
 		( $(RM) $@ ; exit 1 )
 
 appdatadir = @datadir@/metainfo
