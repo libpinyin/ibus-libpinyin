@@ -165,6 +165,7 @@ AC_ARG_ENABLE(lua-extension,
 )
 
 # check lua
+LUA_EXTENSION="False"
 PKG_CHECK_MODULES(LUA, [
     lua >= 5.1
 ], [],
@@ -179,8 +180,11 @@ then
     [enable_lua_extension=no]
     );
 fi
-
 AM_CONDITIONAL(IBUS_BUILD_LUA_EXTENSION, [test x"$enable_lua_extension" = x"yes"])
+if test x"$enable_lua_extension" = x"yes"; then
+    LUA_EXTENSION="True"
+fi
+AC_SUBST(LUA_EXTENSION)
 
 # --enable-cloud-input-mode
 CLOUD_INPUT_MODE="False"
@@ -207,6 +211,7 @@ AM_CONDITIONAL(ENABLE_CLOUD_INPUT_MODE, test x"$enable_cloud_input_mode" = x"yes
 AC_SUBST(CLOUD_INPUT_MODE)
 
 # --disable-english-input-mode
+ENGLISH_INPUT_MODE="False"
 AC_ARG_ENABLE(english-input-mode,
     AS_HELP_STRING([--disable-english-input-mode],
     [do not build english input mode]),
@@ -215,16 +220,24 @@ AC_ARG_ENABLE(english-input-mode,
 )
 
 AM_CONDITIONAL(IBUS_BUILD_ENGLISH_INPUT_MODE, [test x"$enable_english_input_mode" = x"yes"])
+if test x"$enable_english_input_mode" = x"yes"; then
+    ENGLISH_INPUT_MODE="True"
+fi
+AC_SUBST(ENGLISH_INPUT_MODE)
 
 # --disable-table-input-mode
+TABLE_INPUT_MODE="False"
 AC_ARG_ENABLE(table-input-mode,
         AS_HELP_STRING([--disable-table-input-mode],
         [do not build table input mode]),
         [enable_table_input_mode=$enableval],
         [enable_table_input_mode=yes]
 )
-
 AM_CONDITIONAL(IBUS_BUILD_TABLE_INPUT_MODE, [test x"$enable_table_input_mode" = x"yes"])
+if test x"$enable_table_input_mode" = x"yes"; then
+       TABLE_INPUT_MODE="True"
+fi
+AC_SUBST(TABLE_INPUT_MODE)
 
 # --disable-libnotify
 AC_ARG_ENABLE(libnotify,

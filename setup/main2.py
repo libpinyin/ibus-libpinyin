@@ -420,52 +420,100 @@ class PreferencesDialog:
     def __init_user_data(self):
         #page User Data
         self.__page_user_data.show()
+        self.__frame_input_modes = self.__builder.get_object("frameInputModes")
+        grid = self.__builder.get_object("gridInputModes")
+
+        path = os.path.join(pkgdatadir, 'user.lua')
+        if os.access(path, os.R_OK): 
+            lua_visible = config.enable_lua_extension()
+        else:
+            lua_visible = False
+
+        input_mode_buttons = [
+#            obj_id,          label,           visible;
+            ("lua_extension", "Lua Extension", lua_visible),
+            ("table_mode",    "Table Mode",    config.enable_table_mode()),
+            ("english_mode",  "English Mode",  config.enable_english_input_mode()),
+            ("english_candidate", "English Candidate", True),
+            ("emoji_candidate", "Emoji Candidate", True),
+            ("suggestion_candidate", "Suggestion Candidate", True),
+        ]
+
+        row = 0
+        col = 0
+        self.input_mode_buttons = {}
+        for obj_id, label, visible in input_mode_buttons:
+            if not visible:
+                continue
+            else:
+                # Button initial:
+                button = Gtk.CheckButton(label=label)
+                button.set_name(obj_id)
+                button.set_visible(True)
+                button.set_can_focus(True)
+                button.set_receives_default(False)
+                button.set_halign(Gtk.Align.START)
+                grid.attach(button, col, row, 1, 1)
+                setattr(self, obj_id, button)
+                self.obj_id = button
+
+                # Read button value and set connect signal:
+                if obj_id == "lua_extension":
+                    self.lua_extension.set_active(self.__get_value("lua-extension"))
+                    self.lua_extension.connect("toggled", self.__lua_extension_cb)
+                elif obj_id == "table_mode":
+                    self.table_mode.set_active(self.__get_value("table-input-mode"))
+                    self.table_mode.connect("toggled", self.__table_mode_cb)
+                elif obj_id == "english_mode":
+                    self.english_mode.set_active(self.__get_value("english-input-mode"))
+                    self.english_mode.connect("toggled", self.__english_mode_cb)
+                elif obj_id == "english_candidate":
+                    self.english_candidate.set_active(self.__get_value("english-candidate"))
+                    self.english_candidate.connect("toggled", self.__toggled_cb, "english-candidate")
+                elif obj_id == "emoji_candidate":
+                    self.emoji_candidate.set_active(self.__get_value("emoji-candidate"))
+                    self.emoji_candidate.connect("toggled", self.__toggled_cb, "emoji-candidate")
+                elif obj_id == "suggestion_candidate":
+                    self.suggestion_candidate.set_active(self.__get_value("suggestion-candidate"))
+                    self.suggestion_candidate.connect("toggled", self.__toggled_cb, "suggestion-candidate")
+
+            # Move to the next button position:
+            col += 1
+            if col > 1:
+                col = 0
+                row += 1
 
         self.__frame_lua_script = self.__builder.get_object("frameLuaScript")
-        path = os.path.join(pkgdatadir, 'user.lua')
-        if not os.access(path, os.R_OK):
+        if lua_visible:
+            if self.__get_value("lua-extension"):
+                self.__edit_lua = self.__builder.get_object("EditLua")
+                self.__edit_lua.connect("clicked", self.__edit_lua_cb)
+            else:
+                self.__frame_lua_script.set_sensitive(False)
+        else:
             self.__frame_lua_script.hide()
-        self.__frame_user_table = self.__builder.get_object("frameUserTable")
-        self.__lua_extension = self.__builder.get_object("LuaExtension")
-        self.__table_mode = self.__builder.get_object("TableMode")
-        self.__english_mode = self.__builder.get_object("EnglishMode")
-        self.__emoji_candidate = self.__builder.get_object("EmojiCandidate")
-        self.__english_candidate = self.__builder.get_object("EnglishCandidate")
-        self.__suggestion_candidate = self.__builder.get_object("SuggestionCandidate")
-        self.__import_table = self.__builder.get_object("ImportTable")
-        self.__export_table = self.__builder.get_object("ExportTable")
-        self.__clear_user_table = self.__builder.get_object("ClearUserTable")
-        self.__edit_lua = self.__builder.get_object("EditLua")
-        self.__import_dictionary = self.__builder.get_object("ImportDictionary")
+
+        self.__frame_user_dictionary = self.__builder.get_object("frameUserDictionary")
         self.__export_dictionary = self.__builder.get_object("ExportDictionary")
-        self.__clear_user_data = self.__builder.get_object("ClearUserDictionary")
-        self.__clear_all_data = self.__builder.get_object("ClearAllDictionary")
-
-        # read values
-        self.__frame_lua_script.set_sensitive(self.__get_value("lua-extension"))
-        self.__frame_user_table.set_sensitive(self.__get_value("table-input-mode"))
-        self.__lua_extension.set_active(self.__get_value("lua-extension"))
-        self.__table_mode.set_active(self.__get_value("table-input-mode"))
-        self.__english_mode.set_active(self.__get_value("english-input-mode"))
-        self.__emoji_candidate.set_active(self.__get_value("emoji-candidate"))
-        self.__english_candidate.set_active(self.__get_value("english-candidate"))
-        self.__suggestion_candidate.set_active(self.__get_value("suggestion-candidate"))
-
-        # connect signals
-        self.__lua_extension.connect("toggled", self.__lua_extension_cb)
-        self.__table_mode.connect("toggled", self.__table_mode_cb)
-        self.__english_mode.connect("toggled", self.__english_mode_cb)
-        self.__emoji_candidate.connect("toggled", self.__toggled_cb, "emoji-candidate")
-        self.__english_candidate.connect("toggled", self.__toggled_cb, "english-candidate")
-        self.__suggestion_candidate.connect("toggled", self.__toggled_cb, "suggestion-candidate")
-        self.__edit_lua.connect("clicked", self.__edit_lua_cb)
-        self.__import_dictionary.connect("clicked", self.__import_dictionary_cb, "import-dictionary")
         self.__export_dictionary.connect("clicked", self.__export_dictionary_cb, "export-dictionary")
-        self.__clear_user_data.connect("clicked", self.__clear_user_data_cb, "user")
+        self.__import_dictionary = self.__builder.get_object("ImportDictionary")
+        self.__import_dictionary.connect("clicked", self.__import_dictionary_cb, "import-dictionary")
+        self.__clear_all_data = self.__builder.get_object("ClearAllDictionary")
         self.__clear_all_data.connect("clicked", self.__clear_user_data_cb, "all")
-        self.__import_table.connect("clicked", self.__import_table_cb, "import-custom-table")
-        self.__export_table.connect("clicked", self.__export_table_cb, "export-custom-table")
-        self.__clear_user_table.connect("clicked", self.__clear_user_table_cb, "clear-custom-table", "user")
+        self.__clear_user_data = self.__builder.get_object("ClearUserDictionary")
+        self.__clear_user_data.connect("clicked", self.__clear_user_data_cb, "user")
+
+        self.__frame_user_table = self.__builder.get_object("frameUserTable")
+        if not config.enable_table_mode():
+            self.__frame_user_table.hide()
+        else:
+            self.__frame_user_table.set_sensitive(config.enable_table_mode())
+            self.__export_table = self.__builder.get_object("ExportTable")
+            self.__export_table.connect("clicked", self.__export_table_cb, "export-custom-table")
+            self.__import_table = self.__builder.get_object("ImportTable")
+            self.__import_table.connect("clicked", self.__import_table_cb, "import-custom-table")
+            self.__clear_user_table = self.__builder.get_object("ClearUserTable")
+            self.__clear_user_table.connect("clicked", self.__clear_user_table_cb, "clear-custom-table", "user")
 
     def __lua_extension_cb(self, widget):
         self.__set_value("lua-extension", widget.get_active())
