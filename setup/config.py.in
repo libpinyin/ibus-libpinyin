@@ -31,3 +31,12 @@ def get_longname():
 
 def support_cloud_input():
     return @CLOUD_INPUT_MODE@
+
+def enable_lua_extension():
+    return @LUA_EXTENSION@
+
+def enable_table_mode():
+    return @TABLE_INPUT_MODE@
+
+def enable_english_input_mode():
+    return @ENGLISH_INPUT_MODE@
