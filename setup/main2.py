@@ -424,25 +424,27 @@ class PreferencesDialog:
         grid = self.__builder.get_object("gridInputModes")
 
         path = os.path.join(pkgdatadir, 'user.lua')
-        if os.access(path, os.R_OK): 
+        if os.access(path, os.R_OK):
             lua_visible = config.enable_lua_extension()
         else:
             lua_visible = False
+        table_mode_visible = config.enable_table_mode()
+        english_mode_visible = config.enable_english_input_mode()
 
         input_mode_buttons = [
-#            obj_id,          label,           visible;
-            ("lua_extension", "Lua Extension", lua_visible),
-            ("table_mode",    "Table Mode",    config.enable_table_mode()),
-            ("english_mode",  "English Mode",  config.enable_english_input_mode()),
-            ("english_candidate", "English Candidate", True),
-            ("emoji_candidate", "Emoji Candidate", True),
-            ("suggestion_candidate", "Suggestion Candidate", True),
+#            obj_id,                 label,                  visible,              key,                    callback_func,           func_param;
+            ("lua_extension",        "Lua Extension",        lua_visible,          "lua-extension",        self.__lua_extension_cb, None),
+            ("table_mode",           "Table Mode",           table_mode_visible,   "table-input-mode",     self.__table_mode_cb,    None),
+            ("english_mode",         "English Mode",         english_mode_visible, "english-input-mode",   self.__english_mode_cb,  None),
+            ("english_candidate",    "English Candidate",    True,                 "english-candidate",    self.__toggled_cb,       "english-candidate"),
+            ("emoji_candidate",      "Emoji Candidate",      True,                 "emoji-candidate",      self.__toggled_cb,       "emoji-candidate"),
+            ("suggestion_candidate", "Suggestion Candidate", True,                 "suggestion-candidate", self.__toggled_cb,       "suggestion-candidate"),
         ]
 
         row = 0
         col = 0
         self.input_mode_buttons = {}
-        for obj_id, label, visible in input_mode_buttons:
+        for obj_id, label, visible, key, callback_func, func_param in input_mode_buttons:
             if not visible:
                 continue
             else:
@@ -454,30 +456,13 @@ class PreferencesDialog:
                 button.set_receives_default(False)
                 button.set_halign(Gtk.Align.START)
                 grid.attach(button, col, row, 1, 1)
-                setattr(self, obj_id, button)
-                self.obj_id = button
+                button.set_active(self.__get_value(key))
+                if func_param is None:
+                    button.connect("toggled", callback_func)
+                else:
+                    button.connect("toggled", callback_func, func_param)
 
-                # Read button value and set connect signal:
-                if obj_id == "lua_extension":
-                    self.lua_extension.set_active(self.__get_value("lua-extension"))
-                    self.lua_extension.connect("toggled", self.__lua_extension_cb)
-                elif obj_id == "table_mode":
-                    self.table_mode.set_active(self.__get_value("table-input-mode"))
-                    self.table_mode.connect("toggled", self.__table_mode_cb)
-                elif obj_id == "english_mode":
-                    self.english_mode.set_active(self.__get_value("english-input-mode"))
-                    self.english_mode.connect("toggled", self.__english_mode_cb)
-                elif obj_id == "english_candidate":
-                    self.english_candidate.set_active(self.__get_value("english-candidate"))
-                    self.english_candidate.connect("toggled", self.__toggled_cb, "english-candidate")
-                elif obj_id == "emoji_candidate":
-                    self.emoji_candidate.set_active(self.__get_value("emoji-candidate"))
-                    self.emoji_candidate.connect("toggled", self.__toggled_cb, "emoji-candidate")
-                elif obj_id == "suggestion_candidate":
-                    self.suggestion_candidate.set_active(self.__get_value("suggestion-candidate"))
-                    self.suggestion_candidate.connect("toggled", self.__toggled_cb, "suggestion-candidate")
-
-            # Move to the next button position:
+            # Move to the next grid position:
             col += 1
             if col > 1:
                 col = 0
@@ -507,7 +492,7 @@ class PreferencesDialog:
         if not config.enable_table_mode():
             self.__frame_user_table.hide()
         else:
-            self.__frame_user_table.set_sensitive(config.enable_table_mode())
+            self.__frame_user_table.set_sensitive(self.__get_value("table-input-mode"))
             self.__export_table = self.__builder.get_object("ExportTable")
             self.__export_table.connect("clicked", self.__export_table_cb, "export-custom-table")
             self.__import_table = self.__builder.get_object("ImportTable")
