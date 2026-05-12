@@ -7,9 +7,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2025-01-08 11:58+0800\n"
-"PO-Revision-Date: 2025-05-18 11:00+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2025-12-15 16:58+0000\n"
+"Last-Translator: naly zzwd <xeanhort007@gmail.com>\n"
 "Language-Team: Catalan <https://translate.fedoraproject.org/projects/"
 "ibus-libpinyin/main/ca/>\n"
 "Language: ca\n"
@@ -17,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.3\n"
+"X-Generator: Weblate 5.14.3\n"
 
 #: src/PYPConfig.cc:695
 msgid "The table file is imported."
@@ -397,7 +396,7 @@ msgstr "Longitud del Pinyin"
 
 #: setup/ibus-libpinyin-preferences.ui:177
 msgid "Legacy"
-msgstr ""
+msgstr "Heretat"
 
 #: setup/ibus-libpinyin-preferences.ui:268
 msgid "Language:"
@@ -520,7 +519,7 @@ msgstr "[,] [.] gira la pàgina"
 
 #: setup/ibus-libpinyin-preferences.ui:1084
 msgid "Auto commit"
-msgstr "Consignació automàtica:"
+msgstr "Confirmació automàtica"
 
 #: setup/ibus-libpinyin-preferences.ui:1098
 msgid " [   ]  flip page"
