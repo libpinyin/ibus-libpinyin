@@ -38,14 +38,9 @@ function get_chinese_math_num(num)
 end
 
 function get_chinese_non_math_num(num)
-  local ret = ""
-  for ch in tostring(num):gmatch(".") do
-    if ch >= "0" and ch <= "9" then
-      ch = _CHINESE_DIGITS[tonumber(ch)]
-    end
-    ret = ret .. ch
-  end
-  return ret
+	return tostring(num):gsub(".", function(ch)
+		return _CHINESE_DIGITS[tonumber(ch)]
+	end)
 end
 
 function _verify_time(hour, minute)
