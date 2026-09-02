@@ -1,322 +1,321 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Peng Huang <shawn.p.huang@gmail.com>
 # This file is distributed under the same license as the ibus-libpinyin package.
-# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022, 2023, 2024, 2025, 2026.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025.
+# Bone NI <bounkirdni@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: ibus-libpinyin 1.12.91\n"
+"Project-Id-Version: ibus-libpinyin 1.15.94\n"
 "Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
 "new\n"
 "POT-Creation-Date: 2025-01-08 11:58+0800\n"
-"PO-Revision-Date: 2026-03-04 08:58+0000\n"
-"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
-"Language-Team: Georgian <https://translate.fedoraproject.org/projects/ibus-"
-"libpinyin/main/ka/>\n"
-"Language: ka\n"
+"PO-Revision-Date: 2026-05-12 11:59+0000\n"
+"Last-Translator: Bone NI <bounkirdni@gmail.com>\n"
+"Language-Team: Lao <https://translate.fedoraproject.org/projects/ibus-"
+"libpinyin/main/lo/>\n"
+"Language: lo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.16.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.17.1\n"
 
 #: src/PYPConfig.cc:695
 msgid "The table file is imported."
-msgstr "ცხრილის ფაილი შემოტანილია."
+msgstr "ໄຟລ໌ຕາຕະລາງຖືກນຳເຂົ້າແລ້ວ."
 
 #: src/PYPConfig.cc:702
 msgid "The table file is exported."
-msgstr "ცხრილის ფაილი გატანილია."
+msgstr "ໄຟລ໌ຕາຕະລາງຖືກສົ່ງອອກແລ້ວ."
 
 #: src/PYPConfig.cc:714
 msgid "The pinyin dictionary file is imported."
-msgstr "ფინინის ლექსიკონის ფაილი შემოტანილია."
+msgstr "ໄຟລ໌ວັດຈະນານຸກົມພິນອິນຖືກນຳເຂົ້າແລ້ວ."
 
 #: src/PYPConfig.cc:721
 msgid "The pinyin dictionary file is exported."
-msgstr "ფინინის ლექსიკონის ფაილი გატანილია."
+msgstr "ໄຟລ໌ວັດຈະນານຸກົມພິນອິນຖືກສົ່ງອອກແລ້ວ."
 
 #: src/PYMain.cc:117
 msgid "Libpinyin input method"
-msgstr "Libpinyin-ით შეტანის მეთოდი"
+msgstr "ວິທີປ້ອນຂໍ້ມູນ Libpinyin"
 
 #: src/PYMain.cc:127
 msgid "Intelligent Pinyin (debug)"
-msgstr "ჭკვიანი ფინინი (გამართვა)"
+msgstr "ພິນອິນອັດສະລິຍະ (ແກ້ໄຂຈຸດບົກພ່ອງ)"
 
 #: src/PYMain.cc:128
 msgid "Intelligent Pinyin input method (debug)"
-msgstr "ჭკვიანი ფიფინის შეყვანის მეთოდი (გამართვა)"
+msgstr "ວິທີປ້ອນຂໍ້ມູນພິນອິນອັດສະລິຍະ (ແກ້ໄຂຈຸດບົກພ່ອງ)"
 
 #: src/PYMain.cc:138
 msgid "Bopomofo (debug)"
-msgstr "ბოპომოფო (გამართვა)"
+msgstr "ໂບໂປໂມໂຟ (ແກ້ໄຂຈຸດບົກພ່ອງ)"
 
 #: src/PYMain.cc:139
 msgid "Bopomofo input method (debug)"
-msgstr "ბოპომოფოს შეყვანის მეთოდი (გამართვა)"
+msgstr "ວິທີປ້ອນຂໍ້ມູນໂບໂປໂມໂຟ (ແກ້ໄຂຈຸດບົກພ່ອງ)"
 
 #: src/PYPinyinProperties.cc:40 src/PYPinyinProperties.cc:128
 #: setup/ibus-libpinyin-preferences.ui:111
 #: setup/ibus-libpinyin-preferences.ui:298
 msgid "Chinese"
-msgstr "ჩინური"
+msgstr "ພາສາຈີນ"
 
 #: src/PYPinyinProperties.cc:41 src/PYPinyinProperties.cc:129
 #: setup/ibus-libpinyin-preferences.ui:107
 #: setup/ibus-libpinyin-preferences.ui:313
 msgid "English"
-msgstr "ინგლისური"
+msgstr "ພາສາອັງກິດ"
 
 #: src/PYPinyinProperties.cc:46 src/PYPinyinProperties.cc:140
 msgid "Switch to English Mode"
-msgstr "ინგლისურ რეჟიმზე გადართვა"
+msgstr "ປ່ຽນເປັນໂໝດພາສາອັງກິດ"
 
 #: src/PYPinyinProperties.cc:47 src/PYPinyinProperties.cc:141
 msgid "Switch to Chinese Mode"
-msgstr "ჩინურ რეჟიმზე გადართვა"
+msgstr "ປ່ຽນເປັນໂໝດພາສາຈີນ"
 
 #: src/PYPinyinProperties.cc:51 src/PYPinyinProperties.cc:153
 msgid "Full Width Letter"
-msgstr "სრულსიგანიანი ასო"
+msgstr "ຕົວອັກສອນແບບເຕັມສ່ວນ"
 
 #: src/PYPinyinProperties.cc:52 src/PYPinyinProperties.cc:154
 msgid "Half Width Letter"
-msgstr "ნახევარსიგანიანი ასო"
+msgstr "ຕົວອັກສອນແບບເຄິ່ງສ່ວນ"
 
 #: src/PYPinyinProperties.cc:57 src/PYPinyinProperties.cc:159
 msgid "Switch to Half Width Letter Mode"
-msgstr "ნახევარსიგანიანი ასოს რეჟიმზე გადასვლა"
+msgstr "ປ່ຽນເປັນໂໝດຕົວອັກສອນແບບເຄິ່ງສ່ວນ"
 
 #: src/PYPinyinProperties.cc:58 src/PYPinyinProperties.cc:160
 msgid "Switch to Full Width Letter Mode"
-msgstr "სრულსიგანიანი ასოს რეჟიმზე გადართვა"
+msgstr "ປ່ຽນເປັນໂໝດຕົວອັກສອນແບບເຕັມສ່ວນ"
 
 #: src/PYPinyinProperties.cc:62 src/PYPinyinProperties.cc:169
 msgid "Full Width Punct"
-msgstr "სრულსიგანიანი პუნქტ"
+msgstr "ເຄື່ອງໝາຍວັກຕອນແບບເຕັມສ່ວນ"
 
 #: src/PYPinyinProperties.cc:63 src/PYPinyinProperties.cc:170
 msgid "Half Width Punct"
-msgstr "ნახევარსიგანიანი პუნქტ"
+msgstr "ເຄື່ອງໝາຍວັກຕອນແບບເຄິ່ງສ່ວນ"
 
 #: src/PYPinyinProperties.cc:68 src/PYPinyinProperties.cc:175
 msgid "Switch to Half Width Punctuation Mode"
-msgstr "ნახევარსიგანიანი პუნქტუაციის რეჟიმზე გადართვა"
+msgstr "ປ່ຽນເປັນໂໝດເຄື່ອງໝາຍວັກຕອນແບບເຄິ່ງສ່ວນ"
 
 #: src/PYPinyinProperties.cc:69 src/PYPinyinProperties.cc:176
 msgid "Switch to Full Width Punctuation Mode"
-msgstr "სრულსიგანიანი პუნქტუაციის რეჟიმზე გადართვა"
+msgstr "ປ່ຽນເປັນໂໝດເຄື່ອງໝາຍວັກຕອນແບບເຕັມສ່ວນ"
 
 #: src/PYPinyinProperties.cc:73 src/PYPinyinProperties.cc:185
 msgid "Simplified Chinese"
-msgstr "გამარტივებული ჩინური"
+msgstr "ພາສາຈີນຕົວຫຍໍ້"
 
 #: src/PYPinyinProperties.cc:74 src/PYPinyinProperties.cc:186
 msgid "Traditional Chinese"
-msgstr "ტრადიციული ჩინური"
+msgstr "ພາສາຈີນຕົວເຕັມ"
 
 #: src/PYPinyinProperties.cc:79 src/PYPinyinProperties.cc:191
 msgid "Switch to Traditional Chinese Mode"
-msgstr "ტრადიციულ ჩინურზე გადართვა"
+msgstr "ປ່ຽນເປັນໂໝດພາສາຈີນຕົວເຕັມ"
 
 #: src/PYPinyinProperties.cc:80 src/PYPinyinProperties.cc:192
 msgid "Switch to Simplfied Chinese Mode"
-msgstr "მარტივ ჩინურზე გადართვა"
+msgstr "ປ່ຽນເປັນໂໝດພາສາຈີນຕົວຫຍໍ້"
 
 #: src/PYPinyinProperties.cc:83 src/PYPinyinProperties.cc:85
 #: setup/ibus-libpinyin-preferences.ui:185
 msgid "Preferences"
-msgstr "პარამეტრები"
+msgstr "ການຕັ້ງຄ່າ"
 
 #: src/PYPinyinProperties.cc:88 src/PYPinyinProperties.cc:132
 msgid "中"
-msgstr "中"
+msgstr "ຈີນ"
 
 #: src/PYPinyinProperties.cc:90 src/PYPinyinProperties.cc:134
 msgid "英"
-msgstr "英"
+msgstr "ອັງກິດ"
 
 #: src/PYPinyinProperties.cc:270
 msgid "Lua Converter"
-msgstr "Lua-ში გადამყვანი"
+msgstr "ຕົວແປງ Lua"
 
 #: src/PYPinyinProperties.cc:272
 msgid "Use the Lua Convertor"
-msgstr "Lua-ში გადამყვანის გამოყენება"
+msgstr "ໃຊ້ຕົວແປງ Lua"
 
 #: src/PYPinyinProperties.cc:279
 msgid "None"
-msgstr "არაფერი"
+msgstr "ບໍ່ມີ"
 
 #: src/PYEnglishEditor.cc:307
 msgid "Please input the English word."
-msgstr "შეიყვანეთ ინგლისური სიტყვა."
+msgstr "ກະລຸນາປ້ອນຄຳສັບພາສາອັງກິດ."
 
 #: src/PYTableEditor.cc:306
 msgid "Please use \"hspnz\" to input."
-msgstr "შესაყვანად გამოიყენეთ \"hspnz\"."
+msgstr "ກະລຸນາໃຊ້ \"hspnz\" ເພື່ອປ້ອນຂໍ້ມູນ."
 
 #: src/PYTableEditor.cc:309
 msgid "Please use table code to input."
-msgstr "გამოიყენეთ ცხრილის კოდი შესაყვანად."
+msgstr "ກະລຸນາໃຊ້ລະຫັດຕາຕະລາງເພື່ອປ້ອນຂໍ້ມູນ."
 
 #: setup/main2.py:493
 msgid "Please choose a file"
-msgstr "გთხოვთ, აირჩიოთ ფაილი"
+msgstr "ກະລຸນາເລືອກໄຟລ໌"
 
 #: setup/main2.py:514
 msgid "Please save a file"
-msgstr "გთხოვთ, შეინახოთ ფაილი"
+msgstr "ກະລຸນາບັນທຶກໄຟລ໌"
 
 #: setup/main2.py:662 setup/ibus-libpinyin-preferences.ui:2850
 #, python-format
 msgid "<big><b>Intelligent Pinyin %s</b></big>"
-msgstr "<big><b>ჭკვიანი ფინინი %s</b></big>"
+msgstr "<big><b>ພິນອິນອັດສະລິຍະ %s</b></big>"
 
 #: setup/config.py:30
 msgid "Intelligent Pinyin"
-msgstr "ჭკვიანი პინინი"
+msgstr "ພິນອິນອັດສະລິຍະ"
 
 #: setup/dicttreeview.py:52
 msgid "Art"
-msgstr "ხელოვნება"
+msgstr "ສິລະປະ"
 
 #: setup/dicttreeview.py:53
 msgid "Culture"
-msgstr "კულტურა"
+msgstr "ວັດທະນະທຳ"
 
 #: setup/dicttreeview.py:54
 msgid "Economy"
-msgstr "ეკონომიკა"
+msgstr "ເສດຖະກິດ"
 
 #: setup/dicttreeview.py:55
 msgid "Geology"
-msgstr "გეოლოგია"
+msgstr "ທໍລະນີວິທະຍາ"
 
 #: setup/dicttreeview.py:56
 msgid "History"
-msgstr "ისტორია"
+msgstr "ປະຫວັດສາດ"
 
 #: setup/dicttreeview.py:57
 msgid "Life"
-msgstr "ცხოვრება"
+msgstr "ຊີວິດ"
 
 #: setup/dicttreeview.py:58
 msgid "Nature"
-msgstr "ბუნება"
+msgstr "ທຳມະຊາດ"
 
 #: setup/dicttreeview.py:59
 msgid "People"
-msgstr "ხალხი"
+msgstr "ບຸກຄົນ"
 
 #: setup/dicttreeview.py:60
 msgid "Science"
-msgstr "მეცნიერება"
+msgstr "ວິທະຍາສາດ"
 
 #: setup/dicttreeview.py:61
 msgid "Society"
-msgstr "საზოგადოება"
+msgstr "ສັງຄົມ"
 
 #: setup/dicttreeview.py:62
 msgid "Sport"
-msgstr "სპორტი"
+msgstr "ກິລາ"
 
 #: setup/dicttreeview.py:63
 msgid "Technology"
-msgstr "ტექნოლოგია"
+msgstr "ເຕັກໂນໂລຊີ"
 
 #: setup/dicttreeview.py:110
 msgid "Active"
-msgstr "აქტიური"
+msgstr "ເປີດໃຊ້"
 
 #: setup/dicttreeview.py:115 setup/shortcuteditor.py:83
 msgid "Description"
-msgstr "აღწერა"
+msgstr "ຄຳອະທິບາຍ"
 
 #: setup/keyboardshortcut.py:54
 msgid "Shortcut:"
-msgstr "მალსახმობი:"
+msgstr "ທາງລັດ:"
 
 #: setup/keyboardshortcut.py:67
 msgid "Key code:"
-msgstr "ღილაკის კოდი:"
+msgstr "ລະຫັດປຸ່ມ:"
 
 #: setup/keyboardshortcut.py:82
 msgid "Modifiers:"
-msgstr "მოდიფიკატორების:"
+msgstr "ປຸ່ມປັບປ່ຽນ:"
 
 #: setup/keyboardshortcut.py:171
 msgid ""
 "Please press a key (or a key combination).\n"
 "The dialog will close when the key is released."
 msgstr ""
-"დააჭირეთ ღილაკს (ან მათ კომბინაციას).\n"
-"დიალოგი დაიხურება, როცა ღილაკს გაუშვებთ."
+"ກະລຸນາກົດປຸ່ມ (ຫຼື ກົດຫຼາຍປຸ່ມພ້ອມກັນ).\n"
+"ໜ້າຕ່າງຈະປິດລົງເມື່ອປ່ອຍປຸ່ມ."
 
 #: setup/keyboardshortcut.py:174
 msgid "Please press a key (or a key combination)"
-msgstr "დააწექით ღილაკს (ან მათ კომბინაციას)"
+msgstr "ກະລຸນາກົດປຸ່ມ (ຫຼື ກົດຫຼາຍປຸ່ມພ້ອມກັນ)"
 
 #: setup/keyboardshortcut.py:186
 msgid "Shorcut Editor"
-msgstr "მალსახმობების რედაქტორი"
+msgstr "ຕົວແກ້ໄຂທາງລັດ"
 
 #: setup/keyboardshortcut.py:239 setup/shortcuteditor.py:196
 #: setup/shortcuteditor.py:233
 msgid "_Cancel"
-msgstr "_შეწყვეტა"
+msgstr "_ຍົກເລີກ"
 
 #: setup/keyboardshortcut.py:240 setup/shortcuteditor.py:197
 #: setup/shortcuteditor.py:234
 msgid "_OK"
-msgstr "_დიახ"
+msgstr "_ຕົກລົງ"
 
 #: setup/shortcuteditor.py:46
 msgid "Switch Chinese/English"
-msgstr "ჩინური/ინგლისურის გადართვა"
+msgstr "ສະຫຼັບ ຈີນ/ອັງກິດ"
 
 #: setup/shortcuteditor.py:47
 msgid "Full/Half Width Letter"
-msgstr "სრულ/ნახევარსიგანიანი ასო"
+msgstr "ຕົວອັກສອນແບບ ເຕັມ/ເຄິ່ງ ສ່ວນ"
 
 #: setup/shortcuteditor.py:48
 msgid "Full/Half Width Punct"
-msgstr "სრულ/ნახევარსიგანიანი პუნქტ"
+msgstr "ເຄື່ອງໝາຍວັກຕອນແບບ ເຕັມ/ເຄິ່ງ ສ່ວນ"
 
 #: setup/shortcuteditor.py:49
 msgid "Full/Half Width Both Switch"
-msgstr "სრულ/ნახევარსიგანიანის ორივეს გადართვა"
+msgstr "ສະຫຼັບທັງສອງແບບ ເຕັມ/ເຄິ່ງ ສ່ວນ"
 
 #: setup/shortcuteditor.py:50
 msgid "Switch Traditional/Simplfied Chinese"
-msgstr "ტრადიციული/გამარტივებული ჩინურის გადართვა"
+msgstr "ສະຫຼັບ ຈີນຕົວເຕັມ/ຕົວຫຍໍ້"
 
 #: setup/shortcuteditor.py:88
 msgid "Accelerator"
-msgstr "ამაჩქარებელი"
+msgstr "ປຸ່ມເລັ່ງທາງລັດ"
 
 #: setup/shortcuteditor.py:106
 msgid "This shortcut key is already in use."
-msgstr "ეს მალსახმობი ღილაკი უკვე გამოიყენება."
+msgstr "ທາງລັດນີ້ຖືກໃຊ້ງານຢູ່ແລ້ວ."
 
 #. set default button
 #: setup/shortcuteditor.py:164
 msgid "_Default"
-msgstr "_ნაგულისხმები"
+msgstr "_ຄ່າເລີ່ມຕົ້ນ"
 
 #. edit button
 #: setup/shortcuteditor.py:169
 msgid "_Edit"
-msgstr "_ჩასწორება"
+msgstr "_ແກ້ໄຂ"
 
 #: setup/shortcuteditor.py:195
 msgid "Select Switching Key"
-msgstr "აირჩიეთ გადართვის ღილაკი"
+msgstr "ເລືອກປຸ່ມສະຫຼັບ"
 
 #: setup/ibus-libpinyin-preferences.ui:20
 msgid "Standard"
-msgstr "სტანდარტული"
+msgstr "ມາດຕະຖານ"
 
 #: setup/ibus-libpinyin-preferences.ui:23
 msgid "GinYieh"
@@ -332,7 +331,7 @@ msgstr "IBM"
 
 #: setup/ibus-libpinyin-preferences.ui:40
 msgid "Baidu"
-msgstr "ბაიდუ"
+msgstr "Baidu"
 
 #: setup/ibus-libpinyin-preferences.ui:43
 msgid "Google"
@@ -345,15 +344,15 @@ msgstr "Google CN"
 #: setup/ibus-libpinyin-preferences.ui:57
 #: setup/ibus-libpinyin-preferences.ui:103
 msgid "Default"
-msgstr "ნაგულისხმები"
+msgstr "ຄ່າເລີ່ມຕົ້ນ"
 
 #: setup/ibus-libpinyin-preferences.ui:60
 msgid "Compact"
-msgstr "დაპატარავება"
+msgstr "ແບບກະທັດຮັດ"
 
 #: setup/ibus-libpinyin-preferences.ui:63
 msgid "Compatibility"
-msgstr "თავსებადობა"
+msgstr "ແບບເຂົ້າກັນໄດ້"
 
 #: setup/ibus-libpinyin-preferences.ui:74
 msgid "MSPY"
@@ -381,73 +380,73 @@ msgstr "XHE"
 
 #: setup/ibus-libpinyin-preferences.ui:122
 msgid "Horizontal"
-msgstr "ჰორიზონტალური"
+msgstr "ລວງນອນ"
 
 #: setup/ibus-libpinyin-preferences.ui:125
 msgid "Vertical"
-msgstr "ვერტიკალური"
+msgstr "ລວງຕັ້ງ"
 
 #: setup/ibus-libpinyin-preferences.ui:171
 msgid "Frequency"
-msgstr "სიხშირე"
+msgstr "ຄວາມຖີ່"
 
 #: setup/ibus-libpinyin-preferences.ui:174
 msgid "Pinyin Length"
-msgstr "პინინის სიგრძე"
+msgstr "ຄວາມຍາວພິນອິນ"
 
 #: setup/ibus-libpinyin-preferences.ui:177
 msgid "Legacy"
-msgstr "მოძველებული"
+msgstr "ແບບເກົ່າ"
 
 #: setup/ibus-libpinyin-preferences.ui:268
 msgid "Language:"
-msgstr "ენა:"
+msgstr "ພາສາ:"
 
 #: setup/ibus-libpinyin-preferences.ui:276
 msgid "Half/full width:"
-msgstr "ნახევარი/სრული სიგანე:"
+msgstr "ແບບເຄິ່ງ/ເຕັມສ່ວນ:"
 
 #: setup/ibus-libpinyin-preferences.ui:288
 msgid "Punctuations:"
-msgstr "პუნქტუაციები:"
+msgstr "ເຄື່ອງໝາຍວັກຕອນ:"
 
 #: setup/ibus-libpinyin-preferences.ui:328
 #: setup/ibus-libpinyin-preferences.ui:362
 msgid "Full"
-msgstr "სრული"
+msgstr "ເຕັມສ່ວນ"
 
 #: setup/ibus-libpinyin-preferences.ui:345
 #: setup/ibus-libpinyin-preferences.ui:379
 msgid "Half"
-msgstr "ნახევარი"
+msgstr "ເຄິ່ງສ່ວນ"
 
 #: setup/ibus-libpinyin-preferences.ui:398
 msgid "Chinese:"
-msgstr "ჩინური:"
+msgstr "ພາສາຈີນ:"
 
 #: setup/ibus-libpinyin-preferences.ui:408
 msgid "Simplified"
-msgstr "გამარტივებული"
+msgstr "ຕົວຫຍໍ້"
 
 #: setup/ibus-libpinyin-preferences.ui:425
 msgid "Traditional"
-msgstr "ტრადიციული"
+msgstr "ຕົວເຕັມ"
 
 #: setup/ibus-libpinyin-preferences.ui:448
 msgid "<b>Initial state</b>"
-msgstr "<b>საწყისი მდგომარეობა</b>"
+msgstr "<b>ສະຖານະເລີ່ມຕົ້ນ</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:486
 msgid "Display Style:"
-msgstr "ჩვენების სტილი:"
+msgstr "ຮູບແບບການສະແດງຜົນ:"
 
 #: setup/ibus-libpinyin-preferences.ui:532
 msgid "Orientation of candidates:"
-msgstr "კანდიდატების ორიენტაცია:"
+msgstr "ທິດທາງຂອງຕົວເລືອກ:"
 
 #: setup/ibus-libpinyin-preferences.ui:578
 msgid "Number of candidates:"
-msgstr "კანდიდატების რაოდენობა:"
+msgstr "ຈຳນວນຕົວເລືອກ:"
 
 #: setup/ibus-libpinyin-preferences.ui:617
 msgid "<b>UI</b>"
@@ -455,238 +454,238 @@ msgstr "<b>UI</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:646
 msgid "Dynamically adjust the candidates order."
-msgstr "კანდიდატების მიმდევრობის დინამიკური გასწორება."
+msgstr "ປັບລໍາດັບຕົວເລືອກແບບໄດນາມິກ."
 
 #: setup/ibus-libpinyin-preferences.ui:661
 msgid "Remember every input as a phrase."
-msgstr "თითოეული შეყვანის დამახსოვრება ფრაზის სახით."
+msgstr "ຈື່ທຸກການປ້ອນຂໍ້ມູນເປັນວະລີ."
 
 #: setup/ibus-libpinyin-preferences.ui:684
 msgid "Sort candidates by:"
-msgstr "კანდიდატების დალაგების პირობა:"
+msgstr "ຮຽງລຳດັບຕົວເລືອກຕາມ:"
 
 #: setup/ibus-libpinyin-preferences.ui:727
 msgid "<b>Candidates</b>"
-msgstr "<b>კანდიდატი</b>"
+msgstr "<b>ຕົວເລືອກ</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:763
 msgid "Keyboard Layout:"
-msgstr "კლავიატურის განლაგება:"
+msgstr "ຜັງແປ້ນພິມ:"
 
 #: setup/ibus-libpinyin-preferences.ui:819
 #: setup/ibus-libpinyin-preferences.ui:2199
 msgid "Tips: Changes may not take effect until ime restarts."
-msgstr "მინიშნება: ცვლილებები ძალაში ime-ის რესტარტის შემდეგ შევა."
+msgstr "ຄຳແນະນຳ: ການປ່ຽນແປງອາດຈະບໍ່ມີຜົນຈົນກວ່າຈະເລີ່ມຕົ້ນລະບົບປ້ອນຂໍ້ມູນໃໝ່."
 
 #: setup/ibus-libpinyin-preferences.ui:842
 msgid "<b>Keyboard</b>"
-msgstr "<b>კლავიატურა</b>"
+msgstr "<b>ແປ້ນພິມ</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:861
 msgid "General"
-msgstr "ზოგადი"
+msgstr "ທົ່ວໄປ"
 
 #: setup/ibus-libpinyin-preferences.ui:901
 msgid "Full pinyin"
-msgstr "სრული პინინი"
+msgstr "ພິນອິນແບບເຕັມ"
 
 #: setup/ibus-libpinyin-preferences.ui:922
 msgid "Double pinyin"
-msgstr "ორმაგი პინინი"
+msgstr "ພິນອິນແບບຄູ່"
 
 #: setup/ibus-libpinyin-preferences.ui:965
 msgid "Show raw input of Double Pinyin"
-msgstr "ორმაგი ფინინის დაუმუშავებელი შეყვანის ჩვენება"
+msgstr "ສະແດງການປ້ອນຂໍ້ມູນດິບຂອງພິນອິນແບບຄູ່"
 
 #: setup/ibus-libpinyin-preferences.ui:980
 msgid "Incomplete pinyin"
-msgstr "არასდრული პინინი"
+msgstr "ພິນອິນແບບບໍ່ສົມບູນ"
 
 #: setup/ibus-libpinyin-preferences.ui:1002
 msgid "<b>Pinyin mode</b>"
-msgstr "<b>პინინის რეჟიმი</b>"
+msgstr "<b>ໂໝດພິນອິນ</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:1044
 msgid "[Shift] select candidate"
-msgstr "[Shift] კანდიდატის არჩევა"
+msgstr "[Shift] ເລືອກຕົວເລືອກ"
 
 #: setup/ibus-libpinyin-preferences.ui:1054
 msgid "[-] [=] flip page"
-msgstr "[-] [=] გვერდის გადაბრუნება"
+msgstr "[-] [=] ປ່ຽນໜ້າ"
 
 #: setup/ibus-libpinyin-preferences.ui:1069
 msgid "[,] [.] flip page"
-msgstr "[,] [.] გვერდის გადაბრუნება"
+msgstr "[,] [.] ປ່ຽນໜ້າ"
 
 #: setup/ibus-libpinyin-preferences.ui:1084
 msgid "Auto commit"
-msgstr "ავტომატური კომიტი"
+msgstr "ຢືນຢັນອັດຕະໂນມັດ"
 
 #: setup/ibus-libpinyin-preferences.ui:1098
 msgid " [   ]  flip page"
-msgstr " [   ]  გვერდის გადაბრუნება"
+msgstr " [   ]  ປ່ຽນໜ້າ"
 
 #: setup/ibus-libpinyin-preferences.ui:1126
 msgid "<b>Input Custom</b>"
-msgstr "<b>შეყვანის მორგება</b>"
+msgstr "<b>ກຳນົດຄ່າການປ້ອນຂໍ້ມູນ</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:1274
 msgid "Enable pinyin correction"
-msgstr "ფინინის შესწორების ჩართვა"
+msgstr "ເປີດໃຊ້ການແກ້ໄຂພິນອິນ"
 
 #: setup/ibus-libpinyin-preferences.ui:1310
 msgid "<b>Correct pinyin</b>"
-msgstr "<b>ფინინის გასწორება</b>"
+msgstr "<b>ແກ້ໄຂພິນອິນ</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:1340
 #: setup/ibus-libpinyin-preferences.ui:1779
 msgid "Enable Cloud Input"
-msgstr "ღრუბლოვანი შეყვანის ჩართვა"
+msgstr "ເປີດໃຊ້ການປ້ອນຂໍ້ມູນຜ່ານຄລາວ"
 
 #: setup/ibus-libpinyin-preferences.ui:1364
 #: setup/ibus-libpinyin-preferences.ui:1803
 msgid "Source From:"
-msgstr "წყარო საიდან:"
+msgstr "ແຫຼ່ງຂໍ້ມູນຈາກ:"
 
 #: setup/ibus-libpinyin-preferences.ui:1409
 #: setup/ibus-libpinyin-preferences.ui:1848
 msgid "<b>Cloud Input Option</b>"
-msgstr "<b>ღრუბლოვანი შეყვანის მორგება</b>"
+msgstr "<b>ຕົວເລືອກການປ້ອນຂໍ້ມູນຜ່ານຄລາວ</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:1431
 msgid "Pinyin mode"
-msgstr "ფინინის რეჟიმი"
+msgstr "ໂໝດພິນອິນ"
 
 #: setup/ibus-libpinyin-preferences.ui:1470
 msgid "Incomplete Bopomofo"
-msgstr "დაუსრულებელი ბოპომოფო"
+msgstr "ໂບໂປໂມໂຟແບບບໍ່ສົມບູນ"
 
 #: setup/ibus-libpinyin-preferences.ui:1493
 msgid "Keyboard Mapping:"
-msgstr "კლავიატურის ასახვა:"
+msgstr "ການກຳນົດປຸ່ມແປ້ນພິມ:"
 
 #: setup/ibus-libpinyin-preferences.ui:1536
 msgid "<b>Bopomofo mode</b>"
-msgstr "<b>ბოპომოფოს რეჟიმი</b>"
+msgstr "<b>ໂໝດໂບໂປໂມໂຟ</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:1572
 msgid "Selection Keys:"
-msgstr "მონიშვნის ღილაკები:"
+msgstr "ປຸ່ມເລືອກ:"
 
 #: setup/ibus-libpinyin-preferences.ui:1609
 msgid "Enable Guidekey for Candidates Selection"
-msgstr "გამძღოლი ღილაკის გამოყენება კანდიდატების არჩევისას"
+msgstr "ເປີດໃຊ້ປຸ່ມແນະນຳສຳລັບການເລືອກຕົວເລືອກ"
 
 #: setup/ibus-libpinyin-preferences.ui:1626
 msgid "Enable Auxiliary Select Keys F1 .. F10"
-msgstr "დამატებითი არჩევი ღილაკების (F1..F10) ჩართვა"
+msgstr "ເປີດໃຊ້ປຸ່ມເລືອກສຳຮອງ F1 .. F10"
 
 #: setup/ibus-libpinyin-preferences.ui:1643
 msgid "Enable Auxiliary Select Keys Numbers on Keypad"
-msgstr "დამატებითი მონიშვნის ღილაკების რიცხვების ჩართვა დამატებით კლავიატურაზე"
+msgstr "ເປີດໃຊ້ປຸ່ມເລືອກສຳຮອງຕົວເລກຢູ່ແຖບຕົວເລກ"
 
 #: setup/ibus-libpinyin-preferences.ui:1666
 msgid "<b>Selection mode</b>"
-msgstr "<b>მონიშვნის რეჟიმი</b>"
+msgstr "<b>ໂໝດການເລືອກ</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:1698
 msgid "Feature of Enter key:"
-msgstr "Enter ღილაკის ფუნქცია:"
+msgstr "ຄຸນສົມບັດຂອງປຸ່ມ Enter:"
 
 #: setup/ibus-libpinyin-preferences.ui:1709
 msgid "Commit first candidate"
-msgstr "პირველი კანდიდატის გადაცემა"
+msgstr "ຢືນຢັນຕົວເລືອກທຳອິດ"
 
 #: setup/ibus-libpinyin-preferences.ui:1727
 msgid "Commit original text"
-msgstr "ორიგინალი ტექსტის გადაცემა"
+msgstr "ຢືນຢັນຂໍ້ຄວາມຕົ້ນສະບັບ"
 
 #: setup/ibus-libpinyin-preferences.ui:1749
 msgid "<b>Other</b>"
-msgstr "<b>სხვა</b>"
+msgstr "<b>ອື່ນໆ</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:1870
 msgid "Bopomofo mode"
-msgstr "მოპომოფოს რეჟიმი"
+msgstr "ໂໝດໂບໂປໂມໂຟ"
 
 #: setup/ibus-libpinyin-preferences.ui:2032
 msgid "Enable fuzzy syllable"
-msgstr "გაურკვეველი ფინინის ჩართვა"
+msgstr "ເປີດໃຊ້ພະຍາງແບບກໍ້າກຶ່ງ (fuzzy)"
 
 #: setup/ibus-libpinyin-preferences.ui:2133
 msgid "Fuzzy syllable"
-msgstr "გაურკვეველი მარცვალი"
+msgstr "ພະຍາງແບບກໍ້າກຶ່ງ"
 
 #: setup/ibus-libpinyin-preferences.ui:2222
 msgid "<b>Dictionary option</b>"
-msgstr "<b>ლექსიკონის პარამეტრი</b>"
+msgstr "<b>ຕົວເລືອກວັດຈະນານຸກົມ</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:2244
 msgid "Dictionary"
-msgstr "ლექსიკონი"
+msgstr "ວັດຈະນານຸກົມ"
 
 #: setup/ibus-libpinyin-preferences.ui:2285
 msgid "Lua Extension"
-msgstr "Lua-ის გაფართოება"
+msgstr "ສ່ວນຂະຫຍາຍ Lua"
 
 #: setup/ibus-libpinyin-preferences.ui:2299
 msgid "Table Mode"
-msgstr "ცხრილის რეჟიმი"
+msgstr "ໂໝດຕາຕະລາງ"
 
 #: setup/ibus-libpinyin-preferences.ui:2313
 msgid "English Mode"
-msgstr "ინგლისურის რეჟიმი"
+msgstr "ໂໝດພາສາອັງກິດ"
 
 #: setup/ibus-libpinyin-preferences.ui:2327
 msgid "English Candidate"
-msgstr "ინგლისურის კანდიდატი"
+msgstr "ຕົວເລືອກພາສາອັງກິດ"
 
 #: setup/ibus-libpinyin-preferences.ui:2341
 msgid "Emoji Candidate"
-msgstr "ემოჯის კანდიდატი"
+msgstr "ຕົວເລືອກອີໂມຈິ"
 
 #: setup/ibus-libpinyin-preferences.ui:2355
 msgid "Suggestion Candidate"
-msgstr "მინიშნების კანდიდატი"
+msgstr "ຕົວເລືອກແນະນຳ"
 
 #: setup/ibus-libpinyin-preferences.ui:2375
 msgid "<b>Input Modes</b>"
-msgstr "<b>შეყვანის რეჟიმები</b>"
+msgstr "<b>ໂໝດການປ້ອນຂໍ້ມູນ</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:2406
 msgid "User Lua Script"
-msgstr "მომხმარებლის Lua-ის სკრიპტი"
+msgstr "ສະຄຣິບ Lua ຂອງຜູ້ໃຊ້"
 
 #: setup/ibus-libpinyin-preferences.ui:2416
 msgid "Edit"
-msgstr "ჩასოწრება"
+msgstr "ແກ້ໄຂ"
 
 #: setup/ibus-libpinyin-preferences.ui:2436
 msgid "<b>Customize IME</b>"
-msgstr "<b>IME-ის მორგება</b>"
+msgstr "<b>ປັບແຕ່ງ IME</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:2471
 #: setup/ibus-libpinyin-preferences.ui:2655
 msgid "Export"
-msgstr "გატანა"
+msgstr "ສົ່ງອອກ"
 
 #: setup/ibus-libpinyin-preferences.ui:2486
 #: setup/ibus-libpinyin-preferences.ui:2670
 msgid "Import"
-msgstr "შემოტანა"
+msgstr "ນຳເຂົ້າ"
 
 #: setup/ibus-libpinyin-preferences.ui:2502
 msgid "User Dictionary"
-msgstr "მომხმარებლის ლექსიკონი"
+msgstr "ວັດຈະນານຸກົມຜູ້ໃຊ້"
 
 #: setup/ibus-libpinyin-preferences.ui:2527
 msgid "Clear All Data"
-msgstr "მონაცემების გაწმენდა"
+msgstr "ລຶບຂໍ້ມູນທັງໝົດ"
 
 #: setup/ibus-libpinyin-preferences.ui:2547
 #: setup/ibus-libpinyin-preferences.ui:2700
 msgid "Clear"
-msgstr "გაწმენდა"
+msgstr "ລຶບ"
 
 #: setup/ibus-libpinyin-preferences.ui:2575
 msgid ""
@@ -695,23 +694,23 @@ msgid ""
 "    \"phrase pinyin\" or \"phrase pinyin frequency\"\n"
 "  like \"你好 ni'hao\" or \"你好 ni'hao 5\"."
 msgstr ""
-"<b>ლექსიკონის ფაილის ფორმატი:</b>\n"
-"  თითოეული ხაზი შეიცავს ერთ-ერთს ამათგან:\n"
-"    \"phrase pinyin\" ან \"phrase pinyin frequency\"\n"
-"  მაგ: \"你好 ni'hao\" ან \"你好 ni'hao 5\"."
+"<b>ຮູບແບບໄຟລ໌ວັດຈະນານຸກົມ:</b>\n"
+"  ແຕ່ລະແຖວປະກອບມີອັນໃດໜຶ່ງດັ່ງນີ້:\n"
+"    \"ວະລີ ພິນອິນ\" ຫຼື \"ວະລີ ພິນອິນ ຄວາມຖີ່\"\n"
+"  ຕົວຢ່າງ \"你好 ni'hao\" ຫຼື \"你好 ni'hao 5\"."
 
 #: setup/ibus-libpinyin-preferences.ui:2588
 #: setup/ibus-libpinyin-preferences.ui:2738
 msgid "Help"
-msgstr "დახმარება"
+msgstr "ຊ່ວຍເຫຼືອ"
 
 #: setup/ibus-libpinyin-preferences.ui:2606
 msgid "<b>User Dictionary</b>"
-msgstr "<b>მომხმარებლის ლექსიკონი</b>"
+msgstr "<b>ວັດຈະນານຸກົມຜູ້ໃຊ້</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:2642
 msgid "User Table"
-msgstr "მომხმარებლის ცხრილი"
+msgstr "ຕາຕະລາງຜູ້ໃຊ້"
 
 #: setup/ibus-libpinyin-preferences.ui:2728
 msgid ""
@@ -719,29 +718,29 @@ msgid ""
 "  Each line contains the following:\n"
 "    \"table_code phrase frequency\" like \"a 啊 100\"."
 msgstr ""
-"<b>ცხრილის ფაილის ფორმატი:</b>\n"
-"  თითოეული ხაზი შეიცავს:\n"
-"    \"table_code phrase frequency\" მაგ \"a 啊 100\"."
+"<b>ຮູບແບບໄຟລ໌ຕາຕະລາງ:</b>\n"
+"  ແຕ່ລະແຖວປະກອບມີດັ່ງນີ້:\n"
+"    \"ລະຫັດຕາຕະລາງ ວະລີ ຄວາມຖີ່\" ຕົວຢ່າງ \"a 啊 100\"."
 
 #: setup/ibus-libpinyin-preferences.ui:2756
 msgid "<b>User Table</b>"
-msgstr "<b>მომხმარებლის ცხრილი</b>"
+msgstr "<b>ຕາຕະລາງຜູ້ໃຊ້</b>"
 
 #: setup/ibus-libpinyin-preferences.ui:2778
 msgid "User data"
-msgstr "სამომხმარებლო მონაცემები"
+msgstr "ຂໍ້ມູນຜູ້ໃຊ້"
 
 #: setup/ibus-libpinyin-preferences.ui:2808
 msgid "Shortcuts"
-msgstr "მალსახმობები"
+msgstr "ທາງລັດ"
 
 #: setup/ibus-libpinyin-preferences.ui:2864
 msgid "Intelligent Pinyin input method for IBus"
-msgstr "ჭკვიანი ფინინის შეყვანის მეთოდი IBus-სთვის"
+msgstr "ວິທີປ້ອນຂໍ້ມູນພິນອິນອັດສະລິຍະສຳລັບ IBus"
 
 #: setup/ibus-libpinyin-preferences.ui:2877
 msgid "<small>Copyright (c) 2011-2024 Peng Wu</small>"
-msgstr "<small>2011-2024 Peng Wu, ყველა უფლება დაცულია</small>"
+msgstr "<small>ລິຂະສິດ (c) 2011-2024 Peng Wu</small>"
 
 #: setup/ibus-libpinyin-preferences.ui:2890
 msgid "https://github.com/libpinyin/ibus-libpinyin"
@@ -763,34 +762,34 @@ msgid ""
 "</small>"
 msgstr ""
 "<small>\n"
-"<b>ავტორი:</b>\n"
+"<b>ຜູ້ຂຽນ:</b>\n"
 "Peng Wu\n"
 "Peng Huang\n"
 "BYVoid\n"
 "\n"
-"<b>მთავარი მოხალისეები:</b>\n"
+"<b>ຜູ້ຮ່ວມງານຫຼັກ:</b>\n"
 "Weixuan XIAO, Linyu XU\n"
 "\n"
-"<b>მოხალისეები:</b>\n"
+"<b>ຜູ້ຮ່ວມງານ:</b>\n"
 "koterpilla, Zerng07, Hillwood Yang\n"
 "</small>"
 
 #: setup/ibus-libpinyin-preferences.ui:2947
 msgid "About"
-msgstr "შესახებ"
+msgstr "ກ່ຽວກັບ"
 
 #: data/ibus-setup-libpinyin.desktop.in:3
 msgid "IBus LibPinyin Setup"
-msgstr "IBus LibPinyin-ის მორგება"
+msgstr "ການຕັ້ງຄ່າ IBus LibPinyin"
 
 #: data/ibus-setup-libpinyin.desktop.in:4
 msgid "Set ibus-libpinyin Preferences"
-msgstr "მოირგეთ ibus-libpinyin-ის პარამეტრები"
+msgstr "ຕັ້ງຄ່າການປັບແຕ່ງ ibus-libpinyin"
 
 #: data/ibus-setup-libbopomofo.desktop.in:3
 msgid "IBus LibBopomofo Preferences"
-msgstr "IBus LibBopomofo-ის მორგება"
+msgstr "ການຕັ້ງຄ່າ IBus LibBopomofo"
 
 #: data/ibus-setup-libbopomofo.desktop.in:4
 msgid "Set ibus-libbopomofo Preferences"
-msgstr "\"ibus-libbopomofo\"-ის პარამეტრების დაყენება"
+msgstr "ຕັ້ງຄ່າການປັບແຕ່ງ ibus-libbopomofo"
