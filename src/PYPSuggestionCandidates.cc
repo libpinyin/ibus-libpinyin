@@ -25,6 +25,20 @@
 
 using namespace PY;
 
+static gboolean
+has_visible_character (const gchar *text)
+{
+    if (text == NULL || !g_utf8_validate (text, -1, NULL))
+        return FALSE;
+
+    for (const gchar *p = text; *p != '\0'; p = g_utf8_next_char (p)) {
+        if (g_unichar_isgraph (g_utf8_get_char (p)))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 gboolean
 SuggestionCandidates::processCandidates (std::vector<EnhancedCandidate> & candidates)
 {
@@ -56,6 +70,8 @@ SuggestionCandidates::processCandidates (std::vector<EnhancedCandidate> & candid
 
         const gchar * phrase_string = NULL;
         pinyin_get_candidate_string (instance, candidate, &phrase_string);
+        if (!has_visible_character (phrase_string))
+            continue;
 
         EnhancedCandidate enhanced;
         enhanced.m_candidate_type = candidate_type;

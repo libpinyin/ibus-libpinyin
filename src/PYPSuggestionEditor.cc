@@ -100,44 +100,9 @@ SuggestionEditor::processKeyEvent (guint keyval, guint keycode, guint modifiers)
 gboolean
 SuggestionEditor::processPageKey (guint keyval)
 {
+    /* Suggestions are passive. Let punctuation dismiss them and continue
+     * through the normal input path instead of using punctuation to page. */
     switch (keyval) {
-    case IBUS_comma:
-        if (m_config.commaPeriodPage ()) {
-            pageUp ();
-            return TRUE;
-        }
-        break;
-    case IBUS_minus:
-        if (m_config.minusEqualPage ()) {
-            pageUp ();
-            return TRUE;
-        }
-        break;
-    case IBUS_bracketleft:
-        if (m_config.squareBracketPage ()) {
-            pageUp ();
-            return TRUE;
-        }
-        break;
-    case IBUS_period:
-        if (m_config.commaPeriodPage ()) {
-            pageDown ();
-            return TRUE;
-        }
-        break;
-    case IBUS_equal:
-        if (m_config.minusEqualPage ()) {
-            pageDown ();
-            return TRUE;
-        }
-        break;
-    case IBUS_bracketright:
-        if (m_config.squareBracketPage ()) {
-            pageDown ();
-            return TRUE;
-        }
-        break;
-
     case IBUS_Up:
     case IBUS_KP_Up:
         cursorUp ();

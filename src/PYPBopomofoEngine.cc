@@ -307,6 +307,12 @@ BopomofoEngine::candidateClicked (guint index,
                                            guint state)
 {
     m_editors[m_input_mode]->candidateClicked (index, button, state);
+
+    /* A mouse click does not pass through processKeyEvent(). */
+    if (m_need_update) {
+        m_editors[m_input_mode]->update ();
+        m_need_update = FALSE;
+    }
 }
 
 void
@@ -362,5 +368,3 @@ BopomofoEngine::connectEditorSignals (EditorPtr editor)
     editor->signalHideLookupTable ().connect (
         std::bind (&BopomofoEngine::hideLookupTable, this));
 }
-
-
