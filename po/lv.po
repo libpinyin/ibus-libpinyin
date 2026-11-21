@@ -1,0 +1,797 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Peng Huang <shawn.p.huang@gmail.com>
+# This file is distributed under the same license as the ibus-libpinyin package.
+# Rihards Prieditis <rprieditis@gmail.com>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: ibus-libpinyin 1.15.94\n"
+"Report-Msgid-Bugs-To: https://github.com/libpinyin/ibus-libpinyin/issues/"
+"new\n"
+"POT-Creation-Date: 2025-01-08 11:58+0800\n"
+"PO-Revision-Date: 2026-11-21 08:18+0000\n"
+"Last-Translator: Rihards Prieditis <rprieditis@gmail.com>\n"
+"Language-Team: Latvian <https://translate.fedoraproject.org/projects/ibus-"
+"libpinyin/main/lv/>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= "
+"19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
+"X-Generator: Weblate 2026.11.2\n"
+
+#: src/PYPConfig.cc:695
+msgid "The table file is imported."
+msgstr "Tabulas fails ir importēts."
+
+#: src/PYPConfig.cc:702
+msgid "The table file is exported."
+msgstr "Tabulas fails ir eksportēts."
+
+#: src/PYPConfig.cc:714
+msgid "The pinyin dictionary file is imported."
+msgstr "Pinyin vārdnīcas fails ir importēts."
+
+#: src/PYPConfig.cc:721
+msgid "The pinyin dictionary file is exported."
+msgstr "Pinyin vārdnīcas fails ir eksportēts."
+
+#: src/PYMain.cc:117
+msgid "Libpinyin input method"
+msgstr "Libpinyin ievades metode"
+
+#: src/PYMain.cc:127
+msgid "Intelligent Pinyin (debug)"
+msgstr "Intelligent Pinyin (atkļūdošana)"
+
+#: src/PYMain.cc:128
+msgid "Intelligent Pinyin input method (debug)"
+msgstr "Intelligent Pinyin ievades metode (atkļūdošana)"
+
+#: src/PYMain.cc:138
+msgid "Bopomofo (debug)"
+msgstr "Bopomofo (atkļūdošana)"
+
+#: src/PYMain.cc:139
+msgid "Bopomofo input method (debug)"
+msgstr "Bopomofo ievades metode (atkļūdošana)"
+
+#: src/PYPinyinProperties.cc:40 src/PYPinyinProperties.cc:128
+#: setup/ibus-libpinyin-preferences.ui:111
+#: setup/ibus-libpinyin-preferences.ui:298
+msgid "Chinese"
+msgstr "Ķīniešu"
+
+#: src/PYPinyinProperties.cc:41 src/PYPinyinProperties.cc:129
+#: setup/ibus-libpinyin-preferences.ui:107
+#: setup/ibus-libpinyin-preferences.ui:313
+msgid "English"
+msgstr "Angļu"
+
+#: src/PYPinyinProperties.cc:46 src/PYPinyinProperties.cc:140
+msgid "Switch to English Mode"
+msgstr "Pārslēgties uz angļu režīmu"
+
+#: src/PYPinyinProperties.cc:47 src/PYPinyinProperties.cc:141
+msgid "Switch to Chinese Mode"
+msgstr "Pārslēgties uz ķīniešu režīmu"
+
+#: src/PYPinyinProperties.cc:51 src/PYPinyinProperties.cc:153
+msgid "Full Width Letter"
+msgstr "Pilna platuma burti"
+
+#: src/PYPinyinProperties.cc:52 src/PYPinyinProperties.cc:154
+msgid "Half Width Letter"
+msgstr "Pusplatuma burti"
+
+#: src/PYPinyinProperties.cc:57 src/PYPinyinProperties.cc:159
+msgid "Switch to Half Width Letter Mode"
+msgstr "Pārslēgties uz pusplatuma burtu režīmu"
+
+#: src/PYPinyinProperties.cc:58 src/PYPinyinProperties.cc:160
+msgid "Switch to Full Width Letter Mode"
+msgstr "Pārslēgties uz pilna platuma burtu režīmu"
+
+#: src/PYPinyinProperties.cc:62 src/PYPinyinProperties.cc:169
+msgid "Full Width Punct"
+msgstr "Pilna platuma pieturzīmes"
+
+#: src/PYPinyinProperties.cc:63 src/PYPinyinProperties.cc:170
+msgid "Half Width Punct"
+msgstr "Pusplatuma pieturzīmes"
+
+#: src/PYPinyinProperties.cc:68 src/PYPinyinProperties.cc:175
+msgid "Switch to Half Width Punctuation Mode"
+msgstr "Pārslēgties uz pusplatuma pieturzīmju režīmu"
+
+#: src/PYPinyinProperties.cc:69 src/PYPinyinProperties.cc:176
+msgid "Switch to Full Width Punctuation Mode"
+msgstr "Pārslēgties uz pilna platuma pieturzīmju režīmu"
+
+#: src/PYPinyinProperties.cc:73 src/PYPinyinProperties.cc:185
+msgid "Simplified Chinese"
+msgstr "Vienkāršotā ķīniešu"
+
+#: src/PYPinyinProperties.cc:74 src/PYPinyinProperties.cc:186
+msgid "Traditional Chinese"
+msgstr "Tradicionālā ķīniešu"
+
+#: src/PYPinyinProperties.cc:79 src/PYPinyinProperties.cc:191
+msgid "Switch to Traditional Chinese Mode"
+msgstr "Pārslēgties uz tradicionālās ķīniešu režīmu"
+
+#: src/PYPinyinProperties.cc:80 src/PYPinyinProperties.cc:192
+msgid "Switch to Simplfied Chinese Mode"
+msgstr "Pārslēgties uz vienkāršotās ķīniešu režīmu"
+
+#: src/PYPinyinProperties.cc:83 src/PYPinyinProperties.cc:85
+#: setup/ibus-libpinyin-preferences.ui:185
+msgid "Preferences"
+msgstr "Iestatījumi"
+
+#: src/PYPinyinProperties.cc:88 src/PYPinyinProperties.cc:132
+msgid "中"
+msgstr "中"
+
+#: src/PYPinyinProperties.cc:90 src/PYPinyinProperties.cc:134
+msgid "英"
+msgstr "英"
+
+#: src/PYPinyinProperties.cc:270
+msgid "Lua Converter"
+msgstr "Lua pārveidotājs"
+
+#: src/PYPinyinProperties.cc:272
+msgid "Use the Lua Convertor"
+msgstr "Lietot Lua pārveidotāju"
+
+#: src/PYPinyinProperties.cc:279
+msgid "None"
+msgstr "Nav"
+
+#: src/PYEnglishEditor.cc:307
+msgid "Please input the English word."
+msgstr "Lūdzu, ievadiet angļu vārdu."
+
+#: src/PYTableEditor.cc:306
+msgid "Please use \"hspnz\" to input."
+msgstr "Lūdzu, ievadei lietojiet „hspnz”."
+
+#: src/PYTableEditor.cc:309
+msgid "Please use table code to input."
+msgstr "Lūdzu, ievadei lietojiet tabulas kodu."
+
+#: setup/main2.py:493
+msgid "Please choose a file"
+msgstr "Lūdzu, izvēlieties failu"
+
+#: setup/main2.py:514
+msgid "Please save a file"
+msgstr "Lūdzu, saglabājiet failu"
+
+#: setup/main2.py:662 setup/ibus-libpinyin-preferences.ui:2850
+#, python-format
+msgid "<big><b>Intelligent Pinyin %s</b></big>"
+msgstr "<big><b>Intelligent Pinyin %s</b></big>"
+
+#: setup/config.py:30
+msgid "Intelligent Pinyin"
+msgstr "Intelligent Pinyin"
+
+#: setup/dicttreeview.py:52
+msgid "Art"
+msgstr "Māksla"
+
+#: setup/dicttreeview.py:53
+msgid "Culture"
+msgstr "Kultūra"
+
+#: setup/dicttreeview.py:54
+msgid "Economy"
+msgstr "Ekonomika"
+
+#: setup/dicttreeview.py:55
+msgid "Geology"
+msgstr "Ģeoloģija"
+
+#: setup/dicttreeview.py:56
+msgid "History"
+msgstr "Vēsture"
+
+#: setup/dicttreeview.py:57
+msgid "Life"
+msgstr "Dzīve"
+
+#: setup/dicttreeview.py:58
+msgid "Nature"
+msgstr "Daba"
+
+#: setup/dicttreeview.py:59
+msgid "People"
+msgstr "Cilvēki"
+
+#: setup/dicttreeview.py:60
+msgid "Science"
+msgstr "Zinātne"
+
+#: setup/dicttreeview.py:61
+msgid "Society"
+msgstr "Sabiedrība"
+
+#: setup/dicttreeview.py:62
+msgid "Sport"
+msgstr "Sports"
+
+#: setup/dicttreeview.py:63
+msgid "Technology"
+msgstr "Tehnoloģijas"
+
+#: setup/dicttreeview.py:110
+msgid "Active"
+msgstr "Aktīvs"
+
+#: setup/dicttreeview.py:115 setup/shortcuteditor.py:83
+msgid "Description"
+msgstr "Apraksts"
+
+#: setup/keyboardshortcut.py:54
+msgid "Shortcut:"
+msgstr "Īsinājumtaustiņš:"
+
+#: setup/keyboardshortcut.py:67
+msgid "Key code:"
+msgstr "Taustiņa kods:"
+
+#: setup/keyboardshortcut.py:82
+msgid "Modifiers:"
+msgstr "Modifikatori:"
+
+#: setup/keyboardshortcut.py:171
+msgid ""
+"Please press a key (or a key combination).\n"
+"The dialog will close when the key is released."
+msgstr ""
+"Lūdzu, nospiediet taustiņu (vai taustiņu kombināciju).\n"
+"Dialoglodziņš aizvērsies, kad taustiņu atlaidīsiet."
+
+#: setup/keyboardshortcut.py:174
+msgid "Please press a key (or a key combination)"
+msgstr "Lūdzu, nospiediet taustiņu (vai taustiņu kombināciju)"
+
+#: setup/keyboardshortcut.py:186
+msgid "Shorcut Editor"
+msgstr "Īsinājumtaustiņu redaktors"
+
+#: setup/keyboardshortcut.py:239 setup/shortcuteditor.py:196
+#: setup/shortcuteditor.py:233
+msgid "_Cancel"
+msgstr "_Atcelt"
+
+#: setup/keyboardshortcut.py:240 setup/shortcuteditor.py:197
+#: setup/shortcuteditor.py:234
+msgid "_OK"
+msgstr "_Labi"
+
+#: setup/shortcuteditor.py:46
+msgid "Switch Chinese/English"
+msgstr "Pārslēgt ķīniešu/angļu"
+
+#: setup/shortcuteditor.py:47
+msgid "Full/Half Width Letter"
+msgstr "Pilna/pusplatuma burti"
+
+#: setup/shortcuteditor.py:48
+msgid "Full/Half Width Punct"
+msgstr "Pilna/pusplatuma pieturzīmes"
+
+#: setup/shortcuteditor.py:49
+msgid "Full/Half Width Both Switch"
+msgstr "Pārslēgt abus pilna/pusplatuma režīmus"
+
+#: setup/shortcuteditor.py:50
+msgid "Switch Traditional/Simplfied Chinese"
+msgstr "Pārslēgt tradicionālo/vienkāršoto ķīniešu"
+
+#: setup/shortcuteditor.py:88
+msgid "Accelerator"
+msgstr "Paātrinātājtaustiņš"
+
+#: setup/shortcuteditor.py:106
+msgid "This shortcut key is already in use."
+msgstr "Šis īsinājumtaustiņš jau tiek lietots."
+
+#. set default button
+#: setup/shortcuteditor.py:164
+msgid "_Default"
+msgstr "_Noklusējums"
+
+#. edit button
+#: setup/shortcuteditor.py:169
+msgid "_Edit"
+msgstr "_Rediģēt"
+
+#: setup/shortcuteditor.py:195
+msgid "Select Switching Key"
+msgstr "Izvēlieties pārslēgšanas taustiņu"
+
+#: setup/ibus-libpinyin-preferences.ui:20
+msgid "Standard"
+msgstr "Standarta"
+
+#: setup/ibus-libpinyin-preferences.ui:23
+msgid "GinYieh"
+msgstr "GinYieh"
+
+#: setup/ibus-libpinyin-preferences.ui:26
+msgid "Eten"
+msgstr "Eten"
+
+#: setup/ibus-libpinyin-preferences.ui:29
+msgid "IBM"
+msgstr "IBM"
+
+#: setup/ibus-libpinyin-preferences.ui:40
+msgid "Baidu"
+msgstr "Baidu"
+
+#: setup/ibus-libpinyin-preferences.ui:43
+msgid "Google"
+msgstr "Google"
+
+#: setup/ibus-libpinyin-preferences.ui:46
+msgid "Google CN"
+msgstr "Google CN"
+
+#: setup/ibus-libpinyin-preferences.ui:57
+#: setup/ibus-libpinyin-preferences.ui:103
+msgid "Default"
+msgstr "Noklusējuma"
+
+#: setup/ibus-libpinyin-preferences.ui:60
+msgid "Compact"
+msgstr "Kompakts"
+
+#: setup/ibus-libpinyin-preferences.ui:63
+msgid "Compatibility"
+msgstr "Saderības"
+
+#: setup/ibus-libpinyin-preferences.ui:74
+msgid "MSPY"
+msgstr "MSPY"
+
+#: setup/ibus-libpinyin-preferences.ui:77
+msgid "ZRM"
+msgstr "ZRM"
+
+#: setup/ibus-libpinyin-preferences.ui:80
+msgid "ABC"
+msgstr "ABC"
+
+#: setup/ibus-libpinyin-preferences.ui:83
+msgid "ZGPY"
+msgstr "ZGPY"
+
+#: setup/ibus-libpinyin-preferences.ui:86
+msgid "PYJJ"
+msgstr "PYJJ"
+
+#: setup/ibus-libpinyin-preferences.ui:89
+msgid "XHE"
+msgstr "XHE"
+
+#: setup/ibus-libpinyin-preferences.ui:122
+msgid "Horizontal"
+msgstr "Horizontāli"
+
+#: setup/ibus-libpinyin-preferences.ui:125
+msgid "Vertical"
+msgstr "Vertikāli"
+
+#: setup/ibus-libpinyin-preferences.ui:171
+msgid "Frequency"
+msgstr "Biežums"
+
+#: setup/ibus-libpinyin-preferences.ui:174
+msgid "Pinyin Length"
+msgstr "Pinyin garums"
+
+#: setup/ibus-libpinyin-preferences.ui:177
+msgid "Legacy"
+msgstr "Mantotais"
+
+#: setup/ibus-libpinyin-preferences.ui:268
+msgid "Language:"
+msgstr "Valoda:"
+
+#: setup/ibus-libpinyin-preferences.ui:276
+msgid "Half/full width:"
+msgstr "Pusplatums/pilns platums:"
+
+#: setup/ibus-libpinyin-preferences.ui:288
+msgid "Punctuations:"
+msgstr "Pieturzīmes:"
+
+#: setup/ibus-libpinyin-preferences.ui:328
+#: setup/ibus-libpinyin-preferences.ui:362
+msgid "Full"
+msgstr "Pilns"
+
+#: setup/ibus-libpinyin-preferences.ui:345
+#: setup/ibus-libpinyin-preferences.ui:379
+msgid "Half"
+msgstr "Puse"
+
+#: setup/ibus-libpinyin-preferences.ui:398
+msgid "Chinese:"
+msgstr "Ķīniešu:"
+
+#: setup/ibus-libpinyin-preferences.ui:408
+msgid "Simplified"
+msgstr "Vienkāršotā"
+
+#: setup/ibus-libpinyin-preferences.ui:425
+msgid "Traditional"
+msgstr "Tradicionālā"
+
+#: setup/ibus-libpinyin-preferences.ui:448
+msgid "<b>Initial state</b>"
+msgstr "<b>Sākotnējais stāvoklis</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:486
+msgid "Display Style:"
+msgstr "Attēlošanas stils:"
+
+#: setup/ibus-libpinyin-preferences.ui:532
+msgid "Orientation of candidates:"
+msgstr "Kandidātu orientācija:"
+
+#: setup/ibus-libpinyin-preferences.ui:578
+msgid "Number of candidates:"
+msgstr "Kandidātu skaits:"
+
+#: setup/ibus-libpinyin-preferences.ui:617
+msgid "<b>UI</b>"
+msgstr "<b>Saskarne</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:646
+msgid "Dynamically adjust the candidates order."
+msgstr "Dinamiski pielāgot kandidātu secību."
+
+#: setup/ibus-libpinyin-preferences.ui:661
+msgid "Remember every input as a phrase."
+msgstr "Atcerēties katru ievadi kā frāzi."
+
+#: setup/ibus-libpinyin-preferences.ui:684
+msgid "Sort candidates by:"
+msgstr "Kārtot kandidātus pēc:"
+
+#: setup/ibus-libpinyin-preferences.ui:727
+msgid "<b>Candidates</b>"
+msgstr "<b>Kandidāti</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:763
+msgid "Keyboard Layout:"
+msgstr "Tastatūras izkārtojums:"
+
+#: setup/ibus-libpinyin-preferences.ui:819
+#: setup/ibus-libpinyin-preferences.ui:2199
+msgid "Tips: Changes may not take effect until ime restarts."
+msgstr ""
+"Padoms: izmaiņas var nestāties spēkā, līdz ievades metode tiek pārstartēta."
+
+#: setup/ibus-libpinyin-preferences.ui:842
+msgid "<b>Keyboard</b>"
+msgstr "<b>Tastatūra</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:861
+msgid "General"
+msgstr "Vispārīgi"
+
+#: setup/ibus-libpinyin-preferences.ui:901
+msgid "Full pinyin"
+msgstr "Pilnais Pinyin"
+
+#: setup/ibus-libpinyin-preferences.ui:922
+msgid "Double pinyin"
+msgstr "Dubultais Pinyin"
+
+#: setup/ibus-libpinyin-preferences.ui:965
+msgid "Show raw input of Double Pinyin"
+msgstr "Rādīt dubultā Pinyin neapstrādāto ievadi"
+
+#: setup/ibus-libpinyin-preferences.ui:980
+msgid "Incomplete pinyin"
+msgstr "Nepilnais Pinyin"
+
+#: setup/ibus-libpinyin-preferences.ui:1002
+msgid "<b>Pinyin mode</b>"
+msgstr "<b>Pinyin režīms</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:1044
+msgid "[Shift] select candidate"
+msgstr "[Shift] atlasa kandidātu"
+
+#: setup/ibus-libpinyin-preferences.ui:1054
+msgid "[-] [=] flip page"
+msgstr "[-] [=] pāršķir lappusi"
+
+#: setup/ibus-libpinyin-preferences.ui:1069
+msgid "[,] [.] flip page"
+msgstr "[,] [.] pāršķir lappusi"
+
+#: setup/ibus-libpinyin-preferences.ui:1084
+msgid "Auto commit"
+msgstr "Automātiska apstiprināšana"
+
+#: setup/ibus-libpinyin-preferences.ui:1098
+msgid " [   ]  flip page"
+msgstr " [   ]  pāršķir lappusi"
+
+#: setup/ibus-libpinyin-preferences.ui:1126
+msgid "<b>Input Custom</b>"
+msgstr "<b>Ievades pielāgošana</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:1274
+msgid "Enable pinyin correction"
+msgstr "Iespējot Pinyin labošanu"
+
+#: setup/ibus-libpinyin-preferences.ui:1310
+msgid "<b>Correct pinyin</b>"
+msgstr "<b>Pinyin labošana</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:1340
+#: setup/ibus-libpinyin-preferences.ui:1779
+msgid "Enable Cloud Input"
+msgstr "Iespējot mākoņa ievadi"
+
+#: setup/ibus-libpinyin-preferences.ui:1364
+#: setup/ibus-libpinyin-preferences.ui:1803
+msgid "Source From:"
+msgstr "Avots:"
+
+#: setup/ibus-libpinyin-preferences.ui:1409
+#: setup/ibus-libpinyin-preferences.ui:1848
+msgid "<b>Cloud Input Option</b>"
+msgstr "<b>Mākoņa ievades opcija</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:1431
+msgid "Pinyin mode"
+msgstr "Pinyin režīms"
+
+#: setup/ibus-libpinyin-preferences.ui:1470
+msgid "Incomplete Bopomofo"
+msgstr "Nepilnais Bopomofo"
+
+#: setup/ibus-libpinyin-preferences.ui:1493
+msgid "Keyboard Mapping:"
+msgstr "Tastatūras piesaiste:"
+
+#: setup/ibus-libpinyin-preferences.ui:1536
+msgid "<b>Bopomofo mode</b>"
+msgstr "<b>Bopomofo režīms</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:1572
+msgid "Selection Keys:"
+msgstr "Atlases taustiņi:"
+
+#: setup/ibus-libpinyin-preferences.ui:1609
+msgid "Enable Guidekey for Candidates Selection"
+msgstr "Iespējot vadības taustiņu kandidātu atlasei"
+
+#: setup/ibus-libpinyin-preferences.ui:1626
+msgid "Enable Auxiliary Select Keys F1 .. F10"
+msgstr "Iespējot papildu atlases taustiņus F1 .. F10"
+
+#: setup/ibus-libpinyin-preferences.ui:1643
+msgid "Enable Auxiliary Select Keys Numbers on Keypad"
+msgstr "Iespējot papildu atlases taustiņus — ciparus ciparu blokā"
+
+#: setup/ibus-libpinyin-preferences.ui:1666
+msgid "<b>Selection mode</b>"
+msgstr "<b>Atlases režīms</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:1698
+msgid "Feature of Enter key:"
+msgstr "Taustiņa Enter funkcija:"
+
+#: setup/ibus-libpinyin-preferences.ui:1709
+msgid "Commit first candidate"
+msgstr "Apstiprināt pirmo kandidātu"
+
+#: setup/ibus-libpinyin-preferences.ui:1727
+msgid "Commit original text"
+msgstr "Apstiprināt sākotnējo tekstu"
+
+#: setup/ibus-libpinyin-preferences.ui:1749
+msgid "<b>Other</b>"
+msgstr "<b>Cits</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:1870
+msgid "Bopomofo mode"
+msgstr "Bopomofo režīms"
+
+#: setup/ibus-libpinyin-preferences.ui:2032
+msgid "Enable fuzzy syllable"
+msgstr "Iespējot neprecīzās zilbes"
+
+#: setup/ibus-libpinyin-preferences.ui:2133
+msgid "Fuzzy syllable"
+msgstr "Neprecīzās zilbes"
+
+#: setup/ibus-libpinyin-preferences.ui:2222
+msgid "<b>Dictionary option</b>"
+msgstr "<b>Vārdnīcas opcija</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:2244
+msgid "Dictionary"
+msgstr "Vārdnīca"
+
+#: setup/ibus-libpinyin-preferences.ui:2285
+msgid "Lua Extension"
+msgstr "Lua paplašinājums"
+
+#: setup/ibus-libpinyin-preferences.ui:2299
+msgid "Table Mode"
+msgstr "Tabulas režīms"
+
+#: setup/ibus-libpinyin-preferences.ui:2313
+msgid "English Mode"
+msgstr "Angļu režīms"
+
+#: setup/ibus-libpinyin-preferences.ui:2327
+msgid "English Candidate"
+msgstr "Angļu kandidāts"
+
+#: setup/ibus-libpinyin-preferences.ui:2341
+msgid "Emoji Candidate"
+msgstr "Emocijzīmju kandidāts"
+
+#: setup/ibus-libpinyin-preferences.ui:2355
+msgid "Suggestion Candidate"
+msgstr "Ieteikuma kandidāts"
+
+#: setup/ibus-libpinyin-preferences.ui:2375
+msgid "<b>Input Modes</b>"
+msgstr "<b>Ievades režīmi</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:2406
+msgid "User Lua Script"
+msgstr "Lietotāja Lua skripts"
+
+#: setup/ibus-libpinyin-preferences.ui:2416
+msgid "Edit"
+msgstr "Rediģēt"
+
+#: setup/ibus-libpinyin-preferences.ui:2436
+msgid "<b>Customize IME</b>"
+msgstr "<b>Ievades metodes pielāgošana</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:2471
+#: setup/ibus-libpinyin-preferences.ui:2655
+msgid "Export"
+msgstr "Eksportēt"
+
+#: setup/ibus-libpinyin-preferences.ui:2486
+#: setup/ibus-libpinyin-preferences.ui:2670
+msgid "Import"
+msgstr "Importēt"
+
+#: setup/ibus-libpinyin-preferences.ui:2502
+msgid "User Dictionary"
+msgstr "Lietotāja vārdnīca"
+
+#: setup/ibus-libpinyin-preferences.ui:2527
+msgid "Clear All Data"
+msgstr "Notīrīt visus datus"
+
+#: setup/ibus-libpinyin-preferences.ui:2547
+#: setup/ibus-libpinyin-preferences.ui:2700
+msgid "Clear"
+msgstr "Notīrīt"
+
+#: setup/ibus-libpinyin-preferences.ui:2575
+msgid ""
+"<b>Dictionary File Format:</b>\n"
+"  Each line contains one of the following:\n"
+"    \"phrase pinyin\" or \"phrase pinyin frequency\"\n"
+"  like \"你好 ni'hao\" or \"你好 ni'hao 5\"."
+msgstr ""
+"<b>Vārdnīcas faila formāts:</b>\n"
+"  Katrā rindā ir viens no šiem:\n"
+"    \"frāze pinyin\" vai \"frāze pinyin biežums\"\n"
+"  piemēram, \"你好 ni'hao\" vai \"你好 ni'hao 5\"."
+
+#: setup/ibus-libpinyin-preferences.ui:2588
+#: setup/ibus-libpinyin-preferences.ui:2738
+msgid "Help"
+msgstr "Palīdzība"
+
+#: setup/ibus-libpinyin-preferences.ui:2606
+msgid "<b>User Dictionary</b>"
+msgstr "<b>Lietotāja vārdnīca</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:2642
+msgid "User Table"
+msgstr "Lietotāja tabula"
+
+#: setup/ibus-libpinyin-preferences.ui:2728
+msgid ""
+"<b>Table File Format:</b>\n"
+"  Each line contains the following:\n"
+"    \"table_code phrase frequency\" like \"a 啊 100\"."
+msgstr ""
+"<b>Tabulas faila formāts:</b>\n"
+"  Katrā rindā ir:\n"
+"    \"tabulas_kods frāze biežums\", piemēram, \"a 啊 100\"."
+
+#: setup/ibus-libpinyin-preferences.ui:2756
+msgid "<b>User Table</b>"
+msgstr "<b>Lietotāja tabula</b>"
+
+#: setup/ibus-libpinyin-preferences.ui:2778
+msgid "User data"
+msgstr "Lietotāja dati"
+
+#: setup/ibus-libpinyin-preferences.ui:2808
+msgid "Shortcuts"
+msgstr "Īsinājumtaustiņi"
+
+#: setup/ibus-libpinyin-preferences.ui:2864
+msgid "Intelligent Pinyin input method for IBus"
+msgstr "Intelligent Pinyin ievades metode IBus platformai"
+
+#: setup/ibus-libpinyin-preferences.ui:2877
+msgid "<small>Copyright (c) 2011-2024 Peng Wu</small>"
+msgstr "<small>Copyright (c) 2011-2024 Peng Wu</small>"
+
+#: setup/ibus-libpinyin-preferences.ui:2890
+msgid "https://github.com/libpinyin/ibus-libpinyin"
+msgstr "https://github.com/libpinyin/ibus-libpinyin"
+
+#: setup/ibus-libpinyin-preferences.ui:2907
+msgid ""
+"<small>\n"
+"<b>Authors:</b>\n"
+"Peng Wu\n"
+"Peng Huang\n"
+"BYVoid\n"
+"\n"
+"<b>Main Contributors:</b>\n"
+"Weixuan XIAO, Linyu XU\n"
+"\n"
+"<b>Contributors:</b>\n"
+"koterpilla, Zerng07, Hillwood Yang\n"
+"</small>"
+msgstr ""
+"<small>\n"
+"<b>Autori:</b>\n"
+"Peng Wu\n"
+"Peng Huang\n"
+"BYVoid\n"
+"\n"
+"<b>Galvenie līdzautori:</b>\n"
+"Weixuan XIAO, Linyu XU\n"
+"\n"
+"<b>Līdzautori:</b>\n"
+"koterpilla, Zerng07, Hillwood Yang\n"
+"</small>"
+
+#: setup/ibus-libpinyin-preferences.ui:2947
+msgid "About"
+msgstr "Par"
+
+#: data/ibus-setup-libpinyin.desktop.in:3
+msgid "IBus LibPinyin Setup"
+msgstr "IBus LibPinyin iestatīšana"
+
+#: data/ibus-setup-libpinyin.desktop.in:4
+msgid "Set ibus-libpinyin Preferences"
+msgstr "Iestatīt ibus-libpinyin iestatījumus"
+
+#: data/ibus-setup-libbopomofo.desktop.in:3
+msgid "IBus LibBopomofo Preferences"
+msgstr "IBus LibBopomofo iestatījumi"
+
+#: data/ibus-setup-libbopomofo.desktop.in:4
+msgid "Set ibus-libbopomofo Preferences"
+msgstr "Iestatīt ibus-libbopomofo iestatījumus"
